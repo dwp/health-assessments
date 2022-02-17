@@ -1,0 +1,83 @@
+{% extends "layout.html" %}
+{% set bodyAttributes = { id: "assess" } %}
+
+{% block pageTitle %}
+  GOV.UK Prototype Kit
+{% endblock %}
+
+{% block main %}
+
+{% include "includes/assessment-status-neutral.html" %}
+
+  <div class="govuk-width-container {{ containerClasses }}">
+
+      {{ govukBackLink({
+        text: "Back",
+        href: "dailyliving"
+      }) }}
+
+    <main class="govuk-main-wrapper {{ mainClasses }}" id="main-content" role="main"{% if mainLang %} lang="{{ mainLang }}"{% endif %}>
+        <div class="govuk-grid-row">
+
+            <div class="govuk-grid-column-two-thirds">
+
+  <form action="review" method="post" id="question-form" novalidate>
+
+    {% set reasonHtml %}
+    {{ govukTextarea({
+      id: "part-not-met",
+      name: "part-not-met",
+      label: {
+        text: "Give details"
+      }
+    }) }}
+    {% endset -%}
+
+      {{ govukRadios({
+        idPrefix: "qp",
+        name: "qp",
+        fieldset: {
+          legend: {
+            text: "Is the claimant's mobility prognosis long enough for PIP?",
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend--xl",
+            hint: "Hint"
+          }
+        },
+        hint: {
+          text: "They must have had the functional restriction for at least 3 months and be likely to have it for a further 9 months."
+        },
+        items: [
+          {
+            value: "Yes",
+            text: "Yes"
+          },
+          {
+            value: "No",
+            text: "No",
+            conditional: {
+              html: reasonHtml
+            }
+          },
+          {
+            value: "No mobility restriction found",
+            text: "No mobility restriction found"
+          }
+        ]
+      }) }}
+
+</div>
+</div>
+
+<button class="govuk-button" data-module="govuk-button">
+  Continue
+</button>
+
+</main>
+</div>
+
+
+
+
+
+{% endblock %}

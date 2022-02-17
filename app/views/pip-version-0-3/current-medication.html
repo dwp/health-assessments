@@ -1,0 +1,63 @@
+{% extends "layout.html" %}
+{% set bodyAttributes = { id: "assess" } %}
+
+{% block pageTitle %}
+  GOV.UK Prototype Kit
+{% endblock %}
+
+{% block main %}
+
+{% include "includes/assessment-status-neutral.html" %}
+
+  <div class="govuk-width-container {{ containerClasses }}">
+    <main class="govuk-main-wrapper {{ mainClasses }}" id="main-content" role="main"{% if mainLang %} lang="{{ mainLang }}"{% endif %}>
+        <div class="govuk-grid-row">
+
+            <div class="govuk-grid-column-two-thirds">
+
+                {{ govukBackLink({
+                  text: "Back",
+                  href: "assessment-status"
+                }) }}
+
+            <form action="assessment-status" method="post">
+
+                    {{ govukTextarea({
+                        name: "currentmedication",
+                        id: "currentmedication",
+                        rows: "12",
+                        label: {
+                          text: "Current medication or treatment",
+                          classes: "govuk-label--xl",
+                          isPageHeading: true
+                        },
+                        value: data['currentmedication']
+                      }) }}
+
+                      {{ govukButton({
+                        text: "Save"
+                      }) }}
+
+            </form>
+
+
+            <h2 class="govuk-heading-m govuk-!-margin-top-7">Guidance</h2>
+            <p>Please give a full list of all medication and dosage, including:</p>
+            <ul class="govuk-list govuk-list--bullet">
+              <li>List all medication and what conditions/symptoms they relate to.</li>
+              <li>References to all current medication listed on the PIP2, PIPCS and the AR1.</li>
+              <li>Effectiveness of taken medication.</li>
+              <li>How long in cases of new medication/medication changes.</li>
+              <li>Probe any inconsistencies in medications taken.</li>
+              <li>Whether the claimant is compliant with taking the medication.</li>
+              <li>Details of any other side effects which affect their functioning.</li>
+              <li>Any ‘over the counter’ medication</li>
+            </ul>
+
+
+            </div>
+        </div>
+
+    </main>
+  </div>
+{% endblock %}

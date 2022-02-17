@@ -1,0 +1,69 @@
+{% extends "layout.html" %}
+{% set bodyAttributes = { id: "assess" } %}
+
+{% block pageTitle %}
+  GOV.UK Prototype Kit
+{% endblock %}
+
+{% block main %}
+
+{% include "includes/assessment-status-neutral.html" %}
+
+  <div class="govuk-width-container {{ containerClasses }}">
+    <main class="govuk-main-wrapper {{ mainClasses }}" id="main-content" role="main"{% if mainLang %} lang="{{ mainLang }}"{% endif %}>
+        <div class="govuk-grid-row">
+
+            <div class="govuk-grid-column-two-thirds">
+
+                {{ govukBackLink({
+                  text: "Back",
+                  href: "assessment-status"
+                }) }}
+
+            <form action="assessment-status" method="post">
+              {{ govukTextarea({
+                name: "managingtherapy",
+                id: "managingtherapy",
+                label: {
+                  text: "Managing therapy",
+                  classes: "govuk-label--xl",
+                  isPageHeading: true
+                },
+                value: data['managingtherapy']
+              }) }}      
+              
+
+                    {{ govukButton({
+                      text: "Save"
+                    }) }}
+                </ul>
+    
+
+
+            </form>
+
+
+            <h2 class="govuk-heading-m govuk-!-margin-top-7">Guidance</h2>
+            <p>Please give an indication of the following:</p>
+            <ul class="govuk-list govuk-list--bullet">
+              <li>Whether physio or other therapy is on-going including what it is and how often/where it takes place.</li>
+              <li>Whether prompting, supervision or assistance is required and what form this takes- e.g. a phone call prompt to remind the claimant to take medication, or whether the person needs to be physically there to watch over while the medication is being taken, or needs to assist the claimant in taking their medication.</li>
+              <li>Whether the claimant uses a dosette box/blister pack and whether this is by preference for ease/choice, rather than need. </li>
+              <li>If other support/therapy is provided at home indicate who provides it, and how long assistance is required (amount of time for the assistance not the full length of therapy). </li>
+              <li>If  the claimant uses a dosette box/blister pack and indicates that this is through necessity please consider whether this would be expected given their condition.</li>
+              <li>Ensure all aspects of safety and supervision have been considered </li>
+              <li>Brief description of key restriction e.g. needs prompting due to low mood and/or manages own medication if in a medipack</li>
+              <li>Critical analysis of evidence e.g. stable mood with good insight and cognition and has adequate motivation to care for children</li>
+              <li>Review of inconsistencies and consider the usual features/progress/nature of the condition. </li>
+              <li>Consider grip (the grip required to drive is different to the pinch grip required when opening bottles/blister packs)</li>
+              <li>Consider motivation (this is often discounted due to concentration at assessment, however the ability to concentrate is different to lack of motivation)</li>
+              <li>Summarise and refer to the evidence gathered. </li>   
+            </ul>
+              
+
+            </div>
+        </div>
+
+    </main>
+  </div>
+{% endblock %}

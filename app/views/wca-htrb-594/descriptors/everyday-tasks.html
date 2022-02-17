@@ -1,0 +1,102 @@
+{% extends "layout.html" %}
+{% set bodyAttributes = { id: "assess" } %}
+
+{% block pageTitle %}
+  GOV.UK Prototype Kit
+{% endblock %}
+
+{% block main %}
+
+{% include "includes/assessment-status-neutral.html" %}
+
+  <div class="govuk-width-container {{ containerClasses }}">
+
+      {{ govukBackLink({
+        text: "Back",
+        href: "mental-capabilities"
+      }) }}
+
+    <main class="govuk-main-wrapper {{ mainClasses }}" id="main-content" role="main"{% if mainLang %} lang="{{ mainLang }}"{% endif %}>
+        <div class="govuk-grid-row">
+
+            <div class="govuk-grid-column-two-thirds">
+
+              <h1 class="govuk-heading-xl">Planning, starting and finishing everyday tasks</h1>
+
+              <form action="mental-capabilities" method="post">
+
+                {% if data['assessmenttype'] !== "Paper" %}  
+
+                {{ govukTextarea({
+                  name: "everydaytasksNotes",
+                  id: "everydaytasksNotes",
+                  rows: "8",
+                  classes: "govuk-!-margin-bottom-9",
+                  label: {
+                    text: "Notes on planning, starting and finishing everyday tasks",
+                    classes: "govuk-label--m",
+                    isPageHeading: false
+                  },
+                  value: data['everydaytasksNotes']
+                }) }}  
+
+                {% endif %}
+
+                {{ govukRadios({
+                  idPrefix: "everydaytasksSelect",
+                  name: "everydaytasksSelect",
+                  fieldset: {
+                    legend: {
+                      text: "Can the claimant plan, start and finish everyday tasks without difficulty?",
+                      isPageHeading: false,
+                      classes: "govuk-fieldset__legend--s"
+                    }
+                  },
+                  items: [
+                    {
+                      value: "Cannot plan, start and finish everyday tasks",
+                      text: "Cannot plan, start and finish everyday tasks"
+                    },
+                    {
+                      value: "Most of the time the claimant cannot plan, start and finish everyday tasks",
+                      text: "Most of the time the claimant cannot plan, start and finish everyday tasks"
+                    },
+                    {
+                      value: "Often cannot plan, start and finish everyday tasks",
+                      text: "Often cannot plan, start and finish everyday tasks"
+                    },
+                    {
+                      value: "None of the above",
+                      text: "None of the above"
+                    }
+                  ]
+                }) }}
+
+                {% if data['assessmenttype'] !== "Paper" %}  
+
+                    {{ govukTextarea({
+                        name: "everydaytasksdetails",
+                        id: "everydaytasksdetails",
+                        label: {
+                          text: "Give details",
+                          classes: "govuk-label--s",
+                          isPageHeading: true
+                        },
+                        value: data['everydaytasksdetails']
+                      }) }}
+
+                      {% endif %}
+
+                      {{ govukButton({
+                        text: "Save"
+                      }) }}
+
+            </form>
+
+
+            </div>
+        </div>
+
+    </main>
+  </div>
+{% endblock %}

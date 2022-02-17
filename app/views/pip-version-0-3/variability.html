@@ -1,0 +1,65 @@
+{% extends "layout.html" %}
+{% set bodyAttributes = { id: "assess" } %}
+
+{% block pageTitle %}
+  GOV.UK Prototype Kit
+{% endblock %}
+
+{% block main %}
+
+{% include "includes/assessment-status-neutral.html" %}
+
+  <div class="govuk-width-container {{ containerClasses }}">
+    <main class="govuk-main-wrapper {{ mainClasses }}" id="main-content" role="main"{% if mainLang %} lang="{{ mainLang }}"{% endif %}>
+        <div class="govuk-grid-row">
+
+            <div class="govuk-grid-column-two-thirds">
+
+                {{ govukBackLink({
+                  text: "Back",
+                  href: "assessment-status"
+                }) }}
+
+            <form action="assessment-status" method="post">
+
+                    {{ govukTextarea({
+                        name: "variability",
+                        id: "variability",
+                        rows: "12",
+                        label: {
+                          text: "Variability",
+                          classes: "govuk-label--xl",
+                          isPageHeading: true
+                        },
+                        value: data['variability']
+                      }) }}
+
+                      {{ govukButton({
+                        text: "Save"
+                      }) }}
+
+            </form>
+
+
+            <h2 class="govuk-heading-m govuk-!-margin-top-7">Guidance</h2>
+            <p>Variability should be addressed with regards to each of the functional activities whilst listing the conditions. Variability needs to be clear to enable the case manager to consider the claimant’s needs for the majority of days/weeks months. </p>
+            <p>You must consider the safety aspect and use probing questions to establish the consequences of any episodes in terms of risk of harm to the claimant.</p>
+            <p>This is the claimant’s statement and everything should be documented even if implausible.  However, do not take this at face value and probe more deeply if necessary.  Please include positive examples of ability in each category.  Ask probing questions to establish how they manage their condition on a daily basis and how they are able to manage particular tasks.</p>
+            <p>Please do not state ‘3 or 4 days’ as this does not help a case manager in determining the ‘majority’. Where the claimant states that good/bad days are about equal please probe more deeply to establish the majority.</p>
+            <p>Variability may affect each condition. Please document the variance between what the claimant says they can do and how they overcome what they cannot do and how long the activity takes. Balance between what they can and cannot do.</p>
+
+            <p>Variability should cover:</p>
+                
+            <ul class="govuk-list govuk-list--bullet">
+              <li>What the claimant can do on a good day and what they can do on a bad day.</li>
+              <li>How many good and bad days they have in a week, or a longer period if relevant to their condition.</li>     
+              <li>Frequency of any exacerbations or relapses and whether there is a specific trigger for the exacerbations.</li>  
+              <li>An indication of what sort of day is today, the day of the assessment.</li>  
+            </ul>
+
+            </div>
+        </div>
+
+    </main>
+  </div>
+{% endblock %}

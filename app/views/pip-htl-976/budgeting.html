@@ -1,0 +1,127 @@
+{% extends "layout.html" %}
+{% set bodyAttributes = { id: "assess" } %}
+
+{% block pageTitle %}
+  GOV.UK Prototype Kit
+{% endblock %}
+
+{% block main %}
+
+{% include "includes/assessment-status-neutral.html" %}
+
+  <div class="govuk-width-container {{ containerClasses }}">
+
+    {{ govukBackLink({
+      text: "Back",
+      href: "assessment-status"
+    }) }}
+    
+    <main class="govuk-main-wrapper {{ mainClasses }}" id="main-content" role="main"{% if mainLang %} lang="{{ mainLang }}"{% endif %}>
+        <div class="govuk-grid-row">
+
+            <div class="govuk-grid-column-two-thirds">
+
+
+                <h1 class="govuk-heading-l">Budgeting</h1>
+
+                </div>
+          </div>
+
+          <div class="govuk-grid-row">
+
+            <div class="govuk-grid-column-two-thirds">
+
+            <form action="assessment-status" method="post">
+
+              {% if data['assessmenttype'] !== "Paper" %}
+
+              {{ govukTextarea({
+                name: "budgetingNotes",
+                id: "budgetingNotes",
+                rows: "8",
+                classes: "govuk-!-margin-bottom-9",
+                label: {
+                  text: "Notes on budgeting",
+                  classes: "govuk-label--s",
+                  isPageHeading: false
+                },
+                value: data['budgetingNotes']
+              }) }}
+
+              {% endif %}
+
+              {{ govukRadios({
+                name: "budgetingSelect",
+                fieldset: {
+                  legend: {
+                    text: "Which of these describes how well the claimant can budget?",
+                    isPageHeading: false,
+                    classes: "govuk-fieldset__legend--s"
+                  }
+                },
+                items: [
+                  {
+                    value: "Cannot make any budgeting decisions at all",
+                    text: "Cannot make any budgeting decisions at all",
+                    checked: (data['budgetingSelect'] == "Cannot make any budgeting decisions at all")
+                  },
+                  {
+                    value: "Needs prompting or assistance to be able to make simple budgeting decisions",
+                    text: "Needs prompting or assistance to be able to make simple budgeting decisions",
+                    checked: (data['budgetingSelect'] == "Needs prompting or assistance to be able to make simple budgeting decisions")
+                  },
+                  {
+                    value: "Needs prompting or assistance to be able to make complex budgeting decisions",
+                    text: "Needs prompting or assistance to be able to make complex budgeting decisions",
+                    checked: (data['budgetingSelect'] == "Needs prompting or assistance to be able to make complex budgeting decisions")
+                  },
+                  {
+                    value: "Can manage complex budgeting decisions unaided",
+                    text: "Can manage complex budgeting decisions unaided",
+                    checked: (data['budgetingSelect'] == "Can manage complex budgeting decisions unaided")
+                  }
+                ]
+              }) }}
+
+
+              {% if data['assessmenttype'] !== "Paper" %}
+
+                    {{ govukTextarea({
+                      name: "budgetingReason",
+                      id: "budgetingReason",
+                      label: {
+                        text: "What is the reason for this answer?",
+                        classes: "govuk-label--s",
+                        isPageHeading: false
+                      },
+                      value: data['budgetingReason']
+                    }) }}
+
+                    {% endif %}
+
+                    {{ govukButton({
+                      text: "Save and continue"
+                    }) }}
+                </ul>
+
+
+
+            </form>
+
+
+
+
+
+            </div>
+
+            <div class="govuk-grid-column-one-third">
+
+
+
+            </div>
+
+        </div>
+
+    </main>
+  </div>
+{% endblock %}

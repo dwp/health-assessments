@@ -1,0 +1,135 @@
+{% extends "layout.html" %}
+{% set bodyAttributes = { id: "assess" } %}
+
+{% block pageTitle %}
+  GOV.UK Prototype Kit
+{% endblock %}
+
+{% block main %}
+
+{% include "includes/assessment-status-neutral.html" %}
+
+  <div class="govuk-width-container {{ containerClasses }}">
+
+    {{ govukBackLink({
+      text: "Back",
+      href: "assessment-status"
+    }) }}
+
+    <main class="govuk-main-wrapper {{ mainClasses }}" id="main-content" role="main"{% if mainLang %} lang="{{ mainLang }}"{% endif %}>
+        <div class="govuk-grid-row">
+
+            <div class="govuk-grid-column-two-thirds">
+
+
+                <h1 class="govuk-heading-l">Managing toilet needs</h1>
+
+                </div>
+          </div>
+
+          <div class="govuk-grid-row">
+
+            <div class="govuk-grid-column-two-thirds">
+
+            <form action="assessment-status" method="post">
+
+              {% if data['assessmenttype'] !== "Paper" %}
+
+              {{ govukTextarea({
+                name: "toiletneedsNotes",
+                id: "toiletneedsNotes",
+                rows: "8",
+                classes: "govuk-!-margin-bottom-9",
+                label: {
+                  text: "Notes on managing toilet needs",
+                  classes: "govuk-label--s",
+                  isPageHeading: false
+                },
+                value: data['toiletneedsNotes']
+              }) }}
+
+              {% endif %}
+
+              {{ govukRadios({
+                name: "toiletneedsSelect",
+                fieldset: {
+                  classes: "govuk-!-margin-bottom-9",
+                  legend: {
+                    text: "Which of these describes how well the claimant can manage toilet needs?",
+                    isPageHeading: false,
+                    classes: "govuk-fieldset__legend--s"
+                  }
+                },
+                items: [
+                  {
+                    value: "Needs assistance to be able to manage incontinence of both bladder and bowel",
+                    text: "Needs assistance to be able to manage incontinence of both bladder and bowel",
+                    checked: (data['toiletneedsSelect'] == "Needs assistance to be able to manage incontinence of both bladder and bowel")
+                  },
+                  {
+                    value: "Needs assistance to be able to manage incontinence of either bladder or bowel",
+                    text: "Needs assistance to be able to manage incontinence of either bladder or bowel",
+                    checked: (data['toiletneedsSelect'] == "Needs assistance to be able to manage incontinence of either bladder or bowel")
+                  },
+                  {
+                    value: "Needs assistance to be able to manage toilet needs",
+                    text: "Needs assistance to be able to manage toilet needs",
+                    checked: (data['toiletneedsSelect'] == "Needs assistance to be able to manage toilet needs")
+                  },
+                  {
+                    value: "Needs supervision or prompting to be able to manage toilet needs",
+                    text: "Needs supervision or prompting to be able to manage toilet needs",
+                    checked: (data['toiletneedsSelect'] == "Needs supervision or prompting to be able to manage toilet needs")
+                  },
+                  {
+                    value: "Needs to use an aid or appliance to be able to manage toilet needs or incontinence",
+                    text: "Needs to use an aid or appliance to be able to manage toilet needs or incontinence",
+                    checked: (data['toiletneedsSelect'] == "Needs to use an aid or appliance to be able to manage toilet needs or incontinence")
+                  },
+                  {
+                    value: "Can manage toilet needs or incontinence unaided",
+                    text: "Can manage toilet needs or incontinence unaided",
+                    checked: (data['toiletneedsSelect'] == "Can manage toilet needs or incontinence unaided")
+                  }
+                ]
+              }) }}
+
+
+              {% if data['assessmenttype'] !== "Paper" %}
+
+                    {{ govukTextarea({
+                      name: "toiletneedsReason",
+                      id: "toiletneedsReason",
+                      label: {
+                        text: "What is the reason for this answer?",
+                        classes: "govuk-label--s",
+                        isPageHeading: false
+                      },
+                      value: data['toiletneedsReason']
+                    }) }}
+
+                    {% endif %}
+
+                    {{ govukButton({
+                      text: "Save and continue"
+                    }) }}
+                </ul>
+
+
+
+            </form>
+
+
+
+            </div>
+
+            <div class="govuk-grid-column-one-third">
+
+
+            </div>
+
+        </div>
+
+    </main>
+  </div>
+{% endblock %}

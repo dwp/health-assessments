@@ -1,0 +1,133 @@
+{% extends "layout.html" %}
+{% set bodyAttributes = { id: "assess" } %}
+
+{% block pageTitle %}
+  GOV.UK Prototype Kit
+{% endblock %}
+
+{% block main %}
+
+{% include "includes/assessment-status-neutral.html" %}
+
+  <div class="govuk-width-container {{ containerClasses }}">
+    <main class="govuk-main-wrapper {{ mainClasses }}" id="main-content" role="main"{% if mainLang %} lang="{{ mainLang }}"{% endif %}>
+        <div class="govuk-grid-row">
+
+            <div class="govuk-grid-column-two-thirds">
+
+                {{ govukBackLink({
+                  text: "Back",
+                  href: "assessment-status"
+                }) }}
+
+                <h1 class="govuk-heading-xl">Moving around</h1>
+
+                </div>
+          </div>
+
+          <div class="govuk-grid-row">
+
+            <div class="govuk-grid-column-two-thirds">
+
+            <form action="assessment-status" method="post">
+
+              {{ govukTextarea({
+                name: "movingaroundNotes",
+                id: "movingaroundNotes",
+                rows: "8",
+                classes: "govuk-!-margin-bottom-9",
+                label: {
+                  text: "Notes on moving around",
+                  classes: "govuk-label--m",
+                  isPageHeading: false
+                },
+                value: data['movingaroundNotes']
+              }) }}  
+
+              <div class="govuk-form-group">
+                <fieldset class="govuk-fieldset">
+                  <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+                    <h1 class="govuk-fieldset__heading">
+                      Which of these describes how well the claimant can move around?
+                    </h1>
+                  </legend>
+                  <div class="govuk-radios">
+                    <div class="govuk-radios__item">
+                      <input class="govuk-radios__input" id="movingaroundSelect" name="movingaroundSelect" type="radio" value="Can stand and then move more than 200 metres, either aided or unaided">
+                      <label class="govuk-label govuk-radios__label" for="movingaroundSelect">
+                          Can stand and then move more than 200 metres, either aided or unaided
+                      </label>
+                    </div>
+                    <div class="govuk-radios__item">
+                      <input class="govuk-radios__input" id="movingaroundSelect-2" name="movingaroundSelect" type="radio" value="Can stand and then move more than 50 metres but no more than 200 metres, either aided or unaided">
+                      <label class="govuk-label govuk-radios__label" for="movingaroundSelect-2">
+                          Can stand and then move more than 50 metres but no more than 200 metres, either aided or unaided
+                      </label>
+                    </div>
+                    <div class="govuk-radios__item">
+                      <input class="govuk-radios__input" id="movingaroundSelect-3" name="movingaroundSelect" type="radio" value="Can stand and then move unaided more than 20 metres but no more than 50 metres">
+                      <label class="govuk-label govuk-radios__label" for="movingaroundSelect-3">
+                          Can stand and then move unaided more than 20 metres but no more than 50 metres
+                      </label>
+                    </div>
+                    <div class="govuk-radios__item">
+                      <input class="govuk-radios__input" id="movingaroundSelect-4" name="movingaroundSelect" type="radio" value="Can stand and then move using an aid or appliance more than 20 metres but no more than 50 metres">
+                      <label class="govuk-label govuk-radios__label" for="movingaroundSelect-4">
+                          Can stand and then move using an aid or appliance more than 20 metres but no more than 50 metres
+                      </label>
+                    </div>
+                    <div class="govuk-radios__item">
+                        <input class="govuk-radios__input" id="movingaroundSelect-5" name="movingaroundSelect" type="radio" value="Can stand and then move more than 1 metre but no more than 20 metres, either aided or unaided">
+                        <label class="govuk-label govuk-radios__label" for="movingaroundSelect-5">
+                            Can stand and then move more than 1 metre but no more than 20 metres, either aided or unaided
+                        </label>
+                      </div>
+                      <div class="govuk-radios__item">
+                          <input class="govuk-radios__input" id="movingaroundSelect-6" name="movingaroundSelect" type="radio" value="Cannot, either aided or unaided, – stand; or move more than 1 metre">
+                          <label class="govuk-label govuk-radios__label" for="movingaroundSelect-6">
+                            Cannot stand or move more than 1 metre, either aided or unaided
+                          </label>
+                        </div>
+
+
+                  </div>
+
+                </fieldset>
+              </div>
+              
+
+                    {{ govukTextarea({
+                      name: "movingaroundReason",
+                      id: "movingaroundReason",
+                      label: {
+                        text: "What is the reason for this answer?",
+                        classes: "govuk-label--m",
+                        isPageHeading: false
+                      },
+                      value: data['movingaroundReason']
+                    }) }}  
+
+                    {{ govukButton({
+                      text: "Save"
+                    }) }}
+                </ul>
+    
+
+
+            </form>
+
+              
+
+            </div>
+
+            <div class="govuk-grid-column-one-third">
+
+
+
+            </div>
+
+        </div>
+
+    </main>
+  </div>
+{% endblock %}

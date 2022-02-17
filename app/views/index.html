@@ -1,0 +1,376 @@
+{% extends "layout.html" %}
+{% set bodyAttributes = { id: "home" } %}
+
+{% block pageTitle %}
+  GOV.UK Prototype Kit
+{% endblock %}
+
+{% block main %}
+
+{% include "includes/home-header.html" %}
+<div class="govuk-width-container {{ containerClasses }} govuk-!-margin-bottom-9">
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-one-quarter">
+      <ul class="govuk-list">
+       <li><a href="#next-release" class="govuk-link--no-visited-state govuk-link--no-underline">Next release</a></li>
+        <li><a href="#current-release" class="govuk-link--no-visited-state govuk-link--no-underline">Current release</a></li>
+        <li><a href="#features" class="govuk-link--no-visited-state govuk-link--no-underline">Features to test</a></li>
+        <li><a href="#validation" class="govuk-link--no-visited-state govuk-link--no-underline">Validation examples</a></li>
+        <li><a href="#pip-archive" class="govuk-link--no-visited-state govuk-link--no-underline">PIP archive</a></li>
+        <li><a href="#wca-archive" class="govuk-link--no-visited-state govuk-link--no-underline">WCA archive</a></li>
+      </ul>
+    </div>
+    <div class="govuk-grid-column-three-quarters">
+
+      <!--  <h2 class="govuk-heading-l" id="next-release">Next release</h2>
+      <p class="govuk-body-l">These prototypes are for testing the next release of the Health Assessment Service.</p>
+
+
+      <hr class="govuk-!-margin-top-9 govuk-!-margin-bottom-6">
+
+     Current release -->
+
+      <h2 class="govuk-heading-l" id="current-release">Current release</h2>
+      <p class="govuk-body-l">These prototypes represent the current release of the Health Assessment Service.</p>
+
+      
+      <h3 class="govuk-heading-m"><a href="wca-version-0-8/">WCA Version 0.8</a></h3>
+
+      <h4 class="govuk-heading-s govuk-!-margin-bottom-1">Tickets:</h4>
+      <ul class="govuk-list govuk-list--bullet">
+        <li><a href="https://dwpdigital.atlassian.net/browse/HTRB-564">HTRB-564</a>, Manual Dexterity page merge options</li>
+        <li><a href="https://dwpdigital.atlassian.net/browse/HTRB-592">HTRB-592</a>, Coping with Social Situations content</li>
+        <li><a href="https://dwpdigital.atlassian.net/browse/HTRB-516">HTRB-516</a>, Risk</li>
+        <li><a href="https://dwpdigital.atlassian.net/browse/HTRB-619">HTRB-619</a>, Threshold not met content</li>
+      </ul>
+      <h3 class="govuk-heading-m"><a href="pip-version-0-9/">PIP Version 0.9</a></h3>
+      <h4 class="govuk-heading-s govuk-!-margin-bottom-1">Tickets:</h4>
+      <ul class="govuk-list govuk-list--bullet">
+        <li><a href="https://dwpdigital.atlassian.net/browse/HTRB-335">HTRB-335</a>, PBAs in PIP</li>
+      </ul>
+
+      
+
+      <hr class="govuk-!-margin-top-9 govuk-!-margin-bottom-6">
+
+      <!-- Features to test -->
+
+      <h2 class="govuk-heading-l" id="features">Features to test</h2>
+      <p class="govuk-body-l">These prototypes are for individual features to test.</p>
+
+      <h2 class="govuk-heading-m" id="features">Lime - Q4 2022 deliverables</h2>
+      <h3 class="govuk-heading-m"><a href="wca-htl-975/">WCA - Check your answers</a></h3>
+      <h4 class="govuk-heading-s govuk-!-margin-bottom-1">Tickets</h4>
+      <ul class="govuk-list govuk-list--bullet">
+        <li><a href="https://dwpdigital.atlassian.net/browse/HTL-975">HTL-975</a>, Check your answers</li>
+        <li><a href="https://dwpdigital.atlassian.net/browse/HTRB-513">HTRB-513</a>, Check your answers (DONE)</li>
+      </ul>
+
+      <h3 class="govuk-heading-m"><a href="pip-htl-976/">PIP - Check your answers</a></h3>
+      <h4 class="govuk-heading-s govuk-!-margin-bottom-1">Tickets</h4>
+      <ul class="govuk-list govuk-list--bullet">
+        <li><a href="https://dwpdigital.atlassian.net/browse/HTL-976">HTL-976</a>, Check your answers</li>
+        <li><a href="https://dwpdigital.atlassian.net/browse/HTRB-513">HTRB-512</a>, Check your answers (DONE)</li>
+      </ul>
+
+      <h3 class="govuk-heading-m"><a href="wca-htl-896/">WCA accessibility audit findings</a></h3>
+      <h4 class="govuk-heading-s govuk-!-margin-bottom-1">Tickets</h4>
+      <ul class="govuk-list govuk-list--bullet">
+        <li><a href="https://dwpdigital.atlassian.net/browse/HTL-896">HTL-896</a>, WCA Accessibility audit findings</li>
+        <li><a href="https://dwpdigital.atlassian.net/browse/HTL-894">HTL-894</a>, Content updates for LCW and LCWRA claim review pages [WCA]</li>
+        <!-- <li><a href="https://dwpdigital.atlassian.net/browse/HTL-891">HTL-891</a>, Add back link to Physical Functions and Mental, cognitive & intellectual capabilities task lists [WCA]</li> -->
+        <li><a href="https://dwpdigital.atlassian.net/browse/HTL-893">HTL-893</a>, Content updates for Abandon assessment page [WCA]</li>
+      </ul>
+
+      <h3 class="govuk-heading-m"><a href="pip-htl-903/"> PIP accessibility audit findings</a></h3>
+      <h4 class="govuk-heading-s govuk-!-margin-bottom-1">Tickets</h4>
+      <ul class="govuk-list govuk-list--bullet">
+        <li><a href="https://dwpdigital.atlassian.net/browse/HTL-903">HTL-903</a>, PIP accessibility audit findings</li>
+        <li><a href="https://dwpdigital.atlassian.net/browse/HTL-938">HTL-938</a>, Content updates for claim review page [PIP]</li>
+      </ul>
+
+      <h3 class="govuk-heading-m"><a href="wca-htrb-334/">WCA - PBA</a></h3>
+      <h4 class="govuk-heading-s govuk-!-margin-bottom-1">Tickets</h4>
+      <ul class="govuk-list govuk-list--bullet">
+        <li><a href="https://dwpdigital.atlassian.net/browse/HTRB-334">HTRB-334</a>, PBAs in WCA</li>
+      </ul>
+
+<br>
+<br>
+      <h2 class="govuk-heading-m" id="features">Backlog</h2>
+      <h3 class="govuk-heading-m"><a href="wca-htrb-648/">WCA - Ending an assesment</a></h3>
+      <p>A way of ending an assessment where the system intelligently takes you down the right route. This is a first pass, it routes the finish button through the questions - it does not have Check Your Answers for all of those routes yet, or intelligent scoring to detect functional LCW.</p>
+      <h4 class="govuk-heading-s govuk-!-margin-bottom-1">Tickets</h4>
+      <ul class="govuk-list govuk-list--bullet">
+        <li><a href="https://dwpdigital.atlassian.net/browse/HTRB-648">HTRB-648</a>, Ending the WCA prototype</li>
+      </ul>
+
+
+      <h3 class="govuk-heading-m"><a href="wca-htrb-594/">WCA - Physical Examinations (also includes PBA)</a></h3>
+      <p>Physical exam content, based on detailed questions provided by Nina from extensive research (similar but not exact to the screenshots of FHA I had). This also includes PBA, and therefore demonstrates conditional nav well.</p>
+      <h4 class="govuk-heading-s govuk-!-margin-bottom-1">Tickets</h4>
+      <ul class="govuk-list govuk-list--bullet">
+        <li><a href="https://dwpdigital.atlassian.net/browse/HTRB-594">HTRB-594</a>, Capturing Physical Assessments (WCA)</li>
+        <li><a href="https://dwpdigital.atlassian.net/browse/HTRB-334">HTRB-334</a>, PBAs in WCA</li>
+      </ul>
+
+     
+      <h3 class="govuk-heading-m"><a href="wca-htrb-732/">WCA - Descriptor codes</a></h3>
+      <h4 class="govuk-heading-s govuk-!-margin-bottom-1">Tickets</h4>
+      <ul class="govuk-list govuk-list--bullet">
+        <li><a href="https://dwpdigital.atlassian.net/browse/HTRB-732">HTRB-732</a>, Descriptor codes</li>
+      </ul>
+
+
+      <h3 class="govuk-heading-m"><a href="pip-htrb-573/assessment-status">PIP - Review date pages</a></h3>
+      <h4 class="govuk-heading-s govuk-!-margin-bottom-1">Tickets</h4>
+      <ul class="govuk-list govuk-list--bullet">
+        <li><a href="https://dwpdigital.atlassian.net/browse/HTRB-573">HTRB-573</a>, PIP review date pages</li>
+      </ul>
+
+      <h3 class="govuk-heading-m"><a href="wca-htrb-442/">WCA - Medications</a></h3>
+      <h4 class="govuk-heading-s govuk-!-margin-bottom-1">Tickets</h4>
+      <ul class="govuk-list govuk-list--bullet">
+        <li><a href="https://dwpdigital.atlassian.net/browse/HTRB-442">HTRB-442</a>, Medical conditions and medications list</li>
+      </ul>
+
+     
+
+
+      <h3 class="govuk-heading-m"><a href="wca-htrb-592/">WCA - Coping with social situations</a></h3>
+      <h4 class="govuk-heading-s govuk-!-margin-bottom-1">Tickets</h4>
+      <ul class="govuk-list govuk-list--bullet">
+        <li><a href="https://dwpdigital.atlassian.net/browse/HTRB-592">HTRB-592</a>, Coping with social situations</li>
+      </ul>
+
+      <h3 class="govuk-heading-m"><a href="wca-htrb-516/">WCA - Risk</a></h3>
+      <h4 class="govuk-heading-s govuk-!-margin-bottom-1">Tickets</h4>
+      <ul class="govuk-list govuk-list--bullet">
+        <li><a href="https://dwpdigital.atlassian.net/browse/HTRB-516">HTRB-516</a>, Risk design concepts</li>
+      </ul>
+
+      <h3 class="govuk-heading-m">PIP and WCA - Harmful information</h3>
+      <h4 class="govuk-heading-s govuk-!-margin-bottom-1">Versions</h4>
+      <ul class="govuk-list govuk-list--bullet">
+         <li><a href="pip-htrb-572/">PIP</a></li>
+         <li><a href="wca-htrb-572/">WCA</a></li>
+      </ul>
+      <h4 class="govuk-heading-s govuk-!-margin-bottom-1">Tickets</h4>
+      <ul class="govuk-list govuk-list--bullet">
+        <li><a href="https://dwpdigital.atlassian.net/browse/HTRB-572">HTRB-572</a>, Harmful information</li>
+      </ul>
+
+      <h3 class="govuk-heading-m">WCA - Functional LCWRA, better task list tagging</h3>
+      <p>If an LCWRA descriptor is chosen then the assessment should be curtailed. These versions direct the HCP to a page that tells them LCWRA has been met. This version contains a task list status of 'in progress' if any data has been entered in any descriptor pages. This carries through to the section level on the overview page. Descriptors are only tagged complete if both descriptor and justification are done. Sections are only tagged complete if every descriptor and justifcation is done - this may be less than ideal as they may not score against everything (if we do this, it should roll out to PIP too).</p>
+      <h4 class="govuk-heading-s govuk-!-margin-bottom-1">Versions</h4>
+      <ul class="govuk-list govuk-list--bullet">
+         <li><a href="wca-htrb-438-a/assessment-overview">Version A (Straight to time review)</a></li>
+         <li><a href="wca-htrb-438-b/assessment-overview">Version B (Option to go to time reviews)</a></li>
+      </ul>
+      <h4 class="govuk-heading-s govuk-!-margin-bottom-1">Tickets</h4>
+      <ul class="govuk-list govuk-list--bullet">
+        <li><a href="https://dwpdigital.atlassian.net/browse/HTRB-438">HTRB-438</a>, Ending WCA when functional LCWRA met</li>
+        <li><a href="https://dwpdigital.atlassian.net/browse/HTRB-579">HTRB-579</a>, Task list tags</li>
+      </ul>
+
+      <h3 class="govuk-heading-m">PIP - Qualifying period and prospective test</h3>
+      <h4 class="govuk-heading-s govuk-!-margin-bottom-1">Versions</h4>
+      <ul class="govuk-list govuk-list--bullet">
+         <li><a href="pip-htrb-523-b/assessment-status">Version B (3/9 month radio button)</a></li>
+         <li><a href="pip-htrb-523-d/assessment-status">Version D (Conditional nav)</a></li>
+         <li><a href="pip-htrb-523-e/assessment-status">Version E (QP/PT wording)</a></li>
+         <li><a href="pip-htrb-523-f/assessment-status">Version F (Prognosis wording)</a></li>
+      </ul>
+      <h4 class="govuk-heading-s govuk-!-margin-bottom-1">Tickets</h4>
+      <ul class="govuk-list govuk-list--bullet">
+         <li><a href="https://dwpdigital.atlassian.net/browse/HTRB-523">HTRB-523</a>, Design concepts for QP and PT - daily living and mobility</li>
+      </ul>
+
+      <h3 class="govuk-heading-m">WCA - Descriptor content</h3>
+      <p>Requested updates to the descriptors.</p>
+      <h4 class="govuk-heading-s govuk-!-margin-bottom-1">Pages (tickets)</h4>
+      <ul class="govuk-list govuk-list--bullet">
+        <li><a href="wca-version-0-6-content-changes/descriptors/manual-dexterity">Manual dexterity page</a> - merge radio buttons - (<a href="https://dwpdigital.atlassian.net/browse/HTRB-564">HTRB-564</a>)</li>
+        <li><a href="wca-version-0-6-content-changes/descriptors/understanding-communication">Understanding communication page</a> - add text - (<a href="https://dwpdigital.atlassian.net/browse/HTRB-565">HTRB-565</a>)</li>
+        <li><a href="wca-version-0-6-content-changes/descriptors/continence">Continence page</a> - add text - (<a href="https://dwpdigital.atlassian.net/browse/HTRB-566">HTRB-566</a>)</li>
+      </ul>
+
+      <h3 class="govuk-heading-m"><a href="pip-descriptor/takingnutrition">PIP - Descriptor content</a></h3>
+      <h4 class="govuk-heading-s govuk-!-margin-bottom-1">Tickets</h4>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>Unticketed work</li>
+      </ul>
+
+      <h3 class="govuk-heading-m"><a href="wca-htrb-458/">WCA - additional attendee content</a></h3>
+      <h4 class="govuk-heading-s govuk-!-margin-bottom-1">Tickets</h4>
+      <ul class="govuk-list govuk-list--bullet">
+        <li><a href="https://dwpdigital.atlassian.net/browse/HTRB-458">HTRB-458</a>, Additional attendee content</li>
+      </ul>
+
+      <h3 class="govuk-heading-m"><a href="pip-htrb-458/">PIP - additional attendee content</a></h3>
+      <h4 class="govuk-heading-s govuk-!-margin-bottom-1">Tickets</h4>
+      <ul class="govuk-list govuk-list--bullet">
+         <li><a href="https://dwpdigital.atlassian.net/browse/HTRB-458">HTRB-458</a>, Additional attendee content</li>
+      </ul>
+
+      <hr class="govuk-!-margin-top-9 govuk-!-margin-bottom-6">
+
+            <!-- Features to test -->
+
+            <h2 class="govuk-heading-l" id="validation">Validation examples</h2>
+            <p class="govuk-body-l">Pages that demonstrate validation.</p>
+
+            <h3 class="govuk-heading-m">WCA Validation</h3>
+            <h4 class="govuk-heading-s govuk-!-margin-bottom-1">Pages</h4>
+            <ul class="govuk-list govuk-list--bullet">
+              <li><a href="wca-validation/assessment-type">Assessment type</a> (Radio button example)</li>
+              <li><a href="wca-validation/lcw">LCW</a> (Radio button example)</li>
+              <li><a href="wca-validation/lcw-why">LCW recommendation</a> (text area example)</li>
+            </ul>
+
+
+            <hr class="govuk-!-margin-top-9 govuk-!-margin-bottom-6">
+
+      <!-- PIP archive -->
+
+      <h2 class="govuk-heading-l" id="pip-archive">PIP archived prototypes</h2>
+      <p class="govuk-body-l">An archive of all previous versions of the PIP prototype.</p>
+
+      <h3 class="govuk-heading-m"><a href="pip-version-0-8/">PIP Version 0.8</a></h3>
+      <h4 class="govuk-heading-s govuk-!-margin-bottom-1">Tickets:</h4>
+      <ul class="govuk-list govuk-list--bullet">
+        <li><a href="https://dwpdigital.atlassian.net/browse/HTRB-523">HTRB-523</a>, QP/PT</li>
+      </ul>
+      
+      <h3 class="govuk-heading-m"><a href="pip-version-0-7/">PIP Version 0.7</a></h3>
+      <h4 class="govuk-heading-s govuk-!-margin-bottom-1">Tickets:</h4>
+      <ul class="govuk-list govuk-list--bullet">
+        <li><a href="https://dwpdigital.atlassian.net/browse/HTRB-576">HTRB-576</a>, Evidence pages PIP and WCA</li>
+        <li><a href="https://dwpdigital.atlassian.net/browse/HTRB-580">HTRB-580</a>, Investigate removing qualifying period and prospective test pages</li>
+        <li><a href="https://dwpdigital.atlassian.net/browse/HTRB-581">HTRB-581</a>, Reword PIP task list headings</li>
+        <li><a href="https://dwpdigital.atlassian.net/browse/HTRB-586">HTRB-586</a>, Standardise highest scoring descriptors</li>
+      </ul>
+
+
+      <h3 class="govuk-heading-m"><a href="pip-version-0-6/">PIP Version 0.6</a></h3>
+      <h4 class="govuk-heading-s govuk-!-margin-bottom-1">Tickets:</h4>
+      <ul class="govuk-list govuk-list--bullet">
+        <li><a href="https://dwpdigital.atlassian.net/browse/HTRB-560">HTRB-560</a>, Add 'Face to face' to the 'how are you conducting this assessment' page (PIP).</li>
+      </ul>
+
+
+      <h3 class="govuk-heading-m"><a href="pip-version-0-5/">PIP Version 0.5</a> (<a href="pip-version-0-5-IS/">version with interstitial page</a>)</h3>
+      <p>This release was our MVP, with interstitial page in place.</p>
+      <h4 class="govuk-heading-s govuk-!-margin-bottom-1">Tickets:</h4>
+      <ul class="govuk-list govuk-list--bullet">
+        <li><a href="https://dwpdigital.atlassian.net/browse/HTRB-418">HTRB-418</a>, Change musculoskeletal to physical health.</li>
+        <li><a href="https://dwpdigital.atlassian.net/browse/HTRB-419">HTRB-419</a>, Add a notes option on descriptor pages.</li>
+        <li><a href="https://dwpdigital.atlassian.net/browse/HTRB-420">HTRB-420</a>, Add a time review page.</li>
+        <li><a href="https://dwpdigital.atlassian.net/browse/HTRB-422">HTRB-422</a>, Remove guidance from PIP prototype pages.</li>
+        <li><a href="https://dwpdigital.atlassian.net/browse/HTRB-423">HTRB-423</a>, Change ordering of pages in assessment overview.</li>
+        <li><a href="https://dwpdigital.atlassian.net/browse/HTRB-424">HTRB-424</a>, Physical function restriction.</li>
+        <li><a href="https://dwpdigital.atlassian.net/browse/HTRB-485">HTRB-485</a>, Create the 'why do you need to abandon the assessment' page</li>
+      </ul>
+
+      <h3 class="govuk-heading-m"><a href="pip-version-0-4/">PIP Version 0.4</a></h3>
+      <h4 class="govuk-heading-s govuk-!-margin-bottom-1">Tickets:</h4>
+      <ul class="govuk-list govuk-list--bullet">
+        <li><a href="https://dwpdigital.atlassian.net/browse/HTRB-369">HTRB-369</a>, Combining the “interactive” and “write up” parts of the PIP assessment.</li>
+      </ul>
+
+      <h3 class="govuk-heading-m"><a href="pip-version-0-3/">PIP Version 0.3</a></h3>
+      <p>This prototype builds on v2 (PROBE question set) and works towards getting something in place we can test, and that will build with Lime capabilities and components.</p>
+      <h4 class="govuk-heading-s govuk-!-margin-bottom-1">Tickets:</h4>
+      <ul class="govuk-list govuk-list--bullet">
+        <li><a href="https://dwpdigital.atlassian.net/browse/HTRB-266">HTRB-266</a>, Consent for physical assessment.</li>
+        <li><a href="https://dwpdigital.atlassian.net/browse/HTRB-270">HTRB-270</a>, Split musculoskeletal and mental state.</li>
+        <li><a href="https://dwpdigital.atlassian.net/browse/HTRB-270">HTRB-273</a>, Abandon assessment.</li>
+        <li><a href="https://dwpdigital.atlassian.net/browse/HTRB-275">HTRB-275</a>, add additional attendees.</li>
+        <li><a href="https://dwpdigital.atlassian.net/browse/HTRB-277">HTRB-277</a>, removed the passing of assessment notes and the secondary nav as they are not MVP.</li>
+        <li><a href="https://dwpdigital.atlassian.net/browse/HTRB-339">HTRB-339</a>, Expand size of text areas for usability.</li>
+        <li><a href="https://dwpdigital.atlassian.net/browse/HTRB-385">HTRB-385</a>, Update PIP Prototype to remove personalisations</li>
+      </ul>
+
+      <h3 class="govuk-heading-m"><a href="pip-version-0-2/">PIP Version 0.2 (PROBE questions)</a></h3>
+      <p>This prototype includes all of the questions from the PROBE v 3 document, and the scoring questions stated in the legislation. It works though the initial questions, which are then checked and confirmed before the assessor can do the scoring (done after the claimant has left).</p>
+      <h4 class="govuk-heading-s govuk-!-margin-bottom-1">Notes:</h4>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>Research from Team Lime informed the choice of task lists for navigation, inline with GDS patterns. Left hand navigation was preferred by assessors however they also lost work because of the way it works, they were not realising the need to save answers. They could all use the task list without losing data, and no one had any problems with it. We think the task list is the viable choice for April, with the potential to further research and test left hand navigation if necessary for the future.</li>
+        <li>All inputs during the assessment are free text, with the exception of those legislated for scoring. This will be iterated in the next iteration to break them down and give built in structure where needed, and generate better quality data in return.</li>
+        <li>The guidance from the Probe document is shown underneath the free text fields.</li>
+        <li>The notes taken with the claimant present are displayed back to the assessor while they do the scoring questions for reference.</li>
+      </ul>
+
+      <hr class="govuk-!-margin-top-9 govuk-!-margin-bottom-6">
+
+      <!-- WCA archive -->
+
+      <h2 class="govuk-heading-l" id="wca-archive">WCA archived prototypes</h2>
+      <p class="govuk-body-l">An archive of all previous versions of the WCA prototype.</p>
+
+      <h3 class="govuk-heading-m"><a href="wca-version-0-7/">WCA Version 0.7</a></h3>
+
+      <h4 class="govuk-heading-s govuk-!-margin-bottom-1">Tickets:</h4>
+      <ul class="govuk-list govuk-list--bullet">
+        <li><a href="https://dwpdigital.atlassian.net/browse/HTRB-577">HTRB-577</a>, Investigate removing 'Has the customer service desk (CSD) approved this?' pages</li>
+        <li><a href="https://dwpdigital.atlassian.net/browse/HTRB-576">HTRB-576</a>, Evidence pages PIP and WCA</li>
+        <li><a href="https://dwpdigital.atlassian.net/browse/HTRB-565">HTRB-565</a>, Understanding communication page - add text</li>
+      </ul>
+
+      <h3 class="govuk-heading-m"><a href="wca-version-0-6/">WCA Version 0.6</a></h3>
+
+      <h4 class="govuk-heading-s govuk-!-margin-bottom-1">Tickets:</h4>
+      <ul class="govuk-list govuk-list--bullet">
+        <li><a href="https://dwpdigital.atlassian.net/browse/HTRB-559">HTRB-559</a>, Add 'Face to face' to the 'how are you conducting this assessment' page (WCA)</li>
+        <li><a href="https://dwpdigital.atlassian.net/browse/HTRB-558">HTRB-558</a>, Add notes box to WCA activity pages</li>
+      </ul>
+
+      <h3 class="govuk-heading-m"><a href="wca-version-0-5/">WCA Version 0.5</a> (<a href="wca-version-0-5-IS/">version with interstitial page</a>)</h3>
+      <p>This release was our MVP, with interstitial page in place.</p>
+      <h4 class="govuk-heading-s govuk-!-margin-bottom-1">Tickets:</h4>
+      <ul class="govuk-list govuk-list--bullet">
+        <li><a href="https://dwpdigital.atlassian.net/browse/HTRB-483">HTRB-483</a>, Design alternate LCW/LCWRA ending for test</li>
+        <li><a href="https://dwpdigital.atlassian.net/browse/HTRB-485">HTRB-485</a>, Create the 'why do you need to abandon the assessment' page</li>
+      </ul>
+
+      <h3 class="govuk-heading-m"><a href="wca-version-0-4/">WCA Version 0.4</a> / <a href="wca-version-0-4-alt/">WCA Version 0.4 (Alternate 'treat as')</a></h3>
+      <h4 class="govuk-heading-s govuk-!-margin-bottom-1">Tickets:</h4>
+      <ul class="govuk-list govuk-list--bullet">
+        <li><a href="https://dwpdigital.atlassian.net/browse/HTRB-398">HTRB-398</a>, Update WCA Prototype to reflect lack of conditional navigation component</li>
+        <li><a href="https://dwpdigital.atlassian.net/browse/HTRB-385">HTRB-385</a>, Update WCA Prototype to remove personalisations</li>
+        <li><a href="https://dwpdigital.atlassian.net/browse/HTRB-400">HTRB-400</a>, Allow treat as LCW in WCA</li>
+      </ul>
+
+
+      <h3 class="govuk-heading-m"><a href="wca-version-0-3a/">WCA Version 0.3 (alternate)</a></h3>
+      <p>Third iteration of prototype combining the 'interactive' and 'reporting' sections into one user journey.</p>
+
+      <h3 class="govuk-heading-m"><a href="wca-version-0-3/">WCA Version 0.3</a> / <a href="wca-version-0-3b/">WCA Version 0.3b (remove MH)</a></h3>
+      <p>Third iteration of prototype based on user research and mock assessments with HCPs.</p>
+      <h4 class="govuk-heading-s govuk-!-margin-bottom-1">Tickets:</h4>
+      <ul class="govuk-list govuk-list--bullet">
+        <li><a href="https://dwpdigital.atlassian.net/browse/HTRB-315">HTRB-315</a>, record assessment type.</li>
+        <li><a href="https://dwpdigital.atlassian.net/browse/HTRB-337">HTRB-337</a>, clarify curtail, abandon and finish options.</li>
+        <li><a href="https://dwpdigital.atlassian.net/browse/HTRB-338">HTRB-338</a>, expand size of textareas for usability WCA prototype.</li>
+        <li><a href="https://dwpdigital.atlassian.net/browse/HTRB-343">HTRB-343</a>, Remove 'Physical assessment' questions from assessments not conducted in person.</li>
+      </ul>
+
+      <h3 class="govuk-heading-m"><a href="wca-version-0-2/">WCA Version 0.2</a></h3>
+      <p>Second iteration of prototype based on CAS screenshots and discussion with Team Royal Blue and Team Lime.</p>
+      <h4 class="govuk-heading-s govuk-!-margin-bottom-1">Tickets:</h4>
+      <ul class="govuk-list govuk-list--bullet">
+        <li><a href="https://dwpdigital.atlassian.net/browse/HTRB-274">HTRB-274</a>, amend and complete abandoned assessment journey.</li>
+        <li><a href="https://dwpdigital.atlassian.net/browse/HTRB-276">HTRB-276</a>, updated additional attendees based on lime designsindex.</li>
+        <li><a href="https://dwpdigital.atlassian.net/browse/HTRB-278">HTRB-278</a>, removed the secondary nav as component not available for MVP.</li>
+        <li><a href="https://dwpdigital.atlassian.net/browse/HTRB-280">HTRB-280</a>, moved consent for physical assessment to be inside physical assessment task list (see notes on JIRA ticket).</li>
+      </ul>
+
+       <h3 class="govuk-heading-m"><a href="wca-version-0-1/">WCA Version 0.1</a></h3>
+        <p>Prototype based on CAS screenshots and discussion with Team Royal Blue and Team Lime.</p>
+
+    </div>
+  </div>
+</div>
+
+{% endblock %}

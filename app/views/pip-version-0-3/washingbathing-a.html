@@ -1,0 +1,69 @@
+{% extends "layout.html" %}
+{% set bodyAttributes = { id: "assess" } %}
+
+{% block pageTitle %}
+  GOV.UK Prototype Kit
+{% endblock %}
+
+{% block main %}
+
+{% include "includes/assessment-status-neutral.html" %}
+
+  <div class="govuk-width-container {{ containerClasses }}">
+    <main class="govuk-main-wrapper {{ mainClasses }}" id="main-content" role="main"{% if mainLang %} lang="{{ mainLang }}"{% endif %}>
+        <div class="govuk-grid-row">
+
+            <div class="govuk-grid-column-two-thirds">
+
+                {{ govukBackLink({
+                  text: "Back",
+                  href: "assessment-status"
+                }) }}
+
+            <form action="assessment-status" method="post">
+              {{ govukTextarea({
+                name: "washingbathing",
+                id: "washingbathing",
+                label: {
+                  text: "Washing and bathing",
+                  classes: "govuk-label--xl",
+                  isPageHeading: true
+                },
+                value: data['washingbathing']
+              }) }}      
+              
+
+                    {{ govukButton({
+                      text: "Save"
+                    }) }}
+                </ul>
+    
+
+
+            </form>
+
+
+            <h2 class="govuk-heading-m govuk-!-margin-top-7">Guidance</h2>
+            <p>Please give an indication of the following:</p>
+            <ul class="govuk-list govuk-list--bullet">
+              <li>How they wash and bathe, including whether they are able to get in and out of a bath and shower.</li>   
+              <li>How often the claimant bathes/showers and washes their hair as part of their normal routine. Also indicate whether prompting is claimed and how often are they prompted to bathe.</li>   
+              <li>Whether any aids are required and what aids are used.</li>   
+              <li>How they usually perform this function as part of their daily routine.</li>   
+              <li>How they managed today and is this indicative of a normal day (the day of the assessment). </li>   
+              <li>Ensure all aspects of safety and supervision have been considered </li>   
+              <li>Brief description of key restriction e.g. needs assistance due to fatigue and poor grip or cannot wash lower body due to back pain or get in and out of the bath, and so daughter assists</li>   
+              <li>Critical analysis of evidence e.g. showed a restriction standing and bending which is consistent with FE supporting knee OA, moderate pain relief prescribed and the likely restrictions of this condition</li>   
+              <li>Review of inconsistencies and consider the usual features/progress/nature of the condition e.g. even though reports requires assistance, had good movement of both upper limbs and good grip likely to support the reliable use of aids</li>   
+              <li>Include clarification of whether the claimant is just using an aid by choice or whether there is a medical need, and whether opinion is based on evidence.</li>   
+              <li>Summarise and refer to the evidence gathered.</li>   
+                
+            </ul>
+              
+
+            </div>
+        </div>
+
+    </main>
+  </div>
+{% endblock %}

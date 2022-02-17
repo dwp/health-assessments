@@ -1,0 +1,66 @@
+{% extends "layout.html" %}
+{% set bodyAttributes = { id: "assess" } %}
+
+{% block pageTitle %}
+  GOV.UK Prototype Kit
+{% endblock %}
+
+{% block main %}
+
+{% include "includes/assessment-status-neutral.html" %}
+
+  <div class="govuk-width-container {{ containerClasses }}">
+    <main class="govuk-main-wrapper {{ mainClasses }}" id="main-content" role="main"{% if mainLang %} lang="{{ mainLang }}"{% endif %}>
+        <div class="govuk-grid-row">
+
+            <div class="govuk-grid-column-two-thirds">
+
+                {{ govukBackLink({
+                  text: "Back",
+                  href: "assessment-status"
+                }) }}
+
+            <form action="assessment-status" method="post">
+              {{ govukTextarea({
+                name: "dressing",
+                id: "dressing",
+                label: {
+                  text: "Dressing and undressing",
+                  classes: "govuk-label--xl",
+                  isPageHeading: true
+                },
+                value: data['dressing']
+              }) }}      
+              
+
+                    {{ govukButton({
+                      text: "Save"
+                    }) }}
+                </ul>
+    
+
+
+            </form>
+
+
+            <h2 class="govuk-heading-m govuk-!-margin-top-7">Guidance</h2>
+            <p>Please give an indication of the following:</p>
+            <ul class="govuk-list govuk-list--bullet">
+              <li>Whether any aids are used.</li>
+              <li>Whether assistance is needed, what assistance is needed and how often assistance is needed to dress/undress.</li>
+              <li>How they choose appropriate clothing.</li>
+              <li>How long this activity takes them.</li>
+              <li>Brief description of key restriction</li>
+              <li>Critical analysis of evidence</li>
+              <li>Review of inconsistencies and consider the usual features/progress/nature of the condition</li>
+              <li>Explain “sufficient” for example where assistance is claimed but HP chooses aids – this could be only mild grip noted in MSO for example which would be sufficient for the use of aids.</li>
+              <li>Summarise and refer to the evidence gathered.</li>
+            </ul>
+              
+
+            </div>
+        </div>
+
+    </main>
+  </div>
+{% endblock %}

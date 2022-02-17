@@ -1,0 +1,190 @@
+{% extends "layout.html" %}
+{% set bodyAttributes = { id: "assess" } %}
+
+{% block pageTitle %}
+  GOV.UK Prototype Kit
+{% endblock %}
+
+{% block main %}
+
+{% include "includes/assessment-status-neutral.html" %}
+
+  <div class="govuk-width-container {{ containerClasses }}">
+    <main class="govuk-main-wrapper {{ mainClasses }}" id="main-content" role="main"{% if mainLang %} lang="{{ mainLang }}"{% endif %}>
+        <div class="govuk-grid-row">
+
+            <div class="govuk-grid-column-two-thirds">
+
+              <h1 class="govuk-heading-xl">Assessment overview</h1>
+              
+              <ul class="app-task-list">
+                  <li>
+                    <h2 class="app-task-list__section">
+                      Assessment
+                    </h2>
+                    <ul class="app-task-list__items govuk-!-padding-left-0">
+                        <li class="app-task-list__item">
+                            <span class="app-task-list__task-name">
+                                {% if data['attendeename'] %}
+                              <a href="add-attendees-two" aria-describedby="read-declaration-status">
+                                  Additional attendees
+                              </a>
+                              {% else %}
+                              <a href="add-attendees" aria-describedby="read-declaration-status">
+                                  Additional attendees
+                              </a>
+                              {% endif %}
+                            </span>
+                            <script type="text/javascript">
+                              var attendeename = {{data.attendeename|dump|safe}}
+                              console.log(attendeename)
+                              if (attendeename) {
+                                var progress = "1";
+                                document.write('<strong class="govuk-tag govuk-tag app-task-list__tag" id="eligibility-status">Completed</strong>');
+                                }
+                              else {
+                                document.write('<strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="eligibility-status">Not started</strong>');
+                              }
+                            </script>
+                          </li>
+                      <li class="app-task-list__item">
+                        <span class="app-task-list__task-name">
+                          <a href="condition-history" aria-describedby="eligibility-status">
+                            Condition history
+                          </a>
+                        </span>
+                        <script type="text/javascript">
+                          var conditionhistory = {{data.conditionhistory|dump|safe}}
+                          console.log(conditionhistory)
+                          if (conditionhistory) {
+                            var progress = "1";
+                            document.write('<strong class="govuk-tag govuk-tag app-task-list__tag" id="eligibility-status">Completed</strong>');
+                            }
+                          else {
+                            document.write('<strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="eligibility-status">Not started</strong>');
+                          }
+                        </script>
+                      </li>
+                      <li class="app-task-list__item">
+                        <span class="app-task-list__task-name">
+                          <a href="medication" aria-describedby="read-declaration-status">
+                            Medication and side effects
+                          </a>
+                        </span>
+                        <script type="text/javascript">
+                          var medication = {{data.medication|dump|safe}}
+                          console.log(medication)
+                          if (medication) {
+                            var progress = "1";
+                            document.write('<strong class="govuk-tag govuk-tag app-task-list__tag" id="eligibility-status">Completed</strong>');
+                            }
+                          else {
+                            document.write('<strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="eligibility-status">Not started</strong>');
+                          }
+                        </script>
+                      </li>
+                      <li class="app-task-list__item">
+                          <span class="app-task-list__task-name">
+                            <a href="social-and-work" aria-describedby="read-declaration-status">
+                              Social and work history
+                            </a>
+                          </span>
+                          <script type="text/javascript">
+                            var socialandwork = {{data.socialandwork|dump|safe}}
+                            console.log(socialandwork)
+                            if (socialandwork) {
+                              var progress = "1";
+                              document.write('<strong class="govuk-tag govuk-tag app-task-list__tag" id="eligibility-status">Completed</strong>');
+                              }
+                            else {
+                              document.write('<strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="eligibility-status">Not started</strong>');
+                            }
+                          </script>
+                        </li>
+                        <li class="app-task-list__item">
+                            <span class="app-task-list__task-name">
+                              <a href="typical-day" aria-describedby="read-declaration-status">
+                                Typical day
+                              </a>
+                            </span>
+                            <script type="text/javascript">
+                              var typicalday = {{data.typicalday|dump|safe}}
+                              console.log(typicalday)
+                              if (typicalday) {
+                                var progress = "1";
+                                document.write('<strong class="govuk-tag govuk-tag app-task-list__tag" id="eligibility-status">Completed</strong>');
+                                }
+                              else {
+                                document.write('<strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="eligibility-status">Not started</strong>');
+                              }
+                            </script>
+                          </li>
+                          <li class="app-task-list__item">
+                            <span class="app-task-list__task-name">
+                              <a href="physical-assessments/physical-assessment" aria-describedby="read-declaration-status">
+                                Physical assessment
+                              </a>
+                            </span>
+                            <script type="text/javascript">
+                              var consent = {{data.consent|dump|safe}}
+                              console.log(consent)
+                              if (consent == 'consent') {
+                                var progress = "1";
+                                document.write('<strong class="govuk-tag govuk-tag app-task-list__tag" id="eligibility-status">In progress</strong>');
+                                }
+                              else {
+                                document.write('<strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="eligibility-status">Not started</strong>');
+                              }
+                            </script>
+                                 
+                            </li>
+                            <li class="app-task-list__item">
+                                <span class="app-task-list__task-name">
+                                  <a href="mental-assessment" aria-describedby="read-declaration-status">
+                                   Mental health assessment
+                                  </a>
+                                </span>
+                                <script type="text/javascript">
+                                  var appearance = {{data.appearance|dump|safe}}
+                                  console.log(appearance)
+                                  if (appearance) {
+                                    var progress = "1";
+                                    document.write('<strong class="govuk-tag govuk-tag app-task-list__tag" id="eligibility-status">Completed</strong>');
+                                    }
+                                  else {
+                                    document.write('<strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="eligibility-status">Not started</strong>');
+                                  }
+                                </script>
+                              </li>
+                    </ul>
+                  </li>
+          
+                  
+
+                    <li>
+                      <h2 class="app-task-list__section">
+                        Next steps
+                      </h2>
+                      <ul class="app-task-list__items govuk-!-padding-left-0">
+                          <li class="app-task-list__item">
+                              <span class="app-task-list__task-name"><a href="abandon">Abandon assessment</a></span><strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="submit-pay-status">Optional</strong>
+                        </li>
+                        <li class="app-task-list__item">
+                            <span class="app-task-list__task-name"><a href="curtail">Curtail assessment</a></span><strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="submit-pay-status">Optional</strong>
+                      </li> 
+                        <li class="app-task-list__item">
+                            <span class="app-task-list__task-name"><a href="finish-face-to-face">Finish face to face assessment</a></span><strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="submit-pay-status">Not started</strong>
+                        </li>
+                       
+                        </ul>
+                      </li>
+
+                </ul>
+              
+
+            </div>
+        </div>
+
+    </main>
+  </div>
+{% endblock %}

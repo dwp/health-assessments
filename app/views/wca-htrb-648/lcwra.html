@@ -1,0 +1,54 @@
+{% extends "layout.html" %}
+{% set bodyAttributes = { id: "assess" } %}
+
+{% block pageTitle %}
+  GOV.UK Prototype Kit
+{% endblock %}
+
+{% block main %}
+
+{% include "includes/assessment-status-neutral.html" %}
+
+  <div class="govuk-width-container {{ containerClasses }}">
+
+      {{ govukBackLink({
+        text: "Back",
+        href: "#"
+      }) }}
+
+    <main class="govuk-main-wrapper {{ mainClasses }}" id="main-content" role="main"{% if mainLang %} lang="{{ mainLang }}"{% endif %}>
+        <div class="govuk-grid-row">
+
+            <div class="govuk-grid-column-two-thirds">
+
+
+
+  <form action="time-review" method="post" id="question-form" novalidate>
+
+      {{ govukTextarea({
+        name: "functionallcwra",
+        id: "functionallcwra",
+        rows: "12",
+        label: {
+          text: "Functional LCWRA recommendation",
+          classes: "govuk-label--xl",
+          isPageHeading: false
+        }
+      }) }}
+
+
+</div>
+</div>
+
+<button class="govuk-button" data-module="govuk-button">
+  Continue
+</button>
+
+</main>
+</div>
+
+
+
+
+
+{% endblock %}

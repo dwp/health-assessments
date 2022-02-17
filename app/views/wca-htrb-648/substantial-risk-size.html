@@ -1,0 +1,79 @@
+{% extends "layout.html" %}
+{% set bodyAttributes = { id: "assess" } %}
+
+{% block pageTitle %}
+  GOV.UK Prototype Kit
+{% endblock %}
+
+{% block main %}
+
+{% include "includes/assessment-status-neutral.html" %}
+
+  <div class="govuk-width-container {{ containerClasses }}">
+
+      {{ govukBackLink({
+        text: "Back",
+        href: "assessment-overview"
+      }) }}
+
+    <main class="govuk-main-wrapper {{ mainClasses }}" id="main-content" role="main"{% if mainLang %} lang="{{ mainLang }}"{% endif %}>
+        <div class="govuk-grid-row">
+
+            <div class="govuk-grid-column-two-thirds">
+
+  <form action="#" method="post" id="question-form" novalidate>
+
+
+
+  <div class="govuk-form-group">
+
+
+    {{ govukRadios({
+      idPrefix: "substantialrisk",
+      name: "substantialrisk",
+      fieldset: {
+        legend: {
+          text: "What is your recommendation?",
+          isPageHeading: true,
+          classes: "govuk-fieldset__legend--xl"
+        }
+      },
+      items: [
+      {
+        value: "The claimant should be treated as having limited capability for work (LCW)",
+        text: "The claimant should be treated as having limited capability for work (LCW)"
+      },
+        {
+          value: "The claimant should be treated as having limited capability for work-related activity (LCWRA)",
+          text: "The claimant should be treated as having limited capability for work-related activity (LCWRA)"
+        }
+      ]
+    }) }}
+
+  </div>
+
+</div>
+</div>
+
+<button class="govuk-button" data-module="govuk-button">
+  Save and continue
+</button>
+
+</main>
+</div>
+
+<script type="text/javascript">
+    document.getElementById("substantialrisk").onclick = function() {
+          var link = "lcw-treat-as";
+      document.getElementById("question-form").action=link;
+    }
+
+    document.getElementById("substantialrisk-2").onclick = function() {
+          var link = "lcwra-treat-as";
+      document.getElementById("question-form").action=link;
+    }
+</script>
+
+
+
+{% endblock %}

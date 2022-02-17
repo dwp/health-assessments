@@ -1,0 +1,81 @@
+{% extends "layout.html" %}
+{% set bodyAttributes = { id: "assess" } %}
+
+{% block pageTitle %}
+  GOV.UK Prototype Kit
+{% endblock %}
+
+{% block main %}
+
+{% include "includes/assessment-status-neutral.html" %}
+
+  <div class="govuk-width-container {{ containerClasses }}">
+
+      {{ govukBackLink({
+        text: "Back",
+        href: "scoring"
+      }) }}
+
+    <main class="govuk-main-wrapper {{ mainClasses }}" id="main-content" role="main"{% if mainLang %} lang="{{ mainLang }}"{% endif %}>
+        <div class="govuk-grid-row">
+
+            <div class="govuk-grid-column-two-thirds">
+
+              <h1 class="govuk-heading-xl">Coping with changes</h1>
+
+              <form action="scoring" method="post">
+
+                {{ govukRadios({
+                  idPrefix: "copingSelect",
+                  name: "copingSelect",
+                  fieldset: {
+                    legend: {
+                      text: "How well can Jayne cope with changes to their routine?",
+                      isPageHeading: false,
+                      classes: "govuk-fieldset__legend--s"
+                    }
+                  },
+                  items: [
+                    {
+                      value: "Cannot cope with any change to their routine, to the extent that they can’t manage day to day",
+                      text: "Cannot cope with any change to their routine, to the extent that they can’t manage day to day"
+                    },
+                    {
+                      value: "If there were a small planned change to Jayne’s routine, they would find it significantly more difficult to manage",
+                      text: "If there were a small planned change to Jayne’s routine, they would find it significantly more difficult to manage"
+                    },
+                    {
+                      value: "If there were a small unplanned change to Jayne’s routine, they would find it significantly more difficult to manage",
+                      text: "If there were a small unplanned change to Jayne’s routine, they would find it significantly more difficult to manage"
+                    },
+                    {
+                      value: "None of the above",
+                      text: "None of the above"
+                    }
+                  ]
+                }) }}
+              
+                    {{ govukTextarea({
+                        name: "copingdetails",
+                        id: "copingdetails",
+                        label: {
+                          text: "Give details",
+                          classes: "govuk-label--s",
+                          isPageHeading: true
+                        },
+                        value: data['copingdetails']
+                      }) }}
+
+                      {{ govukButton({
+                        text: "Save"
+                      }) }}
+
+            </form>
+
+
+            </div>
+        </div>
+
+    </main>
+  </div>
+{% endblock %}

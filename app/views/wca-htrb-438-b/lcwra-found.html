@@ -1,0 +1,76 @@
+{% extends "layout.html" %}
+{% set bodyAttributes = { id: "assess" } %}
+
+{% block pageTitle %}
+  GOV.UK Prototype Kit
+{% endblock %}
+
+{% block main %}
+
+{% include "includes/assessment-status-neutral.html" %}
+
+  <div class="govuk-width-container {{ containerClasses }}">
+
+      {{ govukBackLink({
+        text: "Back",
+        href: "assessment-overview"
+      }) }}
+
+
+
+    <main class="govuk-main-wrapper {{ mainClasses }}" id="main-content" role="main"{% if mainLang %} lang="{{ mainLang }}"{% endif %}>
+        <div class="govuk-grid-row">
+
+            <div class="govuk-grid-column-two-thirds">
+
+              <h1 class="govuk-heading-xl">This claimant has limited capability for work-related activity (LCWRA)</h1>
+
+  <form action="time-review" method="post" id="question-form" novalidate>
+
+    {{ govukRadios({
+      idPrefix: "lcwra-curtail",
+      name: "lcwra-curtail",
+      fieldset: {
+        legend: {
+          text: "What would you like to do next",
+          isPageHeading: false,
+          classes: "govuk-fieldset__legend--s"
+        }
+      },
+      items: [
+        {
+          value: "Recommend a review period and curtail",
+          text: "Recommend a review period and curtail"
+        },
+        {
+          value: "Return to overview to complete notes",
+          text: "Return to overview to complete notes"
+        }
+      ]
+    }) }}
+
+    <button class="govuk-button" data-module="govuk-button">
+      Continue
+    </button>
+
+</div>
+</div>
+
+</main>
+</div>
+
+<script type="text/javascript">
+  document.getElementById("lcwra-curtail").onclick = function() {
+        var link = "time-review";
+    document.getElementById("question-form").action=link;
+  }
+
+  document.getElementById("lcwra-curtail-2").onclick = function() {
+        var link = "assessment-overview";
+    document.getElementById("question-form").action=link;
+  }
+
+</script>
+
+
+{% endblock %}

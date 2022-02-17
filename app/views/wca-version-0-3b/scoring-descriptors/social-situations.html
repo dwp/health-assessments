@@ -1,0 +1,81 @@
+{% extends "layout.html" %}
+{% set bodyAttributes = { id: "assess" } %}
+
+{% block pageTitle %}
+  GOV.UK Prototype Kit
+{% endblock %}
+
+{% block main %}
+
+{% include "includes/assessment-status-neutral.html" %}
+
+  <div class="govuk-width-container {{ containerClasses }}">
+
+      {{ govukBackLink({
+        text: "Back",
+        href: "scoring"
+      }) }}
+
+    <main class="govuk-main-wrapper {{ mainClasses }}" id="main-content" role="main"{% if mainLang %} lang="{{ mainLang }}"{% endif %}>
+        <div class="govuk-grid-row">
+
+            <div class="govuk-grid-column-two-thirds">
+
+              <h1 class="govuk-heading-xl">Coping with social situations</h1>
+
+              <form action="scoring" method="post">
+
+                {{ govukRadios({
+                  idPrefix: "socialsituSelect",
+                  name: "socialsituSelect",
+                  fieldset: {
+                    legend: {
+                      text: "How does Jayne cope with meeting and being with people?",
+                      isPageHeading: false,
+                      classes: "govuk-fieldset__legend--s"
+                    }
+                  },
+                  items: [
+                    {
+                      value: "Cannot meet and be with people without feeling significantly anxious or scared",
+                      text: "Cannot meet and be with people without feeling significantly anxious or scared"
+                    },
+                    {
+                      value: "Can only meet and with people they know without feeling significantly anxious or scared",
+                      text: "Can only meet and with people they know without feeling significantly anxious or scared"
+                    },
+                    {
+                      value: "Most of the time Jayne can only meet and be with people they know without feeling significantly anxious or scared",
+                      text: "Most of the time Jayne can only meet and be with people they know without feeling significantly anxious or scared"
+                    },
+                    {
+                      value: "None of the above",
+                      text: "None of the above"
+                    }
+                  ]
+                }) }}
+              
+                    {{ govukTextarea({
+                        name: "socialsitudetails",
+                        id: "socialsitudetails",
+                        label: {
+                          text: "Give details",
+                          classes: "govuk-label--s",
+                          isPageHeading: true
+                        },
+                        value: data['socialsitudetails']
+                      }) }}
+
+                      {{ govukButton({
+                        text: "Save"
+                      }) }}
+
+            </form>
+
+
+            </div>
+        </div>
+
+    </main>
+  </div>
+{% endblock %}

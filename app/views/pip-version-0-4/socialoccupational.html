@@ -1,0 +1,176 @@
+{% extends "layout.html" %}
+{% set bodyAttributes = { id: "assess" } %}
+
+{% block pageTitle %}
+  GOV.UK Prototype Kit
+{% endblock %}
+
+{% block main %}
+
+{% include "includes/assessment-status-neutral.html" %}
+
+  <div class="govuk-width-container {{ containerClasses }}">
+    <main class="govuk-main-wrapper {{ mainClasses }}" id="main-content" role="main"{% if mainLang %} lang="{{ mainLang }}"{% endif %}>
+        <div class="govuk-grid-row">
+
+            <div class="govuk-grid-column-two-thirds">
+
+                {{ govukBackLink({
+                  text: "Back",
+                  href: "assessment-status"
+                }) }}
+
+            <form action="assessment-status" method="post">
+
+                    {{ govukTextarea({
+                        name: "socialoccupational",
+                        id: "socialoccupational",
+                        rows: "12",
+                        label: {
+                          text: "Social and occupational history",
+                          classes: "govuk-label--xl",
+                          isPageHeading: true
+                        },
+                        value: data['socialoccupational']
+                      }) }}
+
+                      {{ govukButton({
+                        text: "Save"
+                      }) }}
+
+            </form>
+
+
+            <h2 class="govuk-heading-m govuk-!-margin-top-7">Guidance</h2>
+            <p>The information in this section is a prompt to what Case Managers require. It is key to case managers and adds value to the decision making process. This section should also include details of any associated symptoms. </p>
+            <p>It is not a prescriptive tick list and there are no mandatory questions. </p>
+            <p>Generally speaking, how does the claimant spend their typical day? Consider the following indicators (where appropriate) to draw out as much information on how their condition(s) affect them:</p>
+
+            <h3 class="govuk-heading-s">Home</h3>
+            <ul class="govuk-list govuk-list--bullet">
+              <li>What type of home they live-in.</li>
+              <li>Whether there are stairs.</li>   
+              <li>The location of bathrooms and toilets.</li>  
+              <li>Whether the claimant can access all areas of their home.</li> 
+              <li>Whether they have moved to a different type of dwelling due to a health issue, including when and why.</li>
+            </ul>
+            
+            <h3 class="govuk-heading-s">Adaptations to their home</h3>
+            <ul class="govuk-list govuk-list--bullet">
+              <li>Whether there have been any adaptations made to the property.</li>
+              <li>When, why and how they were funded (e.g. Local Authority, social services, self-funded etc). </li>   
+              <li>Whether the adaptations are specifically for the claimant.</li>
+            </ul>
+
+            <h3 class="govuk-heading-s">If working</h3>
+            <ul class="govuk-list govuk-list--bullet">
+              <li>How many hours per week they do.</li>
+              <li>How they travel to and from work </li>   
+              <li>Brief job description including a summary of tasks required</li>
+              <li>Whether the job is undertaken sitting or standing/walking.</li>
+              <li>Whether they work alone or with others. </li>
+              <li>Whether they make food or drink during breaks. </li>
+              <li>Whether they use the toilet independently at work. </li>
+              <li>List any reasonable adjustments made for the claimant due to their conditions.</li>
+              <li>Where relevant, brief details of any previous jobs held or from which they have recently left.</li>
+              <li>Have they had any time off work recently as a result of their medical problems or treatment for these?</li>
+            </ul>
+
+            <h3 class="govuk-heading-s">If they have any pets </h3>
+            <ul class="govuk-list govuk-list--bullet">
+              <li>What type of pet? (Relevant if, for example, walking a dog requires a lot of strength).</li>
+              <li>Whether the claimant cares for it.</li>   
+              <li>Whether the claimant takes it for a walk.</li>
+              <li>How often and what distance is walked. </li>
+            </ul>
+
+            <h3 class="govuk-heading-s">If in education, have recently left education or have learning difficulties</h3>
+            <ul class="govuk-list govuk-list--bullet">  
+                <li>What the claimant is studying. </li>
+                <li>How many hours/days per week they do.</li>
+                <li>How they get to and from college/school. </li>
+                <li>Whether they have any learning support or other tools in place to help</li>
+                <li>What type of exams/qualifications were taken (if any) and in what subjects</li>
+              </ul>
+              <h3 class="govuk-heading-s">If they have caring responsibilities (children or another adult)</h3>
+              <ul class="govuk-list govuk-list--bullet">
+                <li>Details of who they care for. </li>
+                <li>How often this care is required. </li>
+                <li>Whether that person lives with them (if not explain where they live and ask how claimant travels to & from their address). </li>
+                <li>Another adult - details of what kind of care they give. </li>
+                <li>Children - state how old are they, who takes them to/from school and what this journey involves, who cooks for them and helps with homework. If anyone helps with the children outline the help given and how often it is given.</li>
+              </ul>
+              <h3 class="govuk-heading-s">Hobbies</h3>
+              <ul class="govuk-list govuk-list--bullet">  
+                <li>What hobbies they have </li>
+                <li>What they do</li>
+                <li>How often do they do them and for how long </li>
+                <li>Are they solitary hobbies or done in a group? Enquire about social and interactive aspects of the hobby.</li>
+                <li>Whether they watch television</li>
+                <li>Whether they read books, magazines, newspapers etc</li>
+                <li>Whether they have stopped doing a hobby due to a health condition </li>
+              </ul>
+              <h3 class="govuk-heading-s">Shopping and using money</h3>
+              <ul class="govuk-list govuk-list--bullet">
+                <li>Whether they do their own shopping.</li>
+                <li>Where they go including distance from home.</li>
+                <li>What size of shop or supermarket is it and how long do they spend in there?</li>
+                <li>How they get there and back.</li>
+                <li>How often they go.</li>
+                <li>What time of day do they go to the shop? (e.g. only at quiet times to avoid crowds etc.)</li>
+              </ul>
+              <h3 class="govuk-heading-s">Housework</h3>
+              <ul class="govuk-list govuk-list--bullet">
+                <li>Whether the claimant is able to do it.</li>
+                <li>Details of how much can they do, and how often.</li>
+              </ul>
+
+              <h3 class="govuk-heading-s">If they drive</h3>
+              <ul class="govuk-list govuk-list--bullet">
+                  <li>Whether they drive, have a driving licence or have recently passed a theory test.</li>
+                  <li>Whether or not they have a car. </li>
+                  <li>Whether it is manual or automatic. </li>
+                  <li>Whether it has any adaptations for them.</li>
+                  <li>How often they use the car. </li>
+                  <li>Where they will go in it and what happens when they get there </li>
+                  <li>Whether this will be alone or whether someone is always with them.</li>
+                  <li>The distance they have to walk to get to the car.</li>
+                  <li>When did they last drive and where to. </li>
+                  <li>Whether they drive more now due to walking difficulties. </li>
+                  <li>Whether they have stopped driving due to a health condition or by choice. </li>
+                  <li>Whether they can fill their car with fuel at a garage and pay for it. </li>
+                  <li>Whether they can access the car independently and open/close the car doors.</li>
+              </ul>
+              <h3 class="govuk-heading-s">If they use public transport or taxis</h3>
+              <ul class="govuk-list govuk-list--bullet">
+                  <li>How they got to the Assessment Centre</li>
+                  <li>Whether they use public transport (alone or accompanied).</li>
+                  <li>How far the bus stop is from their home (if they use the bus). </li>
+                  <li>How far is their final destination from the bus/train/taxi stop? </li>
+                  <li>How often they use public transport and when did they last used it</li>
+                  <li>If they use taxis indicate whether they can they order one themselves. </li>
+              </ul>
+              <h3 class="govuk-heading-s">Phone/laptop/PC</h3>
+              <ul class="govuk-list govuk-list--bullet">
+                  <li>Whether the claimant has access to, or uses, any devices.</li>
+                  <li>What devices are used and what they are used for. </li>
+                  <li>Whether they set up their own accounts.</li>
+                  <li>Whether they use apps or games. </li>
+                  <li>How often each day they use them. </li>
+                  <li>What games they play and what the games involve.</li>
+                  <li>How long they play for. </li>
+                  <li>Whether the games are age appropriate.</li>
+                  <li>Whether they make any in-game purchases. </li>
+                  <li>Do they use any social media such as Facebook, Twitter etc? What do they use this for?</li>
+                  <li>Do they participate in online chat-rooms, forums, support groups for their hobbies, interests or medical conditions?</li>
+              </ul>
+              
+              <p>Information not usually relevant: Smoking, drug/alcohol use (unless a dependency) and whether they are right or left handed unless there is an upper limb problem.</p>
+              
+
+            </div>
+        </div>
+
+    </main>
+  </div>
+{% endblock %}

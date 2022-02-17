@@ -1,0 +1,118 @@
+{% extends "layout.html" %}
+{% set bodyAttributes = { id: "assess" } %}
+
+{% block pageTitle %}
+  GOV.UK Prototype Kit
+{% endblock %}
+
+{% block main %}
+
+{% include "includes/assessment-status-neutral.html" %}
+
+  <div class="govuk-width-container {{ containerClasses }}">
+
+      {{ govukBackLink({
+        text: "Back",
+        href: "physical-functions"
+      }) }}
+
+    <main class="govuk-main-wrapper {{ mainClasses }}" id="main-content" role="main"{% if mainLang %} lang="{{ mainLang }}"{% endif %}>
+        <div class="govuk-grid-row">
+
+            <div class="govuk-grid-column-two-thirds">
+
+              <h1 class="govuk-heading-xl">Understanding communication</h1>
+
+            <form id="question-form" action="physical-functions" method="post">
+
+              {{ govukTextarea({
+                name: "understandingcommunicationNotes",
+                id: "understandingcommunicationNotes",
+                rows: "8",
+                classes: "govuk-!-margin-bottom-9",
+                label: {
+                  text: "Notes on understanding communication",
+                  classes: "govuk-label--m",
+                  isPageHeading: false
+                },
+                value: data['understandingcommunicationNotes']
+              }) }}  
+
+                {{ govukRadios({
+                  idPrefix: "understandingcommunicationSelect",
+                  name: "understandingcommunicationSelect",
+                  fieldset: {
+                    legend: {
+                      text: "Which of these options describes how the claimant can understand simple messages from other people by hearing or lip-reading?",
+                      isPageHeading: false,
+                      classes: "govuk-fieldset__legend--s"
+                    }
+                  },
+                  items: [
+                    {
+                      value: "Cannot understand simple messages due to sensory impairment",
+                      text: "Cannot understand simple messages due to sensory impairment"
+                    },
+                    {
+                      value: "Has significant difficulty understanding simple messages from a stranger due to sensory impairment",
+                      text: "Has significant difficulty understanding simple messages from a stranger due to sensory impairment"
+                    },
+                    {
+                      value: "Has some difficulty understanding simple messages from a stranger due to sensory impairment",
+                      text: "Has some difficulty understanding simple messages from a stranger due to sensory impairment"
+                    },
+                    {
+                      value: "None of the above",
+                      text: "None of the above"
+                    }
+                  ]
+                }) }}
+
+                    {{ govukTextarea({
+                        name: "understandingcommunicationdetails",
+                        id: "understandingcommunicationdetails",
+                        label: {
+                          text: "Give details",
+                          classes: "govuk-label--s",
+                          isPageHeading: true
+                        },
+                        value: data['understandingcommunicationdetails']
+                      }) }}
+
+                      {{ govukButton({
+                        text: "Save"
+                      }) }}
+
+            </form>
+
+
+            </div>
+        </div>
+
+    </main>
+  </div>
+
+
+  <script type="text/javascript">
+    document.getElementById("understandingcommunicationSelect").onclick = function() {
+          var link = "../lcwra-found";
+      document.getElementById("question-form").action=link;
+    }
+  
+    document.getElementById("understandingcommunicationSelect-2").onclick = function() {
+          var link = "physical-functions";
+      document.getElementById("question-form").action=link;
+    }
+  
+    document.getElementById("understandingcommunicationSelect-3").onclick = function() {
+          var link = "physical-functions";
+      document.getElementById("question-form").action=link;
+    }
+  
+    document.getElementById("understandingcommunicationSelect-4").onclick = function() {
+          var link = "physical-functions";
+      document.getElementById("question-form").action=link;
+    }
+  </script>
+
+{% endblock %}

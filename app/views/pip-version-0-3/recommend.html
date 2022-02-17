@@ -1,0 +1,157 @@
+{% extends "layout.html" %}
+{% set bodyAttributes = { id: "assess" } %}
+
+{% block pageTitle %}
+  GOV.UK Prototype Kit
+{% endblock %}
+
+{% block main %}
+
+{% include "includes/assessment-status-neutral.html" %}
+
+  <div class="govuk-width-container {{ containerClasses }}">
+    <main class="govuk-main-wrapper {{ mainClasses }}" id="main-content" role="main"{% if mainLang %} lang="{{ mainLang }}"{% endif %}>
+        <div class="govuk-grid-row">
+
+            <div class="govuk-grid-column-two-thirds">
+
+                {{ govukBackLink({
+                  text: "Back",
+                  href: "review"
+                }) }}
+
+              <h1 class="govuk-heading-xl">Your recommendation</h1>
+              
+              <h2 class="govuk-heading-m">Assessment details</h2>
+
+              <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                      Date and time
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                      21st April 2021, 14:00
+                    </dd>
+                  </div>
+                  <div class="govuk-summary-list__row">
+                      <dt class="govuk-summary-list__key">
+                        Assessor
+                      </dt>
+                      <dd class="govuk-summary-list__value">
+                        Dr A. Jones
+                      </dd>
+                    </div>
+                    <div class="govuk-summary-list__row">
+                        <dt class="govuk-summary-list__key">
+                          Assessment centre
+                        </dt>
+                        <dd class="govuk-summary-list__value">
+                          Tresco
+                        </dd>
+                    </div>
+                </dl>
+
+                <h2 class="govuk-heading-m">Day to day life</h2>
+                <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+                    <script type="text/javascript">
+                      var preparingfoodSelect = {{data.preparingfoodSelect|dump|safe}}
+                      console.log(preparingfoodSelect)
+                      if (preparingfoodSelect) {
+                        document.write(' <div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">Preparing food</dt><dd class="govuk-summary-list__value"><p>{{ data['preparingfoodSelect'] }}</p><p class="govuk-body-s">{{ data['preparingfoodReason'] }}</p></dd><dd class="govuk-summary-list__actions"><a class="govuk-link" href="preparingfood-b">Change<span class="govuk-visually-hidden"> name</span></a></dd></div>');
+                        }
+                    </script>
+                    <script type="text/javascript">
+                      var takingnutritionSelect = {{data.takingnutritionSelect|dump|safe}}
+                      console.log(takingnutritionSelect)
+                      if (takingnutritionSelect) {
+                        document.write(' <div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">Taking nutrition</dt><dd class="govuk-summary-list__value"><p>{{ data['takingnutritionSelect'] }}</p><p class="govuk-body-s">{{ data['takingnutritionReason'] }}</p></dd><dd class="govuk-summary-list__actions"><a class="govuk-link" href="takingnutrition-b">Change<span class="govuk-visually-hidden"> name</span></a></dd></div>');
+                        }
+                    </script>
+                    <script type="text/javascript">
+                      var managingtherapySelect = {{data.managingtherapySelect|dump|safe}}
+                      console.log(managingtherapySelect)
+                      if (managingtherapySelect) {
+                        document.write(' <div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">Taking nutrition</dt><dd class="govuk-summary-list__value"><p>{{ data['managingtherapySelect'] }}</p><p class="govuk-body-s">{{ data['managingtherapyReason'] }}</p></dd><dd class="govuk-summary-list__actions"><a class="govuk-link" href="managingtherapy-b">Change<span class="govuk-visually-hidden"> name</span></a></dd></div>');
+                        }
+                    </script>
+                    <script type="text/javascript">
+                      var washingbathingSelect = {{data.washingbathingSelect|dump|safe}}
+                      console.log(washingbathingSelect)
+                      if (washingbathingSelect) {
+                        document.write(' <div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">Washing and bathing</dt><dd class="govuk-summary-list__value"><p>{{ data['washingbathingSelect'] }}</p><p class="govuk-body-s">{{ data['washingbathingReason'] }}</p></dd><dd class="govuk-summary-list__actions"><a class="govuk-link" href="washingbathing-b">Change<span class="govuk-visually-hidden"> name</span></a></dd></div>');
+                        }
+                    </script>
+                    <script type="text/javascript">
+                      var toiletneedsSelect = {{data.toiletneedsSelect|dump|safe}}
+                      console.log(toiletneedsSelect)
+                      if (toiletneedsSelect) {
+                        document.write(' <div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">Managing toilet needs</dt><dd class="govuk-summary-list__value"><p>{{ data['toiletneedsSelect'] }}</p><p class="govuk-body-s">{{ data['toiletneedsReason'] }}</p></dd><dd class="govuk-summary-list__actions"><a class="govuk-link" href="toiletneeds-b">Change<span class="govuk-visually-hidden"> name</span></a></dd></div>');
+                        }
+                    </script>
+                    <script type="text/javascript">
+                      var dressingSelect = {{data.dressingSelect|dump|safe}}
+                      console.log(dressingSelect)
+                      if (dressingSelect) {
+                        document.write(' <div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">Dressing and undressing</dt><dd class="govuk-summary-list__value"><p>{{ data['dressingSelect'] }}</p><p class="govuk-body-s">{{ data['dressingReason'] }}</p></dd><dd class="govuk-summary-list__actions"><a class="govuk-link" href="dressing-b">Change<span class="govuk-visually-hidden"> name</span></a></dd></div>');
+                        }
+                    </script>
+                    <script type="text/javascript">
+                      var communicatingverballySelect = {{data.communicatingverballySelect|dump|safe}}
+                      console.log(communicatingverballySelect)
+                      if (communicatingverballySelect) {
+                        document.write(' <div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">Communicating verbally</dt><dd class="govuk-summary-list__value"><p>{{ data['communicatingverballySelect'] }}</p><p class="govuk-body-s">{{ data['communicatingverballyReason'] }}</p></dd><dd class="govuk-summary-list__actions"><a class="govuk-link" href="communicatingverbally-b">Change<span class="govuk-visually-hidden"> name</span></a></dd></div>');
+                        }
+                    </script>
+                    <script type="text/javascript">
+                      var readingunderstandingSelect = {{data.readingunderstandingSelect|dump|safe}}
+                      console.log(readingunderstandingSelect)
+                      if (readingunderstandingSelect) {
+                        document.write(' <div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">Reading and understanding signs, symbols and words</dt><dd class="govuk-summary-list__value"><p>{{ data['readingunderstandingSelect'] }}</p><p class="govuk-body-s">{{ data['readingunderstandingReason'] }}</p></dd><dd class="govuk-summary-list__actions"><a class="govuk-link" href="readingunderstanding-b">Change<span class="govuk-visually-hidden"> name</span></a></dd></div>');
+                        }
+                    </script>
+                    <script type="text/javascript">
+                      var facetofaceSelect = {{data.facetofaceSelect|dump|safe}}
+                      console.log(facetofaceSelect)
+                      if (facetofaceSelect) {
+                        document.write(' <div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">Engaging face to face</dt><dd class="govuk-summary-list__value"><p>{{ data['facetofaceSelect'] }}</p><p class="govuk-body-s">{{ data['facetofaceReason'] }}</p></dd><dd class="govuk-summary-list__actions"><a class="govuk-link" href="facetoface-b">Change<span class="govuk-visually-hidden"> name</span></a></dd></div>');
+                        }
+                    </script>
+                    <script type="text/javascript">
+                      var budgetingSelect = {{data.budgetingSelect|dump|safe}}
+                      console.log(budgetingSelect)
+                      if (budgetingSelect) {
+                        document.write(' <div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">Budgeting</dt><dd class="govuk-summary-list__value"><p>{{ data['budgetingSelect'] }}</p><p class="govuk-body-s">{{ data['budgetingReason'] }}</p></dd><dd class="govuk-summary-list__actions"><a class="govuk-link" href="budgeting-b">Change<span class="govuk-visually-hidden"> name</span></a></dd></div>');
+                        }
+                    </script>
+                  </dl>
+
+                  <h2 class="govuk-heading-m">Mobility and getting around</h2>
+                <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+                    <script type="text/javascript">
+                      var journeysSelect = {{data.journeysSelect|dump|safe}}
+                      console.log(journeysSelect)
+                      if (journeysSelect) {
+                        document.write(' <div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">Planning and following journeys</dt><dd class="govuk-summary-list__value"><p>{{ data['journeysSelect'] }}</p><p class="govuk-body-s">{{ data['journeysReason'] }}</p></dd><dd class="govuk-summary-list__actions"><a class="govuk-link" href="journeys-b">Change<span class="govuk-visually-hidden"> name</span></a></dd></div>');
+                        }
+                    </script>
+                    <script type="text/javascript">
+                      var movingaroundSelect = {{data.movingaroundSelect|dump|safe}}
+                      console.log(movingaroundSelect)
+                      if (movingaroundSelect) {
+                        document.write(' <div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">Moving around</dt><dd class="govuk-summary-list__value"><p>{{ data['movingaroundSelect'] }}</p><p class="govuk-body-s">{{ data['movingaroundReason'] }}</p></dd><dd class="govuk-summary-list__actions"><a class="govuk-link" href="movingaround-b">Change<span class="govuk-visually-hidden"> name</span></a></dd></div>');
+                        }
+                    </script>
+                  </dl>
+            
+
+
+
+         <a href="declaration" class="govuk-button">Continue</a>
+
+        </div>
+</div>
+
+
+    </main>
+  </div>
+{% endblock %}

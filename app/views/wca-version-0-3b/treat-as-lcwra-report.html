@@ -1,0 +1,56 @@
+{% extends "layout.html" %}
+{% set bodyAttributes = { id: "assess" } %}
+
+{% block pageTitle %}
+  GOV.UK Prototype Kit
+{% endblock %}
+
+{% block main %}
+
+{% include "includes/assessment-status-neutral.html" %}
+
+  <div class="govuk-width-container {{ containerClasses }}">
+    <main class="govuk-main-wrapper {{ mainClasses }}" id="main-content" role="main"{% if mainLang %} lang="{{ mainLang }}"{% endif %}>
+        <div class="govuk-grid-row">
+
+            <div class="govuk-grid-column-full">
+
+                {{ govukBackLink({
+                  text: "Back",
+                  href: "review"
+                }) }}
+
+              <h1 class="govuk-heading-xl">Your recommendation</h1>
+
+              <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">Why do you want to curtail the assessment?</dt><dd class="govuk-summary-list__value"><p>{{ data['curtail'] }}</p></dd><dd class="govuk-summary-list__actions"><a class="govuk-link" href="curtail">Change<span class="govuk-visually-hidden"> name</span></a></dd>
+                    </div>
+                      <div class="govuk-summary-list__row">
+                        <dt class="govuk-summary-list__key no-bottom-border">What is the reason for treating as having limited capability for work-related activities (LCWRA)?</dt><dd class="govuk-summary-list__value no-bottom-border"><p>{{ data['treat-as-lcwra'] }}</p></dd><dd class="govuk-summary-list__actions no-bottom-border"><a class="govuk-link" href="treat-as-lcwra">Change<span class="govuk-visually-hidden"> name</span></a></dd>
+                        </div>
+                          <div class="govuk-summary-list__row">
+                            <dt class="govuk-summary-list__key">What are the reasons for this?</dt><dd class="govuk-summary-list__value"><p>{{ data['treat-as-give-reasons'] }}</p></dd><dd class="govuk-summary-list__actions"></dd>
+                            </div>
+                          </dl>
+              
+
+                <h3 class="govuk-heading-s">When does this claim need to be reviewed?</h2>
+                <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+                    <div class="govuk-summary-list__row">
+                      <dt class="govuk-summary-list__key no-bottom-border">When should the next review be?</dt><dd class="govuk-summary-list__value no-bottom-border"><p>{{ data['when-review'] }}</p></dd><dd class="govuk-summary-list__actions no-bottom-border"><a class="govuk-link" href="treat-as-lcwra-time-review">Change<span class="govuk-visually-hidden"> name</span></a></dd>
+                      </div>
+                    <div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">What are the reasons for this?</dt><dd class="govuk-summary-list__value"><p class="govuk-body">{{ data['review-time-reasons'] }}</p></dd><dd class="govuk-summary-list__actions"></dd>
+                      </div>
+                    </dl>
+
+
+         <a href="complete" class="govuk-button">Make recommendation</a>
+
+        </div>
+</div>
+
+
+    </main>
+  </div>
+{% endblock %}

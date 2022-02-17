@@ -1,0 +1,67 @@
+{% extends "layout.html" %}
+{% set bodyAttributes = { id: "assess" } %}
+
+{% block pageTitle %}
+  GOV.UK Prototype Kit
+{% endblock %}
+
+{% block main %}
+
+{% include "includes/assessment-in-progress.html" %}
+
+  <div class="govuk-width-container {{ containerClasses }}">
+    <main class="govuk-main-wrapper {{ mainClasses }}" id="main-content" role="main"{% if mainLang %} lang="{{ mainLang }}"{% endif %}>
+        <div class="govuk-grid-row">
+
+            <div class="govuk-grid-column-two-thirds">
+
+                {{ govukBackLink({
+                  text: "Back",
+                  href: "assessment-status"
+                }) }}
+
+            <form action="assessment-status" method="post">
+              {{ govukTextarea({
+                name: "communicatingverbally",
+                id: "communicatingverbally",
+                label: {
+                  text: "Communicating verbally",
+                  classes: "govuk-label--xl",
+                  isPageHeading: true
+                },
+                value: data['communicatingverbally']
+              }) }}      
+              
+
+                    {{ govukButton({
+                      text: "Save"
+                    }) }}
+                </ul>
+    
+
+
+            </form>
+
+
+            <h2 class="govuk-heading-m govuk-!-margin-top-7">Guidance</h2>
+            <p>Please give an indication of the following:</p>
+            <ul class="govuk-list govuk-list--bullet">
+              <li>Whether they wear hearing aids, and how many they</li>
+              <li>Whether they wear them all the time.</li>
+              <li>How they manage to hear and/or speak.</li>
+              <li>Give example(s) of how their hearing affects them day to day.</li>
+              <li>If there are speech restrictions or cognitive/intellectual restrictions – how these impact on their communication needs.</li>
+              <li>Whether any support is required including what format that ‘support’ takes e.g. BSL, Text to Speak etc.</li>
+              <li>Brief description of key restriction e.g. states uses BSL for all verbal communication due to profound deafness</li>
+              <li>Critical analysis of evidence e.g. showed was reliant on BSL throughout the assessment</li>
+              <li>Review of inconsistencies and consider the usual features/progress/nature of the condition</li>
+              <li>Summarise and refer to the evidence gathered.</li>   
+            </ul>
+              
+
+            </div>
+        </div>
+
+    </main>
+  </div>
+{% endblock %}

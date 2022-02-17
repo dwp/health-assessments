@@ -1,0 +1,220 @@
+{% extends "layout.html" %}
+{% set bodyAttributes = { id: "assess" } %}
+
+{% block pageTitle %}
+  GOV.UK Prototype Kit
+{% endblock %}
+
+{% block main %}
+
+{% include "includes/assessment-status-neutral.html" %}
+
+  <div class="govuk-width-container {{ containerClasses }}">
+    <main class="govuk-main-wrapper {{ mainClasses }}" id="main-content" role="main"{% if mainLang %} lang="{{ mainLang }}"{% endif %}>
+        <div class="govuk-grid-row">
+
+            <div class="govuk-grid-column-two-thirds">
+
+              <h1 class="govuk-heading-xl">Physical functions</h1>
+
+              <ul class="app-task-list">
+
+                  <li>
+                      <ul class="app-task-list__items govuk-!-padding-left-0">
+                        <li class="app-task-list__item">
+                          <span class="app-task-list__task-name">
+                            <a href="mobilising-using-steps" aria-describedby="company-information-status">
+                                Mobilising and using steps
+                            </a>
+                          </span>
+                          <script type="text/javascript">
+                            var mobilisingSelect = {{data.mobilisingSelect|dump|safe}}
+                            console.log(mobilisingSelect)
+                            if (mobilisingSelect) {
+                              var progress = "1";
+                              document.write('<strong class="govuk-tag govuk-tag app-task-list__tag" id="eligibility-status">Completed</strong>');
+                              }
+                            else {
+                              document.write('<strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="eligibility-status">Optional</strong>');
+                            }
+                          </script>
+                        </li>
+                        <li class="app-task-list__item">
+                            <span class="app-task-list__task-name">
+                              <a href="standing-and-sitting" aria-describedby="company-information-status">
+                                  Standing and sitting
+                              </a>
+                            </span>
+                            <script type="text/javascript">
+                              var standingsittingSelect = {{data.standingsittingSelect|dump|safe}}
+                              console.log(standingsittingSelect)
+                              if (standingsittingSelect) {
+                                var progress = "1";
+                                document.write('<strong class="govuk-tag govuk-tag app-task-list__tag" id="eligibility-status">Completed</strong>');
+                                }
+                              else {
+                                document.write('<strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="eligibility-status">Optional</strong>');
+                              }
+                            </script>
+                          </li>
+                          <li class="app-task-list__item">
+                          <span class="app-task-list__task-name">
+                            <a href="reaching" aria-describedby="company-information-status">
+                                Reaching
+                            </a>
+                          </span>
+                          <script type="text/javascript">
+                            var reachingSelect = {{data.reachingSelect|dump|safe}}
+                            console.log(reachingSelect)
+                            if (reachingSelect) {
+                              var progress = "1";
+                              document.write('<strong class="govuk-tag govuk-tag app-task-list__tag" id="eligibility-status">Completed</strong>');
+                              }
+                            else {
+                              document.write('<strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="eligibility-status">Optional</strong>');
+                            }
+                          </script>
+                        </li>
+                        <li class="app-task-list__item">
+                            <span class="app-task-list__task-name">
+                              <a href="pickingup" aria-describedby="company-information-status">
+                                  Picking up and moving things
+                              </a>
+                            </span>
+                            <script type="text/javascript">
+                              var pickingupSelect = {{data.pickingupSelect|dump|safe}}
+                              console.log(pickingupSelect)
+                              if (pickingupSelect) {
+                                var progress = "1";
+                                document.write('<strong class="govuk-tag govuk-tag app-task-list__tag" id="eligibility-status">Completed</strong>');
+                                }
+                              else {
+                                document.write('<strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="eligibility-status">Optional</strong>');
+                              }
+                            </script>
+                          </li>
+                          <li class="app-task-list__item">
+                              <span class="app-task-list__task-name">
+                                <a href="manual-dexterity" aria-describedby="company-information-status">
+                                    Manual dexterity
+                                </a>
+                              </span>
+                              <script type="text/javascript">
+                                var dexteritySelect = {{data.dexteritySelect|dump|safe}}
+                                console.log(dexteritySelect)
+                                if (dexteritySelect) {
+                                  var progress = "1";
+                                  document.write('<strong class="govuk-tag govuk-tag app-task-list__tag" id="eligibility-status">Completed</strong>');
+                                  }
+                                else {
+                                  document.write('<strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="eligibility-status">Optional</strong>');
+                                }
+                              </script>
+                            </li>
+                            <li class="app-task-list__item">
+                                <span class="app-task-list__task-name">
+                                  <a href="making-self-understood" aria-describedby="company-information-status">
+                                     Making self understood
+                                  </a>
+                                </span>
+                                <script type="text/javascript">
+                                  var makingselfunderstoodSelect = {{data.makingselfunderstoodSelect|dump|safe}}
+                                  console.log(makingselfunderstoodSelect)
+                                  if (makingselfunderstoodSelect) {
+                                    var progress = "1";
+                                    document.write('<strong class="govuk-tag govuk-tag app-task-list__tag" id="eligibility-status">Completed</strong>');
+                                    }
+                                  else {
+                                    document.write('<strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="eligibility-status">Optional</strong>');
+                                  }
+                                </script>
+                              </li>
+                              <li class="app-task-list__item">
+                                  <span class="app-task-list__task-name">
+                                    <a href="understanding-communication" aria-describedby="company-information-status">
+                                        Understanding communication
+                                    </a>
+                                  </span>
+                                  <script type="text/javascript">
+                                    var understandingcommunicationSelect = {{data.understandingcommunicationSelect|dump|safe}}
+                                    console.log(understandingcommunicationSelect)
+                                    if (understandingcommunicationSelect) {
+                                      var progress = "1";
+                                      document.write('<strong class="govuk-tag govuk-tag app-task-list__tag" id="eligibility-status">Completed</strong>');
+                                      }
+                                    else {
+                                      document.write('<strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="eligibility-status">Optional</strong>');
+                                    }
+                                  </script>
+                                </li>
+                                <li class="app-task-list__item">
+                                    <span class="app-task-list__task-name">
+                                      <a href="navigation" aria-describedby="company-information-status">
+                                          Navigation
+                                      </a>
+                                    </span>
+                                    <script type="text/javascript">
+                                      var navigationSelect = {{data.navigationSelect|dump|safe}}
+                                      console.log(navigationSelect)
+                                      if (navigationSelect) {
+                                        var progress = "1";
+                                        document.write('<strong class="govuk-tag govuk-tag app-task-list__tag" id="eligibility-status">Completed</strong>');
+                                        }
+                                      else {
+                                        document.write('<strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="eligibility-status">Optional</strong>');
+                                      }
+                                    </script>
+                                  </li>
+                                  <li class="app-task-list__item">
+                                      <span class="app-task-list__task-name">
+                                        <a href="continence" aria-describedby="company-information-status">
+                                            Continence
+                                        </a>
+                                      </span>
+                                      <script type="text/javascript">
+                                        var continenceSelect = {{data.continenceSelect|dump|safe}}
+                                        console.log(continenceSelect)
+                                        if (continenceSelect) {
+                                          var progress = "1";
+                                          document.write('<strong class="govuk-tag govuk-tag app-task-list__tag" id="eligibility-status">Completed</strong>');
+                                          }
+                                        else {
+                                          document.write('<strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="eligibility-status">Optional</strong>');
+                                        }
+                                      </script>
+                                    </li>
+                                    <li class="app-task-list__item">
+                                        <span class="app-task-list__task-name">
+                                          <a href="staying-conscious" aria-describedby="company-information-status">
+                                              Staying conscious when awake
+                                          </a>
+                                        </span>
+                                        <script type="text/javascript">
+                                          var stayingconsciousSelect = {{data.stayingconsciousSelect|dump|safe}}
+                                          console.log(stayingconsciousSelect)
+                                          if (stayingconsciousSelect) {
+                                            var progress = "1";
+                                            document.write('<strong class="govuk-tag govuk-tag app-task-list__tag" id="eligibility-status">Completed</strong>');
+                                            }
+                                          else {
+                                            document.write('<strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="eligibility-status">Optional</strong>');
+                                          }
+                                        </script>
+                                      </li>
+                                      </ul>
+                                    </li>
+
+
+
+
+                  </ul>
+
+                    <a href="../assessment-overview" class="govuk-button">Continue</a>
+
+
+            </div>
+        </div>
+
+    </main>
+  </div>
+{% endblock %}

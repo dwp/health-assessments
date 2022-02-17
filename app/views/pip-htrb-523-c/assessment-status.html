@@ -1,0 +1,280 @@
+{% extends "layout.html" %}
+{% set bodyAttributes = { id: "assess" } %}
+
+{% block pageTitle %}
+  GOV.UK Prototype Kit
+{% endblock %}
+
+{% block main %}
+
+{% include "includes/assessment-status-neutral.html" %}
+
+  <div class="govuk-width-container {{ containerClasses }}">
+    <main class="govuk-main-wrapper {{ mainClasses }}" id="main-content" role="main"{% if mainLang %} lang="{{ mainLang }}"{% endif %}>
+        <div class="govuk-grid-row">
+
+            <div class="govuk-grid-column-two-thirds">
+
+              <h1 class="govuk-heading-xl">Assessment overview</h1>
+
+              <ul class="app-task-list">
+                  <li>
+                    <h2 class="app-task-list__section">
+                      Assessment administration
+                    </h2>
+                    <ul class="app-task-list__items govuk-!-padding-left-0">
+                        <li class="app-task-list__item">
+                            <span class="app-task-list__task-name">
+                                {% if data['attendeename'] %}
+                              <a href="add-attendees-two" aria-describedby="read-declaration-status">
+                                  Additional attendees
+                              </a>
+                              {% else %}
+                              <a href="add-attendees" aria-describedby="read-declaration-status">
+                                  Additional attendees
+                              </a>
+                              {% endif %}
+                            </span>
+                            <strong class="govuk-tag govuk-tag app-task-list__tag" id="eligibility-status">Completed</strong>
+                          </li>
+                          <!--- <li class="app-task-list__item">
+                              <span class="app-task-list__task-name">
+                                <a href="consent" aria-describedby="read-declaration-status">
+                                  Consent for physical examination
+                                </a>
+                              </span>
+                              <script type="text/javascript">
+                                var consent = {{data.consent|dump|safe}}
+                                console.log(consent)
+                                if (consent) {
+                                  
+                                  document.write('<strong class="govuk-tag govuk-tag app-task-list__tag" id="eligibility-status">Completed</strong>');
+                                  }
+                                else {
+                                  document.write('<strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="eligibility-status">Not started</strong>');
+                                }
+                              </script>
+                            </li>  -->
+                    </ul>
+                    </li>
+
+                 
+
+                  <li>
+                    <h2 class="app-task-list__section">
+                      History
+                    </h2>
+                    <ul class="app-task-list__items govuk-!-padding-left-0">
+                      
+                      
+                      <li class="app-task-list__item">
+                        <span class="app-task-list__task-name">
+                          <a href="historyofcondition" aria-describedby="company-information-status">
+                            History of condition
+                          </a>
+                        </span>
+                        <strong class="govuk-tag govuk-tag app-task-list__tag" id="eligibility-status">Completed</strong>
+                      </li>
+
+                      <li class="app-task-list__item">
+                        <span class="app-task-list__task-name">
+                          <a href="current-medication" aria-describedby="eligibility-status">
+                            Current medication or treatment
+                          </a>
+                        </span>
+                        <strong class="govuk-tag govuk-tag app-task-list__tag" id="eligibility-status">Completed</strong>
+                      </li>
+                      
+                      <li class="app-task-list__item">
+                        <span class="app-task-list__task-name">
+                          <a href="socialoccupational" aria-describedby="contact-details-status">
+                            Social and occupational history
+                          </a>
+                        </span>
+                        <strong class="govuk-tag govuk-tag app-task-list__tag" id="eligibility-status">Completed</strong>
+                      </li>
+
+                    </ul>
+                  </li>
+
+                  
+
+                  <li>
+                      <h2 class="app-task-list__section">
+                        Day to day life
+                      </h2>
+                      <ul class="app-task-list__items govuk-!-padding-left-0">
+                        <li class="app-task-list__item">
+                          <span class="app-task-list__task-name">
+                            <a href="preparingfood" aria-describedby="company-information-status">
+                              Preparing food
+                            </a>
+                          </span>
+                          <strong class="govuk-tag govuk-tag app-task-list__tag" id="eligibility-status">Completed</strong>
+                        </li>
+                        <li class="app-task-list__item">
+                          <span class="app-task-list__task-name">
+                            <a href="takingnutrition" aria-describedby="contact-details-status">
+                              Taking nutrition
+                            </a>
+                          </span>
+                          <strong class="govuk-tag govuk-tag app-task-list__tag" id="eligibility-status">Completed</strong>
+                        </li>
+                        <li class="app-task-list__item">
+                            <span class="app-task-list__task-name">
+                              <a href="managingtherapy" aria-describedby="contact-details-status">
+                                Managing therapy
+                              </a>
+                            </span>
+                            <strong class="govuk-tag govuk-tag app-task-list__tag" id="eligibility-status">Completed</strong>
+                          </li>
+                          <li class="app-task-list__item">
+                              <span class="app-task-list__task-name">
+                                <a href="washingbathing" aria-describedby="contact-details-status">
+                                  Washing and bathing
+                                </a>
+                              </span>
+                              <strong class="govuk-tag govuk-tag app-task-list__tag" id="eligibility-status">Completed</strong>
+                            </li>
+                            <li class="app-task-list__item">
+                                <span class="app-task-list__task-name">
+                                  <a href="toiletneeds" aria-describedby="contact-details-status">
+                                    Managing toilet needs
+                                  </a>
+                                </span>
+                                <strong class="govuk-tag govuk-tag app-task-list__tag" id="eligibility-status">Completed</strong>
+                              </li>
+                              <li class="app-task-list__item">
+                                  <span class="app-task-list__task-name">
+                                    <a href="dressing" aria-describedby="contact-details-status">
+                                      Dressing and undressing
+                                    </a>
+                                  </span>
+                                  <strong class="govuk-tag govuk-tag app-task-list__tag" id="eligibility-status">Completed</strong>
+                                </li>
+                                <li class="app-task-list__item">
+                                    <span class="app-task-list__task-name">
+                                      <a href="communicatingverbally" aria-describedby="contact-details-status">
+                                        Communicating verbally
+                                      </a>
+                                    </span>
+                                    <strong class="govuk-tag govuk-tag app-task-list__tag" id="eligibility-status">Completed</strong>
+                                  </li>
+                                  <li class="app-task-list__item">
+                                      <span class="app-task-list__task-name">
+                                        <a href="readingunderstanding" aria-describedby="contact-details-status">
+                                          Reading and understanding signs, symbols and words
+                                        </a>
+                                      </span>
+                                      <strong class="govuk-tag govuk-tag app-task-list__tag" id="eligibility-status">Completed</strong>
+                                    </li>
+                                    <li class="app-task-list__item">
+                                        <span class="app-task-list__task-name">
+                                          <a href="facetoface" aria-describedby="contact-details-status">
+                                            Engaging face to face
+                                          </a>
+                                        </span>
+                                        <strong class="govuk-tag govuk-tag app-task-list__tag" id="eligibility-status">Completed</strong>
+                                      </li>
+                                      <li class="app-task-list__item">
+                                          <span class="app-task-list__task-name">
+                                            <a href="budgeting" aria-describedby="contact-details-status">
+                                              Budgeting
+                                            </a>
+                                          </span>
+                                          <strong class="govuk-tag govuk-tag app-task-list__tag" id="eligibility-status">Completed</strong>
+                                        </li>
+                                      </ul>
+                                    </li>
+
+                           
+                                    <h2 class="app-task-list__section">
+                                      Mobility and getting around
+                                    </h2>
+                                    <ul class="app-task-list__items govuk-!-padding-left-0">
+                                      <li class="app-task-list__item">
+                                          <span class="app-task-list__task-name">
+                                            <a href="journeys" aria-describedby="contact-details-status">
+                                              Planning and following journeys
+                                            </a>
+                                          </span>
+                                          <strong class="govuk-tag govuk-tag app-task-list__tag" id="eligibility-status">Completed</strong>
+                                        </li>
+                                        <li class="app-task-list__item">
+                                            <span class="app-task-list__task-name">
+                                              <a href="movingaround" aria-describedby="contact-details-status">
+                                               Moving around
+                                              </a>
+                                            </span>
+                                            <strong class="govuk-tag govuk-tag app-task-list__tag" id="eligibility-status">Completed</strong>
+                                          </li>
+                  
+                    </ul>
+                  </li>
+
+                    <li>
+                      <h2 class="app-task-list__section">
+                        Current condition
+                      </h2>
+                      <ul class="app-task-list__items govuk-!-padding-left-0">
+                        
+                        <li class="app-task-list__item">
+                          <span class="app-task-list__task-name">
+                            <a href="physicalhealth" aria-describedby="read-declaration-status">
+                              Physical health
+                            </a>
+                          </span>
+                          <strong class="govuk-tag govuk-tag app-task-list__tag" id="eligibility-status">Completed</strong>
+                        </li>
+                        <li class="app-task-list__item">
+                            <span class="app-task-list__task-name">
+                              <a href="mentalstate" aria-describedby="read-declaration-status">
+                                Mental state
+                              </a>
+                            </span>
+                            <strong class="govuk-tag govuk-tag app-task-list__tag" id="eligibility-status">Completed</strong>
+                          </li>
+                        <li class="app-task-list__item">
+                            <span class="app-task-list__task-name">
+                              <a href="observations" aria-describedby="read-declaration-status">
+                                Observations
+                              </a>
+                            </span>
+                            <strong class="govuk-tag govuk-tag app-task-list__tag" id="eligibility-status">Completed</strong>
+                          </li>
+                          <li class="app-task-list__item">
+                              <span class="app-task-list__task-name">
+                                <a href="variability" aria-describedby="read-declaration-status">
+                                  Variability
+                                </a>
+                              </span>
+                              <strong class="govuk-tag govuk-tag app-task-list__tag" id="eligibility-status">Completed</strong>
+                            </li>
+                      </ul>
+                    </li>
+
+                  <li>
+                    <h2 class="app-task-list__section">
+                     Abandoning the assessment
+                    </h2>
+                    <ul class="app-task-list__items govuk-!-padding-left-0">
+                        <li class="app-task-list__item">
+                            <span class="app-task-list__task-name">
+                              <a href="abandon" aria-describedby="contact-details-status">
+                               Abandon assessment
+                              </a>
+                            </span>
+                            <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="eligibility-status">Optional</strong>
+                          </li>
+                    </ul>
+                  </li>
+                </ul>
+
+                <a href="mobility" class="govuk-button">Save and continue</a>
+
+            </div>
+        </div>
+
+    </main>
+  </div>
+{% endblock %}

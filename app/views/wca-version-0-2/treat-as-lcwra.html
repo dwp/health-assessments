@@ -1,0 +1,93 @@
+{% extends "layout.html" %}
+{% set bodyAttributes = { id: "assess" } %}
+
+{% block pageTitle %}
+  GOV.UK Prototype Kit
+{% endblock %}
+
+{% block main %}
+
+{% include "includes/assessment-status-neutral.html" %}
+
+  <div class="govuk-width-container {{ containerClasses }}">
+
+      {{ govukBackLink({
+        text: "Back",
+        href: "assessment-overview"
+      }) }}
+      
+    <main class="govuk-main-wrapper {{ mainClasses }}" id="main-content" role="main"{% if mainLang %} lang="{{ mainLang }}"{% endif %}>
+        <div class="govuk-grid-row">
+
+            <div class="govuk-grid-column-two-thirds">
+
+  <form action="treat-as-lcwra-time-review" method="post" id="question-form" novalidate>
+
+      {{ govukRadios({
+        idPrefix: "lcwra",
+        name: "treat-as-lcwra",
+        fieldset: {
+          legend: {
+            text: "What is the reason for treating as having limited capability for work-related activities (LCWRA)?",
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend--xl"
+          }
+        },
+        items: [
+          {
+            value: "Terminal illness",
+            text: "Terminal illness",
+            hint: {
+              text: "There are conditions reported or evidence available for terminal illness."
+            }
+          },
+          {
+            value: "Serious risks associated with pregnancy",
+            text: "Serious risks associated with pregnancy",
+            hint: {
+              text: "The claimant is pregnant and there is a serious risk of damage to their health or the health of their unborn child if they do not refrain from work and work-related activity."
+            }
+          },
+          {
+            value: "Chemotherapy or radiotherapy",
+            text: "Chemotherapy or radiotherapy",
+            hint: {
+              text: "The claimant is receiving chemotherapy or radiotherapy as treatment for cancer, likely to receive it in the next 6 months, or recovering from it."
+            }
+          },
+          {
+            value: "Substantial risk (mental or physical)",
+            text: "Substantial risk (mental or physical)",
+            hint: {
+              text: "There is substantial risk to the physical or mental health of any person if the claimant is found not to have limited capability for work and work-related activity."
+            }
+          }
+        ]
+      }) }}
+
+      {{ govukTextarea({
+        name: "treat-as-give-reasons",
+        id: "treat-as-give-reasons",
+        label: {
+          text: "What are the reasons for this?",
+          classes: "govuk-label--s",
+          isPageHeading: false
+        }
+      }) }}
+
+
+</div>
+</div>
+
+<button class="govuk-button" data-module="govuk-button">
+  Continue
+</button>
+
+</main>
+</div>
+
+
+
+
+
+{% endblock %}

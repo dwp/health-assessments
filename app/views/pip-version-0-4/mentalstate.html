@@ -1,0 +1,65 @@
+{% extends "layout.html" %}
+{% set bodyAttributes = { id: "assess" } %}
+
+{% block pageTitle %}
+  GOV.UK Prototype Kit
+{% endblock %}
+
+{% block main %}
+
+{% include "includes/assessment-status-neutral.html" %}
+
+  <div class="govuk-width-container {{ containerClasses }}">
+    <main class="govuk-main-wrapper {{ mainClasses }}" id="main-content" role="main"{% if mainLang %} lang="{{ mainLang }}"{% endif %}>
+        <div class="govuk-grid-row">
+
+            <div class="govuk-grid-column-two-thirds">
+
+                {{ govukBackLink({
+                  text: "Back",
+                  href: "assessment-status"
+                }) }}
+
+            <form action="assessment-status" method="post">
+
+                    {{ govukTextarea({
+                        name: "mentalstate",
+                        id: "mentalstate",
+                        rows: "12",
+                        label: {
+                          text: "Mental state",
+                          classes: "govuk-label--xl",
+                          isPageHeading: true
+                        },
+                        value: data['mentalstate']
+                      }) }}
+
+                      {{ govukButton({
+                        text: "Save"
+                      }) }}
+
+            </form>
+
+
+            <h2 class="govuk-heading-m govuk-!-margin-top-7">Guidance</h2>
+          
+            <h2 class="govuk-heading-s">Mental state examination</h2>
+            <p>A Mental State Examination (MSE) gives a picture of the claimant on the day of the assessment (as well as normal tests) please also include:</p>
+
+            <ul class="govuk-list govuk-list--bullet">
+              <li>Information about how the claimant interacted overall, their behaviour, and whether support was needed by any companion e.g. in the form of prompting, answering/talking on behalf of the claimant etc.</li>
+              <li>Information about how they prepared for the assessment-who helped them etc.</li>
+              <li>Information about their companion (where appropriate) and how much input they have into the assessment.</li>
+              <li>Details of any physical signs of distress or anxiety and whether their companion (if attends with a companion) needs to support them in terms of comforting and/or in other areas of the assessment</li>
+              <li>Level of eye contact</li>
+              <li>Information regarding memory, concentration, attention and cognition throughout the whole assessment process including an explanation supporting the findings e.g. whether the claimant was able to keep focused on, and answer all the questions without any help or prompting from their companion.</li>
+                
+            </ul>
+              
+
+            </div>
+        </div>
+
+    </main>
+  </div>
+{% endblock %}

@@ -1,0 +1,95 @@
+{% extends "layout.html" %}
+{% set bodyAttributes = { id: "assess" } %}
+
+{% block pageTitle %}
+  GOV.UK Prototype Kit
+{% endblock %}
+
+{% block main %}
+
+{% include "includes/wca-assessment-in-progress.html" %}
+
+  <div class="govuk-width-container {{ containerClasses }}">
+
+      {{ govukBackLink({
+        text: "Back",
+        href: "assessment-overview"
+      }) }}
+      
+    <main class="govuk-main-wrapper {{ mainClasses }}" id="main-content" role="main"{% if mainLang %} lang="{{ mainLang }}"{% endif %}>
+        <div class="govuk-grid-row">
+
+            <div class="govuk-grid-column-two-thirds">
+
+  <form action="scoring-report" method="post" id="question-form" novalidate>
+
+      {{ govukRadios({
+        idPrefix: "whenreview",
+        name: "whenreview",
+        fieldset: {
+          legend: {
+            text: "When does this claim need to be reviewed?",
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend--xl"
+          }
+        },
+        items: [
+          {
+            value: "3 months",
+            text: "3 months"
+          },
+          {
+            value: "6 months",
+            text: "6 months"
+          },
+          {
+            value: "12 months",
+            text: "12 months"
+          },
+          {
+            value: "18 months",
+            text: "18 months"
+          }
+          ,
+          {
+            value: "Within 2 years",
+            text: "Within 2 years"
+          }
+          ,
+          {
+            value: "In the longer term",
+            text: "In the longer term"
+          }
+          ,
+          {
+            value: "No future assessments required",
+            text: "No future assessments required"
+          }
+        ]
+      }) }}
+
+      {{ govukTextarea({
+        name: "reviewtimereasons",
+        id: "reviewtimereasons",
+        label: {
+          text: "What are the reasons for this?",
+          classes: "govuk-label--s",
+          isPageHeading: false
+        }
+      }) }}
+
+</div>
+</div>
+
+<button class="govuk-button" data-module="govuk-button">
+  Continue
+</button>
+
+</main>
+</div>
+
+
+
+
+
+{% endblock %}

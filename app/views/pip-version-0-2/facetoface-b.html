@@ -1,0 +1,114 @@
+{% extends "layout.html" %}
+{% set bodyAttributes = { id: "assess" } %}
+
+{% block pageTitle %}
+  GOV.UK Prototype Kit
+{% endblock %}
+
+{% block main %}
+
+{% include "includes/assessment-complete.html" %}
+
+  <div class="govuk-width-container {{ containerClasses }}">
+    <main class="govuk-main-wrapper {{ mainClasses }}" id="main-content" role="main"{% if mainLang %} lang="{{ mainLang }}"{% endif %}>
+        <div class="govuk-grid-row">
+
+            <div class="govuk-grid-column-two-thirds">
+
+                {{ govukBackLink({
+                  text: "Back",
+                  href: "assessment-status"
+                }) }}
+
+                <h1 class="govuk-heading-xl">Engaging face to face</h1>
+
+                </div>
+          </div>
+
+          <div class="govuk-grid-row">
+
+            <div class="govuk-grid-column-two-thirds">
+
+            <form action="review" method="post">
+              <div class="govuk-form-group">
+                <fieldset class="govuk-fieldset">
+                  <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+                    <h1 class="govuk-fieldset__heading">
+                      Which of these describes how well Jayne can engage face to face?
+                    </h1>
+                  </legend>
+                  <div class="govuk-radios">
+                    <div class="govuk-radios__item">
+                      <input class="govuk-radios__input" id="facetofaceSelect" name="facetofaceSelect" type="radio" value="Can engage with other people unaided">
+                      <label class="govuk-label govuk-radios__label" for="facetofaceSelect">
+                        Can engage with other people unaided
+                      </label>
+                    </div>
+                    <div class="govuk-radios__item">
+                      <input class="govuk-radios__input" id="facetofaceSelect-2" name="facetofaceSelect" type="radio" value="Needs prompting to be able to engage with other people">
+                      <label class="govuk-label govuk-radios__label" for="facetofaceSelect-2">
+                        Needs prompting to be able to engage with other people
+                      </label>
+                    </div>
+                    <div class="govuk-radios__item">
+                      <input class="govuk-radios__input" id="facetofaceSelect-3" name="facetofaceSelect" type="radio" value="Needs social support to be able to engage with other people">
+                      <label class="govuk-label govuk-radios__label" for="facetofaceSelect-3">
+                        Needs social support to be able to engage with other people
+                      </label>
+                    </div>
+                    <div class="govuk-radios__item">
+                      <input class="govuk-radios__input" id="facetofaceSelect-4" name="facetofaceSelect" type="radio" value="Cannot engage with other people due to such engagement causing either – overwhelming psychological distress to the claimant; or the claimant to exhibit behaviour which would result in a substantial risk of harm to the claimant or another person">
+                      <label class="govuk-label govuk-radios__label" for="facetofaceSelect-4">
+                        Cannot engage with other people due to such engagement causing either –
+                        <ol>
+                          <li>overwhelming psychological distress to the claimant; or</li>
+                          <li>the claimant to exhibit behaviour which would result in a substantial risk of harm to the claimant or another person</li>
+                        </ol>
+                      </label>
+                    </div>
+                
+                   
+                  </div>
+              
+                </fieldset>
+              </div>
+              
+
+                    {{ govukTextarea({
+                      name: "facetofaceReason",
+                      id: "facetofaceReason",
+                      label: {
+                        text: "What is the reason for this answer?",
+                        classes: "govuk-label--m",
+                        isPageHeading: false
+                      },
+                      value: data['facetofaceReason']
+                    }) }}  
+
+                    {{ govukButton({
+                      text: "Save"
+                    }) }}
+                </ul>
+    
+
+
+            </form>
+
+              
+
+            </div>
+
+            <div class="govuk-grid-column-one-third">
+
+              <div class="notes-box">
+              <h2 class="govuk-heading-m">Your assessment notes</h2>
+              <p>{{ data['facetoface'] }}</p>
+               </div>
+
+            </div>
+
+        </div>
+
+    </main>
+  </div>
+{% endblock %}

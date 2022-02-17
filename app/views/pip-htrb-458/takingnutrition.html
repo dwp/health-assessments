@@ -1,0 +1,131 @@
+{% extends "layout.html" %}
+{% set bodyAttributes = { id: "assess" } %}
+
+{% block pageTitle %}
+  GOV.UK Prototype Kit
+{% endblock %}
+
+{% block main %}
+
+{% include "includes/assessment-status-neutral.html" %}
+
+  <div class="govuk-width-container {{ containerClasses }}">
+    <main class="govuk-main-wrapper {{ mainClasses }}" id="main-content" role="main"{% if mainLang %} lang="{{ mainLang }}"{% endif %}>
+        <div class="govuk-grid-row">
+
+            <div class="govuk-grid-column-two-thirds">
+
+                {{ govukBackLink({
+                  text: "Back",
+                  href: "assessment-status"
+                }) }}
+
+                <h1 class="govuk-heading-xl">Taking nutrition</h1>
+
+                </div>
+          </div>
+
+          <div class="govuk-grid-row">
+
+            <div class="govuk-grid-column-two-thirds">
+
+              <form action="assessment-status" method="post">
+                
+
+              {{ govukTextarea({
+                name: "takingnutritionNotes",
+                id: "takingnutritionNotes",
+                rows: "8",
+                classes: "govuk-!-margin-bottom-9",
+                label: {
+                  text: "Notes on taking nutrition",
+                  classes: "govuk-label--m",
+                  isPageHeading: false
+                },
+                value: data['takingnutritionNotes']
+              }) }}  
+
+              <div class="govuk-form-group">
+                <fieldset class="govuk-fieldset">
+                  <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+                    <h1 class="govuk-fieldset__heading">
+                      Which of these describes how well the claimant can take nutrition?
+                    </h1>
+                  </legend>
+                  <div class="govuk-radios">
+                    <div class="govuk-radios__item">
+                      <input class="govuk-radios__input" id="takingnutritionSelect" name="takingnutritionSelect" type="radio" value="Can take nutrition unaided">
+                      <label class="govuk-label govuk-radios__label" for="takingnutritionSelect">
+                        Can take nutrition unaided
+                      </label>
+                    </div>
+                    <div class="govuk-radios__item">
+                      <input class="govuk-radios__input" id="takingnutritionSelect-2" name="takingnutritionSelect" type="radio" value="Needs - to use an aid or appliance to be able to take nutrition; or supervision to be able to take nutrition; or assistance to be able to cut up food.">
+                      <label class="govuk-label govuk-radios__label" for="takingnutritionSelect-2">
+                        Needs to use an aid or appliance to be able to take nutrition, or supervision to be able to take nutrition, or assistance to be able to cut up food
+                      </label>
+                    </div>
+                    <div class="govuk-radios__item">
+                      <input class="govuk-radios__input" id="takingnutritionSelect-3" name="takingnutritionSelect" type="radio" value="Needs a therapeutic source to be able to take nutrition">
+                      <label class="govuk-label govuk-radios__label" for="takingnutritionSelect-3">
+                        Needs a therapeutic source to be able to take nutrition
+                      </label>
+                    </div>
+                    <div class="govuk-radios__item">
+                      <input class="govuk-radios__input" id="takingnutritionSelect-4" name="takingnutritionSelect" type="radio" value="Needs prompting to be able to take nutrition">
+                      <label class="govuk-label govuk-radios__label" for="takingnutritionSelect-4">
+                        Needs prompting to be able to take nutrition
+                      </label>
+                    </div>
+                    <div class="govuk-radios__item">
+                      <input class="govuk-radios__input" id="takingnutritionSelect-5" name="takingnutritionSelect" type="radio" value="Needs assistance to be able to manage a therapeutic source to take nutrition">
+                      <label class="govuk-label govuk-radios__label" for="takingnutritionSelect-5">
+                        Needs assistance to be able to manage a therapeutic source to take nutrition
+                      </label>
+                    </div>
+                    <div class="govuk-radios__item">
+                      <input class="govuk-radios__input" id="takingnutritionSelect-6" name="takingnutritionSelect" type="radio" value="Cannot convey food and drink to their mouth and needs another person to do so">
+                      <label class="govuk-label govuk-radios__label" for="takingnutritionSelect-6">
+                        Cannot convey food and drink to their mouth and needs another person to do so
+                      </label>
+                    </div>
+                  </div>
+
+                </fieldset>
+              </div>
+              
+
+                    {{ govukTextarea({
+                      name: "takingnutritionReason",
+                      id: "takingnutritionReason",
+                      label: {
+                        text: "What is the reason for this answer?",
+                        classes: "govuk-label--m",
+                        isPageHeading: false
+                      },
+                      value: data['takingnutritionReason']
+                    }) }}  
+
+                    {{ govukButton({
+                      text: "Save"
+                    }) }}
+                </ul>
+    
+
+
+            </form>
+
+              
+
+            </div>
+
+            <div class="govuk-grid-column-one-third">
+
+
+            </div>
+
+        </div>
+
+    </main>
+  </div>
+{% endblock %}

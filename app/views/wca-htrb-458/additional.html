@@ -1,0 +1,81 @@
+{% extends "layout.html" %}
+{% set bodyAttributes = { id: "assess" } %}
+
+{% block pageTitle %}
+  GOV.UK Prototype Kit
+{% endblock %}
+
+{% block main %}
+
+{% include "includes/assessment-status-neutral.html" %}
+
+  <div class="govuk-width-container {{ containerClasses }}">
+
+      {{ govukBackLink({
+        text: "Back",
+        href: "assessment-type"
+      }) }}
+
+    <main class="govuk-main-wrapper {{ mainClasses }}" id="main-content" role="main"{% if mainLang %} lang="{{ mainLang }}"{% endif %}>
+        <div class="govuk-grid-row">
+
+            <div class="govuk-grid-column-two-thirds">
+
+  <form action="assessment-overview" method="post" id="question-form" novalidate>
+
+
+
+  <div class="govuk-form-group">
+    <fieldset class="govuk-fieldset" aria-describedby="sign-in-hint">
+      <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">
+        <h1 class="govuk-fieldset__heading">
+          Is anyone else at the assessment?</h1>
+      </legend>
+      <div id="event-name-hint" class="govuk-hint">
+  This could include the claimant’s partner, friend or interpreter.
+</div>
+
+       <div class="govuk-radios govuk-radios--conditional" data-module="govuk-radios">
+         <div class="govuk-radios__item">
+           <input class="govuk-radios__input" id="addattendees-one" name="addattendees" value="Yes"  type="radio" aria-describedby="sign-in-2-item-hint" >
+           <label class="govuk-label govuk-radios__label" for="addattendees-one">
+             Yes
+           </label>
+         </div>
+
+        <div class="govuk-radios__item">
+          <input class="govuk-radios__input" id="addattendees-two" name="addattendees"   type="radio" value="No">
+          <label class="govuk-label govuk-radios__label" for="addattendees-two">
+            No
+          </label>
+        </div>
+
+      </div>
+    </fieldset>
+
+  </div>
+
+</div>
+</div>
+
+<button class="govuk-button" data-module="govuk-button">
+  Save and continue
+</button>
+
+</main>
+</div>
+
+
+<script type="text/javascript">
+  document.getElementById("addattendees-one").onclick = function() {
+        var link = "add-attendees";
+    document.getElementById("question-form").action=link;
+  }
+
+  document.getElementById("addattendees-three").onclick = function() {
+        var link = "assessment-overview";
+    document.getElementById("question-form").action=link;
+  }
+</script>
+
+{% endblock %}

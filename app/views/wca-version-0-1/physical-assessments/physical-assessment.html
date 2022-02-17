@@ -1,0 +1,313 @@
+{% extends "layout.html" %}
+{% set bodyAttributes = { id: "assess" } %}
+
+{% block pageTitle %}
+  GOV.UK Prototype Kit
+{% endblock %}
+
+{% block main %}
+
+{% include "includes/wca-assessment-in-progress.html" %}
+
+  <div class="govuk-width-container {{ containerClasses }}">
+
+      {{ govukBackLink({
+        text: "Back to assessment overview",
+        href: "../assessment-overview"
+      }) }}
+
+    <main class="govuk-main-wrapper {{ mainClasses }}" id="main-content" role="main"{% if mainLang %} lang="{{ mainLang }}"{% endif %}>
+        <div class="govuk-grid-row">
+
+            <div class="govuk-grid-column-two-thirds">
+
+              <h1 class="govuk-heading-xl">Physical assessment</h1>
+              
+              <ul class="app-task-list">
+     
+                  <h2 class="app-task-list__section">
+                    <span class="app-task-list__section-number">General health
+                  </h2>
+                  <ul class="app-task-list__items  govuk-!-padding-left-0">
+                    <li class="app-task-list__item">
+                      <span class="app-task-list__task-name">
+                        <a href="General-health/GeneralHealth" aria-describedby="read-declaration-status">
+                          General health
+                        </a>
+                      </span>
+                      {% if session['general-health'] %}
+                      <strong class="govuk-tag app-task-list__tag" id="eligibility-status">Completed</strong>
+                      {% else %}
+                      <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="list-convictions-status">Not started</strong>
+                      {% endif %}
+                    </li>
+                  </ul>
+                   
+          
+          
+                <h2 class="app-task-list__section">
+                  <span class="app-task-list__section-number">Lower back and legs
+                </h2>
+                <ul class="app-task-list__items govuk-!-padding-left-0">
+                  <li class="app-task-list__item">
+                    <span class="app-task-list__task-name">
+                      <a href="Lower-back-and-legs/lowerback" aria-describedby="read-declaration-status">
+                        Lower back
+                      </a>
+                    </span>
+                    {% if session['general-health'] %}
+                    <strong class="govuk-tag app-task-list__tag" id="eligibility-status">Completed</strong>
+                    {% else %}
+                    <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="list-convictions-status">Not started</strong>
+                    {% endif %}
+                  </li>
+                  <li class="app-task-list__item">
+                    <span class="app-task-list__task-name">
+                      <a href="Lower-back-and-legs/left-leg" aria-describedby="read-declaration-status">
+                        Left leg
+                      </a>
+                    </span>
+                    {% if session['leg-back'] %}
+                    <strong class="govuk-tag app-task-list__tag" id="eligibility-status">Completed</strong>
+                    {% else %}
+                    <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="list-convictions-status">Not started</strong>
+                    {% endif %}
+                  </li>
+                  <li class="app-task-list__item">
+                    <span class="app-task-list__task-name">
+                      <a href="Lower-back-and-legs/right-leg" aria-describedby="read-declaration-status">
+                        Right leg
+                      </a>
+                    </span>
+                    {% if session['neck-arms'] %}
+                    <strong class="govuk-tag app-task-list__tag" id="eligibility-status">Completed</strong>
+                    {% else %}
+                    <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="list-convictions-status">Not started</strong>
+                    {% endif %}
+                  </li>
+                
+                </ul>
+            
+          
+          
+                <h2 class="app-task-list__section">
+                  <span class="app-task-list__section-number">Neck and arms
+                </h2>
+                <ul class="app-task-list__items govuk-!-padding-left-0">
+                  <li class="app-task-list__item">
+                    <span class="app-task-list__task-name">
+                      <a href="Neck-and-arms/neck" aria-describedby="read-declaration-status">
+                        Neck
+                      </a>
+                    </span>
+                    {% if session['general-health'] %}
+                    <strong class="govuk-tag app-task-list__tag" id="eligibility-status">Completed</strong>
+                    {% else %}
+                    <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="list-convictions-status">Not started</strong>
+                    {% endif %}
+                  </li>
+                  <li class="app-task-list__item">
+                    <span class="app-task-list__task-name">
+                      <a href="Neck-and-arms/right-upper-arm" aria-describedby="read-declaration-status">
+                        Left upper arm
+                      </a>
+                    </span>
+                    {% if session['leg-back'] %}
+                    <strong class="govuk-tag app-task-list__tag" id="eligibility-status">Completed</strong>
+                    {% else %}
+                    <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="list-convictions-status">Not started</strong>
+                    {% endif %}
+                  </li>
+                  <li class="app-task-list__item">
+                    <span class="app-task-list__task-name">
+                      <a href="Neck-and-arms/right-upper-arm" aria-describedby="read-declaration-status">
+                        Right upper arm
+                      </a>
+                    </span>
+                    {% if session['neck-arms'] %}
+                    <strong class="govuk-tag app-task-list__tag" id="eligibility-status">Completed</strong>
+                    {% else %}
+                    <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="list-convictions-status">Not started</strong>
+                    {% endif %}
+                  </li>
+                  <li class="app-task-list__item">
+                    <span class="app-task-list__task-name">
+                      <a href="Neck-and-arms/left-forearm" aria-describedby="read-declaration-status">
+                        Left forearm
+                      </a>
+                    </span>
+                    {% if session['neck-arms'] %}
+                    <strong class="govuk-tag app-task-list__tag" id="eligibility-status">Completed</strong>
+                    {% else %}
+                    <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="list-convictions-status">Not started</strong>
+                    {% endif %}
+                  </li>
+                  <li class="app-task-list__item">
+                    <span class="app-task-list__task-name">
+                      <a href="Neck-and-arms/right-forearm" aria-describedby="read-declaration-status">
+                        Right forearm
+                      </a>
+                    </span>
+                    {% if session['neck-arms'] %}
+                    <strong class="govuk-tag app-task-list__tag" id="eligibility-status">Completed</strong>
+                    {% else %}
+                    <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="list-convictions-status">Not started</strong>
+                    {% endif %}
+                  </li>
+                
+                </ul>
+          
+          
+          
+                <h2 class="app-task-list__section">
+                  <span class="app-task-list__section-number">Cardiovascular and respiratory
+                </h2>
+                <ul class="app-task-list__items govuk-!-padding-left-0">
+                  <li class="app-task-list__item">
+                    <span class="app-task-list__task-name">
+                      <a href="Cardiovascular-and-respiratory/radial-pulse" aria-describedby="read-declaration-status">
+                        Radial pulse
+                      </a>
+                    </span>
+                    {% if session['general-health'] %}
+                    <strong class="govuk-tag app-task-list__tag" id="eligibility-status">Completed</strong>
+                    {% else %}
+                    <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="list-convictions-status">Not started</strong>
+                    {% endif %}
+                  </li>
+                  <li class="app-task-list__item">
+                    <span class="app-task-list__task-name">
+                      <a href="Cardiovascular-and-respiratory/LeftlegPerip" aria-describedby="read-declaration-status">
+                        Left leg peripheral circulation
+                      </a>
+                    </span>
+                    {% if session['leg-back'] %}
+                    <strong class="govuk-tag app-task-list__tag" id="eligibility-status">Completed</strong>
+                    {% else %}
+                    <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="list-convictions-status">Not started</strong>
+                    {% endif %}
+                  </li>
+                  <li class="app-task-list__item">
+                    <span class="app-task-list__task-name">
+                      <a href="Cardiovascular-and-respiratory/RightlegPerip" aria-describedby="read-declaration-status">
+                        Right leg peripheral circulation
+                      </a>
+                    </span>
+                    {% if session['neck-arms'] %}
+                    <strong class="govuk-tag app-task-list__tag" id="eligibility-status">Completed</strong>
+                    {% else %}
+                    <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="list-convictions-status">Not started</strong>
+                    {% endif %}
+                  </li>
+                  <li class="app-task-list__item">
+                    <span class="app-task-list__task-name">
+                      <a href="Cardiovascular-and-respiratory/blood-pressue" aria-describedby="read-declaration-status">
+                        Blood pressure
+                      </a>
+                    </span>
+                    {% if session['neck-arms'] %}
+                    <strong class="govuk-tag app-task-list__tag" id="eligibility-status">Completed</strong>
+                    {% else %}
+                    <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="list-convictions-status">Not started</strong>
+                    {% endif %}
+                  </li>
+                  <li class="app-task-list__item">
+                    <span class="app-task-list__task-name">
+                      <a href="Cardiovascular-and-respiratory/cardiac" aria-describedby="read-declaration-status">
+                        Cardiac
+                      </a>
+                    </span>
+                    {% if session['neck-arms'] %}
+                    <strong class="govuk-tag app-task-list__tag" id="eligibility-status">Completed</strong>
+                    {% else %}
+                    <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="list-convictions-status">Not started</strong>
+                    {% endif %}
+                  </li>
+                  <li class="app-task-list__item">
+                    <span class="app-task-list__task-name">
+                      <a href="Cardiovascular-and-respiratory/peakexpiration" aria-describedby="read-declaration-status">
+                        Peak expiration flow rate
+                      </a>
+                    </span>
+                    {% if session['neck-arms'] %}
+                    <strong class="govuk-tag app-task-list__tag" id="eligibility-status">Completed</strong>
+                    {% else %}
+                    <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="list-convictions-status">Not started</strong>
+                    {% endif %}
+                  </li>
+                  <li class="app-task-list__item">
+                    <span class="app-task-list__task-name">
+                      <a href="Cardiovascular-and-respiratory/breathlessness" aria-describedby="read-declaration-status">
+                        Breathlessness
+                      </a>
+                    </span>
+                    {% if session['neck-arms'] %}
+                    <strong class="govuk-tag app-task-list__tag" id="eligibility-status">Completed</strong>
+                    {% else %}
+                    <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="list-convictions-status">Not started</strong>
+                    {% endif %}
+                  </li>
+                  <li class="app-task-list__item">
+                    <span class="app-task-list__task-name">
+                      <a href="Cardiovascular-and-respiratory/other-chest-sound-wheeze" aria-describedby="read-declaration-status">
+                        Other: chest sounds, wheeze
+          
+                      </a>
+                    </span>
+                    {% if session['neck-arms'] %}
+                    <strong class="govuk-tag app-task-list__tag" id="eligibility-status">Completed</strong>
+                    {% else %}
+                    <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="list-convictions-status">Not started</strong>
+                    {% endif %}
+                  </li>
+                </ul>
+          
+          
+                <h2 class="app-task-list__section">
+                  <span class="app-task-list__section-number">Vision, speech and hearing
+                </h2>
+                <ul class="app-task-list__items govuk-!-padding-left-0">
+                  <li class="app-task-list__item">
+                    <span class="app-task-list__task-name">
+                      <a href="vision-speech-hearing/vision-speech-hearing" aria-describedby="read-declaration-status">
+                        Vision, speech and hearing
+                      </a>
+                    </span>
+                    {% if session['general-health'] %}
+                    <strong class="govuk-tag app-task-list__tag" id="eligibility-status">Completed</strong>
+                    {% else %}
+                    <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="list-convictions-status">Not started</strong>
+                    {% endif %}
+                  </li>
+                </ul>
+          
+                <h2 class="app-task-list__section">
+                  <span class="app-task-list__section-number">Central nervous system
+                </h2>
+                <ul class="app-task-list__items govuk-!-padding-left-0">
+                  <li class="app-task-list__item">
+                    <span class="app-task-list__task-name">
+                      <a href="central-nervous-system/central-nervous-system" aria-describedby="read-declaration-status">
+                        Central nervous system
+                      </a>
+                    </span>
+                    {% if session['general-health'] %}
+                    <strong class="govuk-tag app-task-list__tag" id="eligibility-status">Completed</strong>
+                    {% else %}
+                    <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="list-convictions-status">Not started</strong>
+                    {% endif %}
+                  </li>
+                </ul>
+          
+              </ul>
+
+              <a class="govuk-button" href="../assessment-overview" data-module="govuk-button">
+                  Save and continue
+              </a>
+
+            </div>
+        </div>
+
+    </main>
+  </div>
+{% endblock %}

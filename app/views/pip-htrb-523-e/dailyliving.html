@@ -1,0 +1,83 @@
+{% extends "layout.html" %}
+{% set bodyAttributes = { id: "assess" } %}
+
+{% block pageTitle %}
+  GOV.UK Prototype Kit
+{% endblock %}
+
+{% block main %}
+
+{% include "includes/assessment-status-neutral.html" %}
+
+  <div class="govuk-width-container {{ containerClasses }}">
+
+      {{ govukBackLink({
+        text: "Back",
+        href: "assessment-status"
+      }) }}
+
+    <main class="govuk-main-wrapper {{ mainClasses }}" id="main-content" role="main"{% if mainLang %} lang="{{ mainLang }}"{% endif %}>
+        <div class="govuk-grid-row">
+
+            <div class="govuk-grid-column-two-thirds">
+
+  <form action="mobility" method="post" id="question-form" novalidate>
+
+    {% set reasonHtml %}
+    {{ govukTextarea({
+      id: "part-not-met-dl",
+      name: "part-not-met-dl",
+      label: {
+        text: "Which part has not been met?"
+      }
+    }) }}
+    {% endset -%}
+
+      {{ govukRadios({
+        idPrefix: "dl",
+        name: "dl",
+        fieldset: {
+          legend: {
+            text: "Has the qualifying period and prospective test been met for daily living restrictions?",
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend--xl",
+            hint: "Hint"
+          }
+        },
+        hint: {
+          text: "The claimant must have had the functional restriction for at least 3 months and be likely to have it for a further 9 months to qualify for PIP."
+        },
+        items: [
+          {
+            value: "Yes",
+            text: "Yes"
+          },
+          {
+            value: "No",
+            text: "No",
+            conditional: {
+              html: reasonHtml
+            }
+          },
+          {
+            value: "No daily living restrictions found",
+            text: "No daily living restrictions found"
+          }
+        ]
+      }) }}
+
+</div>
+</div>
+
+<button class="govuk-button" data-module="govuk-button">
+  Continue
+</button>
+
+</main>
+</div>
+
+
+
+
+
+{% endblock %}

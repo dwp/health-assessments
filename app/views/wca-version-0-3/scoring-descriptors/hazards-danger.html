@@ -1,0 +1,81 @@
+{% extends "layout.html" %}
+{% set bodyAttributes = { id: "assess" } %}
+
+{% block pageTitle %}
+  GOV.UK Prototype Kit
+{% endblock %}
+
+{% block main %}
+
+{% include "includes/assessment-status-neutral.html" %}
+
+  <div class="govuk-width-container {{ containerClasses }}">
+
+      {{ govukBackLink({
+        text: "Back",
+        href: "scoring"
+      }) }}
+
+    <main class="govuk-main-wrapper {{ mainClasses }}" id="main-content" role="main"{% if mainLang %} lang="{{ mainLang }}"{% endif %}>
+        <div class="govuk-grid-row">
+
+            <div class="govuk-grid-column-two-thirds">
+
+              <h1 class="govuk-heading-xl">Awareness of hazards and danger</h1>
+
+              <form action="scoring" method="post">
+
+                {{ govukRadios({
+                  idPrefix: "hazardsdangerSelect",
+                  name: "hazardsdangerSelect",
+                  fieldset: {
+                    legend: {
+                      text: "How often does Jayne need someone with them to help them stay safe?",
+                      isPageHeading: false,
+                      classes: "govuk-fieldset__legend--s"
+                    }
+                  },
+                  items: [
+                    {
+                      value: "Needs someone with them most of the time to stay safe",
+                      text: "Needs someone with them most of the time to stay safe"
+                    },
+                    {
+                      value: "Often needs someone with them to stay safe",
+                      text: "Often needs someone with them to stay safe"
+                    },
+                    {
+                      value: "Occasionally needs someone with them to stay safe",
+                      text: "Occasionally needs someone with them to stay safe"
+                    },
+                    {
+                      value: "None of the above",
+                      text: "None of the above"
+                    }
+                  ]
+                }) }}
+              
+                    {{ govukTextarea({
+                        name: "hazardsdangerdetails",
+                        id: "hazardsdangerdetails",
+                        label: {
+                          text: "Give details",
+                          classes: "govuk-label--s",
+                          isPageHeading: true
+                        },
+                        value: data['hazardsdangerdetails']
+                      }) }}
+
+                      {{ govukButton({
+                        text: "Save"
+                      }) }}
+
+            </form>
+
+
+            </div>
+        </div>
+
+    </main>
+  </div>
+{% endblock %}

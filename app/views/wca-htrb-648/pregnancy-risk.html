@@ -1,0 +1,79 @@
+{% extends "layout.html" %}
+{% set bodyAttributes = { id: "assess" } %}
+
+{% block pageTitle %}
+  GOV.UK Prototype Kit
+{% endblock %}
+
+{% block main %}
+
+{% include "includes/assessment-status-neutral.html" %}
+
+  <div class="govuk-width-container {{ containerClasses }}">
+
+      {{ govukBackLink({
+        text: "Back",
+        href: "pregnant"
+      }) }}
+
+    <main class="govuk-main-wrapper {{ mainClasses }}" id="main-content" role="main"{% if mainLang %} lang="{{ mainLang }}"{% endif %}>
+        <div class="govuk-grid-row">
+
+            <div class="govuk-grid-column-two-thirds">
+
+  <form action="#" method="post" id="question-form" novalidate>
+
+
+
+  <div class="govuk-form-group">
+
+
+    {{ govukRadios({
+      idPrefix: "pregnancyrisk",
+      name: "pregnancyrisk",
+      fieldset: {
+        legend: {
+          text: "Is the claimant or their baby at risk?",
+          isPageHeading: true,
+          classes: "govuk-fieldset__legend--xl"
+        }
+      },
+      items: [
+        {
+          value: "Yes, if the claimant is found fit for work",
+          text: "Yes, if the claimant is found fit for work"
+        },
+        {
+          value: "No",
+          text: "No"
+        }
+      ]
+    }) }}
+
+  </div>
+
+</div>
+</div>
+
+<button class="govuk-button" data-module="govuk-button">
+  Save and continue
+</button>
+
+</main>
+</div>
+
+<script type="text/javascript">
+    document.getElementById("pregnancyrisk").onclick = function() {
+          var link = "lcwra-treat-as";
+      document.getElementById("question-form").action=link;
+    }
+
+    document.getElementById("pregnancyrisk-2").onclick = function() {
+          var link = "chemotherapy";
+      document.getElementById("question-form").action=link;
+    }
+</script>
+
+
+
+{% endblock %}

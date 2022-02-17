@@ -1,0 +1,77 @@
+{% extends "layout.html" %}
+{% set bodyAttributes = { id: "assess" } %}
+
+{% block pageTitle %}
+  GOV.UK Prototype Kit
+{% endblock %}
+
+{% block main %}
+
+{% include "includes/assessment-status-neutral.html" %}
+
+  <div class="govuk-width-container {{ containerClasses }}">
+    <main class="govuk-main-wrapper {{ mainClasses }}" id="main-content" role="main"{% if mainLang %} lang="{{ mainLang }}"{% endif %}>
+        <div class="govuk-grid-row">
+
+            <div class="govuk-grid-column-two-thirds">
+
+                {{ govukBackLink({
+                  text: "Back",
+                  href: "assessment-status"
+                }) }}
+
+            <form action="assessment-status" method="post">
+              {{ govukTextarea({
+                name: "journeys",
+                id: "journeys",
+                label: {
+                  text: "Planning and following journeys",
+                  classes: "govuk-label--xl",
+                  isPageHeading: true
+                },
+                value: data['journeys']
+              }) }}      
+              
+
+                    {{ govukButton({
+                      text: "Save"
+                    }) }}
+                </ul>
+    
+
+
+            </form>
+
+
+            <h2 class="govuk-heading-m govuk-!-margin-top-7">Guidance</h2>
+            <p>Probing questions are needed to establish whether they can travel to unfamiliar places as well as familiar ones and whether they can re-organise a journey if their route is disturbed. It should also be established whether the claimant needs to be accompanied rather than choosing to have a companion. Where the claimant suffers overwhelming psychological distress, it meets the high threshold.</p>
+            <p>Please give an indication of the following:</p>
+            <ul class="govuk-list govuk-list--bullet">
+              <li>Whether and how often they go out and whether this is ever alone or always accompanied and whether this is due to the risk of having a seizure or needs accompanying due to the risk of a seizure.</li>
+              <li>Whether they are able to attend doctors/hospital appointments, go shopping, walk a dog or undertake family/friend social activities etc.  Is this is ever alone or always accompanied?</li>
+              <li>An indication as to what ‘psychological distress’ looks like for the claimant, including a description of their symptoms and what happens to them. </li>
+              <li>Whether there are any limitations to abilities they have with familiar as opposed to unfamiliar journeys.</li>
+              <li>Hearing – is the claimant able to hear a tannoy system – e.g. at a train station reporting a change of platform</li>
+              <li>If they have visual problems indicate whether they use an orientation cane or guide dog for every journey.</li>
+              <li>What type of orientation aid white stick is used</li>
+              <li>Can they safely orientate e.g. see kerbs, identify changes in terrain, road crossings and such. How they would respond if their journey was disrupted or diverted. </li>
+              <li>How they would respond if lost.</li>
+              <li>If they have cognitive problems an indication as to whether they are able to travel alone to familiar places. </li> 
+              <li>Whether memory has an impact. </li>
+              <li>Does the claimant experience loss or altered state of consciousness, if so, when, how long, how does this impact on their safety following a route? </li>
+              <li>In cases of profoundly deaf clearly explain how they deal with using public transport e.g. change of platform in station</li>
+              <li>An indication as to whether they can undertake a journey if they have to </li>
+              <li>Critical analysis of evidence e.g. Variability shows that seizures occur on average 3 times a month, HOC states they have no aura, drop to the floor and convulse lasting 2 minutes, FE confirms this and now under care of specialist nurse.</li>
+              <li>Review inconsistencies; consider usual features/progress/nature of the condition. </li>
+              <li>Summarise and refer to the evidence gathered. </li>
+                  
+
+            </ul>
+              
+
+            </div>
+        </div>
+
+    </main>
+  </div>
+{% endblock %}

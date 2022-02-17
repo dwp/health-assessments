@@ -1,0 +1,54 @@
+{% extends "layout.html" %}
+{% set bodyAttributes = { id: "assess" } %}
+
+{% block pageTitle %}
+  GOV.UK Prototype Kit
+{% endblock %}
+
+{% block main %}
+
+    <div id="assess-head">
+        <div class="govuk-width-container">
+            <div class="govuk-grid-row govuk-!-padding-bottom-2">
+                <div class="govuk-grid-column-two-thirds"> 
+                    <h1 class="govuk-heading-xl claimant-name white">Jayne Smith </h1><h2 class="govuk-heading-m claimant-ni white">QQ 12 34 56 X</h2>       
+                </div>
+                <div class="govuk-grid-column-one-third"> 
+                  <p class="govuk-body-s assessment-status">Assessment not started</p>         
+                </div>
+            </div>
+            <div class="govuk-grid-row">
+                <div class="govuk-grid-column-full">
+                   <hr class="govuk-!-margin-bottom-2 govuk-!-margin-top-0"> 
+                   <p class="claimant-dob govuk-!-margin-bottom-0 white">Claimant date of birth: 31st December 1999</p>
+              </div>
+            </div>
+    </div>
+  </div>
+
+  <div class="govuk-width-container {{ containerClasses }}">
+    <main class="govuk-main-wrapper {{ mainClasses }}" id="main-content" role="main"{% if mainLang %} lang="{{ mainLang }}"{% endif %}>
+        <div class="govuk-grid-row">
+
+            <div class="govuk-grid-column-two-thirds">
+              
+
+              <h1 class="govuk-heading-xl">Assessment for Personal Independance Payment (PIP)</h1>
+              
+              <a href="purpose" role="button" draggable="false" class="govuk-button govuk-!-margin-top-2 govuk-!-margin-bottom-8 govuk-button--start" >
+                  Start now
+                  <svg class="govuk-button__start-icon" xmlns="http://www.w3.org/2000/svg" width="17.5" height="19" viewBox="0 0 33 40" aria-hidden="true" focusable="false">
+                    <path fill="currentColor" d="M0 0h13l20 20-20 20H0l20-20z" />
+                  </svg>
+                </a>
+
+              
+
+
+
+            </div>
+        </div>
+
+    </main>
+  </div>
+{% endblock %}

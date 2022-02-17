@@ -1,0 +1,139 @@
+{% extends "layout.html" %}
+{% set bodyAttributes = { id: "assess" } %}
+
+{% block pageTitle %}
+  GOV.UK Prototype Kit
+{% endblock %}
+
+{% block main %}
+
+    <div id="assess-head">
+        <div class="govuk-width-container">
+            <div class="govuk-grid-row govuk-!-padding-bottom-2">
+                <div class="govuk-grid-column-two-thirds"> 
+                    <h1 class="govuk-heading-xl claimant-name white">Jayne Smith </h1><h2 class="govuk-heading-m claimant-ni white">QQ 12 34 56 X</h2>       
+                </div>
+                <div class="govuk-grid-column-one-third"> 
+                  <p class="govuk-body-s assessment-status">Assessment in progress</p>         
+                </div>
+            </div>
+            <div class="govuk-grid-row">
+                <div class="govuk-grid-column-full">
+                   <hr class="govuk-!-margin-bottom-2 govuk-!-margin-top-0"> 
+                   <p class="claimant-dob govuk-!-margin-bottom-0 white">Claimant date of birth: 31st December 1999</p>
+              </div>
+            </div>
+    </div>
+  </div>
+
+  <div class="govuk-width-container {{ containerClasses }}">
+    <main class="govuk-main-wrapper {{ mainClasses }}" id="main-content" role="main"{% if mainLang %} lang="{{ mainLang }}"{% endif %}>
+        <div class="govuk-grid-row">
+
+            <div class="govuk-grid-column-two-thirds">
+
+                {{ govukBackLink({
+                  text: "Back",
+                  href: "history"
+                }) }}
+
+              <h1 class="govuk-heading-xl">Functional history</h1>
+
+                <ul class="app-task-list__items govuk-!-padding-left-0">
+                    <li class="app-task-list__item">
+                      <span class="app-task-list__task-name">
+                        <a href="#" aria-describedby="variability">
+                            Variability
+                        </a>
+                      </span>
+                      <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="variability">Not started</strong>
+                    </li>
+                    <li class="app-task-list__item">
+                      <span class="app-task-list__task-name">
+                        <a href="#" aria-describedby="preparing-food">
+                            Preparing food
+                        </a>
+                      </span>
+                      <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="preparing-food">Not started</strong>
+                    </li>
+                    <li class="app-task-list__item">
+                      <span class="app-task-list__task-name">
+                        <a href="#" aria-describedby="taking-nutrition">
+                            Taking nutrition
+                        </a>
+                      </span>
+                      <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="taking-nutrition">Not started</strong>
+                    </li>
+                    <li class="app-task-list__item">
+                      <span class="app-task-list__task-name">
+                          <a href="#" aria-describedby="managing-therapy">
+                              Managing therapy or monitoring a health condition
+                        </a>
+                      </span>
+                      <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="managing-therapy">Not started</strong>
+                    </li>
+                    <li class="app-task-list__item">
+                      <span class="app-task-list__task-name">
+                          <a href="#" aria-describedby="washing-bathing">
+                              Washing and bathing</a>
+                      </span>
+                      <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="washing-bathing">Not started</strong>
+                    </li>
+                    <li class="app-task-list__item">
+                        <span class="app-task-list__task-name">
+                            <a href="#" aria-describedby="managing-toilet-needs">
+                                Managing toilet needs or incontinence</a>
+                        </span>
+                        <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="managing-toilet-needs">Not started</strong>
+                      </li>
+                      <li class="app-task-list__item">
+                          <span class="app-task-list__task-name">
+                              <a href="#" aria-describedby="dressing-and-undressing">
+                                  Dressing and undressing</a>
+                          </span>
+                          <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="dressing-and-undressing">Not started</strong>
+                        </li>
+                        <li class="app-task-list__item">
+                            <span class="app-task-list__task-name">
+                                <a href="#" aria-describedby="communicating-verbally">
+                                    Communicating verbally</a>
+                            </span>
+                            <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="communicating-verbally">Not started</strong>
+                          </li>
+                          <li class="app-task-list__item">
+                              <span class="app-task-list__task-name">
+                                  <a href="#" aria-describedby="reading-and-understanding">
+                                      Reading and understanding signs, symbols and words</a>
+                              </span>
+                              <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="reading-and-understanding">Not started</strong>
+                            </li>
+                            <li class="app-task-list__item">
+                                <span class="app-task-list__task-name">
+                                    <a href="#" aria-describedby="engaging-face-to-face">
+                                        Engaging with others face to face</a>
+                                </span>
+                                <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="engaging-face-to-face">Not started</strong>
+                              </li>
+                              <li class="app-task-list__item">
+                                  <span class="app-task-list__task-name">
+                                      <a href="#" aria-describedby="making-budgeting-decisions">
+                                          Making budgeting decisions</a>
+                                  </span>
+                                  <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="making-budgeting-decisions">Not started</strong>
+                                </li>
+                                <li class="app-task-list__item">
+                                    <span class="app-task-list__task-name">
+                                        <a href="#" aria-describedby="planning-and-following-journeys">
+                                            Planning and following journeys</a>
+                                    </span>
+                                    <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="planning-and-following-journeys">Not started</strong>
+                                  </li>
+                  </ul>
+              
+
+            </div>
+        </div>
+
+    </main>
+  </div>
+{% endblock %}

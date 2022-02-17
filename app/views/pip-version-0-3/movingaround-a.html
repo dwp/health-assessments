@@ -1,0 +1,81 @@
+{% extends "layout.html" %}
+{% set bodyAttributes = { id: "assess" } %}
+
+{% block pageTitle %}
+  GOV.UK Prototype Kit
+{% endblock %}
+
+{% block main %}
+
+{% include "includes/assessment-status-neutral.html" %}
+
+  <div class="govuk-width-container {{ containerClasses }}">
+    <main class="govuk-main-wrapper {{ mainClasses }}" id="main-content" role="main"{% if mainLang %} lang="{{ mainLang }}"{% endif %}>
+        <div class="govuk-grid-row">
+
+            <div class="govuk-grid-column-two-thirds">
+
+                {{ govukBackLink({
+                  text: "Back",
+                  href: "assessment-status"
+                }) }}
+
+            <form action="assessment-status" method="post">
+              {{ govukTextarea({
+                name: "movingaround",
+                id: "movingaround",
+                label: {
+                  text: "Moving around",
+                  classes: "govuk-label--xl",
+                  isPageHeading: true
+                },
+                value: data['movingaround']
+              }) }}
+
+
+                    {{ govukButton({
+                      text: "Save"
+                    }) }}
+                </ul>
+
+
+
+            </form>
+
+
+            <h2 class="govuk-heading-m govuk-!-margin-top-7">Guidance</h2>
+            <p>This activity should be linked to the Social and Occupational History and Functional History information and observations identified on social activities, hobbies, shopping, going to medical appointments etc. If the claimant mentions walking to a destination such as a shop, street or end of garden, please detail how far the distance is.</p>
+            <p>Apply S.T.A.R reliability methodology (Safely, timely, acceptable standard, repeatedly). Use probing questions to establish how the claimant gets around, uses the toilet, goes to GP/hospital appointments, goes shopping etc. Consider what sort of questions you would ask to determine distances.
+                </p>
+            <p>Please give an indication of the following:</p>
+            <ul class="govuk-list govuk-list--bullet">
+              <li>Walking speed</li>
+              <li>The distance walked in the claimant’s own opinion</li>
+              <li>The time taken to walk the distance, including number and time taken of any stops</li>
+              <li>Any assistance needed from another person</li>
+              <li>Gait</li>
+              <li>Any support from objects such as furniture or walking aids used</li>
+              <li>Respiratory function on walking</li>
+              <li>Balance</li>
+              <li>Any pain experienced on walking</li>
+              <li>Co-ordination</li>
+              <li>Any fatigue</li>
+              <li>The impact of walking to assessment centre, how will claimant be affected later</li>
+              <li>Brief description of key restriction e.g. cannot walk more than 20 metres due to pain.</li>
+              <li>Brief description of key restriction e.g does not walk anywhere other than in the home due to pain, has to walk very slow and is reliant on crutches, unable to say time or distance.</li>
+              <li>Explain fully any deterioration/improvements since previous assessment.</li>
+              <li>Critical analysis of evidence e.g. able to walk at a slow pace, aided but with normal gait, MSO is supportive of a lower limb restriction due to inability to crouch and stand on tiptoes which is consistent with SOH that he/she has had to give up driving and FE that he/she is awaiting a hip replacement.</li>
+              <li>Review of inconsistencies and consider the usual features/progress/nature of the condition e.g. even though a restriction was seen to the lower limbs in the assessment, medication is of a standard nature and reported to be partially effective, they reside in a house and has to go up and down the stairs to the bathroom multiple times a day albeit with pain, a restriction to less than 20 metres would be unlikely. </li>
+              <li>Summarise and refer to the evidence gathered.</li>
+
+
+
+            </ul>
+
+
+            </div>
+        </div>
+
+    </main>
+  </div>
+{% endblock %}

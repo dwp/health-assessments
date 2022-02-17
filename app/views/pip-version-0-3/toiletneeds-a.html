@@ -1,0 +1,67 @@
+{% extends "layout.html" %}
+{% set bodyAttributes = { id: "assess" } %}
+
+{% block pageTitle %}
+  GOV.UK Prototype Kit
+{% endblock %}
+
+{% block main %}
+
+{% include "includes/assessment-status-neutral.html" %}
+
+  <div class="govuk-width-container {{ containerClasses }}">
+    <main class="govuk-main-wrapper {{ mainClasses }}" id="main-content" role="main"{% if mainLang %} lang="{{ mainLang }}"{% endif %}>
+        <div class="govuk-grid-row">
+
+            <div class="govuk-grid-column-two-thirds">
+
+                {{ govukBackLink({
+                  text: "Back",
+                  href: "assessment-status"
+                }) }}
+
+            <form action="assessment-status" method="post">
+              {{ govukTextarea({
+                name: "toiletneeds",
+                id: "toiletneeds",
+                label: {
+                  text: "Managing toilet needs",
+                  classes: "govuk-label--xl",
+                  isPageHeading: true
+                },
+                value: data['toiletneeds']
+              }) }}      
+              
+
+                    {{ govukButton({
+                      text: "Save"
+                    }) }}
+                </ul>
+    
+
+
+            </form>
+
+
+            <h2 class="govuk-heading-m govuk-!-margin-top-7">Guidance</h2>
+            <p>Please give an indication of the following:</p>
+            <ul class="govuk-list govuk-list--bullet">
+              <li>Details of any physical limitations.</li>
+              <li>Whether any aids are required and what aids are used.</li>
+              <li>Whether incontinence pads are used</li>
+              <li>Ensure all aspects of safety and supervision have been considered</li>
+              <li>Brief description of key restriction e.g. needs assistance due to back and knee pain or needs to lean on the window ledge to get on and off the toilet</li>
+              <li>Critical analysis of evidence</li>
+              <li>Review of inconsistencies and consider the usual features/progress/nature of the condition e.g. even though reports requiring assistance, had good movement of both upper limbs and good grip likely to support the reliable use of aids</li>
+              <li>Consider reliability and acceptable standard</li>
+              <li>Summarise and refer to the evidence gathered.</li>
+
+            </ul>
+              
+
+            </div>
+        </div>
+
+    </main>
+  </div>
+{% endblock %}

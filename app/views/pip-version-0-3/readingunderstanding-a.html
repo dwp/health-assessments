@@ -1,0 +1,73 @@
+{% extends "layout.html" %}
+{% set bodyAttributes = { id: "assess" } %}
+
+{% block pageTitle %}
+  GOV.UK Prototype Kit
+{% endblock %}
+
+{% block main %}
+
+{% include "includes/assessment-status-neutral.html" %}
+
+  <div class="govuk-width-container {{ containerClasses }}">
+    <main class="govuk-main-wrapper {{ mainClasses }}" id="main-content" role="main"{% if mainLang %} lang="{{ mainLang }}"{% endif %}>
+        <div class="govuk-grid-row">
+
+            <div class="govuk-grid-column-two-thirds">
+
+                {{ govukBackLink({
+                  text: "Back",
+                  href: "assessment-status"
+                }) }}
+
+            <form action="assessment-status" method="post">
+              {{ govukTextarea({
+                name: "readingunderstanding",
+                id: "readingunderstanding",
+                label: {
+                  text: "Reading and understanding signs, symbols and words",
+                  classes: "govuk-label--xl",
+                  isPageHeading: true
+                },
+                value: data['readingunderstanding']
+              }) }}      
+              
+
+                    {{ govukButton({
+                      text: "Save"
+                    }) }}
+                </ul>
+    
+
+
+            </form>
+
+
+            <h2 class="govuk-heading-m govuk-!-margin-top-7">Guidance</h2>
+            <p>Please give an indication of the following:</p>
+            <ul class="govuk-list govuk-list--bullet">
+              <li>Whether they can read (in their own language, not just in English).</li>
+              <li>What they read (in their own language, not just in English).</li>
+              <li>If they have cognitive problems probe what level it is.</li>
+              <li>What kind of words they struggle with.</li>
+              <li>Whether any aids are used to enable reading. </li>
+              <li>Whether they had any previous employment which required them to read.</li>
+              <li>Whether they use mobile phones, laptops independently and if so what activities- e.g. online banking, social media.</li>
+              <li>Whether they completed the PIP2 or AR1 for themselves or it was completed for them. Include reasons for not completing the form themselves. </li> 
+              <li>Whether they read their own post and if not, why not. </li>
+              <li>Brief description of key restriction e.g. is unable to read due to learning disabilities.</li>
+              <li>Brief description of key restriction has written information simplified at school due to learning disabilities.</li>
+              <li>Critical analysis of evidence e.g. had some intellectual impairment, could only understand simplified language and the companion had to assist with understanding which is consistent with the evidence and the primary condition.</li>
+              <li>Consider safety.</li>
+              <li>Review of inconsistencies and consider the usual features/progress/nature of the condition. </li>
+              <li>Summarise and refer to the evidence gathered. </li>
+                
+            </ul>
+              
+
+            </div>
+        </div>
+
+    </main>
+  </div>
+{% endblock %}

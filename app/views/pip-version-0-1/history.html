@@ -1,0 +1,85 @@
+{% extends "layout.html" %}
+{% set bodyAttributes = { id: "assess" } %}
+
+{% block pageTitle %}
+  GOV.UK Prototype Kit
+{% endblock %}
+
+{% block main %}
+
+    <div id="assess-head">
+        <div class="govuk-width-container">
+            <div class="govuk-grid-row govuk-!-padding-bottom-2">
+                <div class="govuk-grid-column-two-thirds"> 
+                    <h1 class="govuk-heading-xl claimant-name white">Jayne Smith </h1><h2 class="govuk-heading-m claimant-ni white">QQ 12 34 56 X</h2>       
+                </div>
+                <div class="govuk-grid-column-one-third"> 
+                  <p class="govuk-body-s assessment-status">Assessment in progress</p>         
+                </div>
+            </div>
+            <div class="govuk-grid-row">
+                <div class="govuk-grid-column-full">
+                   <hr class="govuk-!-margin-bottom-2 govuk-!-margin-top-0"> 
+                   <p class="claimant-dob govuk-!-margin-bottom-0 white">Claimant date of birth: 31st December 1999</p>
+              </div>
+            </div>
+    </div>
+  </div>
+
+  <div class="govuk-width-container {{ containerClasses }}">
+    <main class="govuk-main-wrapper {{ mainClasses }}" id="main-content" role="main"{% if mainLang %} lang="{{ mainLang }}"{% endif %}>
+        <div class="govuk-grid-row">
+
+            <div class="govuk-grid-column-two-thirds">
+
+              <h1 class="govuk-heading-xl">History</h1>
+              
+                <ul class="app-task-list__items govuk-!-padding-left-0">
+                    <li class="app-task-list__item">
+                      <span class="app-task-list__task-name">
+                        <a href="functional-history" aria-describedby="functional-history">
+                          Functional history
+                        </a>
+                      </span>
+                      <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="functional-history">Not started</strong>
+                    </li>
+                    <li class="app-task-list__item">
+                      <span class="app-task-list__task-name">
+                        <a href="social-occupational-history" aria-describedby="social-and-occupational-history">
+                          Social and occupational history
+                        </a>
+                      </span>
+                      <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="social-and-occupational-history">Not started</strong>
+                    </li>
+                    <li class="app-task-list__item">
+                      <span class="app-task-list__task-name">
+                        <a href="#" aria-describedby="health-conditions">
+                          Health conditions
+                        </a>
+                      </span>
+                      <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="health-conditions">Not started</strong>
+                    </li>
+                    <li class="app-task-list__item">
+                      <span class="app-task-list__task-name">
+                          <a href="#" aria-describedby="history-of-conditions">
+                        History of conditions
+                        </a>
+                      </span>
+                      <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="history-of-conditions">Not started</strong>
+                    </li>
+                    <li class="app-task-list__item">
+                      <span class="app-task-list__task-name">
+                          <a href="#" aria-describedby="current-medication-and-treatment">
+                        Current medication and treatment</a>
+                      </span>
+                      <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="current-medication-and-treatment">Not started</strong>
+                    </li>
+                  </ul>
+              
+
+            </div>
+        </div>
+
+    </main>
+  </div>
+{% endblock %}

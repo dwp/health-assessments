@@ -1,0 +1,110 @@
+{% extends "layout.html" %}
+{% set bodyAttributes = { id: "assess" } %}
+
+{% block pageTitle %}
+  GOV.UK Prototype Kit
+{% endblock %}
+
+{% block main %}
+
+{% include "includes/assessment-complete.html" %}
+
+  <div class="govuk-width-container {{ containerClasses }}">
+    <main class="govuk-main-wrapper {{ mainClasses }}" id="main-content" role="main"{% if mainLang %} lang="{{ mainLang }}"{% endif %}>
+        <div class="govuk-grid-row">
+
+            <div class="govuk-grid-column-two-thirds">
+
+                {{ govukBackLink({
+                  text: "Back",
+                  href: "assessment-status"
+                }) }}
+
+                <h1 class="govuk-heading-xl">Budgeting</h1>
+
+                </div>
+          </div>
+
+          <div class="govuk-grid-row">
+
+            <div class="govuk-grid-column-two-thirds">
+
+            <form action="review" method="post">
+              <div class="govuk-form-group">
+                <fieldset class="govuk-fieldset">
+                  <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+                    <h1 class="govuk-fieldset__heading">
+                      Which of these describes how well Jayne can budget?
+                    </h1>
+                  </legend>
+                  <div class="govuk-radios">
+                    <div class="govuk-radios__item">
+                      <input class="govuk-radios__input" id="budgetingSelect" name="budgetingSelect" type="radio" value="Can manage complex budgeting decisions unaided">
+                      <label class="govuk-label govuk-radios__label" for="budgetingSelect">
+                        Can manage complex budgeting decisions unaided
+                      </label>
+                    </div>
+                    <div class="govuk-radios__item">
+                      <input class="govuk-radios__input" id="budgetingSelect-2" name="budgetingSelect" type="radio" value="Needs prompting or assistance to be able to make complex budgeting decisions">
+                      <label class="govuk-label govuk-radios__label" for="budgetingSelect-2">
+                        Needs prompting or assistance to be able to make complex budgeting decisions
+                      </label>
+                    </div>
+                    <div class="govuk-radios__item">
+                      <input class="govuk-radios__input" id="budgetingSelect-3" name="budgetingSelect" type="radio" value="Needs prompting or assistance to be able to make simple budgeting decisions">
+                      <label class="govuk-label govuk-radios__label" for="budgetingSelect-3">
+                        Needs prompting or assistance to be able to make simple budgeting decisions
+                      </label>
+                    </div>
+                    <div class="govuk-radios__item">
+                      <input class="govuk-radios__input" id="budgetingSelect-4" name="budgetingSelect" type="radio" value="Cannot make any budgeting decisions at all">
+                      <label class="govuk-label govuk-radios__label" for="budgetingSelect-4">
+                        Cannot make any budgeting decisions at all
+                      </label>
+                    </div>
+                
+                   
+                  </div>
+              
+                </fieldset>
+              </div>
+              
+
+                    {{ govukTextarea({
+                      name: "budgetingReason",
+                      id: "budgetingReason",
+                      label: {
+                        text: "What is the reason for this answer?",
+                        classes: "govuk-label--m",
+                        isPageHeading: false
+                      },
+                      value: data['budgetingReason']
+                    }) }}  
+
+                    {{ govukButton({
+                      text: "Save"
+                    }) }}
+                </ul>
+    
+
+
+            </form>
+
+              
+
+            </div>
+
+            <div class="govuk-grid-column-one-third">
+
+              <div class="notes-box">
+              <h2 class="govuk-heading-m">Your assessment notes</h2>
+              <p>{{ data['budgeting'] }}</p>
+               </div>
+
+            </div>
+
+        </div>
+
+    </main>
+  </div>
+{% endblock %}

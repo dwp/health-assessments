@@ -1,0 +1,87 @@
+{% extends "layout.html" %}
+{% set bodyAttributes = { id: "assess" } %}
+
+{% block pageTitle %}
+  GOV.UK Prototype Kit
+{% endblock %}
+
+{% block main %}
+
+{% include "includes/assessment-status-neutral.html" %}
+
+  <div class="govuk-width-container {{ containerClasses }}">
+
+      {{ govukBackLink({
+        text: "Back",
+        href: "check"
+      }) }}
+
+    <main class="govuk-main-wrapper {{ mainClasses }}" id="main-content" role="main"{% if mainLang %} lang="{{ mainLang }}"{% endif %}>
+        <div class="govuk-grid-row">
+
+            <div class="govuk-grid-column-two-thirds">
+
+  <form action="dailyliving" method="post" id="question-form" novalidate>
+
+    {% set reasonHtml %}
+    {{ govukInput({
+      id: "part-not-met",
+      name: "part-not-met",
+      label: {
+        text: "When did the mobility restrictions start?"
+      }
+    }) }}
+    {% endset -%}
+
+      {{ govukRadios({
+        idPrefix: "qp",
+        name: "qp",
+        fieldset: {
+          legend: {
+            text: "How long are the claimant's mobility restrictions likely to last?",
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend--xl",
+            hint: "Hint"
+          }
+        },
+        hint: {
+          text: "They must have had it for at least 3 months and be likely to have it for a further 9 months."
+        },
+        items: [
+          {
+            value: "Have lasted at least 3 months and are likely to last at least 9 more",
+            text: "Have lasted at least 3 months and are likely to last at least 9 more"
+          },
+          {
+            value: "Have lasted for 3 months but are unlikely to last for 9 more",
+            text: "Have lasted for 3 months but are unlikely to last for 9 more"
+          },
+          {
+            value: "Restriction has not lasted for 3 months but is likely to last at least 9 more",
+            text: "Restriction has not lasted for 3 months but is likely to last at least 9 more",
+            conditional: {
+              html: reasonHtml
+            }
+          },
+          {
+            value: "No mobility restrictions found",
+            text: "No mobility restrictions found"
+          }
+        ]
+      }) }}
+
+</div>
+</div>
+
+<button class="govuk-button" data-module="govuk-button">
+  Continue
+</button>
+
+</main>
+</div>
+
+
+
+
+
+{% endblock %}

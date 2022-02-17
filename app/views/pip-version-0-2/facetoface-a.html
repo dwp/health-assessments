@@ -1,0 +1,73 @@
+{% extends "layout.html" %}
+{% set bodyAttributes = { id: "assess" } %}
+
+{% block pageTitle %}
+  GOV.UK Prototype Kit
+{% endblock %}
+
+{% block main %}
+
+{% include "includes/assessment-in-progress.html" %}
+
+  <div class="govuk-width-container {{ containerClasses }}">
+    <main class="govuk-main-wrapper {{ mainClasses }}" id="main-content" role="main"{% if mainLang %} lang="{{ mainLang }}"{% endif %}>
+        <div class="govuk-grid-row">
+
+            <div class="govuk-grid-column-two-thirds">
+
+                {{ govukBackLink({
+                  text: "Back",
+                  href: "assessment-status"
+                }) }}
+
+            <form action="assessment-status" method="post">
+              {{ govukTextarea({
+                name: "facetoface",
+                id: "facetoface",
+                label: {
+                  text: "Engaging face to face",
+                  classes: "govuk-label--xl",
+                  isPageHeading: true
+                },
+                value: data['facetoface']
+              }) }}      
+              
+
+                    {{ govukButton({
+                      text: "Save"
+                    }) }}
+                </ul>
+    
+
+
+            </form>
+
+
+            <h2 class="govuk-heading-m govuk-!-margin-top-7">Guidance</h2>
+            <p>Please give an indication of the following:</p>
+            <ul class="govuk-list govuk-list--bullet">
+              <li>Where they go.</li>
+              <li>Who they meet.</li>
+              <li>How they get on with people they do not know e.g.. at the supermarket, on the telephone or on public transport.</li>
+              <li>How they felt in the waiting room.</li>
+              <li>Whether they were sitting alone or near others.</li>
+              <li>Details of any ‘social support’ where stated needed by claimant. Information should include the details of the level of social support that is required throughout all aspects of the person’s day to day life, not just the support needed on the day at the assessment. </li>
+              <li>Where appropriate, an indication as to whether ‘prompting’ by a companion is needed as opposed to ‘social support’ </li>
+              <li>Whether they need to order food online or by phone, and so why for example if they are avoiding face to face contact. Give details of when they last did this and how often they do it. </li>
+              <li>Brief description of key restriction does not engage at all due to anxiety and panic.</li>
+              <li>Brief description of key restriction e.g. does not socialise, needs her/his partner there to support them, and avoids meeting new people).</li>
+              <li>In cases profoundly deaf it should be explained as to whether the BLS interpreter is purely interpreting or providing support to engage and what form this is taking.</li>
+              <li>Critical analysis of evidence e.g. the presence of anxiety in the assessment and he/she was prompted by partner, whether medication consistent with this, whether they are under specialist care for anxiety.</li>
+              <li>Review of inconsistencies and consider the usual features/progress/nature of the condition. </li>
+              <li>Summarise and refer to the evidence gathered. </li>
+                
+                
+            </ul>
+              
+
+            </div>
+        </div>
+
+    </main>
+  </div>
+{% endblock %}

@@ -1,0 +1,74 @@
+{% extends "layout.html" %}
+{% set bodyAttributes = { id: "assess" } %}
+
+{% block pageTitle %}
+  GOV.UK Prototype Kit
+{% endblock %}
+
+{% block main %}
+
+{% include "includes/assessment-in-progress.html" %}
+
+  <div class="govuk-width-container {{ containerClasses }}">
+    <main class="govuk-main-wrapper {{ mainClasses }}" id="main-content" role="main"{% if mainLang %} lang="{{ mainLang }}"{% endif %}>
+        <div class="govuk-grid-row">
+
+            <div class="govuk-grid-column-two-thirds">
+
+                {{ govukBackLink({
+                  text: "Back",
+                  href: "assessment-status"
+                }) }}
+
+            <form action="assessment-status" method="post">
+              {{ govukTextarea({
+                name: "takingnutrition",
+                id: "takingnutrition",
+                label: {
+                  text: "Taking nutrition",
+                  classes: "govuk-label--xl",
+                  isPageHeading: true
+                },
+                value: data['takingnutrition']
+              }) }}      
+              
+
+                    {{ govukButton({
+                      text: "Save"
+                    }) }}
+                </ul>
+    
+
+
+            </form>
+
+
+            <h2 class="govuk-heading-m govuk-!-margin-top-7">Guidance</h2>
+            <p>Give as much detail about the claimant’s eating habits generally, including:</p>
+            <ul class="govuk-list govuk-list--bullet">
+              <li>What sort of food they eat.</li>
+              <li>Do they need prompting to both cook and/or prompting to physically eat food</li>
+              <li>What they eat for breakfast, lunch and dinner.</li>
+              <li>If they are hungry would they eat something? </li>
+              <li>If they are thirsty would they drink something?</li>
+              <li>If low mood is an issue and they state that prompting would be required please indicate how often this does happen and if continuous prompting is needed </li>
+              <li>Whether they make themselves a drink or any snacks throughout the day.</li>
+              <li>Whether they can use standard cutlery or have any adapted cutlery.</li>
+              <li>If a therapeutic source, whether they can prepare this themselves</li>
+              <li>Ensure all aspects of safety and supervision have been considered </li>
+              <li>Brief description of key restriction e.g. needs prompting due to low mood or will snack on crisps and biscuits but needs prompting to make a meal.</li>
+              <li>Critical analysis of evidence e.g. showed stable mood, discharged from the specialist and has adequate motivation to care for children.</li>
+              <li>Review of inconsistencies and consider the usual features/progress/nature of the condition. </li>
+              <li>Consider safety.</li>
+              <li>Consider whether there is a clinical/functional need for aids to be used or whether they are being used for hazard aversion. (if aids have been discounted give full explanation).</li>
+              <li>Where applicable, include details of the nature of any prompting/supervision and why it is required. (If prompting/supervision is claimed and being discounted fully evidence reasons why).</li>
+              <li>Summarise and refer to the evidence gathered.</li>
+            </ul>
+              
+
+            </div>
+        </div>
+
+    </main>
+  </div>
+{% endblock %}

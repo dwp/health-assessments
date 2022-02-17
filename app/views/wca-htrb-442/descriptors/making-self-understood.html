@@ -1,0 +1,94 @@
+{% extends "layout.html" %}
+{% set bodyAttributes = { id: "assess" } %}
+
+{% block pageTitle %}
+  GOV.UK Prototype Kit
+{% endblock %}
+
+{% block main %}
+
+{% include "includes/assessment-status-neutral.html" %}
+
+  <div class="govuk-width-container {{ containerClasses }}">
+
+      {{ govukBackLink({
+        text: "Back",
+        href: "physical-functions"
+      }) }}
+
+    <main class="govuk-main-wrapper {{ mainClasses }}" id="main-content" role="main"{% if mainLang %} lang="{{ mainLang }}"{% endif %}>
+        <div class="govuk-grid-row">
+
+            <div class="govuk-grid-column-two-thirds">
+
+              <h1 class="govuk-heading-xl">Making self understood</h1>
+
+            <form action="physical-functions" method="post">
+
+              {{ govukTextarea({
+                name: "makingselfunderstoodNotes",
+                id: "makingselfunderstoodNotes",
+                rows: "8",
+                classes: "govuk-!-margin-bottom-9",
+                label: {
+                  text: "Notes on making self understood",
+                  classes: "govuk-label--m",
+                  isPageHeading: false
+                },
+                value: data['makingselfunderstoodNotes']
+              }) }}  
+
+                {{ govukRadios({
+                  idPrefix: "makingselfunderstoodSelect",
+                  name: "makingselfunderstoodSelect",
+                  fieldset: {
+                    legend: {
+                      text: "Which of these options describes how the claimant can communicate simple messages to people by speaking, writing or typing?",
+                      isPageHeading: false,
+                      classes: "govuk-fieldset__legend--s"
+                    }
+                  },
+                  items: [
+                    {
+                      value: "Cannot communicate a simple message",
+                      text: "Cannot communicate a simple message"
+                    },
+                    {
+                      value: "Has significant difficulty communicating a simple message to strangers",
+                      text: "Has significant difficulty communicating a simple message to strangers"
+                    },
+                    {
+                      value: "Has some difficulty communicating a simple message to strangers",
+                      text: "Has some difficulty communicating a simple message to strangers"
+                    },
+                    {
+                      value: "None of the above",
+                      text: "None of the above"
+                    }
+                  ]
+                }) }}
+
+                    {{ govukTextarea({
+                        name: "makingselfunderstooddetails",
+                        id: "makingselfunderstooddetails",
+                        label: {
+                          text: "Give details",
+                          classes: "govuk-label--s",
+                          isPageHeading: true
+                        },
+                        value: data['makingselfunderstooddetails']
+                      }) }}
+
+                      {{ govukButton({
+                        text: "Save"
+                      }) }}
+
+            </form>
+
+
+            </div>
+        </div>
+
+    </main>
+  </div>
+{% endblock %}

@@ -1,0 +1,264 @@
+{% extends "layout.html" %}
+{% set bodyAttributes = { id: "assess" } %}
+
+{% block pageTitle %}
+  GOV.UK Prototype Kit
+{% endblock %}
+
+{% block main %}
+
+{% include "includes/assessment-status-neutral.html" %}
+
+  <div class="govuk-width-container {{ containerClasses }}">
+    <main class="govuk-main-wrapper {{ mainClasses }}" id="main-content" role="main"{% if mainLang %} lang="{{ mainLang }}"{% endif %}>
+        <div class="govuk-grid-row">
+
+            <div class="govuk-grid-column-full">
+
+                {{ govukBackLink({
+                  text: "Back",
+                  href: "review"
+                }) }}
+
+              <h1 class="govuk-heading-xl">Your recommendation</h1>
+
+              <h2 class="govuk-heading-m">Physical functions</h2>
+              <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+                  
+
+
+                {% if data['mobilisingdetails'] %}
+                  <div class="govuk-summary-list__row">
+                      <dt class="govuk-summary-list__key no-bottom-border">Mobilising and using steps</dt>
+                      <dd class="govuk-summary-list__value no-bottom-border"></dd>
+                      <dd class="govuk-summary-list__actions no-bottom-border"><a class="govuk-link" href="lcwra/mobilising-using-steps">Change<span class="govuk-visually-hidden"> name</span></a></dd>
+                    </div>
+                  <div class="govuk-summary-list__row">
+                      <dt class="govuk-summary-list__key">Give details</dt>
+                      <dd class="govuk-summary-list__value">{{ data['mobilisingdetails'] }}</dd>
+                      <dd class="govuk-summary-list__actions"></dd>
+                  </div>
+                  {% endif %}
+                  
+                  {% if data['standingsittingdetails'] %}
+                  <div class="govuk-summary-list__row">
+                      <dt class="govuk-summary-list__key no-bottom-border">Standing and sitting</dt>
+                      <dd class="govuk-summary-list__value no-bottom-border"></dd>
+                      <dd class="govuk-summary-list__actions no-bottom-border"><a class="govuk-link" href="lcwra/standing-and-sitting">Change<span class="govuk-visually-hidden"> name</span></a></dd>
+                    </div>
+
+                  <div class="govuk-summary-list__row">
+                      <dt class="govuk-summary-list__key">Give details</dt>
+                      <dd class="govuk-summary-list__value">{{ data['standingsittingdetails'] }}</dd>
+                      <dd class="govuk-summary-list__actions"></dd>
+                  </div>
+                  {% endif %}
+
+                  {% if data['reachingdetails'] %}
+                  <div class="govuk-summary-list__row">
+                      <dt class="govuk-summary-list__key no-bottom-border">Reaching</dt>
+                      <dd class="govuk-summary-list__value no-bottom-border"></dd>
+                      <dd class="govuk-summary-list__actions no-bottom-border"><a class="govuk-link" href="lcwra/reaching">Change<span class="govuk-visually-hidden"> name</span></a></dd>
+                    </div>
+
+                  <div class="govuk-summary-list__row">
+                      <dt class="govuk-summary-list__key">Give details</dt>
+                      <dd class="govuk-summary-list__value">{{ data['reachingdetails'] }}</dd>
+                      <dd class="govuk-summary-list__actions"></dd>
+                  </div>
+                  {% endif %}
+
+                  {% if data['pickingupdetails'] %}
+                  <div class="govuk-summary-list__row">
+                      <dt class="govuk-summary-list__key no-bottom-border">Picking up and moving things</dt>
+                      <dd class="govuk-summary-list__value no-bottom-border"></dd>
+                      <dd class="govuk-summary-list__actions no-bottom-border"><a class="govuk-link" href="lcwra/pickingup">Change<span class="govuk-visually-hidden"> name</span></a></dd>
+                    </div>
+
+                  <div class="govuk-summary-list__row">
+                      <dt class="govuk-summary-list__key">Give details</dt>
+                      <dd class="govuk-summary-list__value">{{ data['pickingupdetails'] }}</dd>
+                      <dd class="govuk-summary-list__actions"></dd>
+                  </div>
+                  {% endif %}
+
+                  {% if data['dexteritydetails'] %}
+                  <div class="govuk-summary-list__row">
+                      <dt class="govuk-summary-list__key no-bottom-border">Manual dexterity</dt>
+                      <dd class="govuk-summary-list__value no-bottom-border"></dd>
+                      <dd class="govuk-summary-list__actions no-bottom-border"><a class="govuk-link" href="lcwra/manual-dexterity">Change<span class="govuk-visually-hidden"> name</span></a></dd>
+                    </div>
+
+                  <div class="govuk-summary-list__row">
+                      <dt class="govuk-summary-list__key">Give details</dt>
+                      <dd class="govuk-summary-list__value">{{ data['dexteritydetails'] }}</dd>
+                      <dd class="govuk-summary-list__actions"></dd>
+                  </div>
+                  {% endif %}
+
+                  {% if data['makingselfunderstooddetails'] %}
+                  <div class="govuk-summary-list__row">
+                      <dt class="govuk-summary-list__key no-bottom-border">Making self understood</dt>
+                      <dd class="govuk-summary-list__value no-bottom-border"></dd>
+                      <dd class="govuk-summary-list__actions no-bottom-border"><a class="govuk-link" href="lcwra/making-self-understood">Change<span class="govuk-visually-hidden"> name</span></a></dd>
+                    </div>
+
+                  <div class="govuk-summary-list__row">
+                      <dt class="govuk-summary-list__key">Give details</dt>
+                      <dd class="govuk-summary-list__value">{{ data['makingselfunderstooddetails'] }}</dd>
+                      <dd class="govuk-summary-list__actions"></dd>
+                  </div>
+                  {% endif %}
+
+                  {% if data['understandingcommunicationdetails'] %}
+                  <div class="govuk-summary-list__row">
+                      <dt class="govuk-summary-list__key no-bottom-border">Understanding communication</dt>
+                      <dd class="govuk-summary-list__value no-bottom-border"></dd>
+                      <dd class="govuk-summary-list__actions no-bottom-border"><a class="govuk-link" href="lcwra/understanding-communication">Change<span class="govuk-visually-hidden"> name</span></a></dd>
+                    </div>
+                  <div class="govuk-summary-list__row">
+                      <dt class="govuk-summary-list__key">Give details</dt>
+                      <dd class="govuk-summary-list__value">{{ data['understandingcommunicationdetails'] }}</dd>
+                      <dd class="govuk-summary-list__actions"></dd>
+                  </div>
+                  {% endif %}
+
+                  {% if data['continencedetails'] %}
+                  <div class="govuk-summary-list__row">
+                      <dt class="govuk-summary-list__key no-bottom-border">Continence</dt>
+                      <dd class="govuk-summary-list__value no-bottom-border"></dd>
+                      <dd class="govuk-summary-list__actions no-bottom-border"><a class="govuk-link" href="lcwra/continence">Change<span class="govuk-visually-hidden"> name</span></a></dd>
+                    </div>
+                  <div class="govuk-summary-list__row">
+                      <dt class="govuk-summary-list__key">Give details</dt>
+                      <dd class="govuk-summary-list__value">{{ data['continencedetails'] }}</dd>
+                      <dd class="govuk-summary-list__actions"></dd>
+                  </div>
+                  {% endif %}
+
+              </dl>
+
+
+              <h2 class="govuk-heading-m">Mental, cognitive and intellectual capabilities</h2>
+              <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+
+                  {% if data['learningtasksdetails'] %}
+                  <div class="govuk-summary-list__row">
+                      <dt class="govuk-summary-list__key no-bottom-border">Learning to do new tasks</dt>
+                      <dd class="govuk-summary-list__value no-bottom-border"></dd>
+                      <dd class="govuk-summary-list__actions no-bottom-border"><a class="govuk-link" href="lcwra/learning-tasks">Change<span class="govuk-visually-hidden"> name</span></a></dd>
+                    </div>
+                  <div class="govuk-summary-list__row">
+                      <dt class="govuk-summary-list__key">Give details</dt>
+                      <dd class="govuk-summary-list__value">{{ data['learningtasksdetails'] }}</dd>
+                      <dd class="govuk-summary-list__actions"></dd>
+                  </div>
+                  {% endif %}
+
+                  {% if data['hazardsdangerdetails'] %}
+                  <div class="govuk-summary-list__row">
+                      <dt class="govuk-summary-list__key no-bottom-border">Awareness of hazards and danger</dt>
+                      <dd class="govuk-summary-list__value no-bottom-border"></dd>
+                      <dd class="govuk-summary-list__actions no-bottom-border"><a class="govuk-link" href="lcwra/hazards-danger">Change<span class="govuk-visually-hidden"> name</span></a></dd>
+                    </div>
+                  <div class="govuk-summary-list__row">
+                      <dt class="govuk-summary-list__key">Give details</dt>
+                      <dd class="govuk-summary-list__value">{{ data['hazardsdangerdetails'] }}</dd>
+                      <dd class="govuk-summary-list__actions"></dd>
+                  </div>
+                  {% endif %}
+
+                  {% if data['everydaytasksdetails'] %}
+                  <div class="govuk-summary-list__row">
+                      <dt class="govuk-summary-list__key no-bottom-border">Planning, starting and finishing everyday tasks</dt>
+                      <dd class="govuk-summary-list__value no-bottom-border"></dd>
+                      <dd class="govuk-summary-list__actions no-bottom-border"><a class="govuk-link" href="lcwra/everyday-tasks">Change<span class="govuk-visually-hidden"> name</span></a></dd>
+                    </div>
+
+                  <div class="govuk-summary-list__row">
+                      <dt class="govuk-summary-list__key">Give details</dt>
+                      <dd class="govuk-summary-list__value">{{ data['everydaytasksdetails'] }}</dd>
+                      <dd class="govuk-summary-list__actions"></dd>
+                  </div>
+                  {% endif %}
+
+                  {% if data['copingdetails'] %}
+                  <div class="govuk-summary-list__row">
+                      <dt class="govuk-summary-list__key no-bottom-border">Coping with changes</dt>
+                      <dd class="govuk-summary-list__value no-bottom-border"></dd>
+                      <dd class="govuk-summary-list__actions no-bottom-border"><a class="govuk-link" href="lcwra/coping-with-changes">Change<span class="govuk-visually-hidden"> name</span></a></dd>
+                    </div>
+                  <div class="govuk-summary-list__row">
+                      <dt class="govuk-summary-list__key">Give details</dt>
+                      <dd class="govuk-summary-list__value">{{ data['copingdetails'] }}</dd>
+                      <dd class="govuk-summary-list__actions"></dd>
+                  </div>
+                  {% endif %}
+
+                  {% if data['socialsitudetails'] %}
+                  <div class="govuk-summary-list__row">
+                      <dt class="govuk-summary-list__key no-bottom-border">Coping with social situations</dt>
+                      <dd class="govuk-summary-list__value no-bottom-border"></dd>
+                      <dd class="govuk-summary-list__actions no-bottom-border"><a class="govuk-link" href="lcwra/social-situations">Change<span class="govuk-visually-hidden"> name</span></a></dd>
+                    </div>
+                  <div class="govuk-summary-list__row">
+                      <dt class="govuk-summary-list__key">Give details</dt>
+                      <dd class="govuk-summary-list__value">{{ data['socialsitudetails'] }}</dd>
+                      <dd class="govuk-summary-list__actions"></dd>
+                  </div>
+                  {% endif %}
+
+                  {% if data['behaviourdetails'] %}
+                  <div class="govuk-summary-list__row">
+                      <dt class="govuk-summary-list__key no-bottom-border">Behaving appropriately around other people</dt>
+                      <dd class="govuk-summary-list__value no-bottom-border"></dd>
+                      <dd class="govuk-summary-list__actions no-bottom-border"><a class="govuk-link" href="lcwra/behaving-around-others">Change<span class="govuk-visually-hidden"> name</span></a></dd>
+                    </div>
+                  <div class="govuk-summary-list__row">
+                      <dt class="govuk-summary-list__key">Give details</dt>
+                      <dd class="govuk-summary-list__value">{{ data['behaviourdetails'] }}</dd>
+                      <dd class="govuk-summary-list__actions"></dd>
+                  </div>
+                  {% endif %}
+              </dl>
+
+              <h3 class="govuk-heading-m">Eating and drinking</h2>
+                <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+                    {% if data['eatingdetails'] %}
+                    <div class="govuk-summary-list__row">
+                        <dt class="govuk-summary-list__key no-bottom-border">Eating and drinking</dt>
+                        <dd class="govuk-summary-list__value no-bottom-border"></dd>
+                        <dd class="govuk-summary-list__actions no-bottom-border"><a class="govuk-link" href="lcwra/eating-drinking">Change<span class="govuk-visually-hidden"> name</span></a></dd>
+                      </div>
+                      <div class="govuk-summary-list__row">
+                          <dt class="govuk-summary-list__key no-bottom-border">Choose the descriptor that's most appropriate to Jayne</dt>
+                          <dd class="govuk-summary-list__value no-bottom-border">{{ data['eatingSelect'] }}</dd>
+                        </div>
+                    <div class="govuk-summary-list__row">
+                        <dt class="govuk-summary-list__key">Give details</dt>
+                        <dd class="govuk-summary-list__value">{{ data['eatingdetails'] }}</dd>
+                        <dd class="govuk-summary-list__actions"></dd>
+                    </div>
+                    {% endif %}
+                </dl>
+
+
+                <h3 class="govuk-heading-m">When does this claim need to be reviewed?</h2>
+                <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+                    <div class="govuk-summary-list__row">
+                      <dt class="govuk-summary-list__key no-bottom-border">When should the next review be?</dt><dd class="govuk-summary-list__value no-bottom-border"><p>{{ data['whenreview'] }}</p></dd><dd class="govuk-summary-list__actions no-bottom-border"><a class="govuk-link" href="scoring-time-review#whenreview">Change<span class="govuk-visually-hidden"> name</span></a></dd>
+                      </div>
+                    <div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">What are the reasons for this?</dt><dd class="govuk-summary-list__value"><p class="govuk-body">{{ data['reviewtimereasons'] }}</p></dd><dd class="govuk-summary-list__actions"></dd>
+                      </div>
+                    </dl>
+
+
+         <a href="complete" class="govuk-button">Make recommendation</a>
+
+        </div>
+</div>
+
+
+    </main>
+  </div>
+{% endblock %}

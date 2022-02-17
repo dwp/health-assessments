@@ -1,0 +1,80 @@
+{% extends "layout.html" %}
+{% set bodyAttributes = { id: "assess" } %}
+
+{% block pageTitle %}
+  GOV.UK Prototype Kit
+{% endblock %}
+
+{% block main %}
+
+{% include "includes/assessment-status-neutral.html" %}
+
+  <div class="govuk-width-container {{ containerClasses }}">
+    <main class="govuk-main-wrapper {{ mainClasses }}" id="main-content" role="main"{% if mainLang %} lang="{{ mainLang }}"{% endif %}>
+        <div class="govuk-grid-row">
+
+            <div class="govuk-grid-column-two-thirds">
+
+                {{ govukBackLink({
+                  text: "Back",
+                  href: "assessment-status"
+                }) }}
+
+            <form action="assessment-status" method="post">
+
+                    {{ govukTextarea({
+                        name: "historyofcondition",
+                        id: "historyofcondition",
+                        rows: "12",
+                        label: {
+                          text: "History of condition",
+                          classes: "govuk-label--xl",
+                          isPageHeading: true
+                        },
+                        value: data['historyofcondition']
+                      }) }}
+
+                      {{ govukButton({
+                        text: "Save"
+                      }) }}
+
+            </form>
+
+
+            <h2 class="govuk-heading-m govuk-!-margin-top-7">Guidance</h2>
+            <p>The information in this section is a prompt to what Case Managers require. It is not a prescriptive tick list and there are no mandatory questions.</p>
+            <p>The bullets here should be about the history of conditions, symptoms and reviews.</p>
+            <p>If this is an Award Review please indicate that this is since the last PA3/4 was completed.</p>
+            <p>Please list ALL the conditions the claimant has listed on their PIP2, or any functionally relevant conditions not listed on the PIP2 but mentioned at the assessment, including:</p>
+            <ul class="govuk-list govuk-list--bullet">
+              <li>Onset of current symptoms: always include the date (or approximate time period) of the on-set of the current level of functional impairment.</li>
+              <li>Initial symptoms</li>   
+              <li>Diagnosis: who made it and how.</li>  
+              <li>Details of any associated symptoms and how often are they affected by those symptoms.</li> 
+              <li>Who monitors them for that condition, when they last saw them and how regularly they see them.</li>
+              <li>Details of all on-going treatment or therapy, who provides it and how often it occurs.</li>
+              <li>Whether there is anything that exacerbates or eases the condition/symptoms (e.g. stress).</li>
+              <li>Whether they have ever been hospitalised for the condition, including dates if known.</li>
+              <li>Why a treatment has stopped or been withdrawn.</li>
+              <li>Details of any treatment/surgery the claimant is waiting for, including information of why claimant has been referred for it.</li>
+              <li>Additional Questions if relevant (suicide, self-harm, drugs and alcohol)</li>
+            </ul>
+            <p>In learning difficulty/learning disability cases consider instead:</p>
+            <ul class="govuk-list govuk-list--bullet">
+              <li>When was diagnosis / what was the level of diagnosis / by whom</li>
+              <li>Schooling history (statement of educational needs – key FE, mainstream or special, extra support, adaptations)</li>
+              <li>Qualifications (exams/further education/life skills college/supported college)</li>
+              <li>Have they ever worked? (doing what, what support, what level of independence and responsibility)</li>
+              <li>What do they find difficult now/need support with/any additional symptoms or comorbidities.</li>
+              <li>Intervention (GP, social worker, support worker, care support, housing support, appointee etc)</li>
+              <li>Additional questions (self-harm, suicide, alcohol and recreational drugs).</li>
+              <li>Consider vulnerability, insight and safeguarding.</li>
+            </ul>
+              
+
+            </div>
+        </div>
+
+    </main>
+  </div>
+{% endblock %}

@@ -1,0 +1,71 @@
+{% extends "layout.html" %}
+{% set bodyAttributes = { id: "assess" } %}
+
+{% block pageTitle %}
+  GOV.UK Prototype Kit
+{% endblock %}
+
+{% block main %}
+
+{% include "includes/assessment-status-neutral.html" %}
+
+  <div class="govuk-width-container {{ containerClasses }}">
+    <main class="govuk-main-wrapper {{ mainClasses }}" id="main-content" role="main"{% if mainLang %} lang="{{ mainLang }}"{% endif %}>
+        <div class="govuk-grid-row">
+
+            <div class="govuk-grid-column-two-thirds">
+
+                {{ govukBackLink({
+                  text: "Back",
+                  href: "assessment-status"
+                }) }}
+
+            <form action="assessment-status" method="post">
+              {{ govukTextarea({
+                name: "preparingfood",
+                id: "preparingfood",
+                label: {
+                  text: "Preparing food",
+                  classes: "govuk-label--xl",
+                  isPageHeading: true
+                },
+                value: data['preparingfood']
+              }) }}      
+              
+
+                    {{ govukButton({
+                      text: "Save"
+                    }) }}
+                </ul>
+    
+
+
+            </form>
+
+
+            <h2 class="govuk-heading-m govuk-!-margin-top-7">Guidance</h2>
+            <p>Please give an indication of the following:</p>
+            <ul class="govuk-list govuk-list--bullet">
+              <li>Whether specific aids are currently in use in relation to this activity</li>
+              <li>Whether they have ability to use an aid</li>
+              <li>Whether they use or are able to use a microwave.</li>
+              <li>Whether they can stand for any length of time.</li>
+              <li>If prompting is reported as taking place, clarify who does the prompting, how, and why, and what would happen if they were not there.</li>
+              <li>Ask about the whole process and whether they can plan and prepare a whole meal i.e. the end to end process.</li>
+              <li>Ensure all aspects of safety and supervision have been considered when preparing or cooking a meal are covered</li>
+              <li>Brief description of key restriction e.g. needs assistance due to fatigue and poor grip).</li>
+              <li>Brief description of key restriction. </li>
+              <li>Critical analysis of evidence e.g showed a restriction standing which is consistent with FE. </li>
+              <li>Review of inconsistencies and consider the usual features/progress/nature of the condition. </li>
+              <li>Consider safety.</li>
+              <li>Explain “sufficient” e.g. where assistance is claimed but HP chooses aids – this could be only mild grip noted in MSO for example which would be sufficient for the use of aids.</li>
+              <li>Summarise and refer to the evidence gathered. </li>    
+            </ul>
+              
+
+            </div>
+        </div>
+
+    </main>
+  </div>
+{% endblock %}

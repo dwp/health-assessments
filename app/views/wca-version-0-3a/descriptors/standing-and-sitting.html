@@ -1,0 +1,82 @@
+{% extends "layout.html" %}
+{% set bodyAttributes = { id: "assess" } %}
+
+{% block pageTitle %}
+  GOV.UK Prototype Kit
+{% endblock %}
+
+{% block main %}
+
+{% include "includes/assessment-status-neutral.html" %}
+
+  <div class="govuk-width-container {{ containerClasses }}">
+
+      {{ govukBackLink({
+        text: "Back",
+        href: "physical-functions"
+      }) }}
+
+    <main class="govuk-main-wrapper {{ mainClasses }}" id="main-content" role="main"{% if mainLang %} lang="{{ mainLang }}"{% endif %}>
+        <div class="govuk-grid-row">
+
+            <div class="govuk-grid-column-two-thirds">
+
+              <h1 class="govuk-heading-xl">Standing and sitting</h1>
+
+            <form action="physical-functions" method="post">
+
+                {{ govukRadios({
+                  idPrefix: "standingsittingSelect",
+                  name: "standingsittingSelect",
+                  fieldset: {
+                    legend: {
+                      text: "Choose the descriptor that's most appropriate to Jayne",
+                      isPageHeading: false,
+                      classes: "govuk-fieldset__legend--s"
+                    }
+                  },
+                  items: [
+                    {
+                      value: "Cannot transfer from one seat to another right next to it without someone’s help",
+                      text: "Cannot transfer from one seat to another right next to it without someone’s help"
+                    },
+                    {
+                      value: "Cannot stand, sit or alternate between the two for more than 30 minutes",
+                      text: "Cannot stand, sit or alternate between the two for more than 30 minutes"
+                    },
+                    {
+                      value: "Cannot stand, sit or alternate between the two for more than an hour",
+                      text: "Cannot stand, sit or alternate between the two for more than an hour"
+                    },
+                    {
+                      value: "None of the above",
+                      text: "None of the above"
+                    }
+                  ]
+                }) }}
+
+              
+                    {{ govukTextarea({
+                        name: "standingsittingdetails",
+                        id: "standingsittingdetails",
+                        label: {
+                          text: "Give details",
+                          classes: "govuk-label--s",
+                          isPageHeading: true
+                        },
+                        value: data['standingsittingdetails']
+                      }) }}
+
+                      {{ govukButton({
+                        text: "Save"
+                      }) }}
+
+            </form>
+
+
+            </div>
+        </div>
+
+    </main>
+  </div>
+{% endblock %}

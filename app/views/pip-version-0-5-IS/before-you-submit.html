@@ -1,0 +1,36 @@
+{% extends "layout.html" %}
+{% set bodyAttributes = { id: "assess" } %}
+
+{% block pageTitle %}
+  GOV.UK Prototype Kit
+{% endblock %}
+
+{% block main %}
+
+{% include "includes/assessment-status-neutral.html" %}
+
+  <div class="govuk-width-container {{ containerClasses }}">
+
+    {{ govukBackLink({
+      text: "Back",
+      href: "review"
+    }) }}
+
+    <main class="govuk-main-wrapper {{ mainClasses }}" id="main-content" role="main"{% if mainLang %} lang="{{ mainLang }}"{% endif %}>
+        <div class="govuk-grid-row">
+
+            <div class="govuk-grid-column-two-thirds">
+
+              <h1 class="govuk-heading-xl">
+                Copy the information to a form
+              </h1>
+  <p class="govuk-body">A case manager must copy the information in this assessment to a form before it's submitted.</p>
+              <p class="govuk-body">You will not be able to view the assessment once it's been submitted.</p>
+            <a href="submit" class="govuk-button">Continue</a>
+        </div>
+</div>
+
+
+    </main>
+  </div>
+{% endblock %}

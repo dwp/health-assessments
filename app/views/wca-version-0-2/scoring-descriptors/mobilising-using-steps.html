@@ -1,0 +1,85 @@
+{% extends "layout.html" %}
+{% set bodyAttributes = { id: "assess" } %}
+
+{% block pageTitle %}
+  GOV.UK Prototype Kit
+{% endblock %}
+
+{% block main %}
+
+{% include "includes/assessment-status-neutral.html" %}
+
+  <div class="govuk-width-container {{ containerClasses }}">
+
+      {{ govukBackLink({
+        text: "Back",
+        href: "scoring"
+      }) }}
+
+    <main class="govuk-main-wrapper {{ mainClasses }}" id="main-content" role="main"{% if mainLang %} lang="{{ mainLang }}"{% endif %}>
+        <div class="govuk-grid-row">
+
+            <div class="govuk-grid-column-two-thirds">
+
+              <h1 class="govuk-heading-xl">Mobilising and using steps</h1>
+
+            <form action="scoring" method="post">
+
+                {{ govukRadios({
+                  idPrefix: "mobilisingSelect",
+                  name: "mobilisingSelect",
+                  fieldset: {
+                    legend: {
+                      text: "Choose the descriptor that's most appropriate to Jayne",
+                      isPageHeading: false,
+                      classes: "govuk-fieldset__legend--s"
+                    }
+                  },
+                  items: [
+                    {
+                      value: "Cannot mobilise more than 50 metres before they have to stop, or 50 metres repeatedly",
+                      text: "Cannot mobilise more than 50 metres before they have to stop, or 50 metres repeatedly"
+                    },
+                    {
+                      value: "Cannot go up or down 2 steps, even if using a handrail",
+                      text: "Cannot go up or down 2 steps, even if using a handrail"
+                    },
+                    {
+                      value: "Cannot mobilise more than 100 metres, or 100 metres repeatedly",
+                      text: "Cannot mobilise more than 100 metres, or 100 metres repeatedly"
+                    },
+                    {
+                      value: "Cannot mobilise more than 200 metres, or 200 metres repeatedly",
+                      text: "Cannot mobilise more than 200 metres, or 200 metres repeatedly"
+                    },
+                    {
+                      value: "None of the above",
+                      text: "None of the above"
+                    }
+                  ]
+                }) }}
+              
+                    {{ govukTextarea({
+                        name: "mobilisingdetails",
+                        id: "mobilisingdetails",
+                        label: {
+                          text: "Give details",
+                          classes: "govuk-label--s",
+                          isPageHeading: true
+                        },
+                        value: data['mobilisingdetails']
+                      }) }}
+
+                      {{ govukButton({
+                        text: "Save"
+                      }) }}
+
+            </form>
+
+
+            </div>
+        </div>
+
+    </main>
+  </div>
+{% endblock %}

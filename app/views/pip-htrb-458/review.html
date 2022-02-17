@@ -1,0 +1,91 @@
+{% extends "layout.html" %}
+{% set bodyAttributes = { id: "assess" } %}
+
+{% block pageTitle %}
+  GOV.UK Prototype Kit
+{% endblock %}
+
+{% block main %}
+
+{% include "includes/assessment-status-neutral.html" %}
+
+  <div class="govuk-width-container {{ containerClasses }}">
+
+      {{ govukBackLink({
+        text: "Back",
+        href: "check"
+      }) }}
+
+    <main class="govuk-main-wrapper {{ mainClasses }}" id="main-content" role="main"{% if mainLang %} lang="{{ mainLang }}"{% endif %}>
+        <div class="govuk-grid-row">
+
+            <div class="govuk-grid-column-two-thirds">
+
+  <form action="submit" method="post" id="question-form" novalidate>
+
+      {{ govukRadios({
+        idPrefix: "when-review",
+        name: "when-review",
+        fieldset: {
+          legend: {
+            text: "When should this claim be reviewed?",
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend--xl"
+          }
+        },
+        items: [
+          {
+            value: "9 months",
+            text: "9 months"
+          },
+          {
+            value: "12 months",
+            text: "12 months"
+          },
+          {
+            value: "18 months",
+            text: "18 months"
+          }
+          ,
+          {
+            value: "Within 2 years",
+            text: "Within 2 years"
+          }
+          ,
+          {
+            value: "In the longer term",
+            text: "In the longer term"
+          }
+          ,
+          {
+            value: "No future assessments required",
+            text: "No future assessments required"
+          }
+        ]
+      }) }}
+
+      {{ govukTextarea({
+        name: "review-time-reasons",
+        id: "review-time-reasons",
+        label: {
+          text: "Why should the claim be reviewed then?",
+          classes: "govuk-label--s",
+          isPageHeading: false
+        }
+      }) }}
+
+</div>
+</div>
+
+<button class="govuk-button" data-module="govuk-button">
+  Continue
+</button>
+
+</main>
+</div>
+
+
+
+
+
+{% endblock %}

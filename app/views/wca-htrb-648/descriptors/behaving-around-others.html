@@ -1,0 +1,118 @@
+{% extends "layout.html" %}
+{% set bodyAttributes = { id: "assess" } %}
+
+{% block pageTitle %}
+  GOV.UK Prototype Kit
+{% endblock %}
+
+{% block main %}
+
+{% include "includes/assessment-status-neutral.html" %}
+
+  <div class="govuk-width-container {{ containerClasses }}">
+
+      {{ govukBackLink({
+        text: "Back",
+        href: "mental-capabilities"
+      }) }}
+
+    <main class="govuk-main-wrapper {{ mainClasses }}" id="main-content" role="main"{% if mainLang %} lang="{{ mainLang }}"{% endif %}>
+        <div class="govuk-grid-row">
+
+            <div class="govuk-grid-column-two-thirds">
+
+              <h1 class="govuk-heading-xl">Behaving appropriately around other people</h1>
+
+              <form id="question-form" action="mental-capabilities" method="post">
+
+                {{ govukTextarea({
+                  name: "behaviourNotes",
+                  id: "behaviourNotes",
+                  rows: "8",
+                  classes: "govuk-!-margin-bottom-9",
+                  label: {
+                    text: "Notes on behaving appropriately around other people",
+                    classes: "govuk-label--m",
+                    isPageHeading: false
+                  },
+                  value: data['behaviourNotes']
+                }) }}  
+
+                {{ govukRadios({
+                  idPrefix: "behaviourSelect",
+                  name: "behaviourSelect",
+                  fieldset: {
+                    legend: {
+                      text: "How often does the claimant behave in a way which upsets other people?",
+                      isPageHeading: false,
+                      classes: "govuk-fieldset__legend--s"
+                    }
+                  },
+                  items: [
+                    {
+                      value: "Every day",
+                      text: "Every day"
+                    },
+                    {
+                      value: "Often",
+                      text: "Often"
+                    },
+                    {
+                      value: "Occasionally",
+                      text: "Occasionally"
+                    },
+                    {
+                      value: "None of the above",
+                      text: "None of the above"
+                    }
+                  ]
+                }) }}
+
+                    {{ govukTextarea({
+                        name: "behaviourdetails",
+                        id: "behaviourdetails",
+                        label: {
+                          text: "Give details",
+                          classes: "govuk-label--s",
+                          isPageHeading: true
+                        },
+                        value: data['behaviourdetails']
+                      }) }}
+
+                      {{ govukButton({
+                        text: "Save"
+                      }) }}
+
+            </form>
+
+
+            </div>
+        </div>
+
+    </main>
+  </div>
+ 
+
+<script type="text/javascript">
+  document.getElementById("behaviourSelect").onclick = function() {
+        var link = "../lcwra-found";
+    document.getElementById("question-form").action=link;
+  }
+
+  document.getElementById("behaviourSelect-2").onclick = function() {
+        var link = "mental-capabilities";
+    document.getElementById("question-form").action=link;
+  }
+
+  document.getElementById("behaviourSelect-3").onclick = function() {
+        var link = "mental-capabilities";
+    document.getElementById("question-form").action=link;
+  }
+
+  document.getElementById("behaviourSelect-4").onclick = function() {
+        var link = "mental-capabilities";
+    document.getElementById("question-form").action=link;
+  }
+</script>
+
+{% endblock %}

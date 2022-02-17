@@ -1,0 +1,100 @@
+{% extends "layout.html" %}
+{% set bodyAttributes = { id: "assess" } %}
+
+{% block pageTitle %}
+  GOV.UK Prototype Kit
+{% endblock %}
+
+{% block main %}
+
+{% include "includes/assessment-status-neutral.html" %}
+
+  <div class="govuk-width-container {{ containerClasses }}">
+
+      {{ govukBackLink({
+        text: "Back",
+        href: "assessment-overview"
+      }) }}
+
+    <main class="govuk-main-wrapper {{ mainClasses }}" id="main-content" role="main"{% if mainLang %} lang="{{ mainLang }}"{% endif %}>
+        <div class="govuk-grid-row">
+
+            <div class="govuk-grid-column-two-thirds">
+
+  <form action="abandon-submit" method="post" id="question-form" novalidate>
+
+    <h1 class="govuk-heading-xl">Abandon assessment</h1>
+
+    {% set reasonHtml %}
+    {{ govukTextarea({
+      id: "abandon-reason",
+      name: "abandon-reason",
+      label: {
+        text: "Reason"
+      },
+      errorMessage: {
+        text: "Enter a reason"
+      }
+    }) }}
+    {% endset -%}
+
+
+    {{ govukRadios({
+      idPrefix: "abandon",
+      name: "abandon",
+      fieldset: {
+        legend: {
+          text: "Why do you need to abandon the assessment?",
+          isPageHeading: false,
+          classes: "govuk-fieldset__legend--s"
+        }
+      },
+      errorMessage: {
+        text: "Select why you’re abandoning the assessment"
+      },
+      items: [
+        {
+          value: "Technical problem",
+          text: "Technical problem"
+        },
+        {
+          value: "Abusive behaviour",
+          text: "Abusive behaviour"
+        },
+        {
+          value: "Affected by alcohol or drugs",
+          text: "Affected by alcohol or drugs"
+        },
+        {
+          value: "No interpreter",
+          text: "No interpreter"
+        },
+        {
+          value: "No appointee",
+          text: "No appointee"
+        },
+        {
+          value: "Other",
+          text: "Other",
+          conditional: {
+            html: reasonHtml
+          }
+        }
+      ]
+    }) }}
+
+    </fieldset>
+
+  <button class="govuk-button" data-module="govuk-button">
+    Save and continue
+  </button>
+
+</div>
+</div>
+
+
+</main>
+</div>
+
+
+{% endblock %}

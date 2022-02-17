@@ -1,0 +1,81 @@
+{% extends "layout.html" %}
+{% set bodyAttributes = { id: "assess" } %}
+
+{% block pageTitle %}
+  GOV.UK Prototype Kit
+{% endblock %}
+
+{% block main %}
+
+{% include "includes/assessment-status-neutral.html" %}
+
+  <div class="govuk-width-container {{ containerClasses }}">
+
+      {{ govukBackLink({
+        text: "Back",
+        href: "mental-capabilities"
+      }) }}
+
+    <main class="govuk-main-wrapper {{ mainClasses }}" id="main-content" role="main"{% if mainLang %} lang="{{ mainLang }}"{% endif %}>
+        <div class="govuk-grid-row">
+
+            <div class="govuk-grid-column-two-thirds">
+
+              <h1 class="govuk-heading-xl">Getting about</h1>
+
+              <form action="mental-capabilities" method="post">
+
+                {{ govukRadios({
+                  idPrefix: "gettingaboutSelect",
+                  name: "gettingaboutSelect",
+                  fieldset: {
+                    legend: {
+                      text: "Choose the descriptor that's most appropriate to the claimant",
+                      isPageHeading: false,
+                      classes: "govuk-fieldset__legend--s"
+                    }
+                  },
+                  items: [
+                    {
+                      value: "Cannot get to any place outside the claimant’s home with which the claimant is familiar.",
+                      text: "Cannot get to any place outside the claimant’s home with which the claimant is familiar."
+                    },
+                    {
+                      value: "Is unable to get to a specified place with which the claimant is familiar, without being accompanied by another person.",
+                      text: "Is unable to get to a specified place with which the claimant is familiar, without being accompanied by another person."
+                    },
+                    {
+                      value: "Is unable to get to a specified place with which the claimant is unfamiliar without being accompanied by another person.",
+                      text: "Is unable to get to a specified place with which the claimant is unfamiliar without being accompanied by another person."
+                    },
+                    {
+                      value: "None of the above",
+                      text: "None of the above"
+                    }
+                  ]
+                }) }}
+
+                    {{ govukTextarea({
+                        name: "gettingaboutdetails",
+                        id: "gettingaboutdetails",
+                        label: {
+                          text: "Give details",
+                          classes: "govuk-label--s",
+                          isPageHeading: true
+                        },
+                        value: data['gettingaboutdetails']
+                      }) }}
+
+                      {{ govukButton({
+                        text: "Save"
+                      }) }}
+
+            </form>
+
+
+            </div>
+        </div>
+
+    </main>
+  </div>
+{% endblock %}

@@ -1,0 +1,54 @@
+{% extends "layout.html" %}
+{% set bodyAttributes = { id: "assess" } %}
+
+{% block pageTitle %}
+  GOV.UK Prototype Kit
+{% endblock %}
+
+{% block main %}
+
+{% include "includes/assessment-status-neutral.html" %}
+
+  <div class="govuk-width-container {{ containerClasses }}">
+    {{ govukBackLink({
+      text: "Back",
+      href: "assessment-status"
+    }) }}
+    
+    <main class="govuk-main-wrapper {{ mainClasses }}" id="main-content" role="main"{% if mainLang %} lang="{{ mainLang }}"{% endif %}>
+        <div class="govuk-grid-row">
+
+            <div class="govuk-grid-column-two-thirds">
+
+              
+
+            <form action="dailyliving" method="post">
+
+                    {{ govukTextarea({
+                        name: "recommendation",
+                        id: "recommendation",
+                        rows: "12",
+                        label: {
+                          text: "What is the reason for your recommendation?",
+                          classes: "govuk-label--l",
+                          isPageHeading: true
+                        },
+                        value: data['recommendation']
+                      }) }}
+
+                      {{ govukButton({
+                        text: "Save and continue"
+                      }) }}
+
+            </form>
+
+
+          
+
+
+            </div>
+        </div>
+
+    </main>
+  </div>
+{% endblock %}

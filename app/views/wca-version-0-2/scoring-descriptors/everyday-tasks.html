@@ -1,0 +1,81 @@
+{% extends "layout.html" %}
+{% set bodyAttributes = { id: "assess" } %}
+
+{% block pageTitle %}
+  GOV.UK Prototype Kit
+{% endblock %}
+
+{% block main %}
+
+{% include "includes/assessment-status-neutral.html" %}
+
+  <div class="govuk-width-container {{ containerClasses }}">
+
+      {{ govukBackLink({
+        text: "Back",
+        href: "scoring"
+      }) }}
+
+    <main class="govuk-main-wrapper {{ mainClasses }}" id="main-content" role="main"{% if mainLang %} lang="{{ mainLang }}"{% endif %}>
+        <div class="govuk-grid-row">
+
+            <div class="govuk-grid-column-two-thirds">
+
+              <h1 class="govuk-heading-xl">Planning, starting and finishing everyday tasks</h1>
+
+              <form action="scoring" method="post">
+
+                {{ govukRadios({
+                  idPrefix: "everydaytasksSelect",
+                  name: "everydaytasksSelect",
+                  fieldset: {
+                    legend: {
+                      text: "Can Jayne plan, start and finish everyday tasks without difficulty?",
+                      isPageHeading: false,
+                      classes: "govuk-fieldset__legend--s"
+                    }
+                  },
+                  items: [
+                    {
+                      value: "Cannot plan, start and finish everyday tasks",
+                      text: "Cannot plan, start and finish everyday tasks"
+                    },
+                    {
+                      value: "Most of the time Jayne cannot plan, start and finish everyday tasks",
+                      text: "Most of the time Jayne cannot plan, start and finish everyday tasks"
+                    },
+                    {
+                      value: "Often cannot plan, start and finish everyday tasks",
+                      text: "Often cannot plan, start and finish everyday tasks"
+                    },
+                    {
+                      value: "None of the above",
+                      text: "None of the above"
+                    }
+                  ]
+                }) }}
+              
+                    {{ govukTextarea({
+                        name: "everydaytasksdetails",
+                        id: "everydaytasksdetails",
+                        label: {
+                          text: "Give details",
+                          classes: "govuk-label--s",
+                          isPageHeading: true
+                        },
+                        value: data['everydaytasksdetails']
+                      }) }}
+
+                      {{ govukButton({
+                        text: "Save"
+                      }) }}
+
+            </form>
+
+
+            </div>
+        </div>
+
+    </main>
+  </div>
+{% endblock %}

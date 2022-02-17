@@ -1,0 +1,153 @@
+{% extends "layout.html" %}
+{% set bodyAttributes = { id: "assess" } %}
+
+{% block pageTitle %}
+  GOV.UK Prototype Kit
+{% endblock %}
+
+{% block main %}
+
+{% include "includes/assessment-status-neutral.html" %}
+
+  <div class="govuk-width-container {{ containerClasses }}">
+    <main class="govuk-main-wrapper {{ mainClasses }}" id="main-content" role="main"{% if mainLang %} lang="{{ mainLang }}"{% endif %}>
+        <div class="govuk-grid-row">
+
+            <div class="govuk-grid-column-two-thirds">
+
+                {{ govukBackLink({
+                  text: "Back",
+                  href: "assessment-status"
+                }) }}
+
+                <h1 class="govuk-heading-xl">Taking nutrition</h1>
+
+                </div>
+          </div>
+
+          <div class="govuk-grid-row">
+
+            <div class="govuk-grid-column-two-thirds">
+
+              <form action="assessment-status" method="post">
+
+
+              {{ govukTextarea({
+                name: "takingnutritionNotes",
+                id: "takingnutritionNotes",
+                rows: "8",
+                classes: "govuk-!-margin-bottom-9",
+                label: {
+                  text: "Notes on taking nutrition",
+                  classes: "govuk-label--m",
+                  isPageHeading: false
+                },
+                value: data['takingnutritionNotes']
+              }) }}
+
+              
+              
+{% set justificationHtml %}
+{{ govukTextarea({
+  name: "takingnutritionReason",
+  id: "takingnutritionReason",
+  label: {
+    text: "What is the reason for this answer?",
+    classes: "govuk-label--s",
+    isPageHeading: false
+  },
+  value: data['takingnutritionReason']
+}) }}
+{% endset -%}
+
+{{ govukRadios({
+  idPrefix: "takingnutritionSelect",
+  name: "takingnutritionSelect",
+  fieldset: {
+    legend: {
+      text: "Which of these describes how well the claimant can take nutrition?",
+      isPageHeading: false,
+      classes: "govuk-fieldset__legend--m"
+    }
+  },
+  items: [
+    {
+      value: "Cannot convey food and drink to their mouth and needs another person to do so",
+      text: "Cannot convey food and drink to their mouth and needs another person to do so",
+      conditional: {
+        html: justificationHtml
+      }
+    },
+    {
+      value: "Needs assistance to be able to manage a therapeutic source to take nutrition",
+      text: "Needs assistance to be able to manage a therapeutic source to take nutrition",
+      conditional: {
+        html: justificationHtml
+      }
+    },
+    {
+      value: "Needs prompting to be able to take nutrition",
+      text: "Needs prompting to be able to take nutrition",
+      conditional: {
+        html: justificationHtml
+      }
+    },
+    {
+      value: "Needs a therapeutic source to be able to take nutrition",
+      text: "Needs a therapeutic source to be able to take nutrition",
+      conditional: {
+        html: justificationHtml
+      }
+    },
+    {
+      value: "Needs to use an aid or appliance to be able to take nutrition, or supervision to be able to take nutrition, or assistance to be able to cut up food",
+      text: "Needs to use an aid or appliance to be able to take nutrition, or supervision to be able to take nutrition, or assistance to be able to cut up food",
+      conditional: {
+        html: justificationHtml
+      }
+    },
+    {
+      value: "Can take nutrition unaided",
+      text: "Can take nutrition unaided",
+      conditional: {
+        html: justificationHtml
+      }
+    },
+    {
+      divider: "or"
+    },
+    {
+      value: "The claimant did not report significant functional problems with this activity in their questionnaire or at consultation, and there was no evidence to suggest otherwise.",
+      text: "The claimant did not report significant functional problems with this activity in their questionnaire or at consultation, and there was no evidence to suggest otherwise."
+    }
+ 
+    ]
+ }) }}
+              
+              
+              
+         
+
+                    {{ govukButton({
+                      text: "Save"
+                    }) }}
+                </ul>
+
+
+
+            </form>
+
+
+
+            </div>
+
+            <div class="govuk-grid-column-one-third">
+
+
+            </div>
+
+        </div>
+
+    </main>
+  </div>
+{% endblock %}

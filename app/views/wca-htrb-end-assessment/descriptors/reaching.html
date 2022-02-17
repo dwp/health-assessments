@@ -1,0 +1,117 @@
+{% extends "layout.html" %}
+{% set bodyAttributes = { id: "assess" } %}
+
+{% block pageTitle %}
+  GOV.UK Prototype Kit
+{% endblock %}
+
+{% block main %}
+
+{% include "includes/assessment-status-neutral.html" %}
+
+  <div class="govuk-width-container {{ containerClasses }}">
+
+      {{ govukBackLink({
+        text: "Back",
+        href: "physical-functions"
+      }) }}
+
+    <main class="govuk-main-wrapper {{ mainClasses }}" id="main-content" role="main"{% if mainLang %} lang="{{ mainLang }}"{% endif %}>
+        <div class="govuk-grid-row">
+
+            <div class="govuk-grid-column-two-thirds">
+
+              <h1 class="govuk-heading-xl">Reaching</h1>
+
+            <form id="question-form" action="physical-functions" method="post">
+
+              {{ govukTextarea({
+                name: "reachingNotes",
+                id: "reachingNotes",
+                rows: "8",
+                classes: "govuk-!-margin-bottom-9",
+                label: {
+                  text: "Notes on reaching",
+                  classes: "govuk-label--m",
+                  isPageHeading: false
+                },
+                value: data['reachingNotes']
+              }) }}  
+
+                {{ govukRadios({
+                  idPrefix: "reachingSelect",
+                  name: "reachingSelect",
+                  fieldset: {
+                    legend: {
+                      text: "Which of these options describes how the claimant can reach for things?",
+                      isPageHeading: false,
+                      classes: "govuk-fieldset__legend--s"
+                    }
+                  },
+                  items: [
+                    {
+                      value: "Cannot raise either arm as if to put something in their top pocket",
+                      text: "Cannot raise either arm as if to put something in their top pocket"
+                    },
+                    {
+                      value: "Cannot raise either arm to the top of their head to put a hat on",
+                      text: "Cannot raise either arm to the top of their head to put a hat on"
+                    },
+                    {
+                      value: "Cannot raise either arm above their head to reach for something",
+                      text: "Cannot raise either arm above their head to reach for something"
+                    },
+                    {
+                      value: "None of the above",
+                      text: "None of the above"
+                    }
+                  ]
+                }) }}
+
+                    {{ govukTextarea({
+                        name: "reachingdetails",
+                        id: "reachingdetails",
+                        label: {
+                          text: "Give details",
+                          classes: "govuk-label--s",
+                          isPageHeading: true
+                        },
+                        value: data['reachingdetails']
+                      }) }}
+
+                      {{ govukButton({
+                        text: "Save"
+                      }) }}
+
+            </form>
+
+
+            </div>
+        </div>
+
+    </main>
+  </div>
+
+  <script type="text/javascript">
+    document.getElementById("reachingSelect").onclick = function() {
+          var link = "../lcwra-found";
+      document.getElementById("question-form").action=link;
+    }
+  
+    document.getElementById("reachingSelect-2").onclick = function() {
+          var link = "physical-functions";
+      document.getElementById("question-form").action=link;
+    }
+  
+    document.getElementById("reachingSelect-3").onclick = function() {
+          var link = "physical-functions";
+      document.getElementById("question-form").action=link;
+    }
+  
+    document.getElementById("reachingSelect-4").onclick = function() {
+          var link = "physical-functions";
+      document.getElementById("question-form").action=link;
+    }
+  </script>
+
+{% endblock %}

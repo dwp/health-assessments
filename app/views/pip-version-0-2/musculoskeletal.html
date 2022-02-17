@@ -1,0 +1,78 @@
+{% extends "layout.html" %}
+{% set bodyAttributes = { id: "assess" } %}
+
+{% block pageTitle %}
+  GOV.UK Prototype Kit
+{% endblock %}
+
+{% block main %}
+
+{% include "includes/assessment-in-progress.html" %}
+
+  <div class="govuk-width-container {{ containerClasses }}">
+    <main class="govuk-main-wrapper {{ mainClasses }}" id="main-content" role="main"{% if mainLang %} lang="{{ mainLang }}"{% endif %}>
+        <div class="govuk-grid-row">
+
+            <div class="govuk-grid-column-two-thirds">
+
+                {{ govukBackLink({
+                  text: "Back",
+                  href: "assessment-status"
+                }) }}
+
+            <form action="assessment-status" method="post">
+
+                    {{ govukTextarea({
+                        name: "musculoskeletal",
+                        id: "musculoskeletal",
+                        label: {
+                          text: "Musculoskeletal and mental state",
+                          classes: "govuk-label--xl",
+                          isPageHeading: true
+                        },
+                        value: data['musculoskeletal']
+                      }) }}
+
+                      {{ govukButton({
+                        text: "Save"
+                      }) }}
+
+            </form>
+
+
+            <h2 class="govuk-heading-m govuk-!-margin-top-7">Guidance</h2>
+            <h2 class="govuk-heading-s">Musculoskeletal examination</h2>
+            <p>Where an MSO examination is appropriate it is important observations and comparisons are included on both arms and/or both legs.</p>
+            <p>It is also important to explain why MSO is not always completed.</p>
+            <p>Remind claimant not to do anything that is likely to cause or exacerbate pain or discomfort</p>
+            <p>Please note that giving percentages of range of movement here isn’t always meaningful for a Case Manager, but using words that suggest comparison to a normal range of movement is more useful. For example, can touch back of head etc. You should also indicate whether the ranges of movements seen are consistent with the claimant’s condition.</p>
+
+            <p>Please also give an indication of the following (if seen):</p>
+                
+            <ul class="govuk-list govuk-list--bullet">
+              <li>Whether the claimant was observed to be breathless, sweating or in pain doing the examination.</li>
+              <li>Whether there were any abnormalities of joints or limbs observed.</li>         
+            </ul>
+
+            <p>Please use common terminology and consider a test such as whether they are “able to read standard size text/font. Additionally, documenting the eye test result as N48, for example, does not mean anything to Case Managers so please indicate whether the result is classed as good, average, poor eyesight etc and record findings of such tests.</p>
+
+            <h2 class="govuk-heading-s">Mental state examination</h2>
+            <p>A Mental State Examination (MSE) gives a picture of the claimant on the day of the assessment (as well as normal tests) please also include:</p>
+
+            <ul class="govuk-list govuk-list--bullet">
+              <li>Information about how the claimant interacted overall, their behaviour, and whether support was needed by any companion e.g. in the form of prompting, answering/talking on behalf of the claimant etc.</li>
+              <li>Information about how they prepared for the assessment-who helped them etc.</li>
+              <li>Information about their companion (where appropriate) and how much input they have into the assessment.</li>
+              <li>Details of any physical signs of distress or anxiety and whether their companion (if attends with a companion) needs to support them in terms of comforting and/or in other areas of the assessment</li>
+              <li>Level of eye contact</li>
+              <li>Information regarding memory, concentration, attention and cognition throughout the whole assessment process including an explanation supporting the findings e.g. whether the claimant was able to keep focused on, and answer all the questions without any help or prompting from their companion.</li>
+                
+            </ul>
+              
+
+            </div>
+        </div>
+
+    </main>
+  </div>
+{% endblock %}

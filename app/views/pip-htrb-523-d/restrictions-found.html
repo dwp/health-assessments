@@ -1,0 +1,94 @@
+{% extends "layout.html" %}
+{% set bodyAttributes = { id: "assess" } %}
+
+{% block pageTitle %}
+  GOV.UK Prototype Kit
+{% endblock %}
+
+{% block main %}
+
+{% include "includes/assessment-status-neutral.html" %}
+
+  <div class="govuk-width-container {{ containerClasses }}">
+
+      {{ govukBackLink({
+        text: "Back",
+        href: "check"
+      }) }}
+
+    <main class="govuk-main-wrapper {{ mainClasses }}" id="main-content" role="main"{% if mainLang %} lang="{{ mainLang }}"{% endif %}>
+        <div class="govuk-grid-row">
+
+            <div class="govuk-grid-column-two-thirds">
+
+  <form action="assessment-status" method="post" id="question-form" novalidate>
+
+      {{ govukRadios({
+        idPrefix: "qp",
+        name: "qp",
+        fieldset: {
+          legend: {
+            text: "What functional restriction does the claimant have?",
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend--xl",
+            hint: "Hint"
+          }
+        },
+        items: [
+          {
+            value: "Daily living",
+            text: "Daily living"
+          },
+          {
+            value: "Mobility",
+            text: "Mobility"
+          },
+          {
+            value: "Daily living and mobility",
+            text: "Daily living and mobility"
+          },
+          {
+            value: "None",
+            text: "None"
+          }
+        ]
+      }) }}
+
+</div>
+</div>
+
+<button class="govuk-button" data-module="govuk-button">
+  Continue
+</button>
+
+</main>
+</div>
+
+<script type="text/javascript">
+  document.getElementById("qp").onclick = function() {
+        var link = "dailyliving";
+    document.getElementById("question-form").action=link;
+  }
+
+  document.getElementById("qp-2").onclick = function() {
+        var link = "mobility";
+    document.getElementById("question-form").action=link;
+  }
+
+  document.getElementById("qp-3").onclick = function() {
+        var link = "dailyliving-and";
+    document.getElementById("question-form").action=link;
+  }
+
+  document.getElementById("qp-4").onclick = function() {
+        var link = "submit";
+    document.getElementById("question-form").action=link;
+  }
+
+</script>
+
+
+
+
+
+{% endblock %}

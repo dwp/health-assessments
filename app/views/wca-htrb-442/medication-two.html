@@ -1,0 +1,125 @@
+{% extends "layout.html" %}
+{% set bodyAttributes = { id: "assess" } %}
+
+{% block pageTitle %}
+  GOV.UK Prototype Kit
+{% endblock %}
+
+{% block main %}
+
+{% include "includes/assessment-status-neutral.html" %}
+
+  <div class="govuk-width-container {{ containerClasses }}">
+
+      {{ govukBackLink({
+        text: "Back",
+        href: "assessment-overview"
+      }) }}
+
+    <main class="govuk-main-wrapper {{ mainClasses }}" id="main-content" role="main"{% if mainLang %} lang="{{ mainLang }}"{% endif %}>
+        <div class="govuk-grid-row">
+
+            <div class="govuk-grid-column-two-thirds">
+
+              <h1 class="govuk-heading-xl">Medications and side effects</h1>
+
+            <form action="assessment-overview" method="post">
+
+            <div class="govuk-form-group">
+              {{ govukInput({
+                label: {
+                  text: "Name"
+                },
+                id: "input-autocomplete",
+                name: "input-autocomplete",
+                value: data['input-autocomplete']
+              }) }}
+            </div>
+
+            <div class="govuk-form-group">
+              {{ govukTextarea({
+                name: "med1sideeffects",
+                id: "med1sideeffects",
+                rows: "5",
+                label: {
+                  text: "Side effects",
+                  classes: "govuk-label-s",
+                  isPageHeading: false
+                },
+                value: data['med1sideeffects']
+              }) }}
+            </div>
+
+            <hr class="govuk-!-margin-bottom-5">
+
+            <div class="govuk-form-group">
+              <label for="my-autocomplete-two" class="govuk-label">Medication</label>
+              <div id="my-autocomplete-container-two"></div>
+            </div>
+
+            <div class="govuk-form-group">
+              {{ govukTextarea({
+                name: "med2sideeffects",
+                id: "med2sideeffects",
+                rows: "5",
+                label: {
+                  text: "Side effects",
+                  classes: "govuk-label-s",
+                  isPageHeading: false
+                },
+                value: data['med2sideeffects']
+              }) }}
+            </div>
+
+            <hr class="govuk-!-margin-bottom-5">
+
+
+              <p><a class="govuk-link" href="medication-two">Add another medication</a></p>
+
+                      {{ govukButton({
+                        text: "Save"
+                      }) }}
+
+            </form>
+
+
+            </div>
+        </div>
+
+    </main>
+  </div>
+
+  <script type="text/javascript" src="/public/javascripts/accessible-autocomplete.min.js"></script>
+<link rel="stylesheet" href="/public/stylesheets/accessible-autocomplete.min.css" />
+
+<script type="text/javascript">
+
+  const medications = [
+    'Alcaftadine',
+    'Acer pseudoplatanus pollen allergen extract',
+    'Agrostis capillaris pollen allergen extract',
+    'Alnus glutinosa pollen allergen extract',
+    'Alnus species pollen allergen extract',
+    'Activated charcoal',
+    'Calcium leucovorin',
+    'Clemizole',
+    'Ibuprofen',
+    'Imiquimod',
+    'Inosine pranobex',
+    'Ixazomib citrate',
+    'Paracetamol',
+    'Paclitaxel',
+    'Pipobroman',
+    'Pyrimidine analog'
+  ]
+
+  accessibleAutocomplete({
+    element: document.querySelector('#my-autocomplete-container-two'),
+    id: 'my-autocomplete-two', // To match it to the existing <label>.
+    source: medications
+  })
+  
+</script>
+
+{% endblock %}
+

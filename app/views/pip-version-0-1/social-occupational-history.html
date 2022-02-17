@@ -1,0 +1,67 @@
+{% extends "layout.html" %}
+{% set bodyAttributes = { id: "assess" } %}
+
+{% block pageTitle %}
+  GOV.UK Prototype Kit
+{% endblock %}
+
+{% block main %}
+
+    <div id="assess-head">
+        <div class="govuk-width-container">
+            <div class="govuk-grid-row govuk-!-padding-bottom-2">
+                <div class="govuk-grid-column-two-thirds"> 
+                    <h1 class="govuk-heading-xl claimant-name white">Jayne Smith </h1><h2 class="govuk-heading-m claimant-ni white">QQ 12 34 56 X</h2>       
+                </div>
+                <div class="govuk-grid-column-one-third"> 
+                  <p class="govuk-body-s assessment-status">Assessment in progress</p>         
+                </div>
+            </div>
+            <div class="govuk-grid-row">
+                <div class="govuk-grid-column-full">
+                   <hr class="govuk-!-margin-bottom-2 govuk-!-margin-top-0"> 
+                   <p class="claimant-dob govuk-!-margin-bottom-0 white">Claimant date of birth: 31st December 1999</p>
+              </div>
+            </div>
+    </div>
+  </div>
+
+  <div class="govuk-width-container {{ containerClasses }}">
+    <main class="govuk-main-wrapper {{ mainClasses }}" id="main-content" role="main"{% if mainLang %} lang="{{ mainLang }}"{% endif %}>
+        <div class="govuk-grid-row">
+
+            <div class="govuk-grid-column-two-thirds">
+
+                {{ govukBackLink({
+                  text: "Back",
+                  href: "history"
+                }) }}
+
+            <form action="" method="post">
+
+                    {{ govukTextarea({
+                        name: "social-and-occupational-history",
+                        id: "social-and-occupational-history",
+                        label: {
+                          text: "Social and occupational history",
+                          classes: "govuk-label--xl",
+                          isPageHeading: true
+                        },
+                        hint: {
+                          text: "What type of dwelling does the claimant live in and do they live alone or with others? Can they access all areas of their home and have they had to make any modifications? Social and lesire activities undertaken by the claimant as as any they have given up or modified due to their health condition or impariment could also be mentioned here."
+                        }
+                      }) }}
+
+                      {{ govukButton({
+                        text: "Save and continue"
+                      }) }}
+
+            </form>
+              
+
+            </div>
+        </div>
+
+    </main>
+  </div>
+{% endblock %}

@@ -1,0 +1,110 @@
+{% extends "layout.html" %}
+{% set bodyAttributes = { id: "assess" } %}
+
+{% block pageTitle %}
+  GOV.UK Prototype Kit
+{% endblock %}
+
+{% block main %}
+
+{% include "includes/assessment-status-neutral.html" %}
+
+  <div class="govuk-width-container {{ containerClasses }}">
+
+      {{ govukBackLink({
+        text: "Back",
+        href: "physical-functions"
+      }) }}
+
+    <main class="govuk-main-wrapper {{ mainClasses }}" id="main-content" role="main"{% if mainLang %} lang="{{ mainLang }}"{% endif %}>
+        <div class="govuk-grid-row">
+
+            <div class="govuk-grid-column-two-thirds">
+
+              <h1 class="govuk-heading-xl">Manual dexterity</h1>
+
+            <form action="physical-functions" method="post">
+
+              {% if data['assessmenttype'] !== "Paper" %}  
+
+              {{ govukTextarea({
+                name: "dexterityNotes",
+                id: "dexterityNotes",
+                rows: "8",
+                classes: "govuk-!-margin-bottom-9",
+                label: {
+                  text: "Notes on manual dexterity",
+                  classes: "govuk-label--m",
+                  isPageHeading: false
+                },
+                value: data['dexterityNotes']
+              }) }}  
+
+              {% endif %}
+
+                {{ govukRadios({
+                  idPrefix: "dexteritySelect",
+                  name: "dexteritySelect",
+                  fieldset: {
+                    legend: {
+                      text: "Select the highest scoring task that the claimant cannot do with either hand",
+                      isPageHeading: false,
+                      classes: "govuk-fieldset__legend--s"
+                    }
+                  },
+                  items: [
+                    {
+                      value: "Cannot press a button, like a phone keyboard",
+                      text: "Cannot press a button, like a phone keyboard"
+                    },
+                    {
+                      value: "Cannot turn the pages of a book",
+                      text: "Cannot turn the pages of a book"
+                    },
+                    {
+                      value: "Cannot pick up a £1 coin",
+                      text: "Cannot pick up a £1 coin"
+                    },
+                    {
+                      value: "Cannot use a pen or pencil to make a meaningful mark, like a cross or tick",
+                      text: "Cannot use a pen or pencil to make a meaningful mark, like a cross or tick"
+                    },
+                    {
+                      value: "Cannot use either a keyboard or mouse",
+                      text: "Cannot use either a keyboard or mouse"
+                    },
+                    {
+                      value: "None of the above",
+                      text: "None of the above"
+                    }
+                  ]
+                }) }}
+
+                {% if data['assessmenttype'] !== "Paper" %}  
+
+                    {{ govukTextarea({
+                        name: "dexteritydetails",
+                        id: "dexteritydetails",
+                        label: {
+                          text: "Give details",
+                          classes: "govuk-label--s",
+                          isPageHeading: true
+                        },
+                        value: data['dexteritydetails']
+                      }) }}
+
+                      {% endif %}
+
+                      {{ govukButton({
+                        text: "Save"
+                      }) }}
+
+            </form>
+
+
+            </div>
+        </div>
+
+    </main>
+  </div>
+{% endblock %}

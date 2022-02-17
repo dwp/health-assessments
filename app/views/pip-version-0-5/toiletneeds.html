@@ -1,0 +1,130 @@
+{% extends "layout.html" %}
+{% set bodyAttributes = { id: "assess" } %}
+
+{% block pageTitle %}
+  GOV.UK Prototype Kit
+{% endblock %}
+
+{% block main %}
+
+{% include "includes/assessment-status-neutral.html" %}
+
+  <div class="govuk-width-container {{ containerClasses }}">
+    <main class="govuk-main-wrapper {{ mainClasses }}" id="main-content" role="main"{% if mainLang %} lang="{{ mainLang }}"{% endif %}>
+        <div class="govuk-grid-row">
+
+            <div class="govuk-grid-column-two-thirds">
+
+                {{ govukBackLink({
+                  text: "Back",
+                  href: "assessment-status"
+                }) }}
+
+                <h1 class="govuk-heading-xl">Managing toilet needs</h1>
+
+                </div>
+          </div>
+
+          <div class="govuk-grid-row">
+
+            <div class="govuk-grid-column-two-thirds">
+
+            <form action="assessment-status" method="post">
+
+              {{ govukTextarea({
+                name: "toiletneedsNotes",
+                id: "toiletneedsNotes",
+                rows: "8",
+                classes: "govuk-!-margin-bottom-9",
+                label: {
+                  text: "Notes on managing toilet needs",
+                  classes: "govuk-label--m",
+                  isPageHeading: false
+                },
+                value: data['toiletneedsNotes']
+              }) }}  
+
+              <div class="govuk-form-group">
+                <fieldset class="govuk-fieldset govuk-!-margin-bottom-9">
+                  <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+                    <h1 class="govuk-fieldset__heading">
+                      Which of these describes how well the claimant can manage toilet needs?
+                    </h1>
+                  </legend>
+                  <div class="govuk-radios">
+                    <div class="govuk-radios__item">
+                      <input class="govuk-radios__input" id="toiletneedsSelect" name="toiletneedsSelect" type="radio" value="Can manage toilet needs or incontinence unaided">
+                      <label class="govuk-label govuk-radios__label" for="toiletneedsSelect">
+                        Can manage toilet needs or incontinence unaided
+                      </label>
+                    </div>
+                    <div class="govuk-radios__item">
+                      <input class="govuk-radios__input" id="toiletneedsSelect-2" name="toiletneedsSelect" type="radio" value="Needs to use an aid or appliance to be able to manage toilet needs or incontinence">
+                      <label class="govuk-label govuk-radios__label" for="toiletneedsSelect-2">
+                        Needs to use an aid or appliance to be able to manage toilet needs or incontinence
+                      </label>
+                    </div>
+                    <div class="govuk-radios__item">
+                      <input class="govuk-radios__input" id="toiletneedsSelect-3" name="toiletneedsSelect" type="radio" value="Needs supervision or prompting to be able to manage toilet needs">
+                      <label class="govuk-label govuk-radios__label" for="toiletneedsSelect-3">
+                        Needs supervision or prompting to be able to manage toilet needs
+                      </label>
+                    </div>
+                    <div class="govuk-radios__item">
+                      <input class="govuk-radios__input" id="toiletneedsSelect-4" name="toiletneedsSelect" type="radio" value="Needs assistance to be able to manage toilet needs">
+                      <label class="govuk-label govuk-radios__label" for="toiletneedsSelect-4">
+                        Needs assistance to be able to manage toilet needs
+                      </label>
+                    </div>
+                    <div class="govuk-radios__item">
+                      <input class="govuk-radios__input" id="toiletneedsSelect-5" name="toiletneedsSelect" type="radio" value="Needs assistance to be able to manage incontinence of either bladder or bowel">
+                      <label class="govuk-label govuk-radios__label" for="toiletneedsSelect-5">
+                        Needs assistance to be able to manage incontinence of either bladder or bowel
+                      </label>
+                    </div>
+                    <div class="govuk-radios__item">
+                      <input class="govuk-radios__input" id="toiletneedsSelect-6" name="toiletneedsSelect" type="radio" value="Needs assistance to be able to manage incontinence of both bladder and bowel">
+                      <label class="govuk-label govuk-radios__label" for="toiletneedsSelect-6">
+                        Needs assistance to be able to manage incontinence of both bladder and bowel
+                      </label>
+                    </div>
+                  </div>
+              
+                </fieldset>
+              </div>
+              
+
+                    {{ govukTextarea({
+                      name: "toiletneedsReason",
+                      id: "toiletneedsReason",
+                      label: {
+                        text: "What is the reason for this answer?",
+                        classes: "govuk-label--m",
+                        isPageHeading: false
+                      },
+                      value: data['toiletneedsReason']
+                    }) }}  
+
+                    {{ govukButton({
+                      text: "Save"
+                    }) }}
+                </ul>
+    
+
+
+            </form>
+
+              
+
+            </div>
+
+            <div class="govuk-grid-column-one-third">
+
+
+            </div>
+
+        </div>
+
+    </main>
+  </div>
+{% endblock %}

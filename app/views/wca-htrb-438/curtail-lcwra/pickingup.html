@@ -1,0 +1,53 @@
+{% extends "layout.html" %}
+{% set bodyAttributes = { id: "assess" } %}
+
+{% block pageTitle %}
+  GOV.UK Prototype Kit
+{% endblock %}
+
+{% block main %}
+
+{% include "includes/assessment-status-neutral.html" %}
+
+  <div class="govuk-width-container {{ containerClasses }}">
+
+      {{ govukBackLink({
+        text: "Back",
+        href: "#"
+      }) }}
+
+    <main class="govuk-main-wrapper {{ mainClasses }}" id="main-content" role="main"{% if mainLang %} lang="{{ mainLang }}"{% endif %}>
+        <div class="govuk-grid-row">
+
+            <div class="govuk-grid-column-two-thirds">
+
+              <h1 class="govuk-heading-xl">Functional limited capability for work-related activity (LCWRA)</h1>
+
+              <p class="govuk-body-l">The criteria for functional LCWRA has been met because the claimant cannot pick up and move a 0.5L carton full of liquid.</h2>
+
+                {% if data['pickingupNotes'] %}
+              <h2 class="govuk-heading-s">Your notes about picking up and moving things</h2> 
+
+              <p>{{ data['pickingupNotes'] }}</p>
+              {% endif %}
+
+                    <form class="govuk-!-margin-top-6"  action="../time-review" method="post">
+
+                      <h2 class="govuk-heading-s">Detailed justification</h2> 
+                      <p>{{ data['pickingupdetails'] }}</p>
+
+                      {{ govukButton({
+                        text: "Save and continue"
+                      }) }}
+
+            </form>
+
+  
+
+
+            </div>
+        </div>
+
+    </main>
+  </div>
+{% endblock %}

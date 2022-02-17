@@ -1,0 +1,115 @@
+{% extends "layout.html" %}
+{% set bodyAttributes = { id: "assess" } %}
+
+{% block pageTitle %}
+  GOV.UK Prototype Kit
+{% endblock %}
+
+{% block main %}
+
+{% include "includes/assessment-complete.html" %}
+
+  <div class="govuk-width-container {{ containerClasses }}">
+    <main class="govuk-main-wrapper {{ mainClasses }}" id="main-content" role="main"{% if mainLang %} lang="{{ mainLang }}"{% endif %}>
+        <div class="govuk-grid-row">
+
+            <div class="govuk-grid-column-two-thirds">
+
+                {{ govukBackLink({
+                  text: "Back",
+                  href: "assessment-status"
+                }) }}
+
+                <h1 class="govuk-heading-xl">Communicating verbally</h1>
+
+                </div>
+          </div>
+
+          <div class="govuk-grid-row">
+
+            <div class="govuk-grid-column-two-thirds">
+
+            <form action="review" method="post">
+              <div class="govuk-form-group">
+                <fieldset class="govuk-fieldset">
+                  <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+                    <h1 class="govuk-fieldset__heading">
+                      Which of these describes how well Jayne can communicate verbally?
+                    </h1>
+                  </legend>
+                  <div class="govuk-radios">
+                    <div class="govuk-radios__item">
+                      <input class="govuk-radios__input" id="communicatingverballySelect" name="communicatingverballySelect" type="radio" value="Can express and understand verbal information unaided">
+                      <label class="govuk-label govuk-radios__label" for="communicatingverballySelect">
+                        Can express and understand verbal information unaided
+                      </label>
+                    </div>
+                    <div class="govuk-radios__item">
+                      <input class="govuk-radios__input" id="communicatingverballySelect-2" name="communicatingverballySelect" type="radio" value="Needs to use an aid or appliance to be able to speak or hear">
+                      <label class="govuk-label govuk-radios__label" for="communicatingverballySelect-2">
+                        Needs to use an aid or appliance to be able to speak or hear
+                      </label>
+                    </div>
+                    <div class="govuk-radios__item">
+                      <input class="govuk-radios__input" id="communicatingverballySelect-3" name="communicatingverballySelect" type="radio" value="Needs communication support to be able to express or understand complex verbal information">
+                      <label class="govuk-label govuk-radios__label" for="communicatingverballySelect-3">
+                        Needs communication support to be able to express or understand complex verbal information
+                      </label>
+                    </div>
+                    <div class="govuk-radios__item">
+                      <input class="govuk-radios__input" id="communicatingverballySelect-4" name="communicatingverballySelect" type="radio" value="Needs communication support to be able to express or understand basic verbal information">
+                      <label class="govuk-label govuk-radios__label" for="communicatingverballySelect-4">
+                        Needs communication support to be able to express or understand basic verbal information
+                      </label>
+                    </div>
+                    <div class="govuk-radios__item">
+                      <input class="govuk-radios__input" id="communicatingverballySelect-5" name="communicatingverballySelect" type="radio" value="Cannot express or understand verbal information at all even with communication support">
+                      <label class="govuk-label govuk-radios__label" for="communicatingverballySelect-5">
+                        Cannot express or understand verbal information at all even with communication support
+                      </label>
+                    </div>
+                   
+                  </div>
+              
+                </fieldset>
+              </div>
+              
+
+                    {{ govukTextarea({
+                      name: "communicatingverballyReason",
+                      id: "communicatingverballyReason",
+                      label: {
+                        text: "What is the reason for this answer?",
+                        classes: "govuk-label--m",
+                        isPageHeading: false
+                      },
+                      value: data['communicatingverballyReason']
+                    }) }}  
+
+                    {{ govukButton({
+                      text: "Save"
+                    }) }}
+                </ul>
+    
+
+
+            </form>
+
+              
+
+            </div>
+
+            <div class="govuk-grid-column-one-third">
+
+              <div class="notes-box">
+              <h2 class="govuk-heading-m">Your assessment notes</h2>
+              <p>{{ data['communicatingverbally'] }}</p>
+               </div>
+
+            </div>
+
+        </div>
+
+    </main>
+  </div>
+{% endblock %}

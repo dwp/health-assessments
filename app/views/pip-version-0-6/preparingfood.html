@@ -1,0 +1,121 @@
+{% extends "layout.html" %}
+{% set bodyAttributes = { id: "assess" } %}
+
+{% block pageTitle %}
+  GOV.UK Prototype Kit
+{% endblock %}
+
+{% block main %}
+
+{% include "includes/assessment-status-neutral.html" %}
+
+  <div class="govuk-width-container {{ containerClasses }}">
+    <main class="govuk-main-wrapper {{ mainClasses }}" id="main-content" role="main"{% if mainLang %} lang="{{ mainLang }}"{% endif %}>
+        <div class="govuk-grid-row">
+
+            <div class="govuk-grid-column-two-thirds">
+
+                {{ govukBackLink({
+                  text: "Back",
+                  href: "assessment-status"
+                }) }}
+
+                <h1 class="govuk-heading-xl">Preparing food</h1>
+
+                </div>
+          </div>
+
+          <div class="govuk-grid-row">
+
+            <div class="govuk-grid-column-two-thirds">
+
+            <form action="assessment-status" method="post">
+                    
+              {{ govukTextarea({
+                name: "preparingfoodNotes",
+                id: "preparingfoodNotes",
+                rows: "8",
+                classes: "govuk-!-margin-bottom-9",
+                label: {
+                  text: "Notes on preparing food",
+                  classes: "govuk-label--m",
+                  isPageHeading: false
+                },
+                value: data['preparingfoodNotes']
+              }) }}  
+              
+          
+
+              {{ govukRadios({
+                      idPrefix: "preparingfoodSelect",
+                      name: "preparingfoodSelect",
+                      fieldset: {
+                        classes: "govuk-!-margin-bottom-9",
+                        legend: {
+                          text: "How well can the claimant cook food?",
+                          isPageHeading: false,
+                          classes: "govuk-fieldset__legend--m"
+                        }
+                      },
+                      items: [
+                        {
+                          value: "Can prepare and cook a simple meal unaided",
+                          text: "Can prepare and cook a simple meal unaided"
+                        },
+                        {
+                          value: "Needs to use an aid or appliance to be able to either prepare or cook a simple meal",
+                          text: "Needs to use an aid or appliance to be able to either prepare or cook a simple meal"
+                        },
+                        {
+                          value: "Cannot cook a simple meal using a conventional cooker but is able to do so using a microwave",
+                          text: "Cannot cook a simple meal using a conventional cooker but is able to do so using a microwave"
+                        },
+                        {
+                          value: "Needs prompting to be able to either prepare or cook a simple meal",
+                          text: "Needs prompting to be able to either prepare or cook a simple meal"
+                        },
+                        {
+                          value: "Needs supervision or assistance to either prepare or cook a simple meal",
+                          text: "Needs supervision or assistance to either prepare or cook a simple meal"
+                        },
+                        {
+                          value: "Cannot prepare and cook food",
+                          text: "Cannot prepare and cook food"
+                        }
+                      ]
+                    }) }} 
+
+                    {{ govukTextarea({
+                      name: "preparingfoodReason",
+                      id: "preparingfoodReason",
+                      label: {
+                        text: "What is the reason for this answer?",
+                        classes: "govuk-label--m",
+                        isPageHeading: false
+                      },
+                      value: data['preparingfoodReason']
+                    }) }}  
+
+                    {{ govukButton({
+                      text: "Save"
+                    }) }}
+                </ul>
+    
+
+
+            </form>
+
+              
+
+            </div>
+
+            <div class="govuk-grid-column-one-third">
+
+
+            </div>
+
+        </div>
+
+    </main>
+  </div>
+{% endblock %}
