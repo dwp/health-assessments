@@ -50,18 +50,21 @@
         items: [
           {
             value: "Yes",
-            text: "Yes"
+            text: "Yes",
+            checked: (data['dl'] == "Yes")
           },
           {
             value: "No",
             text: "No",
+            checked: (data['dl'] == "No"),
             conditional: {
               html: reasonHtml
             }
           },
           {
             value: "No daily living restriction found",
-            text: "No daily living restriction found"
+            text: "No daily living restriction found",
+            checked: (data['dl'] == "No daily living restriction found")
           }
         ]
       }) }}

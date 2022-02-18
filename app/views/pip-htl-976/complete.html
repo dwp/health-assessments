@@ -11,10 +11,10 @@
 
   <div class="govuk-width-container {{ containerClasses }}">
 
-    {{ govukBackLink({
+    <!-- {{ govukBackLink({
       text: "Back",
       href: "review"
-    }) }}
+    }) }} -->
 
     <main class="govuk-main-wrapper {{ mainClasses }}" id="main-content" role="main"{% if mainLang %} lang="{{ mainLang }}"{% endif %}>
         <div class="govuk-grid-row">
@@ -23,7 +23,7 @@
 
                 
                     <h1 class="govuk-heading-l">
-                      Report submitted
+                      Assessment submitted
                     </h1>
 
                   <a href="https://health-referral-status.herokuapp.com/state-model-mvp/v1/update-status" class="govuk-button">Continue</a>

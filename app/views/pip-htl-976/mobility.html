@@ -50,18 +50,21 @@
         items: [
           {
             value: "Yes",
-            text: "Yes"
+            text: "Yes",
+            checked: (data['qp'] == "Yes")
           },
           {
             value: "No",
             text: "No",
+            checked: (data['qp'] == "No"),
             conditional: {
               html: reasonHtml
             }
           },
           {
             value: "No mobility restriction found",
-            text: "No mobility restriction found"
+            text: "No mobility restriction found",
+            checked: (data['qp'] == "No mobility restriction found")
           }
         ]
       }) }}

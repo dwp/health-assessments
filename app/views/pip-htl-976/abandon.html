@@ -28,56 +28,74 @@
 
 
 
+    {% set reasonHtml %}
+    {{ govukTextarea({
+      id: "abandonreason",
+      name: "abandonreason",
+      label: {
+        text: "Give details"
+      }
+    }) }}
+    {% endset -%}
 
-  <div class="govuk-form-group">
-    <fieldset class="govuk-fieldset" aria-describedby="sign-in-hint">
-      <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
-        <h2 class="govuk-fieldset__heading">
-        Why do you need to abandon the assessment?
-        </h2>
-      </legend>
+      {{ govukRadios({
+        idPrefix: "qp",
+        name: "qp",
+        fieldset: {
+          legend: {
+            text: "Why do you need to abandon the assessment?",
+            isPageHeading: false,
+            classes: "govuk-fieldset__legend--s"
+          }
+        },
+        items: [
+        {
+          value: "The claimant is unfit to be examined",
+          text: "The claimant is unfit to be examined",
+          checked: (data['abandon'] == "The claimant is unfit to be examined")
+        },
+          {
+            value: "The claimant has a special need they've not previously disclosed",
+            text: "The claimant has a special need they've not previously disclosed",
+            checked: (data['abandon'] == "The claimant has a special need they've not previously disclosed")
+          },
+          {
+            value: "Other",
+            text: "Other",
+            checked: (data['abandon'] == "Other"),
+            conditional: {
+              html: reasonHtml
+            }
+          }
+        ]
+      }) }}
 
-       <div class="govuk-radios govuk-radios--conditional" data-module="govuk-radios">
-         <div class="govuk-radios__item">
-           <input class="govuk-radios__input" id="abandon" name="abandon" type="radio" value="The claimant is unfit to be examined" aria-describedby="sign-in-2-item-hint">
-           <label class="govuk-label govuk-radios__label" for="abandon">
-             The claimant is unfit to be examined
-           </label>
-         </div>
-         <div class="govuk-radios__item">
-            <input class="govuk-radios__input" id="abandon2" name="abandon" type="radio" value="The claimant has a special need they've not previously disclosed" aria-describedby="sign-in-2-item-hint">
-            <label class="govuk-label govuk-radios__label" for="abandon">
-              The claimant has a special need they've not previously disclosed
-            </label>
-          </div>
-        <div class="govuk-radios__item">
-          <input class="govuk-radios__input" id="noabandon" name="abandon" type="radio" value="Other" data-aria-controls="conditional-how-contacted-conditional">
-          <label class="govuk-label govuk-radios__label" for="how-contacted-conditional">
-            Other
-          </label>
-        </div>
-        <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-how-contacted-conditional">
-          <div class="govuk-form-group">
-            <label class="govuk-label" for="contact-by-email">
-              Reason
-            </label>
-            <textarea class="govuk-textarea" id="contact-by-email" name="abandonreason" rows="5" type="email" spellcheck="false"></textarea>
-          </div>
 
-        </div>
+      
 
-      </div>
+
+
+
+
+
+     
+         
+      
+      
+
+    
     </fieldset>
 
-  </div>
 
-</div>
-</div>
+
 
 <button class="govuk-button" data-module="govuk-button">
   Save and continue
 </button>
 
+
+</div>
+</div>
 </main>
 </div>
 
