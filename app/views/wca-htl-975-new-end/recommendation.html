@@ -21,7 +21,9 @@
 
             <div class="govuk-grid-column-two-thirds">
 
-           
+              <form action="/wca-htl-975-new-end/recommendation/decision-post" method="post">
+
+
       {{ govukRadios({
         idPrefix: "recommendation",
         name: "recommendation",
@@ -54,12 +56,17 @@
       
 
 
+
+<button class="govuk-button" data-module="govuk-button">
+  Save and continue
+</button>
+</form>
+
+
 </div>
 </div>
 
-
-
-<a href="lcw" class="govuk-button">Save and continue</a>
+<!-- <a href="lcw" class="govuk-button">Save and continue</a> -->
 
 
 <!-- {% if data['Limited capability for work (LCW)'] %} 
