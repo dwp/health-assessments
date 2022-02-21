@@ -22,7 +22,7 @@
 
             <h1 class="govuk-heading-xl">Check your answers</h1>
 
-            {% if data['assessmenttype' or 'attendeename' or 'attendeerelationship' or 'evidenceused'] %}
+            {% if data['assessmenttype'] or data['attendeenamepip'] or data['attendeerelationshippip'] or data['evidenceusedpip'] %}
             <h2 class="govuk-heading-l">Assessment administration</h2>
             {% endif %}
 
@@ -35,27 +35,27 @@
                     <dd class="govuk-summary-list__actions"><a class="govuk-link" href="assessment-type">Change<span class="govuk-visually-hidden"> name</span></a></dd>
                   </div>
                   {% endif %}
-
-                  {% if data['attendeename'] %}
+                  {% if data['assessmenttype'] !== "Paper" %}
+                  {% if data['attendeenamepip'] %}
                   <div class="govuk-summary-list__row">
                     <dt class="govuk-summary-list__key">Attendee 1</dt>
-                    <dd class="govuk-summary-list__value">Name: {{ data['attendeename'] }} <br> Relationship: {{ data['attendeerelationship'] }}</dd>
+                    <dd class="govuk-summary-list__value">Name: {{ data['attendeenamepip'] }} <br> Relationship: {{ data['attendeerelationshippip'] }}</dd>
                     <dd class="govuk-summary-list__actions"><a class="govuk-link" href="add-attendees#attendeename">Change<span class="govuk-visually-hidden"> name</span></a></dd>
                   </div>
                   {% endif %}
-
+                  {% endif %}
             
 
-                  {% if data['evidenceused'] %}
+                  {% if data['evidenceusedpip'] %}
                   <div class="govuk-summary-list__row">
                     <dt class="govuk-summary-list__key">Evidence</dt>
-                    <dd class="govuk-summary-list__value">{{ data['evidenceused'] | striptags(true) | escape | nl2br }}</dd>
+                    <dd class="govuk-summary-list__value">{{ data['evidenceusedpip'] | striptags(true) | escape | nl2br }}</dd>
                     <dd class="govuk-summary-list__actions"><a class="govuk-link" href="evidence-used">Change<span class="govuk-visually-hidden"> name</span></a></dd>
                   </div>
                   {% endif %}
                 </dl>
 
-                {% if data['historyofcondition' or 'currentmedication' or 'socialoccupational'] %}
+                {% if data['historyofcondition'] or data['currentmedication'] or data['socialoccupational'] %}
               <h2 class="govuk-heading-l">History</h2>
               {% endif %}
               <dl class="govuk-summary-list govuk-!-margin-bottom-9">
@@ -67,7 +67,7 @@
                     <dd class="govuk-summary-list__actions"><a class="govuk-link" href="historyofcondition">Change<span class="govuk-visually-hidden"> name</span></a></dd>
                   </div>
                   {% endif %}
-
+                  {% if data['assessmenttype'] !== "Paper" %}
                   {% if data['currentmedication'] %}
                   <div class="govuk-summary-list__row">
                     <dt class="govuk-summary-list__key">Current medication or treatment</dt>
@@ -83,10 +83,11 @@
                     <dd class="govuk-summary-list__actions"><a class="govuk-link" href="socialoccupational">Change<span class="govuk-visually-hidden"> name</span></a></dd>
                  </div>
                  {% endif %}
-
+                 {% endif %}
                </dl>
 
-               {% if data['preparingfoodNotes' or 'preparingfoodSelect' or 'preparingfoodReason' or 'takingnutritionNotes' or 'takingnutritionSelect' or 'takingnutritionReason' or 'managingtherapyNotes' or 'managingtherapySelect' or 'managingtherapyReason' or 'washingbathingNotes' or 'washingbathingSelect' or 'washingbathingReason' or 'toiletneedsNotes' or 'toiletneedsSelect' or 'toiletneedsReason' or 'dressingNotes' or 'dressingSelect' or 'dressingReason' or 'communicatingverballyNotes' or 'communicatingverballySelect' or 'communicatingverballyReason' or 'readingunderstandingNotes' or 'readingunderstandingSelect' or 'readingunderstandingReason' or 'facetofaceNotes' or 'facetofaceSelect' or 'facetofaceReason' or 'budgetingNotes' or 'budgetingSelect' or 'budgetingReason'] %}
+         
+               {% if data['preparingfoodNotes'] or data['preparingfoodSelect'] or data['preparingfoodReason'] or data['takingnutritionNotes'] or data['takingnutritionSelect'] or data['takingnutritionReason'] or data['managingtherapyNotes'] or data['managingtherapySelect'] or data['managingtherapyReason'] or data['washingbathingNotes'] or data['washingbathingSelect'] or data['washingbathingReason'] or data['toiletneedsNotes'] or data['toiletneedsSelect'] or data['toiletneedsReason'] or data['dressingNotes'] or data['dressingSelect'] or data['dressingReason'] or data['communicatingverballyNotes'] or data['communicatingverballySelect'] or data['communicatingverballyReason'] or data['readingunderstandingNotes'] or data['readingunderstandingSelect'] or data['readingunderstandingReason'] or data['facetofaceNotes'] or data['facetofaceSelect'] or data['facetofaceReason'] or data['budgetingNotes'] or data['budgetingSelect'] or data['budgetingReason'] %}
                  <h2 class="govuk-heading-l">Day to day life</h2>
                  {% endif %}
 
@@ -496,7 +497,7 @@
                   </dl>
                   {% endif %}
 
-
+                  {% if data['assessmenttype'] !== "Paper" %}
                   {% if data['physicalhealth'] or data['mentalstate'] or data['observations'] or data['variability'] %}
                   <h2 class="govuk-heading-l">Current condition</h2>
                   {% endif %}
@@ -507,7 +508,7 @@
                   <div class="govuk-summary-list__row">
                     <dt class="govuk-summary-list__key">Physical health</dt>
                     <dd class="govuk-summary-list__value">{{ data['physicalhealth'] }}</dd>
-                    <dd class="govuk-summary-list__actions no-bottom-border"><a class="govuk-link" href="physicalhealth">Change<span class="govuk-visually-hidden"> name</span></a></dd>
+                    <dd class="govuk-summary-list__actions"><a class="govuk-link" href="physicalhealth">Change<span class="govuk-visually-hidden"> name</span></a></dd>
                  </div>
                  {% endif %}
 
@@ -515,7 +516,7 @@
                   <div class="govuk-summary-list__row">
                     <dt class="govuk-summary-list__key">Mental state</dt>
                     <dd class="govuk-summary-list__value">{{ data['mentalstate'] }}</dd>
-                    <dd class="govuk-summary-list__actions no-bottom-border"><a class="govuk-link" href="mentalstate">Change<span class="govuk-visually-hidden"> name</span></a></dd>
+                    <dd class="govuk-summary-list__actions"><a class="govuk-link" href="mentalstate">Change<span class="govuk-visually-hidden"> name</span></a></dd>
                  </div>
                  {% endif %}
 
@@ -523,7 +524,7 @@
                   <div class="govuk-summary-list__row">
                     <dt class="govuk-summary-list__key">Observations</dt>
                     <dd class="govuk-summary-list__value">{{ data['observations'] }}</dd>
-                    <dd class="govuk-summary-list__actions no-bottom-border"><a class="govuk-link" href="observations">Change<span class="govuk-visually-hidden"> name</span></a></dd>
+                    <dd class="govuk-summary-list__actions"><a class="govuk-link" href="observations">Change<span class="govuk-visually-hidden"> name</span></a></dd>
                  </div>
                  {% endif %}
 
@@ -531,11 +532,11 @@
                   <div class="govuk-summary-list__row">
                     <dt class="govuk-summary-list__key">Variability</dt>
                     <dd class="govuk-summary-list__value">{{ data['variability'] }}</dd>
-                    <dd class="govuk-summary-list__actions no-bottom-border"><a class="govuk-link" href="variability">Change<span class="govuk-visually-hidden"> name</span></a></dd>
+                    <dd class="govuk-summary-list__actions"><a class="govuk-link" href="variability">Change<span class="govuk-visually-hidden"> name</span></a></dd>
                  </div>
                  {% endif %}
-
                    </dl>
+                   {% endif %}
 
                    <h2 class="govuk-heading-l">Prognosis and review</h2>
                    <dl class="govuk-summary-list govuk-!-margin-bottom-9">
@@ -558,21 +559,22 @@
                   </div>
 
 </dl>
-{% if data['when-review'] or data['review-time-reasons'] %}
+{% if data['whenreview'] or data['reviewtimereasons'] %}
                   <h3 class="govuk-heading-m">Review period for PIP<a href="review" class="govuk-link govuk-!-font-size-19 app-task-list__tag govuk-!-font-weight-regular" id="list-convictions-status">Change</a></h3>
 
                   <dl class="govuk-summary-list govuk-!-margin-bottom-9">
-                    {% if data['when-review'] %}
+                    {% if data['whenreview'] %}
                     <div class="govuk-summary-list__row">
                     <dt class="govuk-summary-list__key no-bottom-border">When should this claim be reviewed?</dt>
-                    <dd class="govuk-summary-list__value no-bottom-border">{{ data['when-review'] }}</dd>
+                    <dd class="govuk-summary-list__value no-bottom-border">{{ data['whenreview'] }}</dd>
+                    <dd class="govuk-summary-list__actions no-bottom-border"></dd>
                     </dd>
                   </div>
                   {% endif %}
-                  {% if data['review-time-reasons'] %}
+                  {% if data['reviewtimereasons'] %}
                     <div class="govuk-summary-list__row">
                       <dt class="govuk-summary-list__key">Why do you recommend this review period?</dt>
-                      <dd class="govuk-summary-list__value">{{ data['review-time-reasons'] | striptags(true) | escape | nl2br }}</dd>
+                      <dd class="govuk-summary-list__value">{{ data['reviewtimereasons'] | striptags(true) | escape | nl2br }}</dd>
                       <dd class="govuk-summary-list__actions"></dd>
                   </div>
                   {% endif %}

@@ -1,0 +1,83 @@
+{% extends "layout.html" %}
+{% set bodyAttributes = { id: "assess" } %}
+
+{% block pageTitle %}
+  GOV.UK Prototype Kit
+{% endblock %}
+
+{% block main %}
+
+{% include "includes/assessment-status-neutral.html" %}
+
+  <div class="govuk-width-container {{ containerClasses }}">
+
+      {{ govukBackLink({
+        text: "Back",
+        href: "assessment-overview"
+      }) }}
+
+    <main class="govuk-main-wrapper {{ mainClasses }}" id="main-content" role="main"{% if mainLang %} lang="{{ mainLang }}"{% endif %}>
+        <div class="govuk-grid-row">
+
+            <div class="govuk-grid-column-two-thirds">
+
+           
+      {{ govukRadios({
+        idPrefix: "recommendation",
+        name: "recommendation",
+        fieldset: {
+          legend: {
+            text: "What is your recommendation?",
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend--l"
+          }
+        },
+        items: [
+        {
+          value: "Limited capability for work (LCW)",
+          text: "Limited capability for work (LCW)",
+          checked: (data['recommendation'] == "Limited capability for work (LCW)")
+        },
+        {
+          value: "Limited capability for work-related activity (LCWRA)",
+          text: "Limited capability for work-related activity (LCWRA)",
+          checked: (data['recommendation'] == "Limited capability for work-related activity (LCWRA)")
+        },
+        {
+          value: "Threshold not met",
+          text: "Threshold not met",
+          checked: (data['recommendation'] == "Threshold not met")
+        }
+        ]
+      }) }}
+
+      
+
+
+</div>
+</div>
+
+
+
+<a href="lcw" class="govuk-button">Save and continue</a>
+
+
+<!-- {% if data['Limited capability for work (LCW)'] %} 
+
+{% endif %} -->
+
+<!-- {% if data['Limited capability for work-related activity (LCWRA)']%}
+<a href="lcwra" class="govuk-button">Save and continue</a>
+{% endif %}
+{% if data['Threshold not met']%}
+<a href="fit-for-work" class="govuk-button">Save and continue</a>
+{% endif %} -->
+
+</main>
+</div>
+
+
+
+
+
+{% endblock %}

@@ -38,8 +38,8 @@
 
 
       {{ govukRadios({
-        idPrefix: "when-review",
-        name: "when-review",
+        idPrefix: "whenreview",
+        name: "whenreview",
         fieldset: {
           legend: {
             text: "When should this claim be reviewed?",
@@ -51,48 +51,50 @@
           {
             value: "9 months",
             text: "9 months",
-            checked: (data['when-review'] == "9 months")
+            checked: (data['whenreview'] == "9 months")
                  
           },
           {
             value: "12 months",
             text: "12 months",
-            checked: (data['when-review'] == "12 months")
+            checked: (data['whenreview'] == "12 months")
           },
           {
             value: "18 months",
             text: "18 months",
-            checked: (data['when-review'] == "18 months")
+            checked: (data['whenreview'] == "18 months")
           }
           ,
           {
             value: "Within 2 years",
             text: "Within 2 years",
-            checked: (data['when-review'] == "Within 2 years")
+            checked: (data['whenreview'] == "Within 2 years")
           }
           ,
           {
             value: "In the longer term",
             text: "In the longer term",
-            checked: (data['when-review'] == "In the longer term")
+            checked: (data['whenreview'] == "In the longer term")
           }
           ,
           {
             value: "No future assessments required",
             text: "No future assessments required",
-            checked: (data['when-review'] == "No future assessments required")
+            checked: (data['whenreview'] == "No future assessments required")
           }
         ]
       }) }}
 
       {{ govukTextarea({
-        name: "review-time-reasons",
-        id: "review-time-reasons",
+        name: "reviewtimereasons",
+        id: "reviewtimereasons",
         label: {
           text: "Why do you recommend this review period?",
           classes: "govuk-label--s",
           isPageHeading: false
-        }
+        },
+          value: data['reviewtimereasons']
+        
       }) }}
 
 

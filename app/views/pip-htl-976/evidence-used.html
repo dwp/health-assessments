@@ -25,15 +25,15 @@
             <form action="assessment-status" method="post">
 
               {{ govukTextarea({
-                name: "evidenceused",
-                id: "evidenceused",
+                name: "evidenceusedpip",
+                id: "evidenceusedpip",
                 rows: "12",
                 label: {
                   text: "Evidence",
                   classes: "govuk-label--l",
                   isPageHeading: true
                 },
-                value: data['evidenceused']
+                value: data['evidenceusedpip']
               }) }}
 
                       {{ govukButton({
