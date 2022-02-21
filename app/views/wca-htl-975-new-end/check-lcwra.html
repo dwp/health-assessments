@@ -615,40 +615,14 @@
                   {% endif %}
 
                   <h2 class="govuk-heading-l">Ending the assessment</h2>
-
-                  {% if data['lcw'] or data['lcwreasons'] or data['whenreviewlcw']%}
                 
-                  <h3 class="govuk-heading-m">Limited capability for work (LCW)<a href="lcw" class="govuk-link govuk-!-font-size-19 app-task-list__tag govuk-!-font-weight-regular" id="list-convictions-status">Change</a></h3>
-                   
-                  <dl class="govuk-summary-list govuk-!-margin-bottom-9">
-  
-                    {% if data['lcw'] %}
+                  <dl class="govuk-summary-list">
                     <div class="govuk-summary-list__row">
                       <dt class="govuk-summary-list__key">What is your recommendation?</dt>
-                      <dd class="govuk-summary-list__value">{{ data['lcw'] }}</dd>
-                      <dd class="govuk-summary-list__actions"></dd>
-                    </div>
-                    {% endif %}
-
-                    {% if data['lcwreasons'] %}
-                    <div class="govuk-summary-list__row">
-                      <dt class="govuk-summary-list__key">Why is this your recommendation?</dt>
-                      <dd class="govuk-summary-list__value">{{ data['lcwreasons'] | striptags(true) | escape | nl2br }}</dd>
-                      <dd class="govuk-summary-list__actions"><a class="govuk-link" href="lcw-why">Change<span class="govuk-visually-hidden"> name</span></a></dd>
-                    </div>
-                    {% endif %}
-
-                    {% if data['whenreviewlcw'] %}
-                    <div class="govuk-summary-list__row">
-                      <dt class="govuk-summary-list__key">When should this claim be reviewed?</dt>
-                      <dd class="govuk-summary-list__value"><p>{{ data['whenreviewlcw'] }}</p>
-                        <p>{{ data['reviewtimereasonslcw'] }}</p>
-                      </dd>
-                      <dd class="govuk-summary-list__actions"><a class="govuk-link" href="time-review-lcw">Change<span class="govuk-visually-hidden"> name</span></a></dd>
-                    </div>
-                    {% endif %}
-                    </dl>
-                    {% endif %}
+                      <dd class="govuk-summary-list__value">{{ data['recommendation'] | striptags(true) | escape | nl2br }}</dd>
+                      <dd class="govuk-summary-list__actions"><a class="govuk-link" href="recommendation">Change<span class="govuk-visually-hidden"> name</span></a></dd>
+                  </div>
+                </dl>
 
                     {% if data['lcwra'] or data['lcwrareasons'] or data['whenreviewlcwra']%}
 
@@ -684,20 +658,7 @@
                    
 </dl>
 {% endif %}
-                    {% if data['fitforwork'] %}
-                    <h3 class="govuk-heading-m">Threshold not met<a href="fit-for-work" class="govuk-link govuk-!-font-size-19 app-task-list__tag govuk-!-font-weight-regular" id="list-convictions-status">Change</a></h3>
-                   
-                    <dl class="govuk-summary-list govuk-!-margin-bottom-9">
-                   
-                      <div class="govuk-summary-list__row">
-                      <dt class="govuk-summary-list__key">Why is this your recommendation?</dt>
-                      <dd class="govuk-summary-list__value">{{ data['fitforwork'] | striptags(true) | escape | nl2br }}</dd>
-                      <dd class="govuk-summary-list__actions"></dd>
-                    </div>
-
-                    {% endif %}
-  
-                  </dl>
+               
 
                   <a href="complete" class="govuk-button">Submit assessment</a>
 
