@@ -11,9 +11,14 @@
 
   <div class="govuk-width-container {{ containerClasses }}">
 
-    {{ govukBackLink({
+    <!-- {{ govukBackLink({
       text: "Back",
       href: "assessment-status"
+    }) }} -->
+
+    {{ govukBackLink({
+      text: "Back",
+      href: "javascript:history.back()"
     }) }}
 
 

@@ -10,10 +10,15 @@
 {% include "includes/assessment-status-neutral.html" %}
 
   <div class="govuk-width-container {{ containerClasses }}">
-
+<!-- 
       {{ govukBackLink({
         text: "Back",
         href: "assessment-overview"
+      }) }} -->
+
+      {{ govukBackLink({
+        text: "Back",
+        href: "javascript:history.back()"
       }) }}
 
     <main class="govuk-main-wrapper {{ mainClasses }}" id="main-content" role="main"{% if mainLang %} lang="{{ mainLang }}"{% endif %}>
