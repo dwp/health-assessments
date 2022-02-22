@@ -7,37 +7,39 @@
 
 {% block main %}
 
-{% include "includes/assessment-status-neutral-2.html" %}
+{% include "includes/assessment-status-neutral.html" %}
 
   <div class="govuk-width-container {{ containerClasses }}">
 
-      <!-- {{ govukBackLink({
-        text: "Back",
-        href: "assessment-overview"
-      }) }} -->
+    <!-- {{ govukBackLink({
+      text: "Back",
+      href: "assessment-status"
+    }) }} -->
 
-      {{ govukBackLink({
-        text: "Go back to Check your answers",
-        href: "javascript:history.back()"
-      }) }}
+    {{ govukBackLink({
+      text: "Back",
+      href: "javascript:history.back()"
+    }) }}
 
     <main class="govuk-main-wrapper {{ mainClasses }}" id="main-content" role="main"{% if mainLang %} lang="{{ mainLang }}"{% endif %}>
         <div class="govuk-grid-row">
 
             <div class="govuk-grid-column-two-thirds">
 
-            <form action="assessment-overview" method="post">
+
+            <form action="assessment-status" method="post">
 
                     {{ govukTextarea({
-                        name: "typicalday",
-                        id: "typicalday",
+                        name: "historyofcondition",
+                        id: "historyofcondition",
                         rows: "12",
                         label: {
-                          text: "Typical day",
+                          text: "History of condition",
                           classes: "govuk-label--l",
                           isPageHeading: true
                         },
-                        value: data['typicalday']
+                        value: data['historyofcondition']
+                        
                       }) }}
 
                       {{ govukButton({
@@ -46,6 +48,9 @@
 
             </form>
 
+
+
+              
 
             </div>
         </div>

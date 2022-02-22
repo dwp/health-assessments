@@ -17,9 +17,10 @@
       }) }} -->
 
       {{ govukBackLink({
-        text: "Go back to Check your answers",
+        text: "Back",
         href: "javascript:history.back()"
       }) }}
+
 
     <main class="govuk-main-wrapper {{ mainClasses }}" id="main-content" role="main"{% if mainLang %} lang="{{ mainLang }}"{% endif %}>
         <div class="govuk-grid-row">
@@ -29,15 +30,15 @@
             <form action="assessment-overview" method="post">
 
                     {{ govukTextarea({
-                        name: "typicalday",
-                        id: "typicalday",
+                        name: "conditionhistory",
+                        id: "conditionhistory",
                         rows: "12",
                         label: {
-                          text: "Typical day",
+                          text: "Condition history",
                           classes: "govuk-label--l",
                           isPageHeading: true
                         },
-                        value: data['typicalday']
+                        value: data['conditionhistory']
                       }) }}
 
                       {{ govukButton({

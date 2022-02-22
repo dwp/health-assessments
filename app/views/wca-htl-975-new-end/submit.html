@@ -13,7 +13,7 @@
 
     {{ govukBackLink({
       text: "Back",
-      href: "check"
+      href: "javascript:history.back()"
     }) }}
 
     <main class="govuk-main-wrapper {{ mainClasses }}" id="main-content" role="main"{% if mainLang %} lang="{{ mainLang }}"{% endif %}>
