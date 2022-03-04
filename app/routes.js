@@ -14,5 +14,19 @@ res.redirect('/wca-htl-975-new-end/lcwra')
 next();
 })
 
+
+router.post("/wca-htl-1023/recommendation/decision-post", function(req, res, next){
+
+    if(req.body['recommendation'] === 'Limited capability for work (LCW)'){
+        res.redirect('/wca-htl-1023/lcw');
+    } else if(req.body['recommendation'] === 'Limited capability for work-related activity (LCWRA)'){
+    res.redirect('/wca-htl-1023/lcwra')
+    } else {
+        res.redirect('/wca-htl-1023/fit-for-work');
+    }
+    next();
+    })
+
+
 // console.log('**************',req.path)
 module.exports = router
