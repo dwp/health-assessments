@@ -1,0 +1,103 @@
+{% extends "layout.html" %}
+{% set bodyAttributes = { id: "assess" } %}
+
+{% block pageTitle %}
+  GOV.UK Prototype Kit
+{% endblock %}
+
+{% block main %}
+
+{% include "includes/assessment-status-neutral-2.html" %}
+
+  <div class="govuk-width-container {{ containerClasses }}">
+    {{ govukBackLink({
+      text: "Go back to Descriptor and recommendation",
+      href: "descriptor-overview"
+    }) }}
+
+    <main class="govuk-main-wrapper {{ mainClasses }}" id="main-content" role="main"{% if mainLang %} lang="{{ mainLang }}"{% endif %}>
+        <div class="govuk-grid-row">
+
+            <div class="govuk-grid-column-full">
+
+             
+
+              <h1 class="govuk-heading-xl govuk-!-margin-bottom-9">Assessment answers</h1>
+
+              <h2 class="govuk-heading-l">Assessment</h2>
+
+                <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+                  {% if data['assessmenttype'] %}
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">Assessment type</dt>
+                    <dd class="govuk-summary-list__value">{{ data['assessmenttype'] }}</dd>
+                    <dd class="govuk-summary-list__actions"><a class="govuk-link" href="assessment-type">Change<span class="govuk-visually-hidden"> name</span></a></dd>
+                  </div>
+                  {% endif %}
+
+                  {% if data['attendeename'] %}
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">Additional attendee</dt>
+                    <dd class="govuk-summary-list__value"><p>{{ data['attendeename'] }}</p>
+                      {% if data['attendeerelationship'] %}
+                      <p>{{ data['attendeerelationship'] }}</p>
+                      {% endif %}
+                    </dd>
+                    <dd class="govuk-summary-list__actions"><a class="govuk-link" href="add-attendees">Change<span class="govuk-visually-hidden"> name</span></a></dd>
+                  </div>
+                  {% endif %}
+
+                  {% if data['conditionhistory'] %}
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">Condition history</dt>
+                    <dd class="govuk-summary-list__value">{{ data['conditionhistory'] | striptags(true) | escape | nl2br }}</dd>
+                    <dd class="govuk-summary-list__actions"><a class="govuk-link" href="condition-history">Change<span class="govuk-visually-hidden"> name</span></a></dd>
+                  </div>
+                  {% endif %}
+
+                  {% if data['medication'] %}
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">Medication and side effects</dt>
+                    <dd class="govuk-summary-list__value">{{ data['medication'] | striptags(true) | escape | nl2br }}</dd>
+                    <dd class="govuk-summary-list__actions"><a class="govuk-link" href="medication">Change<span class="govuk-visually-hidden"> name</span></a></dd>
+                  </div>
+                  {% endif %}
+
+                  {% if data['socialandwork'] %}
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">Social and work history</dt>
+                    <dd class="govuk-summary-list__value">{{ data['socialandwork'] | striptags(true) | escape | nl2br }}</dd>
+                    <dd class="govuk-summary-list__actions"><a class="govuk-link" href="social-and-work">Change<span class="govuk-visually-hidden"> name</span></a></dd>
+                  </div>
+                  {% endif %}
+
+                  {% if data['typicalday'] %}
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">Typical day</dt>
+                    <dd class="govuk-summary-list__value">{{ data['typicalday'] | striptags(true) | escape | nl2br }}</dd>
+                    <dd class="govuk-summary-list__actions"><a class="govuk-link" href="typical-day">Change<span class="govuk-visually-hidden"> name</span></a></dd>
+                  </div>
+                  {% endif %}
+
+                  {% if data['evidenceused'] %}
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">Evidence</dt>
+                    <dd class="govuk-summary-list__value">{{ data['evidenceused'] | striptags(true) | escape | nl2br }}</dd>
+                    <dd class="govuk-summary-list__actions"><a class="govuk-link" href="evidence-used">Change<span class="govuk-visually-hidden"> name</span></a></dd>
+                  </div>
+                  {% endif %}
+
+                  </dl>
+
+  
+                  </dl>
+               
+                  <a href="descriptor-overview" class="govuk-button">Continue</a>
+
+        </div>
+</div>
+
+
+    </main>
+  </div>
+{% endblock %}

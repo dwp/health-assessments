@@ -103,6 +103,31 @@ module.exports = {
   // He knows he is doing well but feels very anxious about returning to work right now. He does not feel ready to return to work. He thinks the additional stress of looking for a job will cause him to start drinking again. The detox team have told him that they will refer him to a programme that will help him prepare for returning to work in a couple of months time if he continues to remain dry./n/nHe does have a few stressful events coming up in the next month or so. His son’s circumstances will be changing again, so he is feeling very anxious about that. Also his daughter is getting married and it will be the first time he will see his ex-wife since the son’s troubles. He knows there will be alcohol at the wedding and he is not sure how he is going to get through the day. He is going to talk to the alcohol counsellor about this at the next visit. His daughter has been very supportive, and has told him that she will be by his side to support him no matter what.',
   
 
+
+
+
+
+
+  //WCA example assessment - made up example for training and research purposes
+
+
+  conditionhistory:'Condition 1\n \nLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\n\n Condition 2\n \nLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+  medication:'Medication 1 \nAsprin 50g 1 time per day\n\n Medication 2 \nParacetmool 50g 3 time per day',
+  socialandwork:'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+  typicalday:'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+
+  // lcw:'Risk to mental or physical health (LCW)',
+  // lcwreasons:'Please be advised that LCW substantial risk applies in this case but not LCWRA substantial risk. Risk factors: including living alone, alcohol abuse with recent detoxification, divorce, family problems and suicidal thoughts.\n\nPositive factors: he functions well and is starting to interact with new people, has a supportive daughter, no suicidal plans or intent, he is engaged in treatment and has good insight.\n\nMr Mackie has hypertension for which he takes medication, this is well-controlled and unlikely to cause any significant functional restriction.\n\nHe has a history of alcohol misuse and has recently undergone residential detox treatment. He manages to live independently and keep his house clean and tidy. Although he goes shopping with his daughter he is able to go out alone and uses public transport. He attends groups at the local college and his weekly counselling session. There is no evidence to suggest behavioural problems. On mental state examination he had some low mood and anxiety but managed to cope with the assessment. Significant functional restriction of mental health activities seems unlikely.\n\nDespite current function appearing reasonably good, he is unemployed, lives alone, and still has some suicidal thoughts although no plans or intent. He is still receiving support following recent detoxification and has significant upcoming stressors in the short term. These would suggest that he is likely to be at substantial risk of relapse and deterioration in his mental health if found capable of work.\n\nHowever he should be capable of performing appropriately tailored work-related activity.',
+  // whenreviewlcw:'3 months',
+  // reviewtimereasonslcw:'3 months for the functional problems and 6 - 12 months for the exceptional circumstances (non functional descriptors)',
+
+
+  // whenreviewlcwra
+  // reviewtimereasonslcwra
+  // He knows he is doing well but feels very anxious about returning to work right now. He does not feel ready to return to work. He thinks the additional stress of looking for a job will cause him to start drinking again. The detox team have told him that they will refer him to a programme that will help him prepare for returning to work in a couple of months time if he continues to remain dry./n/nHe does have a few stressful events coming up in the next month or so. His son’s circumstances will be changing again, so he is feeling very anxious about that. Also his daughter is getting married and it will be the first time he will see his ex-wife since the son’s troubles. He knows there will be alcohol at the wedding and he is not sure how he is going to get through the day. He is going to talk to the alcohol counsellor about this at the next visit. His daughter has been very supportive, and has told him that she will be by his side to support him no matter what.',
+  
+
+
   // Insert values here
 
 }
