@@ -41,6 +41,7 @@
                 {{ govukRadios({
                   idPrefix: "mobilisingSelect",
                   name: "mobilisingSelect",
+              
                   fieldset: {
                     legend: {
                       text: "Choose the descriptor that's most appropriate to the claimant",
@@ -76,6 +77,13 @@
                     }
                   ]
                 }) }}
+                <!-- {{ govukButton({
+                  text: "Clear selection",
+                  classes: "govuk-button--secondary"
+                }) }}
+
+         <br>
+         <br> -->
 
                     {{ govukTextarea({
                         name: "mobilisingdetails",
@@ -88,6 +96,7 @@
                         value: data['mobilisingdetails']
                       }) }}
 
+                    
                       {{ govukButton({
                         text: "Save and continue"
                       }) }}
