@@ -26,6 +26,9 @@
 
             <div class="govuk-grid-column-two-thirds">
 
+              <h1 class="govuk-heading-l">Mobility prognosis</h1>
+
+
   <form action="assessment-status" method="post" id="question-form" novalidate>
 
     {% set reasonHtml %}
@@ -44,8 +47,8 @@
         fieldset: {
           legend: {
             text: "Is the claimant's mobility prognosis long enough for PIP?",
-            isPageHeading: true,
-            classes: "govuk-fieldset__legend--l",
+            isPageHeading: false,
+            classes: "govuk-fieldset__legend--s",
             hint: "Hint"
           }
         },
