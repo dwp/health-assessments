@@ -168,6 +168,7 @@
                         Daily living
                       </h2>
                       <ul class="app-task-list__items govuk-!-padding-left-0">
+                        {% if data['assessmenttype'] !== "Paper" %}
                         <li class="app-task-list__item">
                           <span class="app-task-list__task-name">
                             <a href="preparingfood" aria-describedby="company-information-status">
@@ -186,6 +187,27 @@
                             }
                           </script>
                         </li>
+                        {% else %}
+                        <li class="app-task-list__item">
+                          <span class="app-task-list__task-name">
+                            <a href="preparingfood" aria-describedby="company-information-status">
+                              Preparing food
+                            </a>
+                          </span>
+                          <script type="text/javascript">
+                            var preparingfood = {{data.preparingfoodSelectpbr|dump|safe}}
+                            console.log(preparingfood)
+                            if (preparingfood) {
+
+                              document.write('<strong class="govuk-tag govuk-tag app-task-list__tag" id="eligibility-status">Completed</strong>');
+                              }
+                            else {
+                              document.write('<strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="eligibility-status">Not started</strong>');
+                            }
+                          </script>
+                        </li>
+                        {% endif %}
+                        {% if data['assessmenttype'] !== "Paper" %}
                         <li class="app-task-list__item">
                           <span class="app-task-list__task-name">
                             <a href="takingnutrition" aria-describedby="contact-details-status">
@@ -204,6 +226,27 @@
                             }
                           </script>
                         </li>
+                        {% else %}
+                        <li class="app-task-list__item">
+                          <span class="app-task-list__task-name">
+                            <a href="takingnutrition" aria-describedby="contact-details-status">
+                              Taking nutrition
+                            </a>
+                          </span>
+                          <script type="text/javascript">
+                            var takingnutrition = {{data.takingnutritionSelectpbr|dump|safe}}
+                            console.log(takingnutrition)
+                            if (takingnutrition) {
+
+                              document.write('<strong class="govuk-tag govuk-tag app-task-list__tag" id="eligibility-status">Completed</strong>');
+                              }
+                            else {
+                              document.write('<strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="eligibility-status">Not started</strong>');
+                            }
+                          </script>
+                        </li>
+                        {% endif %}
+                        {% if data['assessmenttype'] !== "Paper" %}
                         <li class="app-task-list__item">
                             <span class="app-task-list__task-name">
                               <a href="managingtherapy" aria-describedby="contact-details-status">
@@ -222,6 +265,27 @@
                               }
                             </script>
                           </li>
+                          {% else %}
+                          <li class="app-task-list__item">
+                            <span class="app-task-list__task-name">
+                              <a href="managingtherapy" aria-describedby="contact-details-status">
+                                Managing therapy
+                              </a>
+                            </span>
+                            <script type="text/javascript">
+                              var managingtherapy = {{data.managingtherapySelectpbr|dump|safe}}
+                              console.log(managingtherapy)
+                              if (managingtherapy) {
+
+                                document.write('<strong class="govuk-tag govuk-tag app-task-list__tag" id="eligibility-status">Completed</strong>');
+                                }
+                              else {
+                                document.write('<strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="eligibility-status">Not started</strong>');
+                              }
+                            </script>
+                          </li>
+                          {% endif %}
+                          {% if data['assessmenttype'] !== "Paper" %}
                           <li class="app-task-list__item">
                               <span class="app-task-list__task-name">
                                 <a href="washingbathing" aria-describedby="contact-details-status">
@@ -240,6 +304,27 @@
                                 }
                               </script>
                             </li>
+                            {% else %}
+                            <li class="app-task-list__item">
+                              <span class="app-task-list__task-name">
+                                <a href="washingbathing" aria-describedby="contact-details-status">
+                                  Washing and bathing
+                                </a>
+                              </span>
+                              <script type="text/javascript">
+                                var washingbathing = {{data.washingbathingSelectpbr|dump|safe}}
+                                console.log(washingbathing)
+                                if (washingbathing) {
+
+                                  document.write('<strong class="govuk-tag govuk-tag app-task-list__tag" id="eligibility-status">Completed</strong>');
+                                  }
+                                else {
+                                  document.write('<strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="eligibility-status">Not started</strong>');
+                                }
+                              </script>
+                            </li>
+                            {% endif %}
+                            {% if data['assessmenttype'] !== "Paper" %}
                             <li class="app-task-list__item">
                                 <span class="app-task-list__task-name">
                                   <a href="toiletneeds" aria-describedby="contact-details-status">
@@ -258,6 +343,27 @@
                                   }
                                 </script>
                               </li>
+                              {% else %}
+                              <li class="app-task-list__item">
+                                <span class="app-task-list__task-name">
+                                  <a href="toiletneeds" aria-describedby="contact-details-status">
+                                    Managing toilet needs
+                                  </a>
+                                </span>
+                                <script type="text/javascript">
+                                  var toiletneeds = {{data.toiletneedsSelectpbr|dump|safe}}
+                                  console.log(toiletneeds)
+                                  if (toiletneeds) {
+
+                                    document.write('<strong class="govuk-tag govuk-tag app-task-list__tag" id="eligibility-status">Completed</strong>');
+                                    }
+                                  else {
+                                    document.write('<strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="eligibility-status">Not started</strong>');
+                                  }
+                                </script>
+                              </li>
+                              {% endif %}
+                              {% if data['assessmenttype'] !== "Paper" %}
                               <li class="app-task-list__item">
                                   <span class="app-task-list__task-name">
                                     <a href="dressing" aria-describedby="contact-details-status">
@@ -276,6 +382,27 @@
                                     }
                                   </script>
                                 </li>
+                                {% else %}
+                                <li class="app-task-list__item">
+                                  <span class="app-task-list__task-name">
+                                    <a href="dressing" aria-describedby="contact-details-status">
+                                      Dressing and undressing
+                                    </a>
+                                  </span>
+                                  <script type="text/javascript">
+                                    var dressing = {{data.dressingSelectpbr|dump|safe}}
+                                    console.log(dressing)
+                                    if (dressing) {
+
+                                      document.write('<strong class="govuk-tag govuk-tag app-task-list__tag" id="eligibility-status">Completed</strong>');
+                                      }
+                                    else {
+                                      document.write('<strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="eligibility-status">Not started</strong>');
+                                    }
+                                  </script>
+                                </li>
+                                {% endif %}
+                                {% if data['assessmenttype'] !== "Paper" %}
                                 <li class="app-task-list__item">
                                     <span class="app-task-list__task-name">
                                       <a href="communicatingverbally" aria-describedby="contact-details-status">
@@ -294,6 +421,27 @@
                                       }
                                     </script>
                                   </li>
+                                  {% else %}
+                                  <li class="app-task-list__item">
+                                    <span class="app-task-list__task-name">
+                                      <a href="communicatingverbally" aria-describedby="contact-details-status">
+                                        Communicating verbally
+                                      </a>
+                                    </span>
+                                    <script type="text/javascript">
+                                      var communicatingverbally = {{data.communicatingverballySelectpbr|dump|safe}}
+                                      console.log(communicatingverbally)
+                                      if (communicatingverbally) {
+
+                                        document.write('<strong class="govuk-tag govuk-tag app-task-list__tag" id="eligibility-status">Completed</strong>');
+                                        }
+                                      else {
+                                        document.write('<strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="eligibility-status">Not started</strong>');
+                                      }
+                                    </script>
+                                  </li>
+                                  {% endif %}
+                                  {% if data['assessmenttype'] !== "Paper" %}
                                   <li class="app-task-list__item">
                                       <span class="app-task-list__task-name">
                                         <a href="readingunderstanding" aria-describedby="contact-details-status">
@@ -312,6 +460,27 @@
                                         }
                                       </script>
                                     </li>
+                                    {% else %}
+                                    <li class="app-task-list__item">
+                                      <span class="app-task-list__task-name">
+                                        <a href="readingunderstanding" aria-describedby="contact-details-status">
+                                          Reading and understanding signs, symbols and words
+                                        </a>
+                                      </span>
+                                      <script type="text/javascript">
+                                        var readingunderstanding = {{data.readingunderstandingSelectpbr|dump|safe}}
+                                        console.log(readingunderstanding)
+                                        if (readingunderstanding) {
+
+                                          document.write('<strong class="govuk-tag govuk-tag app-task-list__tag" id="eligibility-status">Completed</strong>');
+                                          }
+                                        else {
+                                          document.write('<strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="eligibility-status">Not started</strong>');
+                                        }
+                                      </script>
+                                    </li>
+                                    {% endif %}
+                                    {% if data['assessmenttype'] !== "Paper" %}
                                     <li class="app-task-list__item">
                                         <span class="app-task-list__task-name">
                                           <a href="facetoface" aria-describedby="contact-details-status">
@@ -330,6 +499,27 @@
                                           }
                                         </script>
                                       </li>
+                                      {% else %}
+                                      <li class="app-task-list__item">
+                                        <span class="app-task-list__task-name">
+                                          <a href="facetoface" aria-describedby="contact-details-status">
+                                            Engaging face to face
+                                          </a>
+                                        </span>
+                                        <script type="text/javascript">
+                                          var facetoface = {{data.facetofaceSelectpbr|dump|safe}}
+                                          console.log(facetoface)
+                                          if (facetoface) {
+
+                                            document.write('<strong class="govuk-tag govuk-tag app-task-list__tag" id="eligibility-status">Completed</strong>');
+                                            }
+                                          else {
+                                            document.write('<strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="eligibility-status">Not started</strong>');
+                                          }
+                                        </script>
+                                      </li>
+                                      {% endif %}
+                                      {% if data['assessmenttype'] !== "Paper" %}
                                       <li class="app-task-list__item">
                                           <span class="app-task-list__task-name">
                                             <a href="budgeting" aria-describedby="contact-details-status">
@@ -348,14 +538,53 @@
                                             }
                                           </script>
                                         </li>
-                                      </ul>
+                                        {% else %}
+                                        <li class="app-task-list__item">
+                                          <span class="app-task-list__task-name">
+                                            <a href="budgeting" aria-describedby="contact-details-status">
+                                              Budgeting
+                                            </a>
+                                          </span>
+                                          <script type="text/javascript">
+                                            var budgeting = {{data.budgetingSelectpbr|dump|safe}}
+                                            console.log(budgeting)
+                                            if (budgeting) {
+
+                                              document.write('<strong class="govuk-tag govuk-tag app-task-list__tag" id="eligibility-status">Completed</strong>');
+                                              }
+                                            else {
+                                              document.write('<strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="eligibility-status">Not started</strong>');
+                                            }
+                                          </script>
+                                        </li>
+                                        {% endif %}
                                     </li>
+                                    <!-- <li class="app-task-list__item">
+                                      <span class="app-task-list__task-name">
+                                        <a href="dailyliving" aria-describedby="contact-details-status">
+                                          Daily living prognosis
+                                        </a>
+                                      </span>
+                                      <script type="text/javascript">
+                                        var dailyliving = {{data.dl|dump|safe}}
+                                        console.log(dailyliving)
+                                        if (dailyliving) {
+
+                                          document.write('<strong class="govuk-tag govuk-tag app-task-list__tag" id="eligibility-status">Completed</strong>');
+                                          }
+                                        else {
+                                          document.write('<strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="eligibility-status">Not started</strong>');
+                                        }
+                                      </script>
+                                    </li> -->
+                                  </ul>
 
 
                                     <h2 class="app-task-list__section">
                                       Mobility
                                     </h2>
                                     <ul class="app-task-list__items govuk-!-padding-left-0">
+                                      {% if data['assessmenttype'] !== "Paper" %}
                                       <li class="app-task-list__item">
                                           <span class="app-task-list__task-name">
                                             <a href="journeys" aria-describedby="contact-details-status">
@@ -374,6 +603,27 @@
                                             }
                                           </script>
                                         </li>
+                                        {% else %}
+                                        <li class="app-task-list__item">
+                                          <span class="app-task-list__task-name">
+                                            <a href="journeys" aria-describedby="contact-details-status">
+                                              Planning and following journeys
+                                            </a>
+                                          </span>
+                                          <script type="text/javascript">
+                                            var journeys = {{data.journeysSelectpbr|dump|safe}}
+                                            console.log(journeys)
+                                            if (journeys) {
+
+                                              document.write('<strong class="govuk-tag govuk-tag app-task-list__tag" id="eligibility-status">Completed</strong>');
+                                              }
+                                            else {
+                                              document.write('<strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="eligibility-status">Not started</strong>');
+                                            }
+                                          </script>
+                                        </li>
+                                        {% endif %}
+                                        {% if data['assessmenttype'] !== "Paper" %}
                                         <li class="app-task-list__item">
                                             <span class="app-task-list__task-name">
                                               <a href="movingaround" aria-describedby="contact-details-status">
@@ -392,7 +642,44 @@
                                               }
                                             </script>
                                           </li>
+                                          {% else %}
+                                          <li class="app-task-list__item">
+                                            <span class="app-task-list__task-name">
+                                              <a href="movingaround" aria-describedby="contact-details-status">
+                                               Moving around
+                                              </a>
+                                            </span>
+                                            <script type="text/javascript">
+                                              var movingaround = {{data.movingaroundSelectpbr|dump|safe}}
+                                              console.log(movingaround)
+                                              if (movingaround) {
 
+                                                document.write('<strong class="govuk-tag govuk-tag app-task-list__tag" id="eligibility-status">Completed</strong>');
+                                                }
+                                              else {
+                                                document.write('<strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="eligibility-status">Not started</strong>');
+                                              }
+                                            </script>
+                                          </li>
+                                          {% endif %}
+                                          <!-- <li class="app-task-list__item">
+                                            <span class="app-task-list__task-name">
+                                              <a href="mobility" aria-describedby="contact-details-status">
+                                                Mobility prognosis
+                                              </a>
+                                            </span>
+                                            <script type="text/javascript">
+                                              var mobility = {{data.qp|dump|safe}}
+                                              console.log(mobility)
+                                              if (mobility) {
+      
+                                                document.write('<strong class="govuk-tag govuk-tag app-task-list__tag" id="eligibility-status">Completed</strong>');
+                                                }
+                                              else {
+                                                document.write('<strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="eligibility-status">Not started</strong>');
+                                              }
+                                            </script>
+                                          </li> -->
                     </ul>
                   </li>
 
@@ -481,54 +768,54 @@
 
                   <li>
                     <h2 class="app-task-list__section">
-                     End of assessment
-                    </h2>
-                    <ul class="app-task-list__items govuk-!-padding-left-0">
-                        <li class="app-task-list__item">
-                            <span class="app-task-list__task-name">
-                              <a href="abandon" aria-describedby="contact-details-status">
-                               Abandon assessment
-                              </a>
-                            </span>
-                            <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="eligibility-status">Optional</strong>
-                          </li>
-                          <li class="app-task-list__item">
-                            <span class="app-task-list__task-name">
-                              <a href="check" aria-describedby="contact-details-status">
-                               Check your answers
-                              </a>
-                            </span>
-                            <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="eligibility-status">Optional</strong>
-                          </li>
-
-
-                          <!-- <li class="app-task-list__item">
-                            {% if data['assessmenttype'] !== "Paper" %}  
-                            <span class="app-task-list__task-name">
-                              <a href="dailyliving" aria-describedby="contact-details-status">
-                               Make a recommendation
-                              </a>
-                              {% else %}
-                              <a href="recommend" aria-describedby="contact-details-status">
+                      End of assessment
+                     </h2>
+                     <ul class="app-task-list__items govuk-!-padding-left-0">
+                      {% if data['assessmenttype'] !== "Paper" %}  
+                         <li class="app-task-list__item">
+                             <span class="app-task-list__task-name">
+                               <a href="abandon" aria-describedby="contact-details-status">
+                                Abandon assessment
+                               </a>
+                             </span>
+                             <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="eligibility-status">Optional</strong>
+                           </li>
+                           {% endif %}  
+                           <li class="app-task-list__item">
+                             <span class="app-task-list__task-name">
+                               <a href="check" aria-describedby="contact-details-status">
+                                Check your answers
+                               </a>
+                             </span>
+                             <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="eligibility-status">Optional</strong>
+                           </li>
+ 
+ 
+                           <!-- <li class="app-task-list__item">
+                             {% if data['assessmenttype'] !== "Paper" %}  
+                             <span class="app-task-list__task-name">
+                               <a href="dailyliving" aria-describedby="contact-details-status">
                                 Make a recommendation
                                </a>
-                               {% endif %}
-                            </span>
-                            <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="eligibility-status">Optional</strong>
-                          </li> -->
-                    </ul>
-                  </li>
-
-                </ul>
-
-                {% if data['assessmenttype'] !== "Paper" %}  
-                <a href="dailyliving" class="govuk-button">Save and continue</a>
-                {% else %}
-                <a href="recommend" class="govuk-button">Save and continue</a>
-                {% endif %}
-
-                <!-- <a href="check" class="govuk-button">Save and continue</a> -->
-
+                               {% else %}
+                               <a href="recommend" aria-describedby="contact-details-status">
+                                 Make a recommendation
+                                </a>
+                                {% endif %}
+                             </span>
+                             <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="eligibility-status">Optional</strong>
+                           </li> -->
+                     </ul>
+                   </li>
+ 
+                 </ul>
+ 
+                 {% if data['assessmenttype'] !== "Paper" %}  
+                 <a href="dailyliving" class="govuk-button">Save and continue</a>
+                 {% else %}
+                 <a href="recommend" class="govuk-button">Save and continue</a>
+                 {% endif %}
+ 
             </div>
         </div>
 
