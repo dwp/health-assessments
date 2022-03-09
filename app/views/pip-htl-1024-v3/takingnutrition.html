@@ -53,7 +53,6 @@
                 value: data['takingnutritionNotes']
               }) }}
 
-              {% endif %}
 
               {{ govukRadios({
                 name: "takingnutritionSelect",
@@ -101,7 +100,7 @@
 
 
 
-              {% if data['assessmenttype'] !== "Paper" %}
+            
 
                     {{ govukTextarea({
                       name: "takingnutritionReason",
@@ -113,12 +112,61 @@
                       },
                       value: data['takingnutritionReason']
                     }) }}
+                    {% else %}
+                  
+
+                 
+
+                    {{ govukRadios({
+                      name: "takingnutritionSelectpbr",
+                      fieldset: {
+                        classes: "govuk-!-margin-bottom-9",
+                        legend: {
+                          text: "Which of these describes how well the claimant can take nutrition?",
+                          isPageHeading: false,
+                          classes: "govuk-fieldset__legend--s"
+                        }
+                      },
+                      items: [
+                        {
+                          value: "Cannot convey food and drink to their mouth and needs another person to do so",
+                          text: "Cannot convey food and drink to their mouth and needs another person to do so",
+                          checked: (data['takingnutritionSelectpbr'] == "Cannot convey food and drink to their mouth and needs another person to do so")
+                        },
+                        {
+                          value: "Needs assistance to be able to manage a therapeutic source to take nutrition",
+                          text: "Needs assistance to be able to manage a therapeutic source to take nutrition",
+                          checked: (data['takingnutritionSelectpbr'] == "Needs assistance to be able to manage a therapeutic source to take nutrition")
+                        },
+                        {
+                          value: "Needs prompting to be able to take nutrition",
+                          text: "Needs prompting to be able to take nutrition",
+                          checked: (data['takingnutritionSelectpbr'] == "Needs prompting to be able to take nutrition")
+                        },
+                        {
+                          value: "Needs a therapeutic source to be able to take nutrition",
+                          text: "Needs a therapeutic source to be able to take nutrition",
+                          checked: (data['takingnutritionSelectpbr'] == "Needs a therapeutic source to be able to take nutrition")
+                        },
+                        {
+                          value: "Needs to use an aid or appliance to be able to take nutrition, or supervision to be able to take nutrition, or assistance to be able to cut up food",
+                          text: "Needs to use an aid or appliance to be able to take nutrition, or supervision to be able to take nutrition, or assistance to be able to cut up food",
+                          checked: (data['takingnutritionSelectpbr'] == "Needs to use an aid or appliance to be able to take nutrition, or supervision to be able to take nutrition, or assistance to be able to cut up food")
+                        },
+                        {
+                          value: "Can take nutrition unaided",
+                          text: "Can take nutrition unaided",
+                          checked: (data['takingnutritionSelectpbr'] == "Can take nutrition unaided")
+                        }
+                      ]
+                    }) }}
 
                     {% endif %}
-
+                    
                     {{ govukButton({
                       text: "Save and continue"
                     }) }}
+
                 </ul>
 
 

@@ -53,7 +53,7 @@
                 value: data['toiletneedsNotes']
               }) }}
 
-              {% endif %}
+
 
               {{ govukRadios({
                 name: "toiletneedsSelect",
@@ -100,7 +100,6 @@
               }) }}
 
 
-              {% if data['assessmenttype'] !== "Paper" %}
 
                     {{ govukTextarea({
                       name: "toiletneedsReason",
@@ -112,6 +111,52 @@
                       },
                       value: data['toiletneedsReason']
                     }) }}
+
+                    {% else %}
+                    {{ govukRadios({
+                      name: "toiletneedsSelectpbr",
+                      fieldset: {
+                        classes: "govuk-!-margin-bottom-9",
+                        legend: {
+                          text: "Which of these describes how well the claimant can manage toilet needs?",
+                          isPageHeading: false,
+                          classes: "govuk-fieldset__legend--s"
+                        }
+                      },
+                      items: [
+                        {
+                          value: "Needs assistance to be able to manage incontinence of both bladder and bowel",
+                          text: "Needs assistance to be able to manage incontinence of both bladder and bowel",
+                          checked: (data['toiletneedsSelectpbr'] == "Needs assistance to be able to manage incontinence of both bladder and bowel")
+                        },
+                        {
+                          value: "Needs assistance to be able to manage incontinence of either bladder or bowel",
+                          text: "Needs assistance to be able to manage incontinence of either bladder or bowel",
+                          checked: (data['toiletneedsSelectpbr'] == "Needs assistance to be able to manage incontinence of either bladder or bowel")
+                        },
+                        {
+                          value: "Needs assistance to be able to manage toilet needs",
+                          text: "Needs assistance to be able to manage toilet needs",
+                          checked: (data['toiletneedsSelectpbr'] == "Needs assistance to be able to manage toilet needs")
+                        },
+                        {
+                          value: "Needs supervision or prompting to be able to manage toilet needs",
+                          text: "Needs supervision or prompting to be able to manage toilet needs",
+                          checked: (data['toiletneedsSelectpbr'] == "Needs supervision or prompting to be able to manage toilet needs")
+                        },
+                        {
+                          value: "Needs to use an aid or appliance to be able to manage toilet needs or incontinence",
+                          text: "Needs to use an aid or appliance to be able to manage toilet needs or incontinence",
+                          checked: (data['toiletneedsSelectpbr'] == "Needs to use an aid or appliance to be able to manage toilet needs or incontinence")
+                        },
+                        {
+                          value: "Can manage toilet needs or incontinence unaided",
+                          text: "Can manage toilet needs or incontinence unaided",
+                          checked: (data['toiletneedsSelectpbr'] == "Can manage toilet needs or incontinence unaided")
+                        }
+                      ]
+                    }) }}
+
 
                     {% endif %}
 

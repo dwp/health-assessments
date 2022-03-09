@@ -53,7 +53,7 @@
                 value: data['facetofaceNotes']
               }) }}
 
-              {% endif %}
+          
 
               {{ govukRadios({
                 name: "facetofaceSelect",
@@ -90,7 +90,7 @@
               }) }}
 
 
-              {% if data['assessmenttype'] !== "Paper" %}
+         
 
                     {{ govukTextarea({
                       name: "facetofaceReason",
@@ -103,7 +103,47 @@
                       value: data['facetofaceReason']
                     }) }}
 
+                    {% else %}
+
+
+              {{ govukRadios({
+                name: "facetofaceSelectpbr",
+                fieldset: {
+                  classes: "govuk-!-margin-bottom-9",
+                  legend: {
+                    text: "Which of these describes how well the claimant can engage face to face?",
+                    isPageHeading: false,
+                    classes: "govuk-fieldset__legend--s"
+                  }
+                },
+                items: [
+                  {
+                    value: "Cannot engage with other people due to such engagement, causing either overwhelming psychological distress to the claimant or leading the claimant to exhibit behaviour which would result in a substantial risk of harm to the claimant or another person",
+                    text: "Cannot engage with other people due to such engagement, causing either overwhelming psychological distress to the claimant or leading the claimant to exhibit behaviour which would result in a substantial risk of harm to the claimant or another person",
+                    checked: (data['facetofaceSelectpbr'] == "Cannot engage with other people due to such engagement, causing either overwhelming psychological distress to the claimant or leading the claimant to exhibit behaviour which would result in a substantial risk of harm to the claimant or another person")
+                  },
+                  {
+                    value: "Needs social support to be able to engage with other people",
+                    text: "Needs social support to be able to engage with other people",
+                    checked: (data['facetofaceSelectpbr'] == "Needs social support to be able to engage with other people")
+                  },
+                  {
+                    value: "Needs prompting to be able to engage with other people",
+                    text: "Needs prompting to be able to engage with other people",
+                    checked: (data['facetofaceSelectpbr'] == "Needs prompting to be able to engage with other people")
+                  },
+                  {
+                    value: "Can engage with other people unaided",
+                    text: "Can engage with other people unaided",
+                    checked: (data['facetofaceSelectpbr'] == "Can engage with other people unaided")
+                  }
+                ]
+              }) }}
+
+
                     {% endif %}
+
+
 
                     {{ govukButton({
                       text: "Save and continue"
