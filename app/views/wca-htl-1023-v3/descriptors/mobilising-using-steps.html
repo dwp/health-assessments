@@ -11,10 +11,10 @@
 
   <div class="govuk-width-container {{ containerClasses }}">
 
-      {{ govukBackLink({
-        text: "Back",
-        href: "physical-functions"
-      }) }}
+    {{ govukBackLink({
+      text: "Back",
+      href: "javascript:history.back()"
+    }) }}
 
     <main class="govuk-main-wrapper {{ mainClasses }}" id="main-content" role="main"{% if mainLang %} lang="{{ mainLang }}"{% endif %}>
         <div class="govuk-grid-row">
@@ -23,7 +23,7 @@
 
               <h1 class="govuk-heading-l">Mobilising and using steps</h1>
 
-            <form action="physical-functions" method="post">
+              <form action="../assessment-overview" method="post">
 
               {{ govukTextarea({
                 name: "mobilisingNotes",
@@ -41,6 +41,7 @@
                 {{ govukRadios({
                   idPrefix: "mobilisingSelect",
                   name: "mobilisingSelect",
+              
                   fieldset: {
                     legend: {
                       text: "Choose the descriptor that's most appropriate to the claimant",
@@ -76,6 +77,13 @@
                     }
                   ]
                 }) }}
+                <!-- {{ govukButton({
+                  text: "Clear selection",
+                  classes: "govuk-button--secondary"
+                }) }}
+
+         <br>
+         <br> -->
 
                     {{ govukTextarea({
                         name: "mobilisingdetails",
@@ -88,6 +96,7 @@
                         value: data['mobilisingdetails']
                       }) }}
 
+                    
                       {{ govukButton({
                         text: "Save and continue"
                       }) }}

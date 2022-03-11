@@ -11,10 +11,10 @@
 
   <div class="govuk-width-container {{ containerClasses }}">
 
-      {{ govukBackLink({
-        text: "Back",
-        href: "physical-functions"
-      }) }}
+    {{ govukBackLink({
+      text: "Back",
+      href: "javascript:history.back()"
+    }) }}
 
 
 
@@ -25,7 +25,7 @@
 
               <h1 class="govuk-heading-l">Staying conscious when awake</h1>
 
-              <form action="physical-functions" method="post">
+              <form action="../assessment-overview" method="post">
 
                 {{ govukTextarea({
                   name: "stayingconsciousNotes",

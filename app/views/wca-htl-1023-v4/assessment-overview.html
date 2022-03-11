@@ -536,83 +536,85 @@
                       </li>
                     </ul>
 
-               <h2 class="app-task-list__section">
-                  Ending assessment
-                </h2>
-                <ul class="app-task-list__items govuk-!-padding-left-0">
+    
 
-              <li class="app-task-list__item">
-                <span class="app-task-list__task-name">
-                  <a href="abandon" aria-describedby="read-declaration-status">
-                    Abandon assessment
-                  </a>
-                </span>
-                {% if data['abandon'] %}
-                <strong class="govuk-tag govuk-tag app-task-list__tag" id="eligibility-status">Completed</strong>
-                {% else %}
-                <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="eligibility-status">Optional</strong>
-                {% endif %}
-              
-                <li class="app-task-list__item">
-                  <span class="app-task-list__task-name">
-                    <a href="check-tasklist" aria-describedby="read-declaration-status">
-                      Check your answers
-                    </a>
-                  </span>
-                  {% if data['abandon'] %}
-                  <strong class="govuk-tag govuk-tag app-task-list__tag" id="eligibility-status">Completed</strong>
-                  {% else %}
-                  <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="eligibility-status">Optional</strong>
-                  {% endif %}
-                </li></li>
-
-
-
-
-                <!--  <li class="app-task-list__item">
-                  <span class="app-task-list__task-name">
-                    <a href="lcw" aria-describedby="read-declaration-status">
-                      Limited capability for work (LCW)
-                    </a>
-                  </span>
-                  {% if data['lcw'] %}
-                  <strong class="govuk-tag govuk-tag app-task-list__tag" id="eligibility-status">Completed</strong>
-                  {% else %}
-                  <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="eligibility-status">Optional</strong>
-                  {% endif %}
-                </li>
-
+                    <h2 class="app-task-list__section">
+                      Ending assessment
+                    </h2>
+                    <ul class="app-task-list__items govuk-!-padding-left-0">
+    
                   <li class="app-task-list__item">
                     <span class="app-task-list__task-name">
-                      <a href="lcwra" aria-describedby="read-declaration-status">
-                      Limited capability for work-related activity (LCWRA)
+                      <a href="abandon" aria-describedby="read-declaration-status">
+                        Abandon assessment
                       </a>
                     </span>
-                    {% if data['lcwra'] %}
+                    {% if data['abandon'] %}
                     <strong class="govuk-tag govuk-tag app-task-list__tag" id="eligibility-status">Completed</strong>
                     {% else %}
+                    <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="eligibility-status">Optional</strong>
+                    {% endif %}
+                  
+                    <li class="app-task-list__item">
+                      <span class="app-task-list__task-name">
+                        <a href="recommendation" aria-describedby="read-declaration-status">
+                          What is your recommendation?
+                        </a>
+                      </span>
+                      {% if data['abandon'] %}
+                      <strong class="govuk-tag govuk-tag app-task-list__tag" id="eligibility-status">Completed</strong>
+                      {% else %}
+                      <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="eligibility-status">Optional</strong>
+                      {% endif %}
+                    </li></li>
+    
+    
+    
+    
+                    <!--  <li class="app-task-list__item">
+                      <span class="app-task-list__task-name">
+                        <a href="lcw" aria-describedby="read-declaration-status">
+                          Limited capability for work (LCW)
+                        </a>
+                      </span>
+                      {% if data['lcw'] %}
+                      <strong class="govuk-tag govuk-tag app-task-list__tag" id="eligibility-status">Completed</strong>
+                      {% else %}
                       <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="eligibility-status">Optional</strong>
                       {% endif %}
                     </li>
-
-                    <li class="app-task-list__item">
-                      <span class="app-task-list__task-name">
-                        <a href="fit-for-work" aria-describedby="read-declaration-status">
-                        Threshold not met
-                        </a>
-                      </span>
-                      {% if data['fitforwork'] %}
-                      <strong class="govuk-tag govuk-tag app-task-list__tag" id="eligibility-status">Completed</strong>
-                      {% else %}
-                        <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="eligibility-status">Optional</strong>
-                        {% endif %}
-                      </li>-->
-
-
-        </ul> 
-
-        <a href="recommendation" class="govuk-button">Save and continue</a>
-                
+    
+                      <li class="app-task-list__item">
+                        <span class="app-task-list__task-name">
+                          <a href="lcwra" aria-describedby="read-declaration-status">
+                          Limited capability for work-related activity (LCWRA)
+                          </a>
+                        </span>
+                        {% if data['lcwra'] %}
+                        <strong class="govuk-tag govuk-tag app-task-list__tag" id="eligibility-status">Completed</strong>
+                        {% else %}
+                          <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="eligibility-status">Optional</strong>
+                          {% endif %}
+                        </li>
+    
+                        <li class="app-task-list__item">
+                          <span class="app-task-list__task-name">
+                            <a href="fit-for-work" aria-describedby="read-declaration-status">
+                            Threshold not met
+                            </a>
+                          </span>
+                          {% if data['fitforwork'] %}
+                          <strong class="govuk-tag govuk-tag app-task-list__tag" id="eligibility-status">Completed</strong>
+                          {% else %}
+                            <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="eligibility-status">Optional</strong>
+                            {% endif %}
+                          </li>-->
+    
+    
+            </ul> 
+    
+            <a href="check" class="govuk-button">Check answers</a>
+                        
             </div>
         </div>
 

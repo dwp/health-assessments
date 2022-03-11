@@ -11,10 +11,10 @@
 
   <div class="govuk-width-container {{ containerClasses }}">
 
-      {{ govukBackLink({
-        text: "Back",
-        href: "mental-capabilities"
-      }) }}
+    {{ govukBackLink({
+      text: "Back",
+      href: "javascript:history.back()"
+    }) }}
 
     <main class="govuk-main-wrapper {{ mainClasses }}" id="main-content" role="main"{% if mainLang %} lang="{{ mainLang }}"{% endif %}>
         <div class="govuk-grid-row">
@@ -23,7 +23,7 @@
 
               <h1 class="govuk-heading-l">Behaving appropriately around other people</h1>
 
-              <form action="mental-capabilities" method="post">
+              <form action="../assessment-overview" method="post">
 
                 {{ govukTextarea({
                   name: "behaviourNotes",

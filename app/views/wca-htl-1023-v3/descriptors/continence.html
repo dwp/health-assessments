@@ -11,10 +11,10 @@
 
   <div class="govuk-width-container {{ containerClasses }}">
 
-      {{ govukBackLink({
-        text: "Back",
-        href: "physical-functions"
-      }) }}
+    {{ govukBackLink({
+      text: "Back",
+      href: "javascript:history.back()"
+    }) }}
 
     <main class="govuk-main-wrapper {{ mainClasses }}" id="main-content" role="main"{% if mainLang %} lang="{{ mainLang }}"{% endif %}>
         <div class="govuk-grid-row">
@@ -23,7 +23,7 @@
 
               <h1 class="govuk-heading-l">Continence</h1>
 
-              <form action="physical-functions" method="post">
+              <form action="../assessment-overview" method="post">
 
                 {{ govukTextarea({
                   name: "continenceNotes",
