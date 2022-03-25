@@ -13,7 +13,7 @@
 
     {{ govukBackLink({
       text: "Back",
-      href: "javascript:history.back()"
+      href: "assessment-overview"
     }) }}
 
     <main class="govuk-main-wrapper {{ mainClasses }}" id="main-content" role="main"{% if mainLang %} lang="{{ mainLang }}"{% endif %}>
@@ -23,6 +23,8 @@
 
               <form action="/wca-htl-1023-v4/recommendation/decision-post" method="post">
 
+                <h1 class="govuk-heading-l">Assessment recommendation</h1>
+
 
       {{ govukRadios({
         idPrefix: "recommendation",
@@ -30,20 +32,20 @@
         fieldset: {
           legend: {
             text: "What is your recommendation?",
-            isPageHeading: true,
-            classes: "govuk-fieldset__legend--l"
+            isPageHeading: false,
+            classes: "govuk-fieldset__legend--s"
           }
         },
         items: [
         {
-          value: "Limited capability for work (LCW)",
-          text: "Limited capability for work (LCW)",
-          checked: (data['recommendation'] == "Limited capability for work (LCW)")
-        },
-        {
           value: "Limited capability for work-related activity (LCWRA)",
           text: "Limited capability for work-related activity (LCWRA)",
           checked: (data['recommendation'] == "Limited capability for work-related activity (LCWRA)")
+        },
+        {
+          value: "Limited capability for work (LCW)",
+          text: "Limited capability for work (LCW)",
+          checked: (data['recommendation'] == "Limited capability for work (LCW)")
         },
         {
           value: "Threshold not met",

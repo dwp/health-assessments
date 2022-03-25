@@ -614,6 +614,8 @@
                   </dl>
                   {% endif %}
 
+                  {% if (data['recommendation']) %}
+
                   <h2 class="govuk-heading-l">Ending the assessment</h2>
                 <dl class="govuk-summary-list">
                   <div class="govuk-summary-list__row">
@@ -717,8 +719,31 @@
   
                   </dl>
                   {% endif %}
-                  <a href="complete" class="govuk-button">Submit assessment</a>
+                  {% endif %}
 
+                {% if data['abandon'] %}
+
+                <h2 class="govuk-heading-l">Abandoning the assessment</h2>
+               
+                  <h3 class="govuk-heading-m">Abandon assessment<a href="abandon" class="govuk-link govuk-!-font-size-19 app-task-list__tag govuk-!-font-weight-regular" id="list-convictions-status">Change</a></h3>
+                   
+                  <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+                 
+                    <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">Why do you need to abandon the assessment </dt>
+                    <dd class="govuk-summary-list__value">{{ data['abandon'] }}</dd>
+                    <dd class="govuk-summary-list__actions"></dd>
+                  </div>
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">Can you provide more detail? </dt>
+                    <dd class="govuk-summary-list__value">{{ data['abandon-detail'] | striptags(true) | escape | nl2br }}</dd>
+                    <dd class="govuk-summary-list__actions"></dd>
+                  </div>
+                  </dl>
+                  {% endif %}
+                 
+
+                  <a href="submit" class="govuk-button">Continue</a>
         </div>
 </div>
 

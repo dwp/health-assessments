@@ -519,7 +519,7 @@
                     </ul>
   
                     <h2 class="app-task-list__section">
-                     Eating and drinking
+                     Eating and drinking capabilities
                     </h2>
                     <ul class="app-task-list__items govuk-!-padding-left-0">
                     <li class="app-task-list__item">
@@ -531,7 +531,7 @@
                       {% if data['eatingSelect'] %}
                       <strong class="govuk-tag govuk-tag app-task-list__tag" id="eligibility-status">Completed</strong>
                       {% else %}
-                        <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="eligibility-status">Not started</strong>
+                        <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="eligibility-status">Optional</strong>
                       {% endif %}
                       </li>
                     </ul>
@@ -539,7 +539,7 @@
     
 
                     <h2 class="app-task-list__section">
-                      Ending assessment
+                      Abandoning the assessment
                     </h2>
                     <ul class="app-task-list__items govuk-!-padding-left-0">
     
@@ -555,21 +555,30 @@
                     <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="eligibility-status">Optional</strong>
                     {% endif %}
                   
+                  </li>
+
+                    </ul>
+    
+                    <h2 class="app-task-list__section">
+                      Review
+                    </h2>
+                    <ul class="app-task-list__items govuk-!-padding-left-0">
+    
+                  
                     <li class="app-task-list__item">
                       <span class="app-task-list__task-name">
                         <a href="recommendation" aria-describedby="read-declaration-status">
-                          What is your recommendation?
+                          Assessment recommendation 
                         </a>
                       </span>
                       {% if data['abandon'] %}
                       <strong class="govuk-tag govuk-tag app-task-list__tag" id="eligibility-status">Completed</strong>
                       {% else %}
-                      <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="eligibility-status">Optional</strong>
+                      <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="eligibility-status">Not started</strong>
                       {% endif %}
-                    </li></li>
+                    </li>
     
-    
-    
+                  </ul>
     
                     <!--  <li class="app-task-list__item">
                       <span class="app-task-list__task-name">
@@ -613,7 +622,7 @@
     
             </ul> 
     
-            <a href="check" class="govuk-button">Check answers</a>
+            <a href="check" class="govuk-button">Check report answers</a>
                         
             </div>
         </div>
