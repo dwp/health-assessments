@@ -1,0 +1,185 @@
+{% extends "layout.html" %}
+{% set bodyAttributes = { id: "assess" } %}
+
+{% block pageTitle %}
+  GOV.UK Prototype Kit
+{% endblock %}
+
+{% block main %}
+
+{% include "includes/assessment-status-neutral.html" %}
+
+  <div class="govuk-width-container {{ containerClasses }}">
+
+    <!-- {{ govukBackLink({
+      text: "Back",
+      href: "assessment-status"
+    }) }} -->
+
+    {{ govukBackLink({
+      text: "Back",
+      href: "javascript:history.back()"
+    }) }}
+
+    <main class="govuk-main-wrapper {{ mainClasses }}" id="main-content" role="main"{% if mainLang %} lang="{{ mainLang }}"{% endif %}>
+        <div class="govuk-grid-row">
+
+            <div class="govuk-grid-column-two-thirds">
+
+
+                <h1 class="govuk-heading-l">Dressing and undressing</h1>
+
+                </div>
+          </div>
+
+          <div class="govuk-grid-row">
+
+            <div class="govuk-grid-column-two-thirds">
+
+            <form action="assessment-status" method="post">
+
+              {% if data['assessmenttype'] !== "Paper" %}
+
+              {{ govukTextarea({
+                name: "dressingNotes",
+                id: "dressingNotes",
+                rows: "8",
+                classes: "govuk-!-margin-bottom-9",
+                label: {
+                  text: "Notes on dressing and undressing",
+                  classes: "govuk-label--s",
+                  isPageHeading: false
+                },
+                value: data['dressingNotes']
+              }) }}
+
+        
+              
+              {{ govukRadios({
+                name: "dressingSelect",
+                fieldset: {
+                  legend: {
+                    text: "Which of these describes how well the claimant can dress and undress?",
+                    isPageHeading: false,
+                    classes: "govuk-fieldset__legend--s"
+                  }
+                },
+                items: [
+                  {
+                    value: "Cannot dress or undress at all",
+                    text: "Cannot dress or undress at all",
+                    checked: (data['dressingSelect'] == "Cannot dress or undress at all")
+                  },
+                  {
+                    value: "Needs assistance to be able to dress or undress their upper body",
+                    text: "Needs assistance to be able to dress or undress their upper body",
+                    checked: (data['dressingSelect'] == "Needs assistance to be able to dress or undress their upper body")
+                  },
+                  {
+                    value: "Needs assistance to be able to dress or undress their lower body",
+                    text: "Needs assistance to be able to dress or undress their lower body",
+                    checked: (data['dressingSelect'] == "Needs assistance to be able to dress or undress their lower body")
+                  },
+                  {
+                    value: "Needs either prompting to be able to dress, undress or determine appropriate circumstances for remaining clothed, or needs prompting or assistance to be able to select appropriate clothing",
+                    text: "Needs either prompting to be able to dress, undress or determine appropriate circumstances for remaining clothed, or needs prompting or assistance to be able to select appropriate clothing",
+                    checked: (data['dressingSelect'] == "Needs either prompting to be able to dress, undress or determine appropriate circumstances for remaining clothed, or needs prompting or assistance to be able to select appropriate clothing")
+                  },
+                  {
+                    value: "Needs to use an aid or appliance to be able to dress or undress",
+                    text: "Needs to use an aid or appliance to be able to dress or undress",
+                    checked: (data['dressingSelect'] == "Needs to use an aid or appliance to be able to dress or undress")
+                  },
+                  {
+                    value: "Can dress and undress unaided",
+                    text: "Can dress and undress unaided",
+                    checked: (data['dressingSelect'] == "Can dress and undress unaided")
+                  }
+                ]
+              }) }}
+
+
+
+
+                    <!-- {{ govukTextarea({
+                      name: "dressingReason",
+                      id: "dressingReason",
+                      label: {
+                        text: "What is the reason for this answer?",
+                        classes: "govuk-label--s",
+                        isPageHeading: false
+                      },
+                      value: data['dressingReason']
+                    }) }} -->
+
+  {% else %}
+
+  {{ govukRadios({
+    name: "dressingSelectpbr",
+    fieldset: {
+      legend: {
+        text: "Which of these describes how well the claimant can dress and undress?",
+        isPageHeading: false,
+        classes: "govuk-fieldset__legend--s"
+      }
+    },
+    items: [
+      {
+        value: "Cannot dress or undress at all",
+        text: "Cannot dress or undress at all",
+        checked: (data['dressingSelectpbr'] == "Cannot dress or undress at all")
+      },
+      {
+        value: "Needs assistance to be able to dress or undress their upper body",
+        text: "Needs assistance to be able to dress or undress their upper body",
+        checked: (data['dressingSelectpbr'] == "Needs assistance to be able to dress or undress their upper body")
+      },
+      {
+        value: "Needs assistance to be able to dress or undress their lower body",
+        text: "Needs assistance to be able to dress or undress their lower body",
+        checked: (data['dressingSelectpbr'] == "Needs assistance to be able to dress or undress their lower body")
+      },
+      {
+        value: "Needs either prompting to be able to dress, undress or determine appropriate circumstances for remaining clothed, or needs prompting or assistance to be able to select appropriate clothing",
+        text: "Needs either prompting to be able to dress, undress or determine appropriate circumstances for remaining clothed, or needs prompting or assistance to be able to select appropriate clothing",
+        checked: (data['dressingSelectpbr'] == "Needs either prompting to be able to dress, undress or determine appropriate circumstances for remaining clothed, or needs prompting or assistance to be able to select appropriate clothing")
+      },
+      {
+        value: "Needs to use an aid or appliance to be able to dress or undress",
+        text: "Needs to use an aid or appliance to be able to dress or undress",
+        checked: (data['dressingSelectpbr'] == "Needs to use an aid or appliance to be able to dress or undress")
+      },
+      {
+        value: "Can dress and undress unaided",
+        text: "Can dress and undress unaided",
+        checked: (data['dressingSelectpbr'] == "Can dress and undress unaided")
+      }
+    ]
+  }) }}
+
+                    {% endif %}
+
+                    {{ govukButton({
+                      text: "Save and continue"
+                    }) }}
+                </ul>
+
+
+
+            </form>
+
+
+
+            </div>
+
+            <div class="govuk-grid-column-one-third">
+
+
+
+            </div>
+
+        </div>
+
+    </main>
+  </div>
+{% endblock %}

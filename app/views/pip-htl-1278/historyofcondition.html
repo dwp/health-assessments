@@ -1,0 +1,75 @@
+{% extends "layout.html" %}
+{% set bodyAttributes = { id: "assess" } %}
+
+{% block pageTitle %}
+  GOV.UK Prototype Kit
+{% endblock %}
+
+{% block main %}
+
+{% include "includes/assessment-status-neutral.html" %}
+
+  <div class="govuk-width-container {{ containerClasses }}">
+
+    {{ govukBackLink({
+      text: "Back",
+      href: "assessment-status"
+    }) }}
+
+    <!-- {{ govukBackLink({
+      text: "Go back to Check your answers",
+      href: "javascript:history.back()"
+    }) }} -->
+
+    <main class="govuk-main-wrapper {{ mainClasses }}" id="main-content" role="main"{% if mainLang %} lang="{{ mainLang }}"{% endif %}>
+        <div class="govuk-grid-row">
+
+            <div class="govuk-grid-column-two-thirds">
+
+              <h1 class="govuk-heading-l">Condition history</h1>
+
+
+            <form action="assessment-status" method="post">
+
+                    {{ govukTextarea({
+                        name: "historyofcondition",
+                        id: "historyofcondition",
+                        rows: "10",
+                        label: {
+                          text: "History of condition",
+                          classes: "govuk-label--s",
+                          isPageHeading: false
+                        },
+                        value: data['historyofcondition']
+                        
+                      }) }}
+
+                      {{ govukTextarea({
+                        name: "varabilitycondition",
+                        id: "varabilitycondition",
+                        rows: "3",
+                        label: {
+                          text: "Varability",
+                          classes: "govuk-label--s",
+                          isPageHeading: false
+                        },
+                        value: data['varabilitycondition']
+                        
+                      }) }}
+
+                      {{ govukButton({
+                        text: "Save and continue"
+                      }) }}
+
+            </form>
+
+
+
+              
+
+            </div>
+        </div>
+
+    </main>
+  </div>
+{% endblock %}
