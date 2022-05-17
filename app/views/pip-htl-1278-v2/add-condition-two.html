@@ -35,77 +35,81 @@
 
               <h2 class="govuk-heading-m">Condition 1 <a href="#" class="govuk-link govuk-!-font-size-19 app-task-list__tag govuk-!-font-weight-regular" id="list-convictions-status">Remove</a></h2></h2>
               {{ govukInput({
-                id: "attendeenamepip",
-                name: "attendeenamepip",
+                id: "conditionname1pip",
+                name: "conditionname1pip",
                 label: {
                   text: "Condition name"
                 },
-                value: data['attendeenamepip']
+                value: data['conditionname1pip']
               }) }}
 
 
               {{ govukTextarea({
-                name: "historyofcondition",
-                id: "historyofcondition",
+                name: "conditionhistory1pip",
+                id: "conditionhistory1pip",
                 rows: "6",
                 label: {
-                  text: "History of condition",
+                  text: "History of condition"
+                },
                  
-                value: data['historyofcondition']}
+                value: data['conditionhistory1pip']
+                
+              }) }}
+
+              {{ govukTextarea({
+                name: "conditionvarability1pip",
+                id: "conditionvarability1pip",
+                rows: "3",
+                label: {
+                  text: "Varability"
+                },
+                 
+                value: data['conditionvarability1pip']
                 
               }) }}
 
 
-
-
-              {{ govukInput({
-                name: "attendeerelationshippip",
-                id: "attendeerelationshippip",
-                label: {
-                  text: "Varability"
-                },
-                value: data['attendeerelationshippip']
-              }) }}
 
               <hr class="govuk-!-margin-bottom-5">
 
               <h2 class="govuk-heading-m">Condition 2 <a href="#" class="govuk-link govuk-!-font-size-19 app-task-list__tag govuk-!-font-weight-regular" id="list-convictions-status">Remove</a></h2></h2>
               {{ govukInput({
-                id: "attendeenamepip",
-                name: "attendeenamepip",
+                id: "conditionname2pip",
+                name: "conditionname2pip",
                 label: {
                   text: "Condition name"
                 },
-                value: data['attendeenamepip']
+                value: data['conditionname2pip']
               }) }}
 
 
               {{ govukTextarea({
-                name: "historyofcondition",
-                id: "historyofcondition",
+                name: "conditionhistory2pip",
+                id: "conditionhistory2pip",
                 rows: "6",
                 label: {
-                  text: "History of condition",
+                  text: "History of condition"
+                },
                  
-                value: data['historyofcondition']}
+                value: data['conditionhistory2pip']
                 
               }) }}
 
-
-
-
-              {{ govukInput({
-                name: "attendeerelationshippip",
-                id: "attendeerelationshippip",
+              {{ govukTextarea({
+                name: "conditionvarability2pip",
+                id: "conditionvarability2pip",
+                rows: "3",
                 label: {
                   text: "Varability"
                 },
-                value: data['attendeerelationshippip']
+                 
+                value: data['conditionvarability2pip']
+                
               }) }}
 
               <hr class="govuk-!-margin-bottom-5">
 
-              <p><a class="govuk-link" href="add-attendees-two">Add another attendee</a></p>
+              <p><a class="govuk-link" href="#">Add another attendee</a></p>
 
 
               {{ govukButton({

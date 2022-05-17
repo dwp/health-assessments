@@ -71,31 +71,34 @@
 
                 
 
-                {% if data['historyofcondition'] or data['currentmedication'] or data['socialoccupational'] %}
+                {% if data['conditionname1pip'] or data['currentmedication'] or data['socialoccupational'] %}
               <h2 class="govuk-heading-l">History</h2>
               {% endif %}
 
 <br>
-               {% if data['historyofcondition'] or data['varabilitycondition'] %}
-                <h3 class="govuk-heading-m">Condition history<a href="historyofcondition" class="govuk-link govuk-!-font-size-19 app-task-list__tag govuk-!-font-weight-regular" id="list-convictions-status">Change</a></h3>
+               {% if data['conditionname1pip'] or data['varabilitycondition'] %}
+                <h3 class="govuk-heading-m">Condition history<a href="add-condition-two" class="govuk-link govuk-!-font-size-19 app-task-list__tag govuk-!-font-weight-regular" id="list-convictions-status">Change</a></h3>
 
                 <dl class="govuk-summary-list govuk-!-margin-bottom-9">
                   
 
-                {% if data['historyofcondition'] %}
-                  <div class="govuk-summary-list__row">
-                    <dt class="govuk-summary-list__key no-bottom-border">History of condition</dt>
-                    <dd class="govuk-summary-list__value no-bottom-border">{{ data['historyofcondition'] | striptags(true) | escape | nl2br }}</dd>
-                    <dd class="govuk-summary-list__actions no-bottom-border"></dd>
-                  </div>
+                {% if data['conditionname1pip'] %}
+                <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__key">Condition 1</dt>
+                  <dd class="govuk-summary-list__value">Condition name: {{ data['conditionname1pip'] }} <br> History of condition: {{ data['conditionhistory1pip'] }} <br> Varability: {{ data['conditionvarability1pip'] }}</dd>
+                  <dd class="govuk-summary-list__actions"></dd>
+                </div>
+                <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__key">Condition 2</dt>
+                  <dd class="govuk-summary-list__value">Condition name: {{ data['conditionname2pip'] }} <br> History of condition: {{ data['conditionhistory2pip'] }} <br> Varability: {{ data['conditionvarability2pip'] }}</dd>
+                  <dd class="govuk-summary-list__actions"></dd>
+                </div>
+
+
                   {% endif %}
-                  {% if data['varabilitycondition'] %}
-                  <div class="govuk-summary-list__row">
-                      <dt class="govuk-summary-list__key">Varability</dt>
-                      <dd class="govuk-summary-list__value">{{ data['varabilitycondition'] | striptags(true) | escape | nl2br }}</dd>
-                      <dd class="govuk-summary-list__actions"></dd>
-                  </div>
-                  {% endif %}
+                 
+
+
                   {% endif %}
 
 <br>
@@ -821,15 +824,27 @@
 
 
                    {% if data['dailylivingrecommendation'] %}
-                   <h3 class="govuk-heading-m">Daily living recommendation<a href="dailyliving" class="govuk-link govuk-!-font-size-19 app-task-list__tag govuk-!-font-weight-regular" id="list-convictions-status">Change</a></h3>
+                   <h3 class="govuk-heading-m">Daily living recommendation<a href="dailylivingrecommendation1.html" class="govuk-link govuk-!-font-size-19 app-task-list__tag govuk-!-font-weight-regular" id="list-convictions-status">Change</a></h3>
 
                    <dl class="govuk-summary-list govuk-!-margin-bottom-9">
                    <div class="govuk-summary-list__row">
-                    <dt class="govuk-summary-list__key">What is your advice for the daily living component?</dt>
-                    <dd class="govuk-summary-list__value"><p>{{ data['dailylivingrecommendation'] }}</p>
-                     
-                    </dd>
-                   
+                    <dt class="govuk-summary-list__key">Activites with reported restrictions</dt>
+                    <dd class="govuk-summary-list__value"><p>{{ data['dailylivingrecommendation'] }}</p></dd>
+                    <dd class="govuk-summary-list__actions"></dd>
+                  </div>
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">Reasons for the chosen descriptors</dt>
+                    <dd class="govuk-summary-list__value"><p>{{ data['dailylivingrecommendation2'] }}</p></dd>
+                    <dd class="govuk-summary-list__actions"></dd>
+                  </div>
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">Other descriptors that were considered</dt>
+                    <dd class="govuk-summary-list__value"><p>{{ data['dailylivingrecommendation3'] }}</p></dd>
+                    <dd class="govuk-summary-list__actions"></dd>
+                  </div>
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">Descriptors that weren't chosen and why</dt>
+                    <dd class="govuk-summary-list__value"><p>{{ data['dailylivingrecommendation4'] }}</p></dd>
                     <dd class="govuk-summary-list__actions"></dd>
                   </div>
                    </dl>
@@ -864,15 +879,27 @@
                    {% endif %}
 
                    {% if data['mobilityrecommendation'] %}
-                   <h3 class="govuk-heading-m">Mobility recommendation<a href="dailyliving" class="govuk-link govuk-!-font-size-19 app-task-list__tag govuk-!-font-weight-regular" id="list-convictions-status">Change</a></h3>
+                   <h3 class="govuk-heading-m">Mobility recommendation<a href="mobilityrecommendation1.html" class="govuk-link govuk-!-font-size-19 app-task-list__tag govuk-!-font-weight-regular" id="list-convictions-status">Change</a></h3>
 
                    <dl class="govuk-summary-list govuk-!-margin-bottom-9">
-                   <div class="govuk-summary-list__row">
-                    <dt class="govuk-summary-list__key">What is your advice for the mobility component?</dt>
-                    <dd class="govuk-summary-list__value"><p>{{ data['mobilityrecommendation'] }}</p>
-                     
-                    </dd>
-                   
+                   <div class="govuk-summary-list__row no-bottom-border">
+                    <dt class="govuk-summary-list__key no-bottom-border">Activites with reported restrictions</dt>
+                    <dd class="govuk-summary-list__value no-bottom-border"><p>{{ data['mobilityrecommendation'] }}</p></dd>  
+                    <dd class="govuk-summary-list__actions no-bottom-border"></dd>
+                  </div>
+                  <div class="govuk-summary-list__row no-bottom-border">
+                    <dt class="govuk-summary-list__key no-bottom-border">Reasons for the chosen descriptors</dt>
+                    <dd class="govuk-summary-list__value no-bottom-border"><p>{{ data['mobilityrecommendation2'] }}</p></dd>  
+                    <dd class="govuk-summary-list__actions no-bottom-border"></dd>
+                  </div>
+                  <div class="govuk-summary-list__row no-bottom-border">
+                    <dt class="govuk-summary-list__key no-bottom-border">Other descriptors that were considered</dt>
+                    <dd class="govuk-summary-list__value no-bottom-border"><p>{{ data['mobilityrecommendation3'] }}</p></dd>  
+                    <dd class="govuk-summary-list__actions no-bottom-border"></dd>
+                  </div>
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">Descriptors that weren't chosen and why</dt>
+                    <dd class="govuk-summary-list__value"><p>{{ data['mobilityrecommendation4'] }}</p></dd>  
                     <dd class="govuk-summary-list__actions "></dd>
                   </div>
                    </dl>

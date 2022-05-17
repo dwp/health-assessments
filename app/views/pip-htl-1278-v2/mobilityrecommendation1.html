@@ -33,15 +33,57 @@
                     {{ govukTextarea({
                         name: "mobilityrecommendation",
                         id: "mobilityrecommendation",
-                        rows: "12",
+                        rows: "8",
                         label: {
-                          text: "What is your advice for the mobility component?",
+                          text: "Activites with reported restrictions",
                           classes: "govuk-label--s",
                           isPageHeading: false
                         },
                         value: data['mobilityrecommendation']
                         
                       }) }}
+
+                      {{ govukTextarea({
+                        name: "mobilityrecommendation2",
+                        id: "mobilityrecommendation2",
+                        rows: "8",
+                        label: {
+                          text: "Reasons for the chosen descriptors",
+                          classes: "govuk-label--s",
+                          isPageHeading: false
+                        },
+                        value: data['mobilityrecommendation2']
+                        
+                      }) }}
+
+
+                      {{ govukTextarea({
+                        name: "mobilityrecommendation3",
+                        id: "mobilityrecommendation3",
+                        rows: "8",
+                        label: {
+                          text: "Other descriptors that were considered",
+                          classes: "govuk-label--s",
+                          isPageHeading: false
+                        },
+                        value: data['mobilityrecommendation3']
+                        
+                      }) }}
+
+                      {{ govukTextarea({
+                        name: "mobilityrecommendation4",
+                        id: "mobilityrecommendation4",
+                        rows: "8",
+                        label: {
+                          text: "Descriptors that weren't chosen and why",
+                          classes: "govuk-label--s",
+                          isPageHeading: false
+                        },
+                        value: data['mobilityrecommendation4']
+                        
+                      }) }}
+
+
 
                       {{ govukButton({
                         text: "Save and continue"
