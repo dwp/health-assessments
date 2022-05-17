@@ -26,20 +26,34 @@
 
             <div class="govuk-grid-column-two-thirds">
 
-              <h1 class="govuk-heading-l">Mobility recommendation</h1>
+              <h1 class="govuk-heading-l">Condition history</h1>
+
 
             <form action="assessment-status" method="post">
 
                     {{ govukTextarea({
-                        name: "mobilityrecommendation",
-                        id: "mobilityrecommendation",
-                        rows: "12",
+                        name: "historyofcondition",
+                        id: "historyofcondition",
+                        rows: "10",
                         label: {
-                          text: "What is your advice for the mobility component?",
+                          text: "History of condition",
                           classes: "govuk-label--s",
                           isPageHeading: false
                         },
-                        value: data['mobilityrecommendation']
+                        value: data['historyofcondition']
+                        
+                      }) }}
+
+                      {{ govukTextarea({
+                        name: "varabilitycondition",
+                        id: "varabilitycondition",
+                        rows: "3",
+                        label: {
+                          text: "Varability",
+                          classes: "govuk-label--s",
+                          isPageHeading: false
+                        },
+                        value: data['varabilitycondition']
                         
                       }) }}
 

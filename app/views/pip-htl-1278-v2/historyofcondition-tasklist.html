@@ -11,35 +11,34 @@
 
   <div class="govuk-width-container {{ containerClasses }}">
 
-    {{ govukBackLink({
+    <!-- {{ govukBackLink({
       text: "Back",
       href: "assessment-status"
-    }) }}
-
-    <!-- {{ govukBackLink({
-      text: "Go back to Check your answers",
-      href: "javascript:history.back()"
     }) }} -->
+
+    {{ govukBackLink({
+      text: "Back",
+      href: "javascript:history.back()"
+    }) }}
 
     <main class="govuk-main-wrapper {{ mainClasses }}" id="main-content" role="main"{% if mainLang %} lang="{{ mainLang }}"{% endif %}>
         <div class="govuk-grid-row">
 
             <div class="govuk-grid-column-two-thirds">
 
-              <h1 class="govuk-heading-l">Mobility recommendation</h1>
 
             <form action="assessment-status" method="post">
 
                     {{ govukTextarea({
-                        name: "mobilityrecommendation",
-                        id: "mobilityrecommendation",
+                        name: "historyofcondition",
+                        id: "historyofcondition",
                         rows: "12",
                         label: {
-                          text: "What is your advice for the mobility component?",
-                          classes: "govuk-label--s",
-                          isPageHeading: false
+                          text: "History of condition",
+                          classes: "govuk-label--l",
+                          isPageHeading: true
                         },
-                        value: data['mobilityrecommendation']
+                        value: data['historyofcondition']
                         
                       }) }}
 
