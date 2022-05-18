@@ -28,45 +28,45 @@
 
 
 
-            <form action="assessment-status" method="post">
+            <form action="assessment-status-entry" method="post">
 
 
               <h1 class="govuk-heading-l">Condition history</h1>
 
               <h2 class="govuk-heading-m">Condition 1</h2>
               {{ govukInput({
-                id: "attendeenamepip",
-                name: "attendeenamepip",
+                id: "conditionname1pip",
+                name: "conditionname1pip",
                 label: {
                   text: "Condition name"
                 },
-                value: data['attendeenamepip']
+                value: data['conditionname1pip']
               }) }}
 
 
               {{ govukTextarea({
-                name: "historyofcondition",
-                id: "historyofcondition",
+                name: "conditionhistory1pip",
+                id: "conditionhistory1pip",
                 rows: "6",
                 label: {
-                  text: "History of condition",
+                  text: "History of condition"
+                },
                  
-                value: data['historyofcondition']}
+                value: data['conditionhistory1pip']
                 
               }) }}
 
-
-
-
-              {{ govukInput({
-                name: "attendeerelationshippip",
-                id: "attendeerelationshippip",
+              {{ govukTextarea({
+                name: "conditionvarability1pip",
+                id: "conditionvarability1pip",
+                rows: "3",
                 label: {
                   text: "Varability"
                 },
-                value: data['attendeerelationshippip']
+                 
+                value: data['conditionvarability1pip']
+                
               }) }}
-
       
 
 

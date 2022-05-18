@@ -12,7 +12,7 @@
   <div class="govuk-width-container {{ containerClasses }}">
     {{ govukBackLink({
       text: "Go back to Assessment type",
-      href: "assessment-type"
+      href: "#"
     }) }}
 
     <main class="govuk-main-wrapper {{ mainClasses }}" id="main-content" role="main"{% if mainLang %} lang="{{ mainLang }}"{% endif %}>
@@ -107,9 +107,9 @@
                           </a>
                         </span>
                         <script type="text/javascript">
-                          var conditionname2pip1 = {{data.conditionname2pip1|dump|safe}}
-                          console.log(conditionname2pip1)
-                          if (conditionname2pip1) {
+                          var conditionname1pip = {{data.conditionname1pip|dump|safe}}
+                          console.log(conditionname1pip)
+                          if (conditionname1pip) {
 
                             document.write('<strong class="govuk-tag govuk-tag app-task-list__tag" id="eligibility-status">Completed</strong>');
                             }
