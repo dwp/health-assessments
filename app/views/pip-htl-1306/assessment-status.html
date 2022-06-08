@@ -12,7 +12,7 @@
   <div class="govuk-width-container {{ containerClasses }}">
     {{ govukBackLink({
       text: "Go back to Assessment type",
-      href: "#"
+      href: "assessment-type"
     }) }}
 
     <main class="govuk-main-wrapper {{ mainClasses }}" id="main-content" role="main"{% if mainLang %} lang="{{ mainLang }}"{% endif %}>
@@ -102,14 +102,14 @@
 
                       <li class="app-task-list__item">
                         <span class="app-task-list__task-name">
-                          <a href="add-condition.html" aria-describedby="company-information-status">
+                          <a href="historyofcondition-tasklist" aria-describedby="company-information-status">
                             History of condition
                           </a>
                         </span>
                         <script type="text/javascript">
-                          var conditionname1pip = {{data.conditionname1pip|dump|safe}}
-                          console.log(conditionname1pip)
-                          if (conditionname1pip) {
+                          var historyofcondition = {{data.historyofcondition|dump|safe}}
+                          console.log(historyofcondition)
+                          if (historyofcondition) {
 
                             document.write('<strong class="govuk-tag govuk-tag app-task-list__tag" id="eligibility-status">Completed</strong>');
                             }
@@ -559,8 +559,24 @@
                                         </li>
                                         {% endif %}
                                     </li>
+                                    <li class="app-task-list__item">
+                                      <span class="app-task-list__task-name">
+                                        <a href="dailyliving" aria-describedby="contact-details-status">
+                                          Daily living qualifying period and prospective test
+                                        </a>
+                                      </span>
+                                      <script type="text/javascript">
+                                        var dailyliving = {{data.dl|dump|safe}}
+                                        console.log(dailyliving)
+                                        if (dailyliving) {
 
-                                
+                                          document.write('<strong class="govuk-tag govuk-tag app-task-list__tag" id="eligibility-status">Completed</strong>');
+                                          }
+                                        else {
+                                          document.write('<strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="eligibility-status">Not started</strong>');
+                                        }
+                                      </script>
+                                    </li>
                                   </ul>
 
 
@@ -646,14 +662,31 @@
                                             </script>
                                           </li>
                                           {% endif %}
-                                     
+                                          <li class="app-task-list__item">
+                                            <span class="app-task-list__task-name">
+                                              <a href="mobility" aria-describedby="contact-details-status">
+                                                Mobility qualifying period and prospective test
+                                              </a>
+                                            </span>
+                                            <script type="text/javascript">
+                                              var mobility = {{data.qp|dump|safe}}
+                                              console.log(mobility)
+                                              if (mobility) {
+      
+                                                document.write('<strong class="govuk-tag govuk-tag app-task-list__tag" id="eligibility-status">Completed</strong>');
+                                                }
+                                              else {
+                                                document.write('<strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="eligibility-status">Not started</strong>');
+                                              }
+                                            </script>
+                                          </li>
                     </ul>
                   </li>
 
                   {% if data['assessmenttype'] !== "Paper" %}  
                     <li>
                       <h2 class="app-task-list__section">
-                        Examinations and observations
+                        Current condition
                       </h2>
                       <ul class="app-task-list__items govuk-!-padding-left-0">
 
@@ -711,7 +744,7 @@
                               }
                             </script>
                           </li>
-                          <!-- <li class="app-task-list__item">
+                          <li class="app-task-list__item">
                               <span class="app-task-list__task-name">
                                 <a href="variability" aria-describedby="read-declaration-status">
                                   Variability
@@ -728,7 +761,7 @@
                                   document.write('<strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="eligibility-status">Not started</strong>');
                                 }
                               </script>
-                            </li> -->
+                            </li>
                       </ul>
                     </li>
                     {% endif %}  
@@ -753,87 +786,9 @@
                   {% if data['assessmenttype'] !== "Paper" %}  
                   <li>
                     <h2 class="app-task-list__section">
-                     Recommendations
+                     Review
                     </h2>
                     <ul class="app-task-list__items govuk-!-padding-left-0">
-                      <li class="app-task-list__item">
-                        <span class="app-task-list__task-name">
-                          <a href="dailylivingrecommendation1" aria-describedby="dailylivingrecommendation">
-                            Daily living justification
-                          </a>
-                        </span>
-                        <script type="text/javascript">
-                          var dailylivingrecommendation = {{data.dailylivingrecommendation|dump|safe}}
-                          console.log(dailylivingrecommendation)
-                          if (dailylivingrecommendation) {
-
-                            document.write('<strong class="govuk-tag govuk-tag app-task-list__tag" id="eligibility-status">Completed</strong>');
-                            }
-                          else {
-                            document.write('<strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="eligibility-status">Not started</strong>');
-                          }
-                        </script>
-                      </li>
-
-                      <!-- var socialoccupational = {{data.socialoccupational|dump|safe}}
-                      console.log(socialoccupational)
-                      if (socialoccupational) { -->
-
-
-                      <li class="app-task-list__item">
-                        <span class="app-task-list__task-name">
-                          <a href="dailyliving" aria-describedby="contact-details-status">
-                            Daily living qualifying period and prospective test
-                          </a>
-                        </span>
-                        <script type="text/javascript">
-                          var dailyliving = {{data.dl|dump|safe}}
-                          console.log(dailyliving)
-                          if (dailyliving) {
-
-                            document.write('<strong class="govuk-tag govuk-tag app-task-list__tag" id="eligibility-status">Completed</strong>');
-                            }
-                          else {
-                            document.write('<strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="eligibility-status">Not started</strong>');
-                          }
-                        </script>
-                      </li>
-                      <li class="app-task-list__item">
-                        <span class="app-task-list__task-name">
-                          <a href="mobilityrecommendation1" aria-describedby="mobilityrecommendation">
-                            Mobility justification
-                          </a>
-                        </span>
-                        <script type="text/javascript">
-                          var mobilityrecommendation = {{data.mobilityrecommendation|dump|safe}}
-                          console.log(mobilityrecommendation)
-                          if (mobilityrecommendation) {
-
-                            document.write('<strong class="govuk-tag govuk-tag app-task-list__tag" id="eligibility-status">Completed</strong>');
-                            }
-                          else {
-                            document.write('<strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="eligibility-status">Not started</strong>');
-                          }
-                        </script>
-                      </li>
-                      <li class="app-task-list__item">
-                        <span class="app-task-list__task-name">
-                          <a href="mobility" aria-describedby="contact-details-status">
-                            Mobility qualifying period and prospective test
-                          </a>
-                        </span>
-                        <script type="text/javascript">
-                          var mobility = {{data.qp|dump|safe}}
-                          console.log(mobility)
-                          if (mobility) {
-
-                            document.write('<strong class="govuk-tag govuk-tag app-task-list__tag" id="eligibility-status">Completed</strong>');
-                            }
-                          else {
-                            document.write('<strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="eligibility-status">Not started</strong>');
-                          }
-                        </script>
-                      </li>
                       <li class="app-task-list__item">
                         <span class="app-task-list__task-name">
                           <a href="review" aria-describedby="contact-details-status">
@@ -848,14 +803,14 @@
                             document.write('<strong class="govuk-tag govuk-tag app-task-list__tag" id="eligibility-status">Completed</strong>');
                             }
                           else {
-                            document.write('<strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="eligibility-status">Not started</strong>');
+                            document.write('<strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="eligibility-status">Optional</strong>');
                           }
                         </script>
                       </li>
 
 
                     
-                    
+
 
           
                     </ul>
