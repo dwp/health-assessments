@@ -1,0 +1,182 @@
+{% extends "layout.html" %}
+{% set bodyAttributes = { id: "assess" } %}
+
+{% block pageTitle %}
+  GOV.UK Prototype Kit
+{% endblock %}
+
+{% block main %}
+
+{% include "includes/assessment-status-neutral.html" %}
+
+  <div class="govuk-width-container {{ containerClasses }}">
+    <!-- {{ govukBackLink({
+      text: "Back",
+      href: "assessment-status"
+    }) }} -->
+
+    {{ govukBackLink({
+      text: "Back",
+      href: "javascript:history.back()"
+    }) }}
+
+    <main class="govuk-main-wrapper {{ mainClasses }}" id="main-content" role="main"{% if mainLang %} lang="{{ mainLang }}"{% endif %}>
+        <div class="govuk-grid-row">
+
+            <div class="govuk-grid-column-two-thirds">
+
+               
+
+                <h1 class="govuk-heading-l">Communicating verbally</h1>
+
+                </div>
+          </div>
+
+          <div class="govuk-grid-row">
+
+            <div class="govuk-grid-column-two-thirds">
+
+            <form action="assessment-status" method="post">
+
+              {% if data['assessmenttype'] !== "Paper" %}
+
+              {{ govukTextarea({
+                name: "communicatingverballyNotes",
+                id: "communicatingverballyNotes",
+                rows: "8",
+                classes: "govuk-!-margin-bottom-9",
+                label: {
+                  text: "Notes on communicating verbally",
+                  classes: "govuk-label--s",
+                  isPageHeading: false
+                },
+                value: data['communicatingverballyNotes']
+              }) }}
+
+           
+
+
+              {{ govukRadios({
+                name: "communicatingverballySelect",
+                fieldset: {
+                  classes: "govuk-!-margin-bottom-9",
+                  legend: {
+                    text: "Which of these describes how well the claimant can communicate verbally?",
+                    isPageHeading: false,
+                    classes: "govuk-fieldset__legend--s"
+                  }
+                },
+                items: [
+                  {
+                    value: "(7a) Can express and understand verbal information unaided",
+                    text: "(7a) Can express and understand verbal information unaided",
+                    checked: (data['communicatingverballySelect'] == "(7a) Can express and understand verbal information unaided")
+                  },
+                  {
+                    value: "(7b) Needs to use an aid or appliance to be able to speak or hear",
+                    text: "(7b) Needs to use an aid or appliance to be able to speak or hear",
+                    checked: (data['communicatingverballySelect'] == "(7b) Needs to use an aid or appliance to be able to speak or hear")
+                  },
+                  {
+                    value: "(7c) Needs communication support to be able to express or understand complex verbal information",
+                    text: "(7c) Needs communication support to be able to express or understand complex verbal information",
+                    checked: (data['communicatingverballySelect'] == "(7c) Needs communication support to be able to express or understand complex verbal information")
+                  },
+                  {
+                    value: "(7d) Needs communication support to be able to express or understand basic verbal information",
+                    text: "(7d) Needs communication support to be able to express or understand basic verbal information",
+                    checked: (data['communicatingverballySelect'] == "(7d) Needs communication support to be able to express or understand basic verbal information")
+                  },
+                  {
+                    value: "(7e) Cannot express or understand verbal information at all even with communication support",
+                    text: "(7e) Cannot express or understand verbal information at all even with communication support",
+                    checked: (data['communicatingverballySelect'] == "(7e) Cannot express or understand verbal information at all even with communication support")
+                  }
+                ]
+              }) }}
+
+
+         
+
+                    {{ govukTextarea({
+                      name: "communicatingverballyReason",
+                      id: "communicatingverballyReason",
+                      label: {
+                        text: "What is the reason for this answer?",
+                        classes: "govuk-label--s",
+                        isPageHeading: false
+                      },
+                      value: data['communicatingverballyReason']
+                    }) }}
+
+                    {% else %}
+
+                    {{ govukRadios({
+                      name: "communicatingverballySelectpbr",
+                      fieldset: {
+                        classes: "govuk-!-margin-bottom-9",
+                        legend: {
+                          text: "Which of these describes how well the claimant can communicate verbally?",
+                          isPageHeading: false,
+                          classes: "govuk-fieldset__legend--s"
+                        }
+                      },
+                      items: [
+                        {
+                          value: "Cannot prepare and cook food",
+                          text: "Cannot prepare and cook food",
+                          checked: (data['communicatingverballySelectpbr'] == "Cannot prepare and cook food")
+                        },
+                        {
+                          value: "Cannot express or understand verbal information at all even with communication support",
+                          text: "Cannot express or understand verbal information at all even with communication support",
+                          checked: (data['communicatingverballySelectpbr'] == "Cannot express or understand verbal information at all even with communication support")
+                        },
+                        {
+                          value: "Needs communication support to be able to express or understand basic verbal information",
+                          text: "Needs communication support to be able to express or understand basic verbal information",
+                          checked: (data['communicatingverballySelectpbr'] == "Needs communication support to be able to express or understand basic verbal information")
+                        },
+                        {
+                          value: "Needs communication support to be able to express or understand complex verbal information",
+                          text: "Needs communication support to be able to express or understand complex verbal information",
+                          checked: (data['communicatingverballySelectpbr'] == "Needs communication support to be able to express or understand complex verbal information")
+                        },
+                        {
+                          value: "Needs to use an aid or appliance to be able to speak or hear",
+                          text: "Needs to use an aid or appliance to be able to speak or hear",
+                          checked: (data['communicatingverballySelectpbr'] == "Needs to use an aid or appliance to be able to speak or hear")
+                        },
+                        {
+                          value: "Can express and understand verbal information unaided",
+                          text: "Can express and understand verbal information unaided",
+                          checked: (data['communicatingverballySelectpbr'] == "Can express and understand verbal information unaided")
+                        }
+                      ]
+                    }) }}
+
+                    {% endif %}
+
+                    {{ govukButton({
+                      text: "Save and continue"
+                    }) }}
+                </ul>
+
+
+
+            </form>
+
+
+
+            </div>
+
+            <div class="govuk-grid-column-one-third">
+
+
+            </div>
+
+        </div>
+
+    </main>
+  </div>
+{% endblock %}
