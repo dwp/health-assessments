@@ -1,0 +1,51 @@
+{% extends "layout.html" %}
+{% set bodyAttributes = { id: "home" } %}
+
+{% block pageTitle %}
+  GOV.UK Prototype Kit
+{% endblock %}
+
+{% block main %}
+
+{% include "includes/home-header.html" %}
+
+
+<div class="govuk-width-container {{ containerClasses }} govuk-!-margin-bottom-9">
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.back()"
+  }) }}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-three-quarters">
+
+     
+
+      <!--  <h2 class="govuk-heading-l" id="next-release">Next release</h2>
+      <p class="govuk-body-l">These prototypes are for testing the next release of the Health Assessment Service.</p>
+
+
+      <hr class="govuk-!-margin-top-9 govuk-!-margin-bottom-6">
+
+     Current release -->
+
+      <h2 class="govuk-heading-l" id="research">Recommendation builder</h2>
+      <p class="govuk-body-l">These prototypes are for research to help learn and provide evidence of what the recommendation needs to include.</p>
+
+      <h3 class="govuk-heading-m" id="research">Navigation/autosave</32>
+
+      <h3 class="govuk-heading-m"><a href="pip-version-1-1/">PIP PBR</a></h3>
+      <h4 class="govuk-heading-s govuk-!-margin-bottom-1">Latest tickets:</h4>
+      <ul class="govuk-list govuk-list--bullet">
+        <li><a href="https://dwpdigital.atlassian.net/browse/HTL-1512">HTL-1512</a>, Create a PIP PBR prototype for the recommendation builder to be used for UR</li>
+      </ul>
+
+      
+
+      <hr class="govuk-!-margin-top-9 govuk-!-margin-bottom-6">
+
+    </div>
+  </div>
+</div>
+
+{% endblock %}
