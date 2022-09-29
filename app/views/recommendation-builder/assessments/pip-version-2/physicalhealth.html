@@ -7,7 +7,16 @@
 
 {% block main %}
 
-{% include "includes/pip-assessment-activities.html" %}
+{% include "includes/pip-assessment-withtabs.html" %}
+
+
+     
+    <div class="govuk-width-container {{ containerClasses }}">
+    <div class="govuk-grid-row">
+ 
+
+   
+      {% include "includes/side-navigation.html" %}
 
  
  
@@ -19,32 +28,33 @@
 
       
 
-              
+               
 
             <form action="assessment-status" method="post">
 
                     {{ govukTextarea({
-                        name: "recommendation",
-                        id: "recommendation",
+                        name: "physicalhealth",
+                        id: "physicalhealth",
                         rows: "12",
                         label: {
-                          text: "What is the reason for your recommendation?",
+                          text: "Physical health",
                           classes: "govuk-label--l",
                           isPageHeading: true
                         },
-                        value: data['recommendation']
+                        value: data['physicalhealth']
                       }) }}
 
-                      {{ govukButton({
+                      <!-- {{ govukButton({
                         text: "Save and continue"
-                      }) }}
+                      }) }} -->
 
             </form>
 
 
-          
+        
 
 
+            </div>
         </div>
 
     </main>

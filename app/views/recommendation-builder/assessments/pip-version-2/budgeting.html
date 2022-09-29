@@ -7,13 +7,27 @@
 
 {% block main %}
 
-{% include "includes/pip-assessment-activities.html" %}
+{% include "includes/pip-assessment-withtabs.html" %}
 
+
+     
+    <div class="govuk-width-container {{ containerClasses }}">
+    <div class="govuk-grid-row">
+ 
+
+   
+      {% include "includes/side-navigation.html" %}
+
+ 
  
   <div class="govuk-grid-column-three-quarters">
 
     <main class="govuk-main-wrapper {{ mainClasses }}" id="main-content" role="main"{% if mainLang %} lang="{{ mainLang }}"{% endif %}>
    
+
+
+      
+
 
                 <h1 class="govuk-heading-l">Budgeting</h1>
 

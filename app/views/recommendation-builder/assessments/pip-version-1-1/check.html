@@ -7,13 +7,13 @@
 
 {% block main %}
 
-{% include "includes/assessment-status-neutral.html" %}
+{% include "includes/pip-assessment-check.html" %}
 
   <div class="govuk-width-container {{ containerClasses }}">
-    {{ govukBackLink({
+    <!-- {{ govukBackLink({
       text: "Go back to Assessment overview",
       href: "assessment-status"
-    }) }}
+    }) }} -->
   
 
     <main class="govuk-main-wrapper {{ mainClasses }}" id="main-content" role="main"{% if mainLang %} lang="{{ mainLang }}"{% endif %}>

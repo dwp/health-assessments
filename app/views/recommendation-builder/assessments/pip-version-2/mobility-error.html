@@ -7,7 +7,16 @@
 
 {% block main %}
 
-{% include "includes/pip-assessment-activities.html" %}
+{% include "includes/pip-assessment-withtabs.html" %}
+
+
+     
+    <div class="govuk-width-container {{ containerClasses }}">
+    <div class="govuk-grid-row">
+ 
+
+   
+      {% include "includes/side-navigation.html" %}
 
  
  
@@ -19,6 +28,20 @@
 
       
 
+              {{ govukErrorSummary({
+                titleText: "There is a problem",
+                errorList: [
+                  {
+                    text: "Enter qualifying period details",
+                    href: "#part-not-met"
+                  },
+                  {
+                    text: "Enter prospective test details",
+                    href: "#9part-not-met"
+                  }
+                ]
+              }) }}
+
               <h1 class="govuk-heading-l">Mobility qualifying period and prospective test</h1>
 
 
@@ -29,9 +52,10 @@
       id: "part-not-met",
       name: "part-not-met",
       label: {
-        text: "Qualifying period details",
-        classes: "govuk-label--s",
-    isPageHeading: false
+        text: "Qualifying period details"
+      },
+      errorMessage: {
+        text: "Enter qualifying period details"
       }
     }) }}
     {% endset -%}
@@ -59,7 +83,7 @@
           {
             value: "No",
             text: "No",
-            checked: (data['qp'] == "No"),
+            checked: true,
             conditional: {
               html: reasonHtml
             }
@@ -79,9 +103,10 @@
         id: "9part-not-met",
         name: "9part-not-met",
         label: {
-          text: "Prospective test details",
-          classes: "govuk-label--s",
-      isPageHeading: false
+          text: "Prospective test details"
+        },
+        errorMessage: {
+          text: "Enter prospective test details"
         }
       }) }}
       {% endset -%}
@@ -109,7 +134,7 @@
             {
               value: "No",
               text: "No",
-              checked: (data['9qp'] == "No"),
+              checked: true,
               conditional: {
                 html: 9reasonHtml
               }
@@ -122,15 +147,14 @@
           ]
         }) }}
 
+</div>
+</div>
 
-
-<!-- 
-<button class="govuk-button" data-module="govuk-button">
+<!-- <button class="govuk-button" data-module="govuk-button">
   Save and continue
 </button> -->
 
 </main>
-</div>
 </div>
 
 
