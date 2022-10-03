@@ -64,7 +64,10 @@ router.post("/wca-htl-1023/recommendation/decision-post", function(req, res, nex
         next();
         })
     
-
+        router.post('/autosave', function (req, res, next) {
+            req.session.data[req.body.field] = req.body.value;
+            res.sendStatus(200);
+        });
 
 // console.log('**************',req.path)
 module.exports = router
