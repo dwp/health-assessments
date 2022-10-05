@@ -1,5 +1,27 @@
 const express = require('express')
 const router = express.Router()
+const urlsByTab = require('./data/urlsByTab');
+
+// Add your routes here - above the module.exports line
+
+router.get("*", (req, res, next) => {
+    if(typeof req.session.data.recentPages === 'undefined') {
+        req.session.data.recentPages = {
+            review: 'evidence-used',
+            activities: 'preparingfood'
+        }
+    }
+    const urlEnd = req.originalUrl.split('/').pop();
+    Object.entries(urlsByTab).forEach(([k, v]) => {
+        if(v.includes(urlEnd)) {
+            req.session.data.recentPages[k] = urlEnd; 
+        }
+    });
+    return next();
+})
+
+
+
 
 // Add your routes here - above the module.exports line
 router.post("/wca-htl-975-new-end/recommendation/decision-post", function(req, res, next){

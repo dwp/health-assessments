@@ -7,7 +7,7 @@
 
 {% block main %}
 
-{% include "includes/pip-assessment-activitieonly-review.html" %}
+{% include "includes/status/pip-assessment-check.html" %}
 
   <div class="govuk-width-container {{ containerClasses }}">
     <!-- {{ govukBackLink({
@@ -21,7 +21,7 @@
 
             <div class="govuk-grid-column-full">
 
-            <h1 class="govuk-heading-xl">Check answers</h1>
+            <h1 class="govuk-heading-xl">Draft report</h1>
 
             {% if data['assessmenttype'] or data['attendeenamepip'] or data['attendeerelationshippip'] or data['evidenceusedpip'] %}
             <h2 class="govuk-heading-l">Assessment</h2>
@@ -850,4 +850,6 @@
 
     </main>
   </div>
+</div>
+</div>
 {% endblock %}
