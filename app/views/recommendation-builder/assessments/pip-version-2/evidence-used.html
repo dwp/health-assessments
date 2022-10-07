@@ -25,17 +25,148 @@
 
             <form action="assessment-status" method="post">
 
-              {{ govukTextarea({
+            
+
+              {{ govukCheckboxes({
                 name: "evidenceusedpip",
-                id: "evidenceusedpip",
-                rows: "12",
-                label: {
-                  text: "Evidence",
-                  classes: "govuk-label--l",
-                  isPageHeading: true
+                classes: "govuk-checkboxes--small",
+                fieldset: {
+                  legend: {
+                    text: "Evidence used",
+                    isPageHeading: false,
+                    classes: "govuk-fieldset__legend--s"
+                  }
                 },
-                value: data['evidenceusedpip']
+                items: [
+                  {
+                    value: "Claimant questionnaire",
+                    text: "Claimant questionnaire"
+                  },
+                  {
+                    value: "Fit note",
+                    text: "Fit note"
+                  },
+                  {
+                    value: "Prescription",
+                    text: "Prescription"
+                  },
+                  {
+                    value: "Care plan",
+                    text: "Care plan"
+                  },
+                  {
+                    value: "GP health record",
+                    text: "GP health record"
+                  },
+                  {
+                    value: "GP letter",
+                    text: "GP letter"
+                  },
+                  {
+                    value: "GP factual report (GPFR)",
+                    text: "GP factual report (GPFR)"
+                  },
+                  {
+                    value: "GP patient form (113)",
+                    text: "GP patient form (113)"
+                  },
+                  {
+                    value: "Factual medical report (FRR2)",
+                    text: "Factual medical report (FRR2)"
+                  },
+                  {
+                    value: "Healthcare professional factual report (FRR3)",
+                    text: "Healthcare professional factual report (FRR3)"
+                  },
+                  {
+                    value: "Phone call (FRR4)",
+                    text: "Phone call (FRR4)"
+                  },
+                  {
+                    value: "Hospital letter, report or discharge summary",
+                    text: "Hospital letter, report or discharge summary"
+                  },
+                  {
+                    value: "Consultant letter or report",
+                    text: "Consultant letter or report"
+                  },
+                  {
+                    value: "Factual medical report (FRR2)",
+                    text: "Factual medical report (FRR2)"
+                  },
+                  {
+                    value: "Specialist letter or report",
+                    text: "Specialist letter or report"
+                  },
+                  {
+                    value: "Allied heath professional's letter or report",
+                    text: "Allied heath professional's letter or report"
+                  },
+                  {
+                    value: "Radiology and investigative reports",
+                    text: "Radiology and investigative reports"
+                  }
+                ]
               }) }}
+
+              {{ govukTextarea({
+                name: "other-evidence",
+                id: "other-evidence",
+                rows: "4",
+                label: {
+                  text: "Other evidence used",
+                  classes: "govuk-label--s",
+                  isPageHeading: false
+                },
+                value: data['other-evidence']
+                
+              }) }}
+
+
+
+
+              {{ govukCheckboxes({
+                name: "evidence-requested-not-returned",
+                classes: "govuk-checkboxes--small",
+                fieldset: {
+                  legend: {
+                    text: "Evidence requested but not returned",
+                    isPageHeading: false,
+                    classes: "govuk-fieldset__legend--s"
+                  }
+                },
+                items: [
+                  {
+                    value: "Claimant questionnaire",
+                    text: "Claimant questionnaire"
+                  },
+                  {
+                    value: "GP patient form (113s)",
+                    text: "GP patient form (113)"
+                  },
+                  {
+                    value: "Factual medical report (FRR2)",
+                    text: "Factual medical report (FRR2)"
+                  },
+                  {
+                    value: "Healthcare professional factual medical report (FRR3)",
+                    text: "Healthcare professional factual medical report (FRR3)"
+                  }
+                  ]
+                }) }}
+
+                {{ govukTextarea({
+                  name: "other-evidence-not-returned",
+                  id: "other-evidence-not-returned",
+                  rows: "4",
+                  label: {
+                    text: "Other evidence requested but not returned",
+                    classes: "govuk-label--s",
+                    isPageHeading: false
+                  },
+                  value: data['other-evidence-not-returned']
+                  
+                }) }}
 
                       <!-- {{ govukButton({
                         text: "Save and continue"

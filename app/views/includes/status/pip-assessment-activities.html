@@ -70,51 +70,84 @@
     <nav class="moj-side-navigation" aria-label="Side navigation">
 
       <h4 class="moj-side-navigation__title">Daily living</h4>
-    <ul class="moj-side-navigation__list">
-    
+      <ul class="moj-side-navigation__list">
       
-        <li class="moj-side-navigation__item">
-            <a href="preparingfood">Preparing food</a>
-        </li>
-        <li class="moj-side-navigation__item">
-            <a href="takingnutrition">Taking nutrition</a>
-        </li>
-        <li class="moj-side-navigation__item">
-            <a href="managingtherapy">Managing therapy</a>
-        </li>
-        <li class="moj-side-navigation__item">
-            <a href="washingbathing">Washing and bathing</a>
-        </li>
-        <li class="moj-side-navigation__item">
-            <a href="toiletneeds">Managing toilet needs</a>
-        </li>
-        <li class="moj-side-navigation__item">
-            <a href="dressing">Dressing and undressing</a>
-        </li>
-        <li class="moj-side-navigation__item">
-            <a href="communicatingverbally">Communication verbally</a>
-        </li>
-        <li class="moj-side-navigation__item">
-            <a href="readingunderstanding">Reading and understanding signs, symbols and words</a>
-        </li>
-        <li class="moj-side-navigation__item">
-            <a href="facetoface">Engaging face to face</a>
-        </li>
-        <li class="moj-side-navigation__item">
-            <a href="budgeting">Budgeting</a>
-        </li>
-    </ul>
+        
+        <li class="moj-side-navigation__item {% if activeUrl === 'preparingfood' %}moj-side-navigation__item--active{% endif %}">
 
-    <h4 class="moj-side-navigation__title">Mobility</h4>
-    <ul class="moj-side-navigation__list">
-        <li class="moj-side-navigation__item">
-            <a href="journeys">Planning and following journeys</a>
+          <a href="preparingfood">Preparing food</a>
+
+      </li>
+
+      <li class="moj-side-navigation__item {% if activeUrl === 'takingnutrition' %}moj-side-navigation__item--active{% endif %}">
+
+          <a href="takingnutrition">Taking nutrition</a>
+
+      </li>
+
+      <li class="moj-side-navigation__item {% if activeUrl === 'managingtherapy' %}moj-side-navigation__item--active{% endif %}">
+
+          <a href="managingtherapy">Managing therapy</a>
+
+      </li>
+
+      <li class="moj-side-navigation__item {% if activeUrl === 'washingbathing' %}moj-side-navigation__item--active{% endif %}">
+
+          <a href="washingbathing">Washing and bathing</a>
+
+      </li>
+
+      <li class="moj-side-navigation__item {% if activeUrl === 'toiletneeds' %}moj-side-navigation__item--active{% endif %}">
+
+          <a href="toiletneeds">Managing toilet needs</a>
+
+      </li>
+
+      <li class="moj-side-navigation__item {% if activeUrl === 'dressing' %}moj-side-navigation__item--active{% endif %}">
+
+          <a href="dressing">Dressing and undressing</a>
+          <li class="moj-side-navigation__item {% if activeUrl === 'communicatingverbally' %}moj-side-navigation__item--active{% endif %}">
+
+            <a href="communicatingverbally">communication verbally</a>
+
         </li>
-        <li class="moj-side-navigation__item">
-            <a href="movingaround">Moving around</a>
+
+        <li class="moj-side-navigation__item {% if activeUrl === 'readingunderstanding' %}moj-side-navigation__item--active{% endif %}">
+
+            <a href="readingunderstanding">Reading and understanding signs, symbols and words</a>
+
         </li>
+
+        <li class="moj-side-navigation__item {% if activeUrl === 'facetoface' %}moj-side-navigation__item--active{% endif %}">
+
+            <a href="facetoface">Engaging face to face</a>
+
+        </li>
+
+        <li class="moj-side-navigation__item {% if activeUrl === 'budgeting' %}moj-side-navigation__item--active{% endif %}">
+
+            <a href="budgeting">Budgeting</a>
+
+        </li>
+
        
-       
+      </ul>
+  
+      <h4 class="moj-side-navigation__title">Mobility</h4>
+      <ul class="moj-side-navigation__list">
+        <li class="moj-side-navigation__item {% if activeUrl === 'journeys' %}moj-side-navigation__item--active{% endif %}">
+
+          <a href="journeys">Planning and following journeys</a>
+
+      </li>
+
+      <li class="moj-side-navigation__item {% if activeUrl === 'movingaround' %}moj-side-navigation__item--active{% endif %}">
+
+          <a href="movingaround">Moving around</a>
+
+      </li>
+         
+         
        
        </ul>
     </nav>
