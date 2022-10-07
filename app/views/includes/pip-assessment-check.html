@@ -31,13 +31,12 @@
 
           <ul class="moj-primary-navigation__list">
             <li class="moj-primary-navigation__item">
-              <a class="moj-primary-navigation__link" href="evidence-used">Review</a>
+              <a class="moj-primary-navigation__link" href="{{ data.recentPages.review | default('evidence-used')}}">Review</a> 
             </li>
 
             <li class="moj-primary-navigation__item">
-              <a class="moj-primary-navigation__link" href="preparingfood">Activities</a>
+              <a class="moj-primary-navigation__link" href="{{ data.recentPages.activities | default('preparingfood')}}">Activities</a>
             </li>
-
 
             <li class="moj-primary-navigation__item">
               <a class="moj-primary-navigation__link popup"  href="claimant-documents">Claimant documents</a>

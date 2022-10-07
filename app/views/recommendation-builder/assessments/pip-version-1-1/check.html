@@ -59,8 +59,9 @@
                     <dd class="govuk-summary-list__value no-bottom-border">{{ data['evidenceusedpip'] | striptags(true) | escape | nl2br }}</dd>
                     <dd class="govuk-summary-list__actions no-bottom-border"></dd>
                   </div>
+                  {{data['evidenceusedpip'] | dump}}
                   {% endif %}
-               
+                </dl>
 
 
                   {% if data['other-evidence'] %}

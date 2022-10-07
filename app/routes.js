@@ -4,7 +4,8 @@ const urlsByTab = require('./data/urlsByTab');
 
 // Add your routes here - above the module.exports line
 
-router.get("*", (req, res, next) => {
+router.all("*", (req, res, next) => {
+    console.log(req.body)
     if(typeof req.session.data.recentPages === 'undefined') {
         req.session.data.recentPages = {
             review: 'evidence-used',
