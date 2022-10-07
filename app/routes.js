@@ -17,6 +17,7 @@ router.get("*", (req, res, next) => {
             req.session.data.recentPages[k] = urlEnd; 
         }
     });
+    res.locals.activeUrl = urlEnd;
     return next();
 })
 

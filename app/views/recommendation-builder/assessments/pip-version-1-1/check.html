@@ -46,15 +46,61 @@
                   {% endif %}
                   {% endif %}
             
+                   
+                  {% if data['evidenceusedpip'] or data['other-evidence'] or data['evidence-requested-not-returned'] or data['other-evidence-not-returned'] %}
+                  <h3 class="govuk-heading-m">Evidence <a href="evidence-used.html" class="govuk-link govuk-!-font-size-19 app-task-list__tag govuk-!-font-weight-regular" id="list-convictions-status">Change</a></h3>
+                 
 
-                  {% if data['evidenceusedpip'] %}
+               
+                  <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+                    {% if data['evidenceusedpip'] %}
                   <div class="govuk-summary-list__row">
-                    <dt class="govuk-summary-list__key">Evidence</dt>
-                    <dd class="govuk-summary-list__value">{{ data['evidenceusedpip'] | striptags(true) | escape | nl2br }}</dd>
-                    <dd class="govuk-summary-list__actions"><a class="govuk-link" href="evidence-used">Change<span class="govuk-visually-hidden"> name</span></a></dd>
+                    <dt class="govuk-summary-list__key no-bottom-border">Evidence used</dt>
+                    <dd class="govuk-summary-list__value no-bottom-border">{{ data['evidenceusedpip'] | striptags(true) | escape | nl2br }}</dd>
+                    <dd class="govuk-summary-list__actions no-bottom-border"></dd>
                   </div>
                   {% endif %}
-                </dl>
+               
+
+
+                  {% if data['other-evidence'] %}
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key no-bottom-border">Other evidence used</dt>
+                    <dd class="govuk-summary-list__value no-bottom-border">{{ data['other-evidence'] | striptags(true) | escape | nl2br }}</dd>
+                    <dd class="govuk-summary-list__actions no-bottom-border"></dd>
+                  </div>
+                  {% endif %}
+                 
+                  {% if data['evidence-requested-not-returned'] %}
+                <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__key no-bottom-border">Evdence requested but not returned</dt>
+                  <dd class="govuk-summary-list__value no-bottom-border">{{ data['evidence-requested-not-returned'] }}</dd>
+                  <dd class="govuk-summary-list__actions no-bottom-border"></dd>
+                </div>
+                {% endif %}
+               
+                {% if data['other-evidence-not-returned'] %}
+                <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">Other evidence requested but not returned</dt>
+                    <dd class="govuk-summary-list__value">{{ data['other-evidence-not-returned'] | striptags(true) | escape | nl2br }}</dd>
+                    <dd class="govuk-summary-list__actions"></dd>
+                </div>
+                {% endif %}
+
+              
+            </dl>
+            {% endif %}
+
+
+
+
+
+
+
+
+
+
+
 
                 {% if data['historyofcondition'] or data['currentmedication'] or data['socialoccupational'] %}
               <h2 class="govuk-heading-l">History</h2>
