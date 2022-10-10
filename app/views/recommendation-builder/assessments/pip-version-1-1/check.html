@@ -45,7 +45,7 @@
                   </div>
                   {% endif %}
                   {% endif %}
-            
+                </dl>
                    
                   {% if data['evidenceusedpip'] or data['other-evidence'] or data['evidence-requested-not-returned'] or data['other-evidence-not-returned'] %}
                   <h3 class="govuk-heading-m">Evidence <a href="evidence-used.html" class="govuk-link govuk-!-font-size-19 app-task-list__tag govuk-!-font-weight-regular" id="list-convictions-status">Change</a></h3>
@@ -59,7 +59,7 @@
                     <dd class="govuk-summary-list__value no-bottom-border">{{ data['evidenceusedpip'] | striptags(true) | escape | nl2br }}</dd>
                     <dd class="govuk-summary-list__actions no-bottom-border"></dd>
                   </div>
-                  {{data['evidenceusedpip'] | dump}}
+                  <!-- {{data['evidenceusedpip'] | dump}} -->
                   {% endif %}
                
 
@@ -827,7 +827,7 @@
 
                    <dl class="govuk-summary-list govuk-!-margin-bottom-9">
                    <div class="govuk-summary-list__row">
-                    <dt class="govuk-summary-list__key">Is the claimant's daily living prognosis long enough for PIP?</dt>
+                    <dt class="govuk-summary-list__key">Has the claimant had the functional restriction for at least 3 months?</dt>
                     <dd class="govuk-summary-list__value"><p>{{ data['dl'] }}</p>
                       {% if data['partnotmetdl'] %}
                       <p>{{ data['partnotmetdl'] }}</p>
@@ -835,13 +835,42 @@
                     </dd>
                     <dd class="govuk-summary-list__actions"></dd>
                   </div>
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">Is the claimant likely to have the functional restriction in 9 months?</dt>
+                    <dd class="govuk-summary-list__value"><p>{{ data['dl9'] }}</p>
+                      {% if data['partnotmetdl9'] %}
+                      <p>{{ data['partnotmetdl9'] }}</p>
+                      {% endif %}
+                    </dd>
+                    <dd class="govuk-summary-list__actions"></dd>
+                  </div>
+
+
+
+
+
+
+
                    </dl>
+
+
+
+
+
                   <h3 class="govuk-heading-m">Mobility qualifying period and prospective test<a href="mobility" class="govuk-link govuk-!-font-size-19 app-task-list__tag govuk-!-font-weight-regular" id="list-convictions-status">Change</a></h3>
 
                    <dl class="govuk-summary-list govuk-!-margin-bottom-9">
                   <div class="govuk-summary-list__row">
-                    <dt class="govuk-summary-list__key">Is the claimant's mobility prognosis long enough for PIP?</dt>
+                    <dt class="govuk-summary-list__key">Has the claimant had the functional restriction for at least 3 months?</dt>
                     <dd class="govuk-summary-list__value">{{ data['qp'] }} {% if data['part-not-met'] %}</dd>
+    
+                      {% endif %}
+                    </dd>
+                    <dd class="govuk-summary-list__actions"></dd>
+                  </div>
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">Is the claimant likely to have the functional restriction in 9 months?</dt>
+                    <dd class="govuk-summary-list__value">{{ data['9qp'] }} {% if data['part-not-met'] %}</dd>
     
                       {% endif %}
                     </dd>
@@ -850,6 +879,28 @@
                    </dl>
 
 </dl>
+
+
+{% if data['recommendation'] %}
+<h3 class="govuk-heading-m">Reason for recommendation<a href="recommend" class="govuk-link govuk-!-font-size-19 app-task-list__tag govuk-!-font-weight-regular" id="list-convictions-status">Change</a></h3>
+
+<dl class="govuk-summary-list govuk-!-margin-bottom-9">   
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">What is the reason for your recommendation?</dt>
+    {% if data['recommendation'] %}
+        <dd class="govuk-summary-list__value">{{ data['recommendation'] | striptags(true) | escape | nl2br }}</dd>
+        <dd class="govuk-summary-list__actions"></dd>
+        {% endif %}
+        {% else %}
+
+    {% endif %}
+  </div>
+
+</dl>
+
+
+
+
 {% if data['whenreview'] or data['reviewtimereasons'] %}
                   <h3 class="govuk-heading-m">Review period for PIP<a href="review" class="govuk-link govuk-!-font-size-19 app-task-list__tag govuk-!-font-weight-regular" id="list-convictions-status">Change</a></h3>
 
