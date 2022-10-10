@@ -56,14 +56,14 @@
                 <h3 class="govuk-heading-m">Evidence <a href="evidence-used.html" class="govuk-link govuk-!-font-size-19 app-task-list__tag govuk-!-font-weight-regular" id="list-convictions-status">Change</a></h3>
                
                 <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+
                   {% if data['evidenceusedpip'] %}
-                <div class="govuk-summary-list__row">
-                  <dt class="govuk-summary-list__key no-bottom-border">Evidence used</dt>
-                  <dd class="govuk-summary-list__value no-bottom-border">{{ data['evidenceusedpip'] | striptags(true) | escape | nl2br }}</dd>
-                  <dd class="govuk-summary-list__actions no-bottom-border"></dd>
-                </div>
-                {{data['evidenceusedpip'] | dump}}
-                {% endif %}
+                  <div class="govuk-summary-list__row full-width">
+                      <dt class="govuk-summary-list__key no-bottom-border">Evidence used</dt>
+                      <dd class="govuk-summary-list__value no-bottom-border">{% for item in data['evidenceusedpip']  %}{{ item }} <br />{% endfor %}</dd>
+                      <dd class="govuk-summary-list__actions no-bottom-border"></dd>
+                  </div>
+                  {% endif %}
              
                 {% if data['other-evidence'] %}
                 <div class="govuk-summary-list__row">

@@ -7,16 +7,9 @@
 
 {% block main %}
 
-{% include "includes/pip-assessment-withtabs.html" %}
 
+{% include "includes/status2/pip-assessment-claimant.html" %}
 
-     
-    <div class="govuk-width-container {{ containerClasses }}">
-    <div class="govuk-grid-row">
- 
-
-   
-      {% include "includes/side-navigation.html" %}
 
  
  
@@ -29,7 +22,7 @@
       
 
 
-            <form action="assessment-status" method="post">
+            <form action="check" method="post">
 
                     {{ govukTextarea({
                         name: "historyofcondition",
@@ -43,10 +36,10 @@
                         value: data['historyofcondition']
                         
                       }) }}
-<!-- 
+
                       {{ govukButton({
-                        text: "Save and continue"
-                      }) }} -->
+                        text: "Return to draft report"
+                      }) }}
 
             </form>
 

@@ -3,7 +3,7 @@ $(document).ready(() => {
   const currentUrl = window.location.href;
   const pathsWithAutoSave = [
     'assessments/pip-version-1-1/',
-     'assessments/pip-version-2/'
+    // 'assessments/pip-version-2/'
   ]
   const isAutoSavePath = pathsWithAutoSave.some((el) => currentUrl.includes(el));
   console.log(`Current url is ${currentUrl}. Is Auto save path? ${isAutoSavePath}`);
@@ -15,8 +15,15 @@ $(document).ready(() => {
       }
     })
     $('.autosave').on('focusout', function (el) {
-      field = el.currentTarget.name;
-      value = el.currentTarget.value;
+      let field;
+      let value;
+      if (el.currentTarget.type === 'checkbox') {
+        field = el.currentTarget.name;
+        value = Array.from(document.getElementsByName(el.currentTarget.name)).filter(x => x.checked).map(x => x.value);
+      } else {
+        field = el.currentTarget.name;
+        value = el.currentTarget.value;
+      }
       axios.post('/autosave', {
         field,
         value

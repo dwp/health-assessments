@@ -7,17 +7,8 @@
 
 {% block main %}
 
-{% include "includes/pip-assessment-withtabs.html" %}
-
-
+{% include "includes/status2/pip-assessment-activities.html" %}
      
-    <div class="govuk-width-container {{ containerClasses }}">
-    <div class="govuk-grid-row">
- 
-
-   
-      {% include "includes/side-navigation.html" %}
-
  
  
   <div class="govuk-grid-column-three-quarters">
@@ -120,36 +111,36 @@
                         }
                       },
                       items: [
-                        {
-                          value: "Cannot prepare and cook food",
-                          text: "Cannot prepare and cook food",
-                          checked: (data['communicatingverballySelectpbr'] == "Cannot prepare and cook food")
-                        },
-                        {
-                          value: "Cannot express or understand verbal information at all even with communication support",
-                          text: "Cannot express or understand verbal information at all even with communication support",
-                          checked: (data['communicatingverballySelectpbr'] == "Cannot express or understand verbal information at all even with communication support")
-                        },
-                        {
-                          value: "Needs communication support to be able to express or understand basic verbal information",
-                          text: "Needs communication support to be able to express or understand basic verbal information",
-                          checked: (data['communicatingverballySelectpbr'] == "Needs communication support to be able to express or understand basic verbal information")
-                        },
-                        {
-                          value: "Needs communication support to be able to express or understand complex verbal information",
-                          text: "Needs communication support to be able to express or understand complex verbal information",
-                          checked: (data['communicatingverballySelectpbr'] == "Needs communication support to be able to express or understand complex verbal information")
-                        },
-                        {
-                          value: "Needs to use an aid or appliance to be able to speak or hear",
-                          text: "Needs to use an aid or appliance to be able to speak or hear",
-                          checked: (data['communicatingverballySelectpbr'] == "Needs to use an aid or appliance to be able to speak or hear")
-                        },
-                        {
-                          value: "Can express and understand verbal information unaided",
-                          text: "Can express and understand verbal information unaided",
-                          checked: (data['communicatingverballySelectpbr'] == "Can express and understand verbal information unaided")
-                        }
+                      {
+                        value: "(7a) Cannot prepare and cook food",
+                        text: "(7a) Cannot prepare and cook food",
+                        checked: (data['communicatingverballySelectpbr'] == "(7a) Cannot prepare and cook food")
+                      },
+                      {
+                        value: "(7b) Cannot express or understand verbal information at all even with communication support",
+                        text: "(7b) Cannot express or understand verbal information at all even with communication support",
+                        checked: (data['communicatingverballySelectpbr'] == "(7b) Cannot express or understand verbal information at all even with communication support")
+                      },
+                      {
+                        value: "(7c) Needs communication support to be able to express or understand basic verbal information",
+                        text: "(7c) Needs communication support to be able to express or understand basic verbal information",
+                        checked: (data['communicatingverballySelectpbr'] == "(7c) Needs communication support to be able to express or understand basic verbal information")
+                      },
+                      {
+                        value: "(7d) Needs communication support to be able to express or understand complex verbal information",
+                        text: "(7d) Needs communication support to be able to express or understand complex verbal information",
+                        checked: (data['communicatingverballySelectpbr'] == "(7d) Needs communication support to be able to express or understand complex verbal information")
+                      },
+                      {
+                        value: "(7e) Needs to use an aid or appliance to be able to speak or hear",
+                        text: "(7e) Needs to use an aid or appliance to be able to speak or hear",
+                        checked: (data['communicatingverballySelectpbr'] == "(7e) Needs to use an aid or appliance to be able to speak or hear")
+                      },
+                      {
+                        value: "(7f) Can express and understand verbal information unaided",
+                        text: "(7f) Can express and understand verbal information unaided",
+                        checked: (data['communicatingverballySelectpbr'] == "(7f) Can express and understand verbal information unaided")
+                      }
                       ]
                     }) }}
 
