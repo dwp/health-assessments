@@ -822,7 +822,14 @@
                    </dl>
                    {% endif %}
 
+
+
+
+                   {% if data['dl'] or data['dl9'] or data['qp'] or data['9qp'] or data['whenreview'] or data['reviewtimereasons'] %}
                    <h2 class="govuk-heading-l">Review</h2>
+                   {% endif %}
+
+                   {% if data['dl'] %}
                    <h3 class="govuk-heading-m">Daily living qualifying period and prospective test<a href="dailyliving" class="govuk-link govuk-!-font-size-19 app-task-list__tag govuk-!-font-weight-regular" id="list-convictions-status">Change</a></h3>
 
                    <dl class="govuk-summary-list govuk-!-margin-bottom-9">
@@ -845,18 +852,13 @@
                     <dd class="govuk-summary-list__actions"></dd>
                   </div>
 
-
-
-
-
-
-
                    </dl>
+                   {% endif %}
 
 
 
 
-
+                   {% if data['qp'] %}
                   <h3 class="govuk-heading-m">Mobility qualifying period and prospective test<a href="mobility" class="govuk-link govuk-!-font-size-19 app-task-list__tag govuk-!-font-weight-regular" id="list-convictions-status">Change</a></h3>
 
                    <dl class="govuk-summary-list govuk-!-margin-bottom-9">
@@ -878,7 +880,7 @@
                   </div>
                    </dl>
 
-</dl>
+                   {% endif %}
 
 
 {% if data['recommendation'] %}
@@ -940,7 +942,7 @@
                 </dl>
 {% endif %}
 
-                    <a href="submit" class="govuk-button">Continue</a>
+                    <a href="submit" class="govuk-button">Submit report</a>
 
         </div>
 </div>
