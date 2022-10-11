@@ -1,5 +1,10 @@
 $(document).ready(() => {
 
+  if (window.performance && window.performance.navigation.type === window.performance.navigation.TYPE_BACK_FORWARD) {
+    window.location.reload();
+  }
+
+  const hasRefreshed = false;
   const currentUrl = window.location.href;
   const pathsWithAutoSave = [
     'assessments/pip-version-1-1/',
@@ -14,22 +19,25 @@ $(document).ready(() => {
         $(this).addClass('autosave');
       }
     })
-    $('.autosave').on('focusout', function (el) {
-      let field;
-      let value;
-      if (el.currentTarget.type === 'checkbox') {
-        field = el.currentTarget.name;
-        value = Array.from(document.getElementsByName(el.currentTarget.name)).filter(x => x.checked).map(x => x.value);
-      } else {
-        field = el.currentTarget.name;
-        value = el.currentTarget.value;
-      }
-      axios.post('/autosave', {
-        field,
-        value
-      });
+    $('.autosave').on('focusout', autosave);
+    $('.autosave').on('change', autosave);
+    $('.autosave').on('keyup', autosave);
+  }
+
+  function autosave(el) {
+    let field;
+    let value;
+    if (el.currentTarget.type === 'checkbox') {
+      field = el.currentTarget.name;
+      value = Array.from(document.getElementsByName(el.currentTarget.name)).filter(x => x.checked).map(x => x.value);
+    } else {
+      field = el.currentTarget.name;
+      value = el.currentTarget.value;
+    }
+    axios.post('/autosave', {
+      field,
+      value
     });
-    console.log('nsalcsakcsakklcsank')
   }
 
   });
