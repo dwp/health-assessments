@@ -9,8 +9,15 @@
 
 {% include "includes/assessment-status-neutral.html" %}
 
-<br>
+
+
+
 <div class="govuk-width-container {{ containerClasses }}">
+  {{ govukBackLink({
+    text: "Back",
+    href: "claimant-details"
+  }) }}
+  <br>
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-full">
 
@@ -66,7 +73,7 @@
       
           <tr class="govuk-table__row">
       
-            <td class="govuk-table__cell"><a href="further-evidence-one-button.html">Further evidence</a></td>
+            <td class="govuk-table__cell"><a href="further-evidence-one-button.html">PA3</a></td>
 
             <td class="govuk-table__cell"></td>
     
@@ -79,10 +86,27 @@
             <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--yellow">New document</strong></td>
 
           </tr>
+
+
+          <tr class="govuk-table__row">
+      
+            <td class="govuk-table__cell"><a href="further-evidence-pa3-v1-5.html">PA3 v1.5</a></td>
+
+            <td class="govuk-table__cell"></td>
+ 
+            <td class="govuk-table__cell">PIP</td>
+     
+            <td class="govuk-table__cell" data-sort-value="21/04/21">6 Feb 2021</td>
+
+            <td class="govuk-table__cell" data-sort-value="12/05/21">22 Feb 2021</td>
+
+            <td class="govuk-table__cell">Added to <a href="referral-information-with-docs.html" class="govuk-link">UC claim 15 Jun 2021</a></td>
+
+          </tr>
     
           <tr class="govuk-table__row">
       
-            <td class="govuk-table__cell"><a href="#">Further evidence</a></td>
+            <td class="govuk-table__cell"><a href="further-evidence-careplan">Care plan</a></td>
 
             <td class="govuk-table__cell">PIP2 questionnaire</td>
     
@@ -98,7 +122,7 @@
 
           <tr class="govuk-table__row">
       
-            <td class="govuk-table__cell"><a href="#">GP letter</a></td>
+            <td class="govuk-table__cell"><a href="further-evidence-medicationList.html">Medication list</a></td>
 
             <td class="govuk-table__cell"></td>
       
@@ -114,7 +138,7 @@
 
           <tr class="govuk-table__row">
       
-            <td class="govuk-table__cell"><a href="#">NHS hospital report</a></td>
+            <td class="govuk-table__cell"><a href="further-evidence-cq.html">CQ</a></td>
 
             <td class="govuk-table__cell"></td>
     
@@ -128,21 +152,6 @@
 
           </tr>
 
-          <tr class="govuk-table__row">
-      
-            <td class="govuk-table__cell"><a href="#">Outcome letter</a></td>
-
-            <td class="govuk-table__cell"></td>
- 
-            <td class="govuk-table__cell">PIP</td>
-     
-            <td class="govuk-table__cell" data-sort-value="21/04/21">6 Feb 2021</td>
-
-            <td class="govuk-table__cell" data-sort-value="12/05/21">22 Feb 2021</td>
-
-            <td class="govuk-table__cell">Added to <a href="referral-information-with-docs.html" class="govuk-link">UC claim 15 Jun 2021</a></td>
-
-          </tr>
 
           <tr class="govuk-table__row">
       
