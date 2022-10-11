@@ -1,5 +1,17 @@
 $(document).ready(() => {
 
+  // Docs popup
+
+  if(document.getElementById('newWindow')) {
+    document.getElementById('newWindow').addEventListener('click', (e) => {
+      e.preventDefault();
+      console.log(e.target);
+      return window.open(e.target.href, 'documents', 'popup');
+    });
+  }
+
+// Autosave
+
   if (window.performance && window.performance.navigation.type === window.performance.navigation.TYPE_BACK_FORWARD) {
     window.location.reload();
   }
