@@ -823,7 +823,7 @@
 
 
 
-                   {% if data['dl'] or data['dl9'] or data['qp'] or data['9qp'] or data['whenreview'] or data['reviewtimereasons'] %}
+                   {% if data['dl'] or data['dl9'] or data['qp'] or data['9qp'] or data['whenreview'] or data['reviewtimereasons'] or data['functional-restict-review'] or data['as-marker'] or data['special-rules'] or data['harmful-info'] %}
                    <h2 class="govuk-heading-l">Review</h2>
                    {% endif %}
 
@@ -891,17 +891,17 @@
         <dd class="govuk-summary-list__value">{{ data['recommendation'] | striptags(true) | escape | nl2br }}</dd>
         <dd class="govuk-summary-list__actions"></dd>
         {% endif %}
-        {% else %}
+       
 
-    {% endif %}
   </div>
 
 </dl>
 
 
+{% endif %}
 
 
-{% if data['whenreview'] or data['reviewtimereasons'] %}
+{% if data['whenreview'] or data['reviewtimereasons'] or data['functional-restict-review'] or data['as-marker'] or data['special-rules'] or data['harmful-info'] %}
                   <h3 class="govuk-heading-m">Review period for PIP<a href="review" class="govuk-link govuk-!-font-size-19 app-task-list__tag govuk-!-font-weight-regular" id="list-convictions-status">Change</a></h3>
 
                   <dl class="govuk-summary-list govuk-!-margin-bottom-9">
@@ -909,7 +909,7 @@
                     <div class="govuk-summary-list__row">
                     <dt class="govuk-summary-list__key no-bottom-border">When should this claim be reviewed?</dt>
                     <dd class="govuk-summary-list__value no-bottom-border">{{ data['whenreview'] }}</dd>
-                    <dd class="govuk-summary-list__actions no-bottom-border"></dd>
+                    <dd class="govuk-summary-list__actions no-bottom-border">
                     </dd>
                   </div>
                   {% endif %}
@@ -920,7 +920,40 @@
                       <dd class="govuk-summary-list__actions"></dd>
                   </div>
                   {% endif %}
+                  {% if data['functional-restict-review'] %}
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">Is it likely that the functional restriction identified in this report will still be present when the claim is reviewed?</dt>
+                    <dd class="govuk-summary-list__value">{{ data['functional-restict-review'] | striptags(true) | escape | nl2br }}</dd>
+                    <dd class="govuk-summary-list__actions"></dd>
+                </div>
+                {% endif %}
+                {% if data['as-marker'] %}
+                <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__key">Is the claimant likely to need additional support for future claim processes?</dt>
+                  <dd class="govuk-summary-list__value">{{ data['as-marker'] | striptags(true) | escape | nl2br }}</dd>
+                  <dd class="govuk-summary-list__actions"></dd>
+              </div>
+              {% endif %}
+              {% if data['special-rules'] %}
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">Although the claimant has not claimed under special rules, in your opinion, does the claimant meet the criteria for special rules?</dt>
+                <dd class="govuk-summary-list__value">{{ data['special-rules'] | striptags(true) | escape | nl2br }}</dd>
+                <dd class="govuk-summary-list__actions"></dd>
+            </div>
+            {% endif %}
+
+            {% if data['harmful-info'] %}
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">Note</dt>
+              <!-- <dd class="govuk-summary-list__value no-bottom-border">{% for item in data['harmful-info']  %}{{ item }} <br />{% endfor %}</dd> -->
+              <dd class="govuk-summary-list__value">{{ data['harmful-info'] }}</dd>
+              <dd class="govuk-summary-list__actions"></dd>
+          </div>
+          {% endif %}
+
                 </dl>
+
+
                 {% endif %}
              
 

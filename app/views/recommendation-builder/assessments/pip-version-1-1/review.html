@@ -98,6 +98,101 @@
       }) }}
 
 
+      {{ govukRadios({
+        classes: "govuk-radios--inline",
+        name: "functional-restict-review",
+        idPrefix: "functional-restict-review",
+        fieldset: {
+          legend: {
+            text: "Is it likely that the functional restriction identified in this report will still be present when the claim is reviewed?",
+            isPageHeading: false,
+            classes: "govuk-fieldset__legend--s"
+          }
+        },
+        items: [
+          {
+            value: "Yes",
+            text: "Yes",
+            checked: (data['functional-restict-review'] == "Yes")
+          },
+          {
+            value: "No",
+            text: "No",
+            checked: (data['functional-restict-review'] == "No")
+          }
+        ]
+      }) }}
+
+      {{ govukRadios({
+        classes: "govuk-radios--inline",
+        name: "as-marker",
+        fieldset: {
+          legend: {
+            text: "Is the claimant likely to need additional support for future claim processes?",
+            isPageHeading: false,
+            classes: "govuk-fieldset__legend--s"
+          }
+        },
+        items: [
+          {
+            value: "Yes",
+            text: "Yes",
+            checked: (data['as-marker'] == "Yes")
+          },
+          {
+            value: "No",
+            text: "No",
+            checked: (data['as-marker'] == "No")
+          }
+        ]
+      }) }}
+
+
+      {{ govukRadios({
+        classes: "govuk-radios--inline",
+        name: "special-rules",
+        fieldset: {
+          legend: {
+            text: "Although the claimant has not claimed under special rules, in your opinion, does the claimant meet the criteria for special rules?",
+            isPageHeading: false,
+            classes: "govuk-fieldset__legend--s"
+          }
+        },
+        items: [
+          {
+            value: "Yes",
+            text: "Yes",
+            checked: (data['special-rules'] == "Yes")
+          },
+          {
+            value: "No",
+            text: "No",
+            checked: (data['special-rules'] == "No")
+          }
+        ]
+      }) }}
+
+
+      {{ govukCheckboxes({
+        name: "harmful-info",
+        fieldset: {
+          legend: {
+            text: "Note",
+            isPageHeading: false,
+            classes: "govuk-fieldset__legend--s"
+          }
+        },
+        items: [
+          {
+            value: "No harmful information has been included in this report.",
+            text: "No harmful information has been included in this report.",
+            checked: data.harmful-info and 'No harmful information has been included in this report.' in data.harmful-info
+          }
+         
+        ]
+      }) }}
+
+
 
 <!-- 
 <button class="govuk-button" data-module="govuk-button">
