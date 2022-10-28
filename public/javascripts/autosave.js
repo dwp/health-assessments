@@ -46,10 +46,13 @@ $(document).ready(() => {
       field = el.currentTarget.name;
       value = el.currentTarget.value;
     }
-    axios.post('/autosave', {
-      field,
-      value
-    });
+    fetch('/autosave', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json'},
+      body: JSON.stringify({ field, value }),
+    })
+      .then((response) => response.json())
+      .then((data) => console.log('Success:', data))
+      .catch((error) => console.error('Error:', error));
   }
-
   });
