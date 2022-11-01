@@ -20,7 +20,7 @@ $(document).ready(() => {
   const currentUrl = window.location.href;
   const pathsWithAutoSave = [
     'assessments/pip-version-1-1/',
-    // 'assessments/pip-version-2/'
+    'assessments/pip-htl-1606/'
   ]
   const isAutoSavePath = pathsWithAutoSave.some((el) => currentUrl.includes(el));
   console.log(`Current url is ${currentUrl}. Is Auto save path? ${isAutoSavePath}`);

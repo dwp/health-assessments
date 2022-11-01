@@ -7,7 +7,11 @@
 
 {% block main %}
 
-{% include "includes/pip-assessment-check.html" %}
+{% include "includes/status/pip-assessment-check.html" %}
+
+
+
+
 
   <div class="govuk-width-container {{ containerClasses }}">
     <!-- {{ govukBackLink({
@@ -35,25 +39,29 @@
                     <dd class="govuk-summary-list__value">{{ data['assessmenttype'] }}</dd>
                     <dd class="govuk-summary-list__actions"><a class="govuk-link" href="assessment-type">Change<span class="govuk-visually-hidden"> name</span></a></dd>
                   </div>
-                  {% endif %}
+                {% endif %}
                   {% if data['assessmenttype'] !== "Paper" %}
-                  {% if data['attendeenamepip'] %}
-                  <div class="govuk-summary-list__row">
-                    <dt class="govuk-summary-list__key">Attendee 1</dt>
-                    <dd class="govuk-summary-list__value">Name: {{ data['attendeenamepip'] }} <br> Relationship: {{ data['attendeerelationshippip'] }}</dd>
-                    <dd class="govuk-summary-list__actions"><a class="govuk-link" href="add-attendees#attendeename">Change<span class="govuk-visually-hidden"> name</span></a></dd>
-                  </div>
+                    {% if data['attendeenamepip'] %}
+                    <div class="govuk-summary-list__row">
+                        <dt class="govuk-summary-list__key">Attendee 1</dt>
+                        <dd class="govuk-summary-list__value">Name: {{ data['attendeenamepip'] }} <br> Relationship: {{ data['attendeerelationshippip'] }}</dd>
+                        <dd class="govuk-summary-list__actions"><a class="govuk-link" href="add-attendees#attendeename">Change<span class="govuk-visually-hidden"> name</span></a></dd>
+                    </div>
+                    {% endif %}
                   {% endif %}
-                  {% endif %}
+            
                 </dl>
-                   
-                  {% if data['evidenceusedpip'] or data['other-evidence'] or data['evidence-requested-not-returned'] or data['other-evidence-not-returned'] %}
-                  <h3 class="govuk-heading-m">Evidence <a href="evidence-used.html" class="govuk-link govuk-!-font-size-19 app-task-list__tag govuk-!-font-weight-regular" id="list-convictions-status">Change</a></h3>
-                 
 
+
+              <h2 class="govuk-heading-l">History</h2>
+            
+
+                {% if data['evidenceusedpip'] or data['other-evidence'] or data['evidence-requested-not-returned'] or data['other-evidence-not-returned'] %}
+                <h3 class="govuk-heading-m">Evidence <a href="evidence-used.html" class="govuk-link govuk-!-font-size-19 app-task-list__tag govuk-!-font-weight-regular" id="list-convictions-status">Change</a></h3>
                
-                  <dl class="govuk-summary-list govuk-!-margin-bottom-9">
-                    {% if data['evidenceusedpip'] %}
+                <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+
+                  {% if data['evidenceusedpip'] %}
                   <div class="govuk-summary-list__row full-width">
                       <dt class="govuk-summary-list__key no-bottom-border">Evidence used</dt>
                       <dd class="govuk-summary-list__value no-bottom-border">{% for item in data['evidenceusedpip']  %}{{ item }} <br />{% endfor %}</dd>
@@ -85,135 +93,141 @@
               </div>
               {% endif %}
 
-        
-              
-            </dl>
-            {% endif %}
+          </dl>
+         
+          {% else %}
+          <dl class="govuk-summary-list">
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key"><h3 class="govuk-heading-m">Evidence</h3></dt>
+                <dd class="govuk-summary-list__value"></dd>
+                <dd class="govuk-summary-list__actions"><a class="govuk-link" href="evidence-used.html">Add<span class="govuk-visually-hidden"> name</span></a></dd>
+            </div>
+        </dl>
+          {% endif %}
 
 
+          <dl class="govuk-summary-list govuk-!-margin-bottom-9">
 
 
-
-
-
-
-
-
-
-
-                {% if data['historyofcondition'] or data['currentmedication'] or data['socialoccupational'] %}
-              <h2 class="govuk-heading-l">History</h2>
-              {% endif %}
-              <dl class="govuk-summary-list govuk-!-margin-bottom-9">
-
-                {% if data['historyofcondition'] %}
+                
                   <div class="govuk-summary-list__row">
                     <dt class="govuk-summary-list__key">History of condition</dt>
-                    <dd class="govuk-summary-list__value">{{ data['historyofcondition'] | striptags(true) | escape | nl2br }}</dd>
-                    <dd class="govuk-summary-list__actions"><a class="govuk-link" href="historyofcondition">Change<span class="govuk-visually-hidden"> name</span></a></dd>
+                    {% if data['historyofcondition'] %}
+                        <dd class="govuk-summary-list__value">{{ data['historyofcondition'] | striptags(true) | escape | nl2br }}</dd>
+                        <dd class="govuk-summary-list__actions"><a class="govuk-link" href="historyofcondition">Change<span class="govuk-visually-hidden"> name</span></a></dd>
+                    {% else %}
+                        <dd class="govuk-summary-list__value"></dd>
+                        <dd class="govuk-summary-list__actions"><a class="govuk-link" href="historyofcondition">Add<span class="govuk-visually-hidden"> name</span></a></dd>
+                    {% endif %}
                   </div>
-                  {% endif %}
-                  {% if data['assessmenttype'] !== "Paper" %}
-                  {% if data['currentmedication'] %}
-                  <div class="govuk-summary-list__row">
-                    <dt class="govuk-summary-list__key">Current medication or treatment</dt>
-                    <dd class="govuk-summary-list__value">{{ data['currentmedication'] | striptags(true) | escape | nl2br }}</dd>
-                    <dd class="govuk-summary-list__actions"><a class="govuk-link" href="current-medication">Change<span class="govuk-visually-hidden"> name</span></a></dd>
-                 </div>
-                  {% endif %}
 
-                  {% if data['socialoccupational'] %}
-                  <div class="govuk-summary-list__row">
-                    <dt class="govuk-summary-list__key">Social and occupational history</dt>
-                    <dd class="govuk-summary-list__value">{{ data['socialoccupational'] | striptags(true) | escape | nl2br }}</dd>
-                    <dd class="govuk-summary-list__actions"><a class="govuk-link" href="socialoccupational">Change<span class="govuk-visually-hidden"> name</span></a></dd>
-                 </div>
-                 {% endif %}
+                  {% if data['assessmenttype'] !== "Paper" %}
+                    <div class="govuk-summary-list__row">
+                        <dt class="govuk-summary-list__key">Current medication or treatment</dt>
+                        {% if data['currentmedication'] %}
+                            <dd class="govuk-summary-list__value">{{ data['currentmedication'] | striptags(true) | escape | nl2br }}</dd>
+                            <dd class="govuk-summary-list__actions"><a class="govuk-link" href="current-medication">Change<span class="govuk-visually-hidden"> name</span></a></dd>
+                        {% else %}
+                            <dd class="govuk-summary-list__value"></dd>
+                            <dd class="govuk-summary-list__actions"><a class="govuk-link" href="current-medication">Add<span class="govuk-visually-hidden"> name</span></a></dd>
+                        {% endif %}
+                    </div>
+
+                    <div class="govuk-summary-list__row">
+                        <dt class="govuk-summary-list__key">Social and occupational history</dt>
+                        {% if data['socialoccupational'] %}
+                            <dd class="govuk-summary-list__value">{{ data['socialoccupational'] | striptags(true) | escape | nl2br }}</dd>
+                            <dd class="govuk-summary-list__actions"><a class="govuk-link" href="socialoccupational">Change<span class="govuk-visually-hidden"> name</span></a></dd>
+                        {% else %}
+                            <dd class="govuk-summary-list__value"></dd>
+                            <dd class="govuk-summary-list__actions"><a class="govuk-link" href="socialoccupational">Add<span class="govuk-visually-hidden"> name</span></a></dd>
+                        {% endif %}
+
+                    </div>
                  {% endif %}
                </dl>
 
 
 
 
-  {% if data['assessmenttype'] !== "Paper" %}
-
-         
-               {% if data['preparingfoodNotes'] or data['preparingfoodSelect'] or data['preparingfoodReason'] or data['takingnutritionNotes'] or data['takingnutritionSelect'] or data['takingnutritionReason'] or data['managingtherapyNotes'] or data['managingtherapySelect'] or data['managingtherapyReason'] or data['washingbathingNotes'] or data['washingbathingSelect'] or data['washingbathingReason'] or data['toiletneedsNotes'] or data['toiletneedsSelect'] or data['toiletneedsReason'] or data['dressingNotes'] or data['dressingSelect'] or data['dressingReason'] or data['communicatingverballyNotes'] or data['communicatingverballySelect'] or data['communicatingverballyReason'] or data['readingunderstandingNotes'] or data['readingunderstandingSelect'] or data['readingunderstandingReason'] or data['facetofaceNotes'] or data['facetofaceSelect'] or data['facetofaceReason'] or data['budgetingNotes'] or data['budgetingSelect'] or data['budgetingReason'] %}
-                 <h2 class="govuk-heading-l">Day to day life</h2>
-                 {% endif %}
+                {% if data['assessmenttype'] !== "Paper" %}
+                    <h2 class="govuk-heading-l">Day to day life</h2>
 
 
                  {% if data['preparingfoodSelect'] or data['preparingfoodNotes'] or data['preparingfoodReason'] %}
                  <h3 class="govuk-heading-m">Preparing food <a href="preparingfood" class="govuk-link govuk-!-font-size-19 app-task-list__tag govuk-!-font-weight-regular" id="list-convictions-status">Change</a></h3>
-
-                 <dl class="govuk-summary-list govuk-!-margin-bottom-9">
-                    
-                     
+                    <dl class="govuk-summary-list govuk-!-margin-bottom-9">
                         {% if data['preparingfoodNotes'] %}
-                        <div class="govuk-summary-list__row">
-                          <dt class="govuk-summary-list__key no-bottom-border">Notes on preparing food</dt>
-                          <dd class="govuk-summary-list__value no-bottom-border">{{ data['preparingfoodNotes'] | striptags(true) | escape | nl2br }}</dd>
-                          <dd class="govuk-summary-list__actions no-bottom-border"></dd>
-                        </div>
+                            <div class="govuk-summary-list__row">
+                            <dt class="govuk-summary-list__key no-bottom-border">Notes on preparing food</dt>
+                            <dd class="govuk-summary-list__value no-bottom-border">{{ data['preparingfoodNotes'] | striptags(true) | escape | nl2br }}</dd>
+                            <dd class="govuk-summary-list__actions no-bottom-border"></dd>
+                            </div>
                         {% endif %}
                        
                         {% if data['preparingfoodSelect'] %}
-                      <div class="govuk-summary-list__row">
-                        <dt class="govuk-summary-list__key no-bottom-border">How well can the claimant cook food?</dt>
-                        <dd class="govuk-summary-list__value no-bottom-border">{{ data['preparingfoodSelect'] }}</dd>
-                        <dd class="govuk-summary-list__actions no-bottom-border"></dd>
-                      </div>
-                      {% endif %}
+                            <div class="govuk-summary-list__row">
+                                <dt class="govuk-summary-list__key no-bottom-border">How well can the claimant cook food?</dt>
+                                <dd class="govuk-summary-list__value no-bottom-border">{{ data['preparingfoodSelect'] }}</dd>
+                                <dd class="govuk-summary-list__actions no-bottom-border"></dd>
+                            </div>
+                        {% endif %}
                      
                       {% if data['preparingfoodReason'] %}
-                      <div class="govuk-summary-list__row">
-                          <dt class="govuk-summary-list__key">What is the reason for this answer?</dt>
-                          <dd class="govuk-summary-list__value">{{ data['preparingfoodReason'] | striptags(true) | escape | nl2br }}</dd>
-                          <dd class="govuk-summary-list__actions"></dd>
-                      </div>
+                        <div class="govuk-summary-list__row">
+                            <dt class="govuk-summary-list__key">What is the reason for this answer?</dt>
+                            <dd class="govuk-summary-list__value">{{ data['preparingfoodReason'] | striptags(true) | escape | nl2br }}</dd>
+                            <dd class="govuk-summary-list__actions"></dd>
+                        </div>
                       {% endif %}
-
-                    
                   </dl>
+                  {% else %}
+                    <dl class="govuk-summary-list">
+                        <div class="govuk-summary-list__row">
+                            <dt class="govuk-summary-list__key"><h3 class="govuk-heading-m">Preparing food</h3></dt>
+                            <dd class="govuk-summary-list__value"><span class="review-section-no-data-heading">Not started</span></dd>
+                            <dd class="govuk-summary-list__actions"><a class="govuk-link" href="preparingfood">Add<span class="govuk-visually-hidden"> name</span></a></dd>
+                        </div>
+                    </dl>
                   {% endif %}
 
                   {% if data['takingnutritionSelect'] or data['takingnutritionNotes'] or data['takingnutritionReason']%}
                   <h3 class="govuk-heading-m">Taking nutrition <a href="takingnutrition" class="govuk-link govuk-!-font-size-19 app-task-list__tag govuk-!-font-weight-regular" id="list-convictions-status">Change</a></h3>
-
                   <dl class="govuk-summary-list govuk-!-margin-bottom-9">
-                       
-                        {% if data['takingnutritionNotes'] %}
-                        <div class="govuk-summary-list__row">
-                          <dt class="govuk-summary-list__key no-bottom-border">Notes on taking nutrition</dt>
-                          <dd class="govuk-summary-list__value no-bottom-border">{{ data['takingnutritionNotes'] | striptags(true) | escape | nl2br }}</dd>
-                          <dd class="govuk-summary-list__actions no-bottom-border"></dd>
-                        </div>
-                     
-                        {% endif %}
-                        {% if data['takingnutritionSelect'] %}
+                    {% if data['takingnutritionNotes'] %}
+                    <div class="govuk-summary-list__row">
+                        <dt class="govuk-summary-list__key no-bottom-border">Notes on taking nutrition</dt>
+                        <dd class="govuk-summary-list__value no-bottom-border">{{ data['takingnutritionNotes'] | striptags(true) | escape | nl2br }}</dd>
+                        <dd class="govuk-summary-list__actions no-bottom-border"></dd>
+                    </div>
+                    {% endif %}
+                    {% if data['takingnutritionSelect'] %}
                       <div class="govuk-summary-list__row">
                         <dt class="govuk-summary-list__key no-bottom-border">Which of these describes how well the claimant can take nutrition?</dt>
                         <dd class="govuk-summary-list__value no-bottom-border">{{ data['takingnutritionSelect'] }}</dd>
                         <dd class="govuk-summary-list__actions no-bottom-border"></dd>
                       </div>
-                      {% endif %}
-                    
-                      {% if data['takingnutritionReason'] %}
+                    {% endif %}
+                    {% if data['takingnutritionReason'] %}
                       <div class="govuk-summary-list__row">
                           <dt class="govuk-summary-list__key">What is the reason for this answer?</dt>
                           <dd class="govuk-summary-list__value">{{ data['takingnutritionReason'] | striptags(true) | escape | nl2br }}</dd>
                           <dd class="govuk-summary-list__actions"></dd>
                       </div>
-                  
-                        {% endif %}
+                    {% endif %}
                   </dl>
-                  {% endif %}
+                  {% else %}
+                  <dl class="govuk-summary-list">
+                    <div class="govuk-summary-list__row">
+                        <dt class="govuk-summary-list__key"><h3 class="govuk-heading-m">Taking nutrition</h3></dt>
+                        <dd class="govuk-summary-list__value"><span class="review-section-no-data-heading">Not started</span></dd>
+                        <dd class="govuk-summary-list__actions"><a class="govuk-link" href="takingnutrition">Add<span class="govuk-visually-hidden"> name</span></a></dd>
+                    </div>
+                </dl>                  {% endif %}
 
                   {% if data['managingtherapySelect'] or data['managingtherapyNotes'] or data['managingtherapyReason']%}
                   <h3 class="govuk-heading-m">Managing therapy<a href="managingtherapy" class="govuk-link govuk-!-font-size-19 app-task-list__tag govuk-!-font-weight-regular" id="list-convictions-status">Change</a></h3>
-
                   <dl class="govuk-summary-list govuk-!-margin-bottom-9">
-                      
                         {% if data['managingtherapyNotes'] %}
                         <div class="govuk-summary-list__row">
                           <dt class="govuk-summary-list__key no-bottom-border">Notes on managing therapy</dt>
@@ -239,7 +253,14 @@
                       {% endif %}
                      
                   </dl>
-                  {% endif %}
+                  {% else %}
+                  <dl class="govuk-summary-list">
+                    <div class="govuk-summary-list__row">
+                        <dt class="govuk-summary-list__key"><h3 class="govuk-heading-m">Managing therapy</h3></dt>
+                        <dd class="govuk-summary-list__value"><span class="review-section-no-data-heading">Not started</span></dd>
+                        <dd class="govuk-summary-list__actions"><a class="govuk-link" href="managingtherapy">Add<span class="govuk-visually-hidden"> name</span></a></dd>
+                    </div>
+                </dl>                  {% endif %}
 
 
                   {% if data['washingbathingSelect'] or data['washingbathingNotes'] or data['washingbathingReason']%}
@@ -272,7 +293,14 @@
                       {% endif %}
                  
                   </dl>
-                  {% endif %}
+                  {% else %}
+                  <dl class="govuk-summary-list">
+                    <div class="govuk-summary-list__row">
+                        <dt class="govuk-summary-list__key"><h3 class="govuk-heading-m">Washing and bathing</h3></dt>
+                        <dd class="govuk-summary-list__value"><span class="review-section-no-data-heading">Not started</span></dd>
+                        <dd class="govuk-summary-list__actions"><a class="govuk-link" href="washingbathing">Add<span class="govuk-visually-hidden"> name</span></a></dd>
+                    </div>
+                </dl>                  {% endif %}
 
 
                   {% if data['toiletneedsSelect'] or data['toiletneedsNotes'] or data['toiletneedsReason']%}
@@ -306,7 +334,14 @@
                
                       {% endif %}
                   </dl>
-                  {% endif %}
+                  {% else %}
+                  <dl class="govuk-summary-list">
+                    <div class="govuk-summary-list__row">
+                        <dt class="govuk-summary-list__key"><h3 class="govuk-heading-m">Managing toilet needs</h3></dt>
+                        <dd class="govuk-summary-list__value"><span class="review-section-no-data-heading">Not started</span></dd>
+                        <dd class="govuk-summary-list__actions"><a class="govuk-link" href="toiletneeds">Add<span class="govuk-visually-hidden"> name</span></a></dd>
+                    </div>
+                </dl>                  {% endif %}
 
                   {% if data['dressingSelect'] or data['dressingNotes'] or data['dressingReason']%}
                   <h3 class="govuk-heading-m">Dressing and undressing<a href="dressing" class="govuk-link govuk-!-font-size-19 app-task-list__tag govuk-!-font-weight-regular" id="list-convictions-status">Change</a></h3>
@@ -338,7 +373,15 @@
                       {% endif %}
                
                   </dl>
-                  {% endif %}
+                  {% else %} 
+                  <dl class="govuk-summary-list">
+                    <div class="govuk-summary-list__row">
+                        <dt class="govuk-summary-list__key"><h3 class="govuk-heading-m">Dressing and undressing</h3></dt>
+                        <dd class="govuk-summary-list__value"><span class="review-section-no-data-heading">Not started</span></dd>
+                        <dd class="govuk-summary-list__actions"><a class="govuk-link" href="dressing">Add<span class="govuk-visually-hidden"> name</span></a></dd>
+                    </div>
+                </dl>
+                    {% endif %}
 
                   {% if data['communicatingverballySelect'] or data['communicatingverballyNotes'] or data['communicatingverballyReason']%}
                   <h3 class="govuk-heading-m">Communicating verbally<a href="communicatingverbally" class="govuk-link govuk-!-font-size-19 app-task-list__tag govuk-!-font-weight-regular" id="list-convictions-status">Change</a></h3>
@@ -371,6 +414,14 @@
                     
                       {% endif %}
                   </dl>
+                  {% else %}
+                  <dl class="govuk-summary-list">
+                    <div class="govuk-summary-list__row">
+                        <dt class="govuk-summary-list__key"><h3 class="govuk-heading-m">Communicating verbally</h3></dt>
+                        <dd class="govuk-summary-list__value"><span class="review-section-no-data-heading">Not started</span></dd>
+                        <dd class="govuk-summary-list__actions"><a class="govuk-link" href="communicatingverbally">Add<span class="govuk-visually-hidden"> name</span></a></dd>
+                    </div>
+                </dl>
                   {% endif %}
 
                   {% if data['readingunderstandingSelect'] or data['readingunderstandingNotes'] or data['readingunderstandingReason']%}
@@ -404,14 +455,20 @@
                       {% endif %}
                    
                   </dl>
+                  {% else %} 
+                  <dl class="govuk-summary-list">
+                    <div class="govuk-summary-list__row">
+                        <dt class="govuk-summary-list__key"><h3 class="govuk-heading-m">Reading and understanding signs, symbols and words</h3></dt>
+                        <dd class="govuk-summary-list__value"><span class="review-section-no-data-heading">Not started</span></dd>
+                        <dd class="govuk-summary-list__actions"><a class="govuk-link" href="readingunderstanding">Add<span class="govuk-visually-hidden"> name</span></a></dd>
+                    </div>
+                </dl>
                   {% endif %}
 
-                  {% if data['facetofaceSelect'] or data['facetofaceNotes'] or data['facetofaceReason']%}
+                  {% if data['facetofaceSelect'] or data['facetofaceNotes'] or data['facetofaceReason'] %}
                   <h3 class="govuk-heading-m">Engaging face to face<a href="facetoface" class="govuk-link govuk-!-font-size-19 app-task-list__tag govuk-!-font-weight-regular" id="list-convictions-status">Change</a></h3>
 
                   <dl class="govuk-summary-list govuk-!-margin-bottom-9">
-                     
-                       
                         {% if data['facetofaceNotes'] %}
                         <div class="govuk-summary-list__row">
                           <dt class="govuk-summary-list__key no-bottom-border">Notes on engaging face to face</dt>
@@ -437,7 +494,15 @@
                       {% endif %}
                 
                   </dl>
-                  {% endif %}
+                  {% else %}
+                  <dl class="govuk-summary-list">
+                    <div class="govuk-summary-list__row">
+                        <dt class="govuk-summary-list__key"><h3 class="govuk-heading-m">Engaging face to face</h3></dt>
+                        <dd class="govuk-summary-list__value"><span class="review-section-no-data-heading">Not started</span></dd>
+                        <dd class="govuk-summary-list__actions"><a class="govuk-link" href="facetoface">Add<span class="govuk-visually-hidden"> name</span></a></dd>
+                    </div>
+                </dl>                  
+                {% endif %}
 
                   {% if data['budgetingSelect'] or data['budgetingNotes'] or data['budgetingReason']%}
                   <h3 class="govuk-heading-m">Budgeting<a href="budgeting" class="govuk-link govuk-!-font-size-19 app-task-list__tag govuk-!-font-weight-regular" id="list-convictions-status">Change</a></h3>
@@ -470,12 +535,18 @@
                       {% endif %}
                      
                   </dl>
-                  {% endif %}
+                  {% else %}
+                  <dl class="govuk-summary-list">
+                    <div class="govuk-summary-list__row">
+                        <dt class="govuk-summary-list__key"><h3 class="govuk-heading-m">Budgeting</h3></dt>
+                        <dd class="govuk-summary-list__value"><span class="review-section-no-data-heading">Not started</span></dd>
+                        <dd class="govuk-summary-list__actions"><a class="govuk-link" href="budgeting">Add<span class="govuk-visually-hidden"> name</span></a></dd>
+                    </div>
+                </dl>                  
+                {% endif %}
 
 
-                  {% if data['journeysNotes'] or data['journeysSelect'] or data['journeysReason'] or data['movingaroundNotes'] or data['movingaroundSelect'] or data['movingaroundReason'] %}
                   <h2 class="govuk-heading-l">Mobility</h2>
-                  {% endif %}
 
                   {% if data['journeysSelect'] or data['journeysNotes'] or data['journeysReason']%}
                   <h3 class="govuk-heading-m">Planning and following journeys<a href="journeys" class="govuk-link govuk-!-font-size-19 app-task-list__tag govuk-!-font-weight-regular" id="list-convictions-status">Change</a></h3>
@@ -508,6 +579,14 @@
                       {% endif %}
                      
                   </dl>
+                  {% else %}
+                  <dl class="govuk-summary-list">
+                    <div class="govuk-summary-list__row">
+                        <dt class="govuk-summary-list__key"><h3 class="govuk-heading-m">Planning and following journeys</h3></dt>
+                        <dd class="govuk-summary-list__value"><span class="review-section-no-data-heading">Not started</span></dd>
+                        <dd class="govuk-summary-list__actions"><a class="govuk-link" href="journeys">Add<span class="govuk-visually-hidden"> name</span></a></dd>
+                    </div>
+                </dl>
                   {% endif %}
 
 
@@ -546,6 +625,14 @@
                       {% endif %}
              
                   </dl>
+                  {% else %}
+                  <dl class="govuk-summary-list">
+                    <div class="govuk-summary-list__row">
+                        <dt class="govuk-summary-list__key"><h3 class="govuk-heading-m">Moving around</h3></dt>
+                        <dd class="govuk-summary-list__value"><span class="review-section-no-data-heading">Not started</span></dd>
+                        <dd class="govuk-summary-list__actions"><a class="govuk-link" href="movingaround">Add<span class="govuk-visually-hidden"> name</span></a></dd>
+                    </div>
+                </dl>
                   {% endif %}
 
 
@@ -553,57 +640,56 @@
 
 
 
- {% if data['preparingfoodSelectpbr'] or data['takingnutritionSelectpbr'] or data['managingtherapySelectpbr'] or data['washingbathingSelectpbr'] or data['toiletneedsSelectpbr'] or data['dressingSelectpbr'] or data['communicatingverballySelectpbr'] or data['readingunderstandingSelectpbr'] or data['facetofaceSelectpbr']  or data['budgetingSelectpbr'] %}
  <h2 class="govuk-heading-l">Day to day life</h2>
- {% endif %}
 
 
  {% if data['preparingfoodSelectpbr'] %}
  <h3 class="govuk-heading-m">Preparing food <a href="preparingfood" class="govuk-link govuk-!-font-size-19 app-task-list__tag govuk-!-font-weight-regular" id="list-convictions-status">Change</a></h3>
-
- <dl class="govuk-summary-list govuk-!-margin-bottom-9">
-    
-       
-        {% if data['preparingfoodSelectpbr'] %}
-      <div class="govuk-summary-list__row">
-        <dt class="govuk-summary-list__key no-bottom-border">How well can the claimant cook food?</dt>
-        <dd class="govuk-summary-list__value no-bottom-border">{{ data['preparingfoodSelectpbr'] }}</dd>
-        <dd class="govuk-summary-list__actions no-bottom-border"></dd>
-      </div>
-      {% endif %}
-
-    
-  </dl>
-  {% endif %}
+ <dl class="govuk-summary-list govuk-!-margin-bottom-9">  
+        <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key no-bottom-border">How well can the claimant cook food?</dt>
+            <dd class="govuk-summary-list__value no-bottom-border">{{ data['preparingfoodSelectpbr'] }}</dd>
+            <dd class="govuk-summary-list__actions no-bottom-border"></dd>
+        </div>
+</dl>
+{% else %}
+<dl class="govuk-summary-list">
+    <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key"><h3 class="govuk-heading-m">Preparing food</h3></dt>
+        <dd class="govuk-summary-list__value"></dd>
+        <dd class="govuk-summary-list__actions"><a class="govuk-link" href="preparingfood">Add<span class="govuk-visually-hidden"> name</span></a></dd>
+    </div>
+</dl>
+{% endif %}
 
   {% if data['takingnutritionSelectpbr'] %}
   <h3 class="govuk-heading-m">Taking nutrition <a href="takingnutrition" class="govuk-link govuk-!-font-size-19 app-task-list__tag govuk-!-font-weight-regular" id="list-convictions-status">Change</a></h3>
-
   <dl class="govuk-summary-list govuk-!-margin-bottom-9">
-    
-        {% if data['takingnutritionSelectpbr'] %}
       <div class="govuk-summary-list__row">
         <dt class="govuk-summary-list__key no-bottom-border">Which of these describes how well the claimant can take nutrition?</dt>
         <dd class="govuk-summary-list__value no-bottom-border">{{ data['takingnutritionSelectpbr'] }}</dd>
         <dd class="govuk-summary-list__actions no-bottom-border"></dd>
-      </div>
-      {% endif %}
-    
+      </div>    
   </dl>
+  {% else %}
+  <dl class="govuk-summary-list">
+    <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key"><h3 class="govuk-heading-m">Taking nutrition</h3></dt>
+        <dd class="govuk-summary-list__value"></dd>
+        <dd class="govuk-summary-list__actions"><a class="govuk-link" href="takingnutrition">Add<span class="govuk-visually-hidden"> name</span></a></dd>
+    </div>
+</dl>
   {% endif %}
 
   {% if data['managingtherapySelectpbr'] %}
   <h3 class="govuk-heading-m">Managing therapy<a href="managingtherapy" class="govuk-link govuk-!-font-size-19 app-task-list__tag govuk-!-font-weight-regular" id="list-convictions-status">Change</a></h3>
-
   <dl class="govuk-summary-list govuk-!-margin-bottom-9">
-      
         {% if data['managingtherapyNotes'] %}
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key no-bottom-border">Notes on managing therapy</dt>
           <dd class="govuk-summary-list__value no-bottom-border">{{ data['managingtherapyNotes'] | striptags(true) | escape | nl2br }}</dd>
           <dd class="govuk-summary-list__actions no-bottom-border"></dd>
         </div>
-    
         {% endif %}
         {% if data['managingtherapySelectpbr'] %}
       <div class="govuk-summary-list__row">
@@ -612,17 +698,21 @@
         <dd class="govuk-summary-list__actions no-bottom-border"></dd>
       </div>
       {% endif %}
-   
-     
   </dl>
+  {% else %} 
+  <dl class="govuk-summary-list">
+    <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key"><h3 class="govuk-heading-m">Managing therapy</h3></dt>
+        <dd class="govuk-summary-list__value"></dd>
+        <dd class="govuk-summary-list__actions"><a class="govuk-link" href="managingtherapy">Add<span class="govuk-visually-hidden"> name</span></a></dd>
+    </div>
+</dl>
   {% endif %}
 
 
   {% if data['washingbathingSelectpbr'] %}
   <h3 class="govuk-heading-m">Washing and bathing<a href="washingbathing" class="govuk-link govuk-!-font-size-19 app-task-list__tag govuk-!-font-weight-regular" id="list-convictions-status">Change</a></h3>
-
   <dl class="govuk-summary-list govuk-!-margin-bottom-9">
-    
         {% if data['washingbathingSelectpbr'] %}
       <div class="govuk-summary-list__row">
         <dt class="govuk-summary-list__key no-bottom-border">Which of these describes how well the claimant can wash and bathe?</dt>
@@ -630,169 +720,198 @@
         <dd class="govuk-summary-list__actions no-bottom-border"></dd>
       </div>
       {% endif %}
- 
   </dl>
+  {% else %} 
+  <dl class="govuk-summary-list">
+    <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key"><h3 class="govuk-heading-m">Washing and bathing</h3></dt>
+        <dd class="govuk-summary-list__value"></dd>
+        <dd class="govuk-summary-list__actions"><a class="govuk-link" href="washingbathing">Add<span class="govuk-visually-hidden"> name</span></a></dd>
+    </div>
+</dl>
   {% endif %}
 
 
   {% if data['toiletneedsSelectpbr'] %}
   <h3 class="govuk-heading-m">Managing toilet needs<a href="toiletneeds" class="govuk-link govuk-!-font-size-19 app-task-list__tag govuk-!-font-weight-regular" id="list-convictions-status">Change</a></h3>
-
   <dl class="govuk-summary-list govuk-!-margin-bottom-9">
-   
-        {% if data['toiletneedsSelectpbr'] %}
       <div class="govuk-summary-list__row">
         <dt class="govuk-summary-list__key no-bottom-border">Which of these describes how well the claimant can manage toilet needs?</dt>
         <dd class="govuk-summary-list__value no-bottom-border">{{ data['toiletneedsSelectpbr'] }}</dd>
         <dd class="govuk-summary-list__actions no-bottom-border"></dd>
       </div>
-      {% endif %}
- 
   </dl>
+  {% else %}
+  <dl class="govuk-summary-list">
+    <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key"><h3 class="govuk-heading-m">Managing toilet needs</h3></dt>
+        <dd class="govuk-summary-list__value"></dd>
+        <dd class="govuk-summary-list__actions"><a class="govuk-link" href="toiletneeds">Add<span class="govuk-visually-hidden"> name</span></a></dd>
+    </div>
+</dl>
   {% endif %}
 
   {% if data['dressingSelectpbr'] %}
   <h3 class="govuk-heading-m">Dressing and undressing<a href="dressing" class="govuk-link govuk-!-font-size-19 app-task-list__tag govuk-!-font-weight-regular" id="list-convictions-status">Change</a></h3>
-
   <dl class="govuk-summary-list govuk-!-margin-bottom-9">
- 
-        {% if data['dressingSelectpbr'] %}
       <div class="govuk-summary-list__row">
         <dt class="govuk-summary-list__key no-bottom-border">Which of these describes how well the claimant can dress and undress?</dt>
         <dd class="govuk-summary-list__value no-bottom-border">{{ data['dressingSelectpbr'] }}</dd>
         <dd class="govuk-summary-list__actions no-bottom-border"></dd>
       </div>
-      {% endif %}
-  
-
   </dl>
+  {% else %} 
+  <dl class="govuk-summary-list">
+    <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key"><h3 class="govuk-heading-m">Dressing and undressing</h3></dt>
+        <dd class="govuk-summary-list__value"></dd>
+        <dd class="govuk-summary-list__actions"><a class="govuk-link" href="dressing">Add<span class="govuk-visually-hidden"> name</span></a></dd>
+    </div>
+</dl>
   {% endif %}
 
   {% if data['communicatingverballySelectpbr'] %}
   <h3 class="govuk-heading-m">Communicating verbally<a href="communicatingverbally" class="govuk-link govuk-!-font-size-19 app-task-list__tag govuk-!-font-weight-regular" id="list-convictions-status">Change</a></h3>
-
   <dl class="govuk-summary-list govuk-!-margin-bottom-9">
-    
-        {% if data['communicatingverballySelectpbr'] %}
       <div class="govuk-summary-list__row">
         <dt class="govuk-summary-list__key no-bottom-border">Which of these describes how well the claimant can communicate verbally?</dt>
         <dd class="govuk-summary-list__value no-bottom-border">{{ data['communicatingverballySelectpbr'] }}</dd>
         <dd class="govuk-summary-list__actions no-bottom-border"></dd>
-      </div>
-      {% endif %}
-    
+      </div>    
   </dl>
+  {% else %}
+  <dl class="govuk-summary-list">
+    <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key"><h3 class="govuk-heading-m">Communicating verbally</h3></dt>
+        <dd class="govuk-summary-list__value"></dd>
+        <dd class="govuk-summary-list__actions"><a class="govuk-link" href="communicatingverbally">Add<span class="govuk-visually-hidden"> name</span></a></dd>
+    </div>
+</dl>
   {% endif %}
 
   {% if data['readingunderstandingSelectpbr'] %}
   <h3 class="govuk-heading-m">Reading and understanding signs, symbols and words<a href="readingunderstanding" class="govuk-link govuk-!-font-size-19 app-task-list__tag govuk-!-font-weight-regular" id="list-convictions-status">Change</a></h3>
-
   <dl class="govuk-summary-list govuk-!-margin-bottom-9">
-     
-        {% if data['readingunderstandingSelectpbr'] %}
       <div class="govuk-summary-list__row">
         <dt class="govuk-summary-list__key no-bottom-border">Which of these describes how well the claimant can read and understand signs, symbols and words?</dt>
         <dd class="govuk-summary-list__value no-bottom-border">{{ data['readingunderstandingSelectpbr'] }}</dd>
         <dd class="govuk-summary-list__actions no-bottom-border"></dd>
       </div>
-      {% endif %}
-
   </dl>
+  {% else %} 
+  <h3 class="govuk-heading-m">Reading and understanding signs, symbols and words<a href="readingunderstanding" class="govuk-link govuk-!-font-size-19 app-task-list__tag govuk-!-font-weight-regular" id="list-convictions-status">Add</a></h3>
+  <dl class="govuk-summary-list">
+    <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key"></dt>
+        <dd class="govuk-summary-list__value"></dd>
+        <dd class="govuk-summary-list__actions"></dd>
+    </div>
+</dl>
   {% endif %}
 
   {% if data['facetofaceSelectpbr'] %}
   <h3 class="govuk-heading-m">Engaging face to face<a href="facetoface" class="govuk-link govuk-!-font-size-19 app-task-list__tag govuk-!-font-weight-regular" id="list-convictions-status">Change</a></h3>
-
   <dl class="govuk-summary-list govuk-!-margin-bottom-9">
-     
-        {% if data['facetofaceSelectpbr'] %}
       <div class="govuk-summary-list__row">
         <dt class="govuk-summary-list__key no-bottom-border">Which of these describes how well the claimant can engage face to face?</dt>
         <dd class="govuk-summary-list__value no-bottom-border">{{ data['facetofaceSelectpbr'] }}</dd>
         <dd class="govuk-summary-list__actions no-bottom-border"></dd>
       </div>
-      {% endif %}
-
   </dl>
+  {% else %} 
+  <dl class="govuk-summary-list">
+    <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key"><h3 class="govuk-heading-m">Engaging face to face</h3></dt>
+        <dd class="govuk-summary-list__value"></dd>
+        <dd class="govuk-summary-list__actions"><a class="govuk-link" href="facetoface">Add<span class="govuk-visually-hidden"> name</span></a></dd>
+    </div>
+</dl>
   {% endif %}
 
   {% if data['budgetingSelectpbr']  %}
   <h3 class="govuk-heading-m">Budgeting<a href="budgeting" class="govuk-link govuk-!-font-size-19 app-task-list__tag govuk-!-font-weight-regular" id="list-convictions-status">Change</a></h3>
-
   <dl class="govuk-summary-list govuk-!-margin-bottom-9">
-     
-        {% if data['budgetingSelectpbr'] %}
       <div class="govuk-summary-list__row">
         <dt class="govuk-summary-list__key no-bottom-border">Which of these describes how well the claimant can budget?</dt>
         <dd class="govuk-summary-list__value no-bottom-border">{{ data['budgetingSelectpbr'] }}</dd>
         <dd class="govuk-summary-list__actions no-bottom-border"></dd>
-      </div>
-      {% endif %}
-   
+      </div>   
   </dl>
+  {% else %}
+  <dl class="govuk-summary-list">
+    <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key"><h3 class="govuk-heading-m">Budgeting</h3></dt>
+        <dd class="govuk-summary-list__value"></dd>
+        <dd class="govuk-summary-list__actions"><a class="govuk-link" href="budgeting">Add<span class="govuk-visually-hidden"> name</span></a></dd>
+    </div>
+</dl>
   {% endif %}
 
-
-  {% if data['journeysSelectpbr'] or data['movingaroundSelectpbr'] %}
+<br>
   <h2 class="govuk-heading-l">Mobility</h2>
-  {% endif %}
 
   {% if data['journeysSelectpbr'] %}
   <h3 class="govuk-heading-m">Planning and following journeys<a href="journeys" class="govuk-link govuk-!-font-size-19 app-task-list__tag govuk-!-font-weight-regular" id="list-convictions-status">Change</a></h3>
-
   <dl class="govuk-summary-list govuk-!-margin-bottom-9">
-     
-        {% if data['journeysSelectpbr'] %}
-      <div class="govuk-summary-list__row">
+           <div class="govuk-summary-list__row">
         <dt class="govuk-summary-list__key no-bottom-border">Which of these describes how well the claimant can budget?</dt>
         <dd class="govuk-summary-list__value no-bottom-border">{{ data['journeysSelectpbr'] }}</dd>
         <dd class="govuk-summary-list__actions no-bottom-border"></dd>
       </div>
-      {% endif %}
-     
   </dl>
+  {% else %} 
+  <h3 class="govuk-heading-m">Planning and following journeys<a href="journeys" class="govuk-link govuk-!-font-size-19 app-task-list__tag govuk-!-font-weight-regular" id="list-convictions-status">Add</a></h3>
+  <dl class="govuk-summary-list">
+    <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key"></dt>
+        <dd class="govuk-summary-list__value"></dd>
+        <dd class="govuk-summary-list__actions"></dd>
+    </div>
+</dl>
   {% endif %}
 
 
   {% if data['movingaroundSelectpbr'] %}
   <h3 class="govuk-heading-m">Moving around<a href="movingaround" class="govuk-link govuk-!-font-size-19 app-task-list__tag govuk-!-font-weight-regular" id="list-convictions-status">Change</a></h3>
-
   <dl class="govuk-summary-list govuk-!-margin-bottom-9">
-  
-        {% if data['movingaroundSelectpbr'] %}
-      <div class="govuk-summary-list__row">
+        <div class="govuk-summary-list__row">
         <dt class="govuk-summary-list__key no-bottom-border">Which of these describes how well the claimant can move around?</dt>
         <dd class="govuk-summary-list__value no-bottom-border">{{ data['movingaroundSelectpbr'] }}</dd>
         <dd class="govuk-summary-list__actions no-bottom-border"></dd>
-      </div>
-      {% endif %}
- 
+      </div> 
   </dl>
+  {% else %}
+  <dl class="govuk-summary-list">
+    <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key"><h3 class="govuk-heading-m">Moving around</h3></dt>
+        <dd class="govuk-summary-list__value"></dd>
+        <dd class="govuk-summary-list__actions"><a class="govuk-link" href="movingsround">Add<span class="govuk-visually-hidden"> name</span></a></dd>
+    </div>
+</dl>
   {% endif %}
-
-
-
-
-
 
 
  {% endif %}
 
 
                   {% if data['assessmenttype'] !== "Paper" %}
-                  {% if data['physicalhealth'] or data['mentalstate'] or data['observations'] or data['variability'] %}
                   <h2 class="govuk-heading-l">Current condition</h2>
-                  {% endif %}
 
                   <dl class="govuk-summary-list govuk-!-margin-bottom-9">
 
                     {% if data['physicalhealth'] %}
-                  <div class="govuk-summary-list__row">
-                    <dt class="govuk-summary-list__key">Physical health</dt>
-                    <dd class="govuk-summary-list__value">{{ data['physicalhealth'] }}</dd>
-                    <dd class="govuk-summary-list__actions"><a class="govuk-link" href="physicalhealth">Change<span class="govuk-visually-hidden"> name</span></a></dd>
-                 </div>
-                 {% endif %}
+                    <div class="govuk-summary-list__row">
+                        <dt class="govuk-summary-list__key">Physical health</dt>
+                        <dd class="govuk-summary-list__value">{{ data['physicalhealth'] }}</dd>
+                        <dd class="govuk-summary-list__actions"><a class="govuk-link" href="physicalhealth">Change<span class="govuk-visually-hidden"> name</span></a></dd>
+                    </div>
+                    {% else %} 
+                    <div class="govuk-summary-list__row">
+                        <dt class="govuk-summary-list__key"><h3 class="govuk-heading-m">Physical health</h3></dt>
+                        <dd class="govuk-summary-list__value"><span class="review-section-no-data-heading">Not started</span></dd>
+                        <dd class="govuk-summary-list__actions"><a class="govuk-link" href="physicalhealth">Add<span class="govuk-visually-hidden"> name</span></a></dd>
+                    </div>
+                    {% endif %}
 
                  {% if data['mentalstate'] %}
                   <div class="govuk-summary-list__row">
@@ -800,6 +919,12 @@
                     <dd class="govuk-summary-list__value">{{ data['mentalstate'] }}</dd>
                     <dd class="govuk-summary-list__actions"><a class="govuk-link" href="mentalstate">Change<span class="govuk-visually-hidden"> name</span></a></dd>
                  </div>
+                 {% else %} 
+                 <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key"><h3 class="govuk-heading-m">Mental state</h3></dt>
+                    <dd class="govuk-summary-list__value"><span class="review-section-no-data-heading">Not started</span></dd>
+                    <dd class="govuk-summary-list__actions"><a class="govuk-link" href="mentalstate">Add<span class="govuk-visually-hidden"> name</span></a></dd>
+                </div>
                  {% endif %}
 
                  {% if data['observations'] %}
@@ -808,6 +933,12 @@
                     <dd class="govuk-summary-list__value">{{ data['observations'] }}</dd>
                     <dd class="govuk-summary-list__actions"><a class="govuk-link" href="observations">Change<span class="govuk-visually-hidden"> name</span></a></dd>
                  </div>
+                 {% else %} 
+                 <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key"><h3 class="govuk-heading-m">Observations</h3></dt>
+                    <dd class="govuk-summary-list__value"><span class="review-section-no-data-heading">Not started</span></dd>
+                    <dd class="govuk-summary-list__actions"><a class="govuk-link" href="observations">Add<span class="govuk-visually-hidden"> name</span></a></dd>
+                </div>
                  {% endif %}
 
                  {% if data['variability'] %}
@@ -816,23 +947,23 @@
                     <dd class="govuk-summary-list__value">{{ data['variability'] }}</dd>
                     <dd class="govuk-summary-list__actions"><a class="govuk-link" href="variability">Change<span class="govuk-visually-hidden"> name</span></a></dd>
                  </div>
+                 {% else %} 
+                 <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key"><h3 class="govuk-heading-m">Variability</h3></dt>
+                    <dd class="govuk-summary-list__value"><span class="review-section-no-data-heading">Not started</span></dd>
+                    <dd class="govuk-summary-list__actions"><a class="govuk-link" href="variability">Add<span class="govuk-visually-hidden"> name</span></a></dd>
+                </div>
                  {% endif %}
                    </dl>
                    {% endif %}
-
-
-
-
-                   {% if data['dl'] or data['dl9'] or data['qp'] or data['9qp'] or data['whenreview'] or data['reviewtimereasons'] or data['functional-restict-review'] or data['as-marker'] or data['special-rules'] or data['harmful-info'] %}
+<br>
                    <h2 class="govuk-heading-l">Review</h2>
-                   {% endif %}
 
-                   {% if data['dl'] %}
+                   {% if data.dl %}
                    <h3 class="govuk-heading-m">Daily living qualifying period and prospective test<a href="dailyliving" class="govuk-link govuk-!-font-size-19 app-task-list__tag govuk-!-font-weight-regular" id="list-convictions-status">Change</a></h3>
-
                    <dl class="govuk-summary-list govuk-!-margin-bottom-9">
                    <div class="govuk-summary-list__row">
-                    <dt class="govuk-summary-list__key">Has the claimant had the functional restriction for at least 3 months?</dt>
+                    <dt class="govuk-summary-list__key">Is the claimant's daily living prognosis long enough for PIP?</dt>
                     <dd class="govuk-summary-list__value"><p>{{ data['dl'] }}</p>
                       {% if data['partnotmetdl'] %}
                       <p>{{ data['partnotmetdl'] }}</p>
@@ -840,121 +971,113 @@
                     </dd>
                     <dd class="govuk-summary-list__actions"></dd>
                   </div>
-                  <div class="govuk-summary-list__row">
-                    <dt class="govuk-summary-list__key">Is the claimant likely to have the functional restriction in 9 months?</dt>
-                    <dd class="govuk-summary-list__value"><p>{{ data['dl9'] }}</p>
-                      {% if data['partnotmetdl9'] %}
-                      <p>{{ data['partnotmetdl9'] }}</p>
-                      {% endif %}
-                    </dd>
-                    <dd class="govuk-summary-list__actions"></dd>
-                  </div>
-
                    </dl>
+                   {% else %} 
+                   <h3 class="govuk-heading-m">Daily living qualifying period and prospective test<a href="dailyliving" class="govuk-link govuk-!-font-size-19 app-task-list__tag govuk-!-font-weight-regular" id="list-convictions-status">Add</a></h3>
+                   <dl class="govuk-summary-list">
+                    <div class="govuk-summary-list__row">
+                        <dt class="govuk-summary-list__key"></dt>
+                        <dd class="govuk-summary-list__value"></dd>
+                        <dd class="govuk-summary-list__actions"></dd>
+                    </div>
+                </dl>
                    {% endif %}
 
 
-
-
-                   {% if data['qp'] %}
+                   {% if data.dl %}
                   <h3 class="govuk-heading-m">Mobility qualifying period and prospective test<a href="mobility" class="govuk-link govuk-!-font-size-19 app-task-list__tag govuk-!-font-weight-regular" id="list-convictions-status">Change</a></h3>
-
                    <dl class="govuk-summary-list govuk-!-margin-bottom-9">
                   <div class="govuk-summary-list__row">
-                    <dt class="govuk-summary-list__key">Has the claimant had the functional restriction for at least 3 months?</dt>
+                    <dt class="govuk-summary-list__key">Is the claimant's mobility prognosis long enough for PIP?</dt>
                     <dd class="govuk-summary-list__value">{{ data['qp'] }} {% if data['part-not-met'] %}</dd>
     
-                      {% endif %}
-                    </dd>
-                    <dd class="govuk-summary-list__actions"></dd>
-                  </div>
-                  <div class="govuk-summary-list__row">
-                    <dt class="govuk-summary-list__key">Is the claimant likely to have the functional restriction in 9 months?</dt>
-                    <dd class="govuk-summary-list__value">{{ data['9qp'] }} {% if data['part-not-met'] %}</dd>
-    
+                    
                       {% endif %}
                     </dd>
                     <dd class="govuk-summary-list__actions"></dd>
                   </div>
                    </dl>
+                   {% else %} 
+                   <h3 class="govuk-heading-m">Mobility qualifying period and prospective test<a href="mobility" class="govuk-link govuk-!-font-size-19 app-task-list__tag govuk-!-font-weight-regular" id="list-convictions-status">Add</a></h3>
+                   <dl class="govuk-summary-list">
+                    <div class="govuk-summary-list__row">
+                        <dt class="govuk-summary-list__key"></dt>
+                        <dd class="govuk-summary-list__value"></dd>
+                        <dd class="govuk-summary-list__actions"></dd>
+                    </div>
+                </dl>
+                {% endif %}
 
-                   {% endif %}
 
 
-{% if data['recommendation'] %}
-<h3 class="govuk-heading-m">Reason for recommendation<a href="recommend" class="govuk-link govuk-!-font-size-19 app-task-list__tag govuk-!-font-weight-regular" id="list-convictions-status">Change</a></h3>
-
-<dl class="govuk-summary-list govuk-!-margin-bottom-9">   
-  <div class="govuk-summary-list__row">
-    <dt class="govuk-summary-list__key">What is the reason for your recommendation?</dt>
-    {% if data['recommendation'] %}
-        <dd class="govuk-summary-list__value">{{ data['recommendation'] | striptags(true) | escape | nl2br }}</dd>
-        <dd class="govuk-summary-list__actions"></dd>
+                {% if data['recommendation'] %}
+                <h3 class="govuk-heading-m">Reason for recommendation<a href="recommend" class="govuk-link govuk-!-font-size-19 app-task-list__tag govuk-!-font-weight-regular" id="list-convictions-status">Change</a></h3>
+                
+                <dl class="govuk-summary-list govuk-!-margin-bottom-9">   
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">What is the reason for your recommendation?</dt>
+                    {% if data['recommendation'] %}
+                        <dd class="govuk-summary-list__value">{{ data['recommendation'] | striptags(true) | escape | nl2br }}</dd>
+                        <dd class="govuk-summary-list__actions"></dd>
         {% endif %}
-       
-
+        {% else %}
+    <h3 class="govuk-heading-m">What is the reason for your recommendation?<a href="recommend" class="govuk-link govuk-!-font-size-19 app-task-list__tag govuk-!-font-weight-regular" id="list-convictions-status">Add</a></h3>
+    <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key"></dt>
+    <dd class="govuk-summary-list__value"></dd>
+        <dd class="govuk-summary-list__actions"></dd>
+    {% endif %}
   </div>
 
 </dl>
 
 
+
+
+  {% if data['whenreview'] or data['reviewtimereasons'] %}
+  <h3 class="govuk-heading-m">Review period for PIP<a href="review" class="govuk-link govuk-!-font-size-19 app-task-list__tag govuk-!-font-weight-regular" id="list-convictions-status">Change</a></h3>
+
+ 
+
+    {% if data['whenreview'] %}
+    <dl class="govuk-summary-list">
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key no-bottom-border">When should this claim be reviewed?</dt>
+    <dd class="govuk-summary-list__value no-bottom-border">{{ data['whenreview'] }}</dd>
+
+    <dd class="govuk-summary-list__actions no-bottom-border"></dd>
+  </dd>
+</div>
+    </dl>
+{% endif %}
+
+{% if data['reviewtimereasons'] %}
+<dl class="govuk-summary-list govuk-!-margin-bottom-9">
+<div class="govuk-summary-list__row">
+  <dt class="govuk-summary-list__key">Why do you recommend this review period?</dt>
+  <dd class="govuk-summary-list__value">{{ data['reviewtimereasons'] | striptags(true) | escape | nl2br }}</dd>
+ 
+ 
+  {% endif %}
+</dd>
+<dd class="govuk-summary-list__actions"></dd>
+</div>
+</dl>
+{% else %} 
+ 
+<h3 class="govuk-heading-m">Review period for PIP<a href="review" class="govuk-link govuk-!-font-size-19 app-task-list__tag govuk-!-font-weight-regular" id="list-convictions-status">Add</a></h3>
+<dl class="govuk-summary-list">
+ <div class="govuk-summary-list__row">
+     <dt class="govuk-summary-list__key"></dt>
+     <dd class="govuk-summary-list__value"></dd>
+     <dd class="govuk-summary-list__actions"></dd>
+ </div>
+</dl>
 {% endif %}
 
 
-{% if data['whenreview'] or data['reviewtimereasons'] or data['functional-restict-review'] or data['as-marker'] or data['special-rules'] or data['harmful-info'] %}
-                  <h3 class="govuk-heading-m">Review period for PIP<a href="review" class="govuk-link govuk-!-font-size-19 app-task-list__tag govuk-!-font-weight-regular" id="list-convictions-status">Change</a></h3>
 
-                  <dl class="govuk-summary-list govuk-!-margin-bottom-9">
-                    {% if data['whenreview'] %}
-                    <div class="govuk-summary-list__row">
-                    <dt class="govuk-summary-list__key no-bottom-border">When should this claim be reviewed?</dt>
-                    <dd class="govuk-summary-list__value no-bottom-border">{{ data['whenreview'] }}</dd>
-                    <dd class="govuk-summary-list__actions no-bottom-border">
-                    </dd>
-                  </div>
-                  {% endif %}
-                  {% if data['reviewtimereasons'] %}
-                    <div class="govuk-summary-list__row">
-                      <dt class="govuk-summary-list__key">Why do you recommend this review period?</dt>
-                      <dd class="govuk-summary-list__value">{{ data['reviewtimereasons'] | striptags(true) | escape | nl2br }}</dd>
-                      <dd class="govuk-summary-list__actions"></dd>
-                  </div>
-                  {% endif %}
-                  {% if data['functional-restict-review'] %}
-                  <div class="govuk-summary-list__row">
-                    <dt class="govuk-summary-list__key">Is it likely that the functional restriction identified in this report will still be present when the claim is reviewed?</dt>
-                    <dd class="govuk-summary-list__value">{{ data['functional-restict-review'] | striptags(true) | escape | nl2br }}</dd>
-                    <dd class="govuk-summary-list__actions"></dd>
-                </div>
-                {% endif %}
-                {% if data['as-marker'] %}
-                <div class="govuk-summary-list__row">
-                  <dt class="govuk-summary-list__key">Is the claimant likely to need additional support for future claim processes?</dt>
-                  <dd class="govuk-summary-list__value">{{ data['as-marker'] | striptags(true) | escape | nl2br }}</dd>
-                  <dd class="govuk-summary-list__actions"></dd>
-              </div>
-              {% endif %}
-              {% if data['special-rules'] %}
-              <div class="govuk-summary-list__row">
-                <dt class="govuk-summary-list__key">Although the claimant has not claimed under special rules, in your opinion, does the claimant meet the criteria for special rules?</dt>
-                <dd class="govuk-summary-list__value">{{ data['special-rules'] | striptags(true) | escape | nl2br }}</dd>
-                <dd class="govuk-summary-list__actions"></dd>
-            </div>
-            {% endif %}
-
-            {% if data['harmful-info'] %}
-            <div class="govuk-summary-list__row">
-              <dt class="govuk-summary-list__key">Note</dt>
-              <!-- <dd class="govuk-summary-list__value no-bottom-border">{% for item in data['harmful-info']  %}{{ item }} <br />{% endfor %}</dd> -->
-              <dd class="govuk-summary-list__value">{{ data['harmful-info'] }}</dd>
-              <dd class="govuk-summary-list__actions"></dd>
-          </div>
-          {% endif %}
-
-                </dl>
-
-
-                {% endif %}
              
 
                    {% if data['abandon'] %}
@@ -973,12 +1096,12 @@
                 </dl>
 {% endif %}
 
-                    <a href="submit" class="govuk-button">Continue</a>
+                  
 
         </div>
 </div>
 
-
+<a href="submit" class="govuk-button">Continue</a>
     </main>
   </div>
 </div>
