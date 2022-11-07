@@ -7,20 +7,13 @@
 
 {% block main %}
 
-{% include "includes/status/pip-assessment-claimant.html" %}
+{% include "includes/status/split-screen-nav.html" %}
 
- 
- 
-  <div class="govuk-grid-column-three-quarters">
-
-    <main class="govuk-main-wrapper {{ mainClasses }}" id="main-content" role="main"{% if mainLang %} lang="{{ mainLang }}"{% endif %}>
-   
-
-
-      
-
-                <h1 class="govuk-heading-l">Managing toilet needs</h1>
-
+<main class="govuk-main-wrapper {{ mainClasses }}" id="main-content" role="main"{% if mainLang %} lang="{{ mainLang }}"{% endif %}>
+  <div id="recoLeftPane" class="govuk-grid-column-two-fifths reco-scrollable-wrapper">
+   <h1 class="govuk-heading-l">Taking nutrition<span><img id="recoLeftIcon" class="reco-toggle-icon reco-hidden" src="{{ asset_path }}images/arrow-left.png" alt="contract side pane" width="50" height="50"><img id="recoRightIcon" class="reco-toggle-icon" src="{{ asset_path }}/images/arrow-right.png" alt="expand side pane" width="45" height="45"></span></h1>
+    
+       
 
             <form action="assessment-status" method="post">
 
@@ -155,13 +148,13 @@
 
             </form>
 
-
-
+          </div>
+          <div id="recoRightPane" class="govuk-grid-column-two-fifths">
+            <div id="recoBuilderFrame" class="reco-builder-frame  reco-scrollable-wrapper" data-url="claimant-documents-buttons">
+              &nbsp;
             </div>
-
-           
-
-    </main>
+           </div>
+    </div>
+  </main>
   </div>
-</div>
 {% endblock %}

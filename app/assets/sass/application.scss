@@ -211,6 +211,91 @@ iframe.document {
 }
 
 
+.govuk-width-container.full-width-container {
+    max-width: 100%;
+    margin-left: 2%;
+    margin-right: 2%;
+}
+
+.key-details-bar__key-details.full-width-container {
+    max-width: 100%;
+}
+
+.reco-builder-frame {
+    width: 100%;
+    padding: 1rem;
+}
+
+.reco-scrollable-wrapper {
+    height: auto;
+    max-height: 900px;
+    overflow-y: scroll;
+}
+
+.reco-nav-wrapper {
+    background: #f3f2f1;
+    width: 100%;
+}
+
+// force scrollbars to display on mac
+::-webkit-scrollbar {
+    -webkit-appearance: none;
+    width: 7px;
+  }
+  
+::-webkit-scrollbar-thumb {
+    border-radius: 2px;
+    background-color: rgba(0, 0, 0, .2);
+    box-shadow: 0 0 1px rgba(255, 255, 255, .2);
+    }
+
+.reco-toggle-icon {
+    float: right;
+}
+
+.reco-toggle-icon:hover {
+    cursor: pointer;
+}
+
+.reco-hidden {
+    display: none;
+    visibility: hidden;
+}
+
+.govuk-grid-column-one-fifth {
+    padding: 0 15px;
+    width: 14%;
+    float: left;
+}
+
+.govuk-grid-column-two-fifths {
+    padding: 0 15px;
+    width: 40%;
+    float: left;
+}
+
+@media screen and (max-width: 1540px) {
+    .govuk-grid-column-two-fifths {
+        width: 38%;
+    }
+}
+
+@media screen and (max-width: 1010px) {
+    .govuk-grid-column-two-fifths {
+        display: block;
+        width: 75%;
+    }
+    .govuk-grid-column-one-fifth {
+        display: block;
+    }
+}
+
+
+
+
+
+
+
 // /* ==========================================================================
 //    #PRIMARY NAVIGATION
 //    ========================================================================== */
