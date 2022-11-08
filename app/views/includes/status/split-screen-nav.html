@@ -10,7 +10,7 @@
   
       <div class="key-details-bar__bottom-block">
         <dt>Date of birth:</dt>
-        <dd>31 December 1997</dd>
+        <dd>31 December 1980</dd>
       </div>
     </dl>
   </section>
@@ -28,7 +28,8 @@
                             <nav class="moj-primary-navigation" aria-label="Primary navigation">
                             <ul class="moj-primary-navigation__list">
                                 <li class="moj-primary-navigation__item">
-                                <a class="moj-primary-navigation__link" aria-current="page" href="evidence-used">Assessment</a>
+
+                                    <a class="moj-primary-navigation__link" aria-current="page" href="{{ data.recentPages.assessment | default('evidence-used')}}">Assessment</a>
                                 </li>
                                 <li class="moj-primary-navigation__item">
                                     <a class="moj-primary-navigation__link"  href="check1">Check answers</a>
@@ -54,7 +55,7 @@
                                     <a class="moj-primary-navigation__link reco-builder-page-link popup"  href="claimant-documents-buttons">Claimant documents</a>
                                     </li>
                                 <li class="moj-primary-navigation__item">
-                                <a class="moj-primary-navigation__link reco-builder-page-link"  href="check">Draft report</a>
+                                <a class="moj-primary-navigation__link reco-builder-page-link"  href="check">Preview report</a>
                                 </li>
                                 
                             </ul>
