@@ -5,17 +5,18 @@ const urlsByTab = require('./data/urlsByTab');
 // Add your routes here - above the module.exports line
 
 router.all("*", (req, res, next) => {
-    console.log(req.body)
     if(typeof req.session.data.recentPages === 'undefined') {
         req.session.data.recentPages = {
             review: 'evidence-used',
-            activities: 'preparingfood'
+            activities: 'preparingfood',
+            combined: 'evidence-used'
         }
     }
     const urlEnd = req.originalUrl.split('/').pop();
     Object.entries(urlsByTab).forEach(([k, v]) => {
         if(v.includes(urlEnd)) {
             req.session.data.recentPages[k] = urlEnd; 
+            req.session.data.recentPages.combined = urlEnd;
         }
     });
     res.locals.activeUrl = urlEnd;
