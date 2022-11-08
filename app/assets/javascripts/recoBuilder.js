@@ -63,10 +63,16 @@ if(document.getElementById('recoBuilderFrame')) {
         }
     }
 
+    // <input type="hidden" name="previousDocument" id="previousDocument" value="{{ data.openDocument }}">
+
+
     function togglePane(e) {
         const isLeftArrow = e.target.id === 'recoLeftIcon';
         document.getElementById('recoLeftIcon').classList.toggle('reco-hidden');
         document.getElementById('recoRightIcon').classList.toggle('reco-hidden');
+
+       
+
 
         if(!isLeftArrow) {
             // govuk-grid-column-one-third
@@ -83,13 +89,14 @@ if(document.getElementById('recoBuilderFrame')) {
     function returnToDocuments(e) {
         e.preventDefault();
         populateSidePage();
+        recordOpenDocument("");
     }
 
     function loadDocument(e) {
         e.preventDefault();
         populateSidePage(e.target.href, true);
-        console.log(e.target);
-
+        // console.log(e.target);
+        recordOpenDocument(e.target.href);
     }
 
     function manaegSidePanel(e) {
@@ -100,6 +107,21 @@ if(document.getElementById('recoBuilderFrame')) {
         }
     }
 
-    populateSidePage();
+    function recordOpenDocument(href) {
+        fetch('/autosave', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json'},
+            body: JSON.stringify({ field: "openDocument", value: href }),
+          })
+            .then((response) => response.json())
+            .then((data) => console.log('Success:', data))
+            .catch((error) => console.error('Error:', error));
+    }
+
+    if(document.getElementById('previousDocument').value) {
+        populateSidePage(document.getElementById('previousDocument').value, true)
+    } else {
+        populateSidePage();
+    }
 
   }

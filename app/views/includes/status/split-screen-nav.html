@@ -51,11 +51,12 @@
                             <nav class="moj-primary-navigation" aria-label="Primary navigation">
                             <ul class="moj-primary-navigation__list">
                                 <li class="moj-primary-navigation__item">
+                                    <a class="moj-primary-navigation__link reco-builder-page-link popup"  href="claimant-documents-buttons">Claimant documents</a>
+                                    </li>
+                                <li class="moj-primary-navigation__item">
                                 <a class="moj-primary-navigation__link reco-builder-page-link"  href="check">Draft report</a>
                                 </li>
-                                <li class="moj-primary-navigation__item">
-                                <a class="moj-primary-navigation__link reco-builder-page-link popup"  href="claimant-documents-buttons">Claimant documents</a>
-                                </li>
+                                
                             </ul>
                             </nav>
                         </div>
@@ -73,7 +74,9 @@
   
      <div class="govuk-grid-column-one-fifth">
       <nav class="moj-side-navigation" aria-label="Side navigation">
-      
+    
+        <input type="hidden" name="previousDocument" id="previousDocument" value="{{ data.openDocument }}">
+
         <h4 class="moj-side-navigation__title">History</h4>
         <ul class="moj-side-navigation__list">
        

@@ -274,9 +274,24 @@ iframe.document {
     float: left;
 }
 
+.govuk-grid-column-two-fifths:first-of-type {
+    padding: 0 15px;
+    width: 30%;
+    float: left;
+}
+
+.govuk-grid-column-two-fifths:last-of-type {
+    padding: 0 15px;
+    width: 50%;
+    float: left;
+}
+
 @media screen and (max-width: 1540px) {
-    .govuk-grid-column-two-fifths {
-        width: 38%;
+    .govuk-grid-column-two-fifths:first-of-type {
+        width: 28%;
+    }
+    .govuk-grid-column-two-fifths:last-of-type {
+        width: 48%;
     }
 }
 
