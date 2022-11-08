@@ -51,7 +51,7 @@
             
                 </dl>
 
-
+                {% if data['evidenceusedpip'] or data['other-evidence'] or data['evidence-requested-not-returned'] or data['other-evidence-not-returned'] or data['historyofcondition'] %}  
               <h2 class="govuk-heading-l">History</h2>
             
 
@@ -96,8 +96,9 @@
          
        
           {% endif %}
+        
 
-
+          <!-- {% if data['historyofcondition'] %} -->
           <dl class="govuk-summary-list govuk-!-margin-bottom-9">
 
 
@@ -132,8 +133,8 @@
                     </div>
                  {% endif %}
                </dl>
-
-
+               <!-- {% endif %} -->
+               {% endif %}
 
 
                 {% if data['assessmenttype'] !== "Paper" %}
@@ -625,7 +626,7 @@
  {% else %}
 
 
-
+ {% if data['preparingfoodSelectpbr'] or data['takingnutritionSelectpbr'] or data['managingtherapySelectpbr'] or data['washingbathingSelectpbr'] or data['toiletneedsSelectpbr'] or data['dressingSelectpbr'] or data['communicatingverballySelectpbr'] or data['readingunderstandingSelectpbr'] or data['facetofaceSelectpbr'] or data['budgetingSelectpbr'] %}
  <h2 class="govuk-heading-l">Day to day life</h2>
 
 
@@ -642,7 +643,7 @@
 {% endif %}
 
   {% if data['takingnutritionSelectpbr'] %}
-  <h3 class="govuk-heading-m">Taking nutrition <a href="takingnutrition" class="govuk-link govuk-!-font-size-19 app-task-list__tag govuk-!-font-weight-regular" id="list-convictions-status">Change</a></h3>
+  <h3 class="govuk-heading-m">Taking nutrition </h3>
   <dl class="govuk-summary-list govuk-!-margin-bottom-9">
       <div class="govuk-summary-list__row">
         <dt class="govuk-summary-list__key no-bottom-border">Which of these describes how well the claimant can take nutrition?</dt>
@@ -761,7 +762,9 @@
   </dl>
 
   {% endif %}
+  {% endif %}
 
+  {% if data['journeysSelectpbr'] or data['movingaroundSelectpbr']  %}
 <br>
   <h2 class="govuk-heading-l">Mobility</h2>
 
@@ -789,7 +792,7 @@
   </dl>
  
   {% endif %}
-
+  {% endif %}
 
  {% endif %}
 
@@ -857,6 +860,7 @@
                    </dl>
                    {% endif %}
 <br>
+{% if data['dl'] or data['dl9'] or data['qp'] or data['9qp'] or data['recommendation'] or data['recommendation'] or data['recommendation'] or data['whenreview'] or data['reviewtimereasons'] or data['functional-restict-review'] or data['as-marker'] or data['special-rules'] or data['harmful-info'] %}
                    <h2 class="govuk-heading-l">Review</h2>
 
                    {% if data['dl'] %}
@@ -1002,7 +1006,7 @@
 </dl>
 {% endif %}
 
-
+{% endif %}
 
              
 
