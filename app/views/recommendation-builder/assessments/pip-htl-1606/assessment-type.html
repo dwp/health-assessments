@@ -11,50 +11,20 @@
 
 
 
-      <!-- {{ govukBackLink({
-        text: "Back",
-        href: "index"
-      }) }} -->
+<div class="govuk-width-container">
+ 
+  <a href="claimant-details.html" class="govuk-back-link">Back</a>
+
+  <main class="govuk-main-wrapper {{ mainClasses }}" id="main-content" role="main"{% if mainLang %} lang="{{ mainLang }}"{% endif %}>
+   
       <div class="govuk-grid-column-two-thirds">
-    <main class="govuk-main-wrapper {{ mainClasses }}" id="main-content" role="main"{% if mainLang %} lang="{{ mainLang }}"{% endif %}>
-       
+
 
           
 
   <form action="evidence-used" method="post" id="question-form" novalidate>
 
-    <!-- {{ govukRadios({
-      name: "assessmenttype",
-      fieldset: {
-        legend: {
-          text: "How are you conducting this assessment?",
-          isPageHeading: true,
-          classes: "govuk-fieldset__legend--l"
-        }
-      },
-      items: [
-        {
-          value: "Telephone",
-          text: "Telephone",
-          checked: (data['assessmenttype'] == "Telephone")
-        },
-        {
-          value: "Face to face",
-          text: "Face to face",
-          checked: (data['assessmenttype'] == "Face to face")
-        },
-        {
-          value: "Paper",
-          text: "On paper",
-          checked: (data['assessmenttype'] == "Paper")
-        },
-        {
-          value: "Video call",
-          text: "Video call",
-          checked: (data['assessmenttype'] == "Video call")
-        }
-      ]
-    }) }}  -->
+
 
   <div class="govuk-form-group">
     <fieldset class="govuk-fieldset" aria-describedby="sign-in-hint">
@@ -98,15 +68,18 @@
 
   </div>
 
-</div>
-</div>
+
 
 <button class="govuk-button" data-module="govuk-button">
   Save and continue
 </button>
-
+  </form>
+     
 </main>
 </div>
+</div>
+</div>
+
 
 
 
