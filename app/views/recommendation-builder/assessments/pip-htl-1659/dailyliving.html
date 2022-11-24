@@ -7,19 +7,19 @@
 
 {% block main %}
 
-{% include "includes/status/split-screen-nav.html" %}
+{% include "includes/status-htl-1606/split-screen-nav.html" %}
 
 <main class="govuk-main-wrapper {{ mainClasses }}" id="main-content" role="main"{% if mainLang %} lang="{{ mainLang }}"{% endif %}>
   <div id="recoLeftPane" class="govuk-grid-column-two-fifths reco-scrollable-wrapper">
-   <h1 class="govuk-heading-l">Mobility qualifying period and prospective test<span><img id="recoLeftIcon" class="reco-toggle-icon reco-hidden" src="{{ asset_path }}images/arrow-left.png" alt="contract side pane" width="50" height="50"><img id="recoRightIcon" class="reco-toggle-icon" src="{{ asset_path }}/images/arrow-right.png" alt="expand side pane" width="45" height="45"></span></h1>
+   <h1 class="govuk-heading-l">Daily living qualifying period and prospective test<span><img id="recoLeftIcon" class="reco-toggle-icon reco-hidden" src="{{ asset_path }}images/arrow-left.png" alt="contract side pane" width="50" height="50"><img id="recoRightIcon" class="reco-toggle-icon" src="{{ asset_path }}/images/arrow-right.png" alt="expand side pane" width="45" height="45"></span></h1>
      
 
   <form action="assessment-status" method="post" id="question-form" novalidate>
 
     {% set reasonHtml %}
     {{ govukTextarea({
-      id: "part-not-met",
-      name: "part-not-met",
+      id: "part-not-met-dl",
+      name: "part-not-met-dl",
       label: {
         text: "Qualifying period details",
         classes: "govuk-label--s",
@@ -29,8 +29,8 @@
     {% endset -%}
 
       {{ govukRadios({
-        idPrefix: "qp",
-        name: "qp",
+        idPrefix: "dl",
+        name: "dl",
         fieldset: {
           legend: {
             text: "Has the claimant had the functional restriction for at least 3 months?",
@@ -46,20 +46,20 @@
           {
             value: "Yes",
             text: "Yes",
-            checked: (data['qp'] == "Yes")
+            checked: (data['dl'] == "Yes")
           },
           {
             value: "No",
             text: "No",
-            checked: (data['qp'] == "No"),
+            checked: (data['dl'] == "No"),
             conditional: {
               html: reasonHtml
             }
           },
           {
-            value: "No mobility restriction found",
-            text: "No mobility restriction found",
-            checked: (data['qp'] == "No mobility restriction found")
+            value: "No daily living restriction found",
+            text: "No daily living restriction found",
+            checked: (data['dl'] == "No daily living restriction found")
           }
         ]
       }) }}
@@ -68,8 +68,8 @@
 
       {% set 9reasonHtml %}
       {{ govukTextarea({
-        id: "9part-not-met",
-        name: "9part-not-met",
+        id: "9part-not-met-dl",
+        name: "9part-not-met-dl",
         label: {
           text: "Prospective test details",
           classes: "govuk-label--s",
@@ -79,8 +79,8 @@
       {% endset -%}
   
         {{ govukRadios({
-          idPrefix: "9qp",
-          name: "9qp",
+          idPrefix: "dl9",
+          name: "dl9",
           fieldset: {
             legend: {
               text: "Is the claimant likely to have the functional restriction in 9 months?",
@@ -96,20 +96,20 @@
             {
               value: "Yes",
               text: "Yes",
-              checked: (data['9qp'] == "Yes")
+              checked: (data['dl9'] == "Yes")
             },
             {
               value: "No",
               text: "No",
-              checked: (data['9qp'] == "No"),
+              checked: (data['dl9'] == "No"),
               conditional: {
                 html: 9reasonHtml
               }
             },
             {
-              value: "No mobility restriction found",
-              text: "No mobility restriction found",
-              checked: (data['9qp'] == "No mobility restriction found")
+              value: "No daily living restriction found",
+              text: "No daily living restriction found",
+              checked: (data['dl9'] == "No daily living restriction found")
             }
           ]
         }) }}
@@ -120,16 +120,15 @@
 
 
 
-    </div>
-    <div id="recoRightPane" class="govuk-grid-column-two-fifths">
-      <div id="recoBuilderFrame" class="reco-builder-frame  reco-scrollable-wrapper" data-url="claimant-documents-buttons">
-        &nbsp;
-      </div>
-     </div>
-    </div>
-    </main>
-    </div>
-    
+</div>
+<div id="recoRightPane" class="govuk-grid-column-two-fifths">
+  <div id="recoBuilderFrame" class="reco-builder-frame  reco-scrollable-wrapper" data-url="claimant-documents-buttons">
+    &nbsp;
+  </div>
+ </div>
+</div>
+</main>
+</div>
 
 
 {% endblock %}
