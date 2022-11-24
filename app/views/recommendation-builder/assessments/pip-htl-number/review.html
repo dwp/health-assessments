@@ -1,0 +1,211 @@
+{% extends "layout.html" %}
+{% set bodyAttributes = { id: "assess" } %}
+
+{% block pageTitle %}
+  GOV.UK Prototype Kit
+{% endblock %}
+
+{% block main %}
+
+{% include "includes/status/split-screen-nav.html" %}
+
+<main class="govuk-main-wrapper {{ mainClasses }}" id="main-content" role="main"{% if mainLang %} lang="{{ mainLang }}"{% endif %}>
+  <div id="recoLeftPane" class="govuk-grid-column-two-fifths reco-scrollable-wrapper">
+   <h1 class="govuk-heading-l">Review period for PIP<span><img id="recoLeftIcon" class="reco-toggle-icon reco-hidden" src="{{ asset_path }}images/arrow-left.png" alt="contract side pane" width="50" height="50"><img id="recoRightIcon" class="reco-toggle-icon" src="{{ asset_path }}/images/arrow-right.png" alt="expand side pane" width="45" height="45"></span></h1>
+    
+       
+    
+
+  <form action="review-error-radio" method="post" id="question-form" novalidate>
+
+   
+
+    {% set reasonHtml %}
+    {{ govukInput({
+      id: "other-review",
+      name: "other-review",
+      label: {
+        text: "Recommended review period",
+        classes: "govuk-label--s",
+    isPageHeading: false
+      }
+    }) }}
+    {% endset -%}
+
+
+      {{ govukRadios({
+        idPrefix: "whenreview",
+        name: "whenreview",
+        fieldset: {
+          legend: {
+            text: "When should this claim be reviewed?",
+            isPageHeading: false,
+            classes: "govuk-fieldset__legend--s"
+          }
+        },
+        items: [
+          {
+            value: "18 months",
+            text: "18 months",
+            checked: (data['whenreview'] == "18 months")
+                 
+          },
+          {
+            value: "3 years",
+            text: "3 years",
+            checked: (data['whenreview'] == "3 years")
+          },
+          {
+            value: "5 years",
+            text: "5 years",
+            checked: (data['whenreview'] == "5 years")
+          }
+          ,
+          {
+            value: "No future assessments required",
+            text: "No future assessments required",
+            checked: (data['whenreview'] == "No future assessments required")
+          }
+          ,
+          {
+            value: "Other",
+            text: "Other",
+            checked: (data['whenreview'] == "Other"),
+            conditional: {
+              html: reasonHtml
+            }
+          }
+          
+        ]
+      }) }}
+
+      {{ govukTextarea({
+        name: "reviewtimereasons",
+        id: "reviewtimereasons",
+        label: {
+          text: "Why do you recommend this review period?",
+          classes: "govuk-label--s",
+          isPageHeading: false
+        },
+          value: data['reviewtimereasons']
+        
+      }) }}
+
+
+      {{ govukRadios({
+        classes: "govuk-radios--inline",
+        name: "functional-restict-review",
+        idPrefix: "functional-restict-review",
+        fieldset: {
+          legend: {
+            text: "Is it likely that the functional restriction identified in this report will still be present when the claim is reviewed?",
+            isPageHeading: false,
+            classes: "govuk-fieldset__legend--s"
+          }
+        },
+        items: [
+          {
+            value: "Yes",
+            text: "Yes",
+            checked: (data['functional-restict-review'] == "Yes")
+          },
+          {
+            value: "No",
+            text: "No",
+            checked: (data['functional-restict-review'] == "No")
+          },
+          {
+            value: "Not applicable",
+            text: "Not applicable",
+            checked: (data['functional-restict-review'] == "Not applicable")
+          }
+        ]
+      }) }}
+
+      {{ govukRadios({
+        classes: "govuk-radios--inline",
+        name: "as-marker",
+        fieldset: {
+          legend: {
+            text: "Is the claimant likely to need additional support for future claim processes?",
+            isPageHeading: false,
+            classes: "govuk-fieldset__legend--s"
+          }
+        },
+        items: [
+          {
+            value: "Yes",
+            text: "Yes",
+            checked: (data['as-marker'] == "Yes")
+          },
+          {
+            value: "No",
+            text: "No",
+            checked: (data['as-marker'] == "No")
+          }
+        ]
+      }) }}
+
+
+      {{ govukRadios({
+        classes: "govuk-radios--inline",
+        name: "special-rules",
+        fieldset: {
+          legend: {
+            text: "Although the claimant has not claimed under special rules, in your opinion, does the claimant meet the criteria for special rules?",
+            isPageHeading: false,
+            classes: "govuk-fieldset__legend--s"
+          }
+        },
+        items: [
+          {
+            value: "Yes",
+            text: "Yes",
+            checked: (data['special-rules'] == "Yes")
+          },
+          {
+            value: "No",
+            text: "No",
+            checked: (data['special-rules'] == "No")
+          }
+        ]
+      }) }}
+
+
+      {{ govukCheckboxes({
+        name: "harmful-info",
+        fieldset: {
+          legend: {
+            text: "Note",
+            isPageHeading: false,
+            classes: "govuk-fieldset__legend--s"
+          }
+        },
+        items: [
+          {
+            value: "No harmful information has been included in this report.",
+            text: "No harmful information has been included in this report.",
+            checked: data.harmful-info and 'No harmful information has been included in this report.' in data.harmful-info
+          }
+         
+        ]
+      }) }}
+
+
+
+    </form>
+
+
+  </div>
+  <div id="recoRightPane" class="govuk-grid-column-two-fifths">
+    <div id="recoBuilderFrame" class="reco-builder-frame  reco-scrollable-wrapper" data-url="claimant-documents-buttons">
+      &nbsp;
+    </div>
+   </div>
+</div>
+</main>
+</div>
+
+
+
+{% endblock %}

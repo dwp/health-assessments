@@ -1,0 +1,160 @@
+{% extends "layout.html" %}
+{% set bodyAttributes = { id: "assess" } %}
+
+{% block pageTitle %}
+  GOV.UK Prototype Kit
+{% endblock %}
+
+{% block main %}
+
+{% include "includes/status/split-screen-nav.html" %}
+
+<main class="govuk-main-wrapper {{ mainClasses }}" id="main-content" role="main"{% if mainLang %} lang="{{ mainLang }}"{% endif %}>
+  <div id="recoLeftPane" class="govuk-grid-column-two-fifths reco-scrollable-wrapper">
+   <h1 class="govuk-heading-l">Managing therapy<span><img id="recoLeftIcon" class="reco-toggle-icon reco-hidden" src="{{ asset_path }}images/arrow-left.png" alt="contract side pane" width="50" height="50"><img id="recoRightIcon" class="reco-toggle-icon" src="{{ asset_path }}/images/arrow-right.png" alt="expand side pane" width="45" height="45"></span></h1>
+     
+
+              <form action="assessment-status" method="post">
+
+                {% if data['assessmenttype'] !== "Paper" %}
+
+              {{ govukTextarea({
+                name: "managingtherapyNotes",
+                id: "managingtherapyNotes",
+                rows: "8",
+                classes: "govuk-!-margin-bottom-9",
+                label: {
+                  text: "Functional history for managing therapy",
+                  classes: "govuk-label--s",
+                  isPageHeading: false
+                },
+                value: data['managingtherapyNotes']
+              }) }}
+
+            
+
+
+              {{ govukRadios({
+                name: "managingtherapySelect",
+                fieldset: {
+                  classes: "govuk-!-margin-bottom-9",
+                  legend: {
+                    text: "Which of these describes how well the claimant can manage therapy or monitor a health condition?",
+                    isPageHeading: false,
+                    classes: "govuk-fieldset__legend--s"
+                  }
+                },
+                items: [
+                  {
+                    value: "(3a) Either does not receive medication or therapy or need to monitor a health condition, or can manage medication or therapy or monitor a health condition unaided",
+                    text: "(3a) Either does not receive medication or therapy or need to monitor a health condition, or can manage medication or therapy or monitor a health condition unaided",
+                    checked: (data['managingtherapySelect'] == "(3a) Either does not receive medication or therapy or need to monitor a health condition, or can manage medication or therapy or monitor a health condition unaided")
+                  },
+                  {
+                    value: "(3b) Needs to use an aid or appliance to be able to manage medication, or needs supervision, prompting or assistance to be able to manage medication, or needs supervision, prompting or assistance to be able to monitor a health condition",
+                    text: "(3b) Needs to use an aid or appliance to be able to manage medication, or needs supervision, prompting or assistance to be able to manage medication, or needs supervision, prompting or assistance to be able to monitor a health condition",
+                    checked: (data['managingtherapySelect'] == "(3b) Needs to use an aid or appliance to be able to manage medication, or needs supervision, prompting or assistance to be able to manage medication, or needs supervision, prompting or assistance to be able to monitor a health condition")
+                  },
+                  {
+                    value: "(3c) Needs supervision, prompting or assistance to be able to manage therapy that takes no more than 3.5 hours a week",
+                    text: "(3c) Needs supervision, prompting or assistance to be able to manage therapy that takes no more than 3.5 hours a week",
+                    checked: (data['managingtherapySelect'] == "(3c) Needs supervision, prompting or assistance to be able to manage therapy that takes no more than 3.5 hours a week")
+                  },
+                  {
+                    value: "(3d) Needs supervision, prompting or assistance to be able to manage therapy that takes more than 3.5 but no more than 7 hours a week",
+                    text: "(3d) Needs supervision, prompting or assistance to be able to manage therapy that takes more than 3.5 but no more than 7 hours a week",
+                    checked: (data['managingtherapySelect'] == "(3d) Needs supervision, prompting or assistance to be able to manage therapy that takes more than 3.5 but no more than 7 hours a week")
+                  },
+                  {
+                    value: "(3e) Needs supervision, prompting or assistance to be able to manage therapy that takes more than 7 but no more than 14 hours a week",
+                    text: "(3e) Needs supervision, prompting or assistance to be able to manage therapy that takes more than 7 but no more than 14 hours a week",
+                    checked: (data['managingtherapySelect'] == "(3e) Needs supervision, prompting or assistance to be able to manage therapy that takes more than 7 but no more than 14 hours a week")
+                  },
+                  {
+                    value: "(3f) Needs supervision, prompting or assistance to be able to manage therapy that takes more than 14 hours a week",
+                    text: "(3f) Needs supervision, prompting or assistance to be able to manage therapy that takes more than 14 hours a week",
+                    checked: (data['managingtherapySelect'] == "(3f) Needs supervision, prompting or assistance to be able to manage therapy that takes more than 14 hours a week")
+                  }
+                ]
+              }) }}
+
+       
+
+                    {{ govukTextarea({
+                      name: "managingtherapyReason",
+                      id: "managingtherapyReason",
+                      label: {
+                        text: "What is the reason for this answer?",
+                        classes: "govuk-label--s",
+                        isPageHeading: false
+                      },
+                      value: data['managingtherapyReason']
+                    }) }}
+
+
+                    {% else %}
+                    {{ govukRadios({
+                      name: "managingtherapySelectpbr",
+                      fieldset: {
+                        classes: "govuk-!-margin-bottom-9",
+                        legend: {
+                          text: "Which of these describes how well the claimant can manage therapy or monitor a health condition?",
+                          isPageHeading: false,
+                          classes: "govuk-fieldset__legend--s"
+                        }
+                      },
+                      items: [
+                      {
+                        value: "(3a) Either does not receive medication or therapy or need to monitor a health condition, or can manage medication or therapy or monitor a health condition unaided",
+                        text: "(3a) Either does not receive medication or therapy or need to monitor a health condition, or can manage medication or therapy or monitor a health condition unaided",
+                        checked: (data['managingtherapySelectpbr'] == "(3a) Either does not receive medication or therapy or need to monitor a health condition, or can manage medication or therapy or monitor a health condition unaided")
+                      },
+                      {
+                        value: "(3b) Needs to use an aid or appliance to be able to manage medication, or needs supervision, prompting or assistance to be able to manage medication, or needs supervision, prompting or assistance to be able to monitor a health condition",
+                        text: "(3b) Needs to use an aid or appliance to be able to manage medication, or needs supervision, prompting or assistance to be able to manage medication, or needs supervision, prompting or assistance to be able to monitor a health condition",
+                        checked: (data['managingtherapySelectpbr'] == "(3b) Needs to use an aid or appliance to be able to manage medication, or needs supervision, prompting or assistance to be able to manage medication, or needs supervision, prompting or assistance to be able to monitor a health condition")
+                      },
+                      {
+                        value: "(3c) Needs supervision, prompting or assistance to be able to manage therapy that takes no more than 3.5 hours a week",
+                        text: "(3c) Needs supervision, prompting or assistance to be able to manage therapy that takes no more than 3.5 hours a week",
+                        checked: (data['managingtherapySelectpbr'] == "(3c) Needs supervision, prompting or assistance to be able to manage therapy that takes no more than 3.5 hours a week")
+                      },
+                      {
+                        value: "(3d) Needs supervision, prompting or assistance to be able to manage therapy that takes more than 3.5 but no more than 7 hours a week",
+                        text: "(3d) Needs supervision, prompting or assistance to be able to manage therapy that takes more than 3.5 but no more than 7 hours a week",
+                        checked: (data['managingtherapySelectpbr'] == "(3d) Needs supervision, prompting or assistance to be able to manage therapy that takes more than 3.5 but no more than 7 hours a week")
+                      },
+                      {
+                        value: "(3e) Needs supervision, prompting or assistance to be able to manage therapy that takes more than 7 but no more than 14 hours a week",
+                        text: "(3e) Needs supervision, prompting or assistance to be able to manage therapy that takes more than 7 but no more than 14 hours a week",
+                        checked: (data['managingtherapySelectpbr'] == "(3e) Needs supervision, prompting or assistance to be able to manage therapy that takes more than 7 but no more than 14 hours a week")
+                      },
+                      {
+                        value: "(3f) Needs supervision, prompting or assistance to be able to manage therapy that takes more than 14 hours a week",
+                        text: "(3f) Needs supervision, prompting or assistance to be able to manage therapy that takes more than 14 hours a week",
+                        checked: (data['managingtherapySelectpbr'] == "(3f) Needs supervision, prompting or assistance to be able to manage therapy that takes more than 14 hours a week")
+                      }
+                    ]
+                  }) }}
+
+                    {% endif %}
+
+                    <!-- {{ govukButton({
+                      text: "Save and continue"
+                    }) }} -->
+
+
+
+
+            </form>
+
+          </div>
+          <div id="recoRightPane" class="govuk-grid-column-two-fifths">
+            <div id="recoBuilderFrame" class="reco-builder-frame  reco-scrollable-wrapper" data-url="claimant-documents-buttons">
+              &nbsp;
+            </div>
+           </div>
+    </div>
+  </main>
+  </div>
+{% endblock %}
