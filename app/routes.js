@@ -28,6 +28,10 @@ router.all('*pip-htl-1606*', (req, res, next) => {
     return next();
 })
 
+router.all('*pip-htl-1659*', (req, res, next) => {
+    res.locals.containerClasses = 'full-width-container'
+    return next();
+})
 
 // Add your routes here - above the module.exports line
 router.post("/wca-htl-975-new-end/recommendation/decision-post", function(req, res, next){

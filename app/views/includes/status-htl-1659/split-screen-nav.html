@@ -16,12 +16,14 @@
   </section>
   
   
+
+
   
   <div class="reco-nav-wrapper">
     <div class="govuk-width-container {{ containerClasses }}">
         <div class="govuk-grid-row">
             <!-- one -->
-            
+            <div class="govuk-grid-column-one-half">
                 <div class="moj-primary-navigation">
                     <div class="moj-primary-navigation__container">
                         <div class="moj-primary-navigation__nav">
@@ -31,26 +33,43 @@
 
                                     <a class="moj-primary-navigation__link" aria-current="page" href="{{ data.recentPages.combined | default('evidence-used')}}">Assessment</a>
                                 </li>
-                                <!-- <li class="moj-primary-navigation__item">
-                                    <a class="moj-primary-navigation__link"  href="check1">Check answers</a>
-                                    </li> -->
+                              
                                     <li class="moj-primary-navigation__item">
-                                        <a class="moj-primary-navigation__link reco-builder-page-link popup"  href="claimant-documents-buttons">Claimant documents</a>
+                                      <a class="moj-primary-navigation__link reco-builder-page-link popup"  href="claimant-documents-buttons">Claimant documents</a>
+                                      </li>
+                                      <li class="moj-primary-navigation__item">
+                                        <a class="moj-primary-navigation__link"  href="check1">Split screen view</a>
                                         </li>
-                                    <!-- <li class="moj-primary-navigation__item">
-                                    <a class="moj-primary-navigation__link reco-builder-page-link"  href="check">Preview report</a>
-                                    </li> -->
                             </ul>
                             </nav>
                         </div>
                     </div>
                 </div>
-        
-           
-         
+            </div>
+          
+            <!-- three -->
+            <div class="govuk-grid-column-one-half">
+                <div class="moj-primary-navigation">
+                    <div class="moj-primary-navigation__container">
+                        <div class="moj-primary-navigation__nav">
+                            <nav class="moj-primary-navigation" aria-label="Primary navigation">
+                            <ul class="moj-primary-navigation__list">
+                                
+                                <!-- <li class="moj-primary-navigation__item">
+                                <a class="moj-primary-navigation__link reco-builder-page-link"  href="check">Preview report</a>
+                                </li> -->
+                                
+                            </ul>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>
+
+
   
   
   
