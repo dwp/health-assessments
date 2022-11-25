@@ -30,15 +30,16 @@
                             <nav class="moj-primary-navigation" aria-label="Primary navigation">
                             <ul class="moj-primary-navigation__list">
                                 <li class="moj-primary-navigation__item">
-
-                                    <a class="moj-primary-navigation__link" aria-current="page" href="{{ data.recentPages.combined | default('evidence-used')}}">Assessment</a>
+                                  
+                                  <a class="moj-primary-navigation__link" href="{{ data.recentPages.combined | default('evidence-used')}}">Assessment</a>
+                           
                                 </li>
                               
                                     <li class="moj-primary-navigation__item">
-                                      <a class="moj-primary-navigation__link reco-builder-page-link popup"  href="#">Claimant documents</a>
+                                      <a class="moj-primary-navigation__link reco-builder-page-link popup"  href="pip-assessment-.html">Claimant documents</a>
                                       </li>
                                       <li class="moj-primary-navigation__item">
-                                        <a class="moj-primary-navigation__link"  href="#">Split screen view</a>
+                                        <a class="moj-primary-navigation__link" aria-current="page" href="{{ data.recentPages.combined | default('evidence-used')}}">Split screen view</a>
                                         </li>
                             </ul>
                             </nav>
