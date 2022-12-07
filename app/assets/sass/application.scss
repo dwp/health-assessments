@@ -358,3 +358,29 @@ iframe.document {
     padding-left: 8px;
     margin-left: 60%;
 }
+
+
+.moj-primary-navigation__link {
+    &[aria-current]:first-of-type {
+        color: $govuk-link-colour;
+        position: relative;
+        text-decoration: none;
+        font-weight: bold;
+        &:before {
+          background-color: $govuk-link-colour;
+          content: "";
+          display: block;
+          height: 5px;
+          position: absolute; bottom: 0; left: 0;
+          width: 100%;
+        }
+    }
+}
+
+.last-saved-time {
+    padding-top: 18px;
+}
+
+.strong {
+    font-weight: bold;
+}

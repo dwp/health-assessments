@@ -15,6 +15,7 @@ router.all("*", (req, res, next) => {
     const urlEnd = req.originalUrl.split('/').pop();
     Object.entries(urlsByTab).forEach(([k, v]) => {
         if(v.includes(urlEnd)) {
+            req.session.data.currentTab = k;
             req.session.data.recentPages[k] = urlEnd; 
             req.session.data.recentPages.combined = urlEnd;
         }
@@ -95,11 +96,22 @@ router.post("/wca-htl-1023/recommendation/decision-post", function(req, res, nex
         }
         next();
         })
-    
+
         router.post('/autosave', function (req, res, next) {
+            let now = new Date();
             req.session.data[req.body.field] = req.body.value;
-            res.sendStatus(200);
+            req.session.data.lastSaved = `${now.getHours().toString().padStart(2, '0')}:${now.getMinutes().toString().padStart(2, '0')}`;
+            res.status(200).json({});
         });
+
+        // router.post('/autosave', function (req, res, next) {
+        //     req.session.data[req.body.field] = req.body.value;
+        //     res.sendStatus(200);
+        // });
 
 // console.log('**************',req.path)
 module.exports = router
+
+
+
+

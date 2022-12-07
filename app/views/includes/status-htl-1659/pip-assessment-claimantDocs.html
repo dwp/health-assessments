@@ -1,5 +1,5 @@
 <section class="key-details-bar" role="contentinfo" aria-label="Key details">
-  <dl class="key-details-bar__key-details">
+  <dl class="key-details-bar__key-details {{ containerClasses }}">
     <div class="key-details-bar__top-block">
       <dt class="govuk-visually-hidden">Name:</dt>
       <dt class="key-details-bar__name">Miss Luisa Lockhart</dt>
@@ -17,6 +17,7 @@
 
 
 
+
   
 <div class="reco-nav-wrapper">
   <div class="govuk-width-container {{ containerClasses }}">
@@ -29,15 +30,15 @@
                           <nav class="moj-primary-navigation" aria-label="Primary navigation">
                           <ul class="moj-primary-navigation__list">
                               <li class="moj-primary-navigation__item">
-                                <a class="moj-primary-navigation__link" href="{{ data.recentPages.combined | default('evidence-used')}}">Assessment</a>
+                                <a class="moj-primary-navigation__link split-screen-off" href="{{ data.recentPages.combined | default('evidence-used')}}">Assessment</a>
                            
                               </li>
                             
                                   <li class="moj-primary-navigation__item">
-                                    <a class="moj-primary-navigation__link reco-builder-page-link popup"  href="#">Claimant documents</a>
+                                    <a class="moj-primary-navigation__link popup split-screen-off"  href="claimant-documents-buttons">Claimant documents</a>
                                     </li>
                                     <li class="moj-primary-navigation__item">
-                                      <a class="moj-primary-navigation__link" href="{{ data.recentPages.combined | default('evidence-used')}}">Split screen view</a>
+                                      <a id="splitScreenLink" data-is-toggled-on="{{ data.splitScreen | default('true') }}" class="moj-primary-navigation__link" href="#">Use split screen</a>
                                       </li>
                           </ul>
                           </nav>
@@ -80,7 +81,7 @@
   
       <input type="hidden" name="previousDocument" id="previousDocument" value="{{ data.openDocument }}">
 
-      <ul class="moj-side-navigation__list">
+      <!-- <ul class="moj-side-navigation__list">
     
         <li class="moj-side-navigation__item">
     
@@ -88,148 +89,65 @@
     
         </li>
          
-        </ul>
+        </ul> -->
+        <!-- {{ govukBackLink({
+          text: "",
+          href: ""
+        }) }} -->
+  
+        <ul class="moj-side-navigation__list">
+      
+          <li class="moj-side-navigation__item">
+      
+              <a href="claimant-documents-buttons" aria-current="location">< Back to claimant documents overview</a>
+      
+          </li>
+           
+          </ul>
 
-      <h4 class="moj-side-navigation__title">History</h4>
+      <h4 class="moj-side-navigation__title">Claimant documents</h4>
       <ul class="moj-side-navigation__list">
      
         <li class="moj-side-navigation__item {% if activeUrl === 'evidence-used' %}moj-side-navigation__item--active{% endif %}">
   
-          <a href="evidence-used">Evidence</a>
+          <a href="further-evidence-cq">Claimant questionaire</a>
   
       </li>
   
       <li class="moj-side-navigation__item {% if activeUrl === 'historyofcondition' %}moj-side-navigation__item--active{% endif %}">
   
-          <a href="historyofcondition" aria-current="location">History of condition</a>
+          <a href="further-evidence-support-worker" aria-current="location">Support work telephone call</a>
   
       </li>
        
-      </ul>
-
-
-
-      <h4 class="moj-side-navigation__title">Daily living</h4>
-      <ul class="moj-side-navigation__list">
-      
         
         <li class="moj-side-navigation__item {% if activeUrl === 'preparingfood' %}moj-side-navigation__item--active{% endif %}">
 
-          <a href="preparingfood">Preparing food</a>
+          <a href="further-evidence-careplanv1-0">Care plan</a>
 
       </li>
 
       <li class="moj-side-navigation__item {% if activeUrl === 'takingnutrition' %}moj-side-navigation__item--active{% endif %}">
 
-          <a href="takingnutrition">Taking nutrition</a>
+          <a href="further-evidence-careplan-v1-2">Care plan v1.2</a>
 
       </li>
 
-      <li class="moj-side-navigation__item {% if activeUrl === 'managingtherapy' %}moj-side-navigation__item--active{% endif %}">
+      <li class="moj-side-navigation__item {% if activeUrl === 'takingnutrition' %}moj-side-navigation__item--active{% endif %}">
 
-          <a href="managingtherapy">Managing therapy</a>
+        <a href="further-evidence-medicationList">Medication list</a>
 
-      </li>
+    </li>
 
-      <li class="moj-side-navigation__item {% if activeUrl === 'washingbathing' %}moj-side-navigation__item--active{% endif %}">
+    <li class="moj-side-navigation__item {% if activeUrl === 'takingnutrition' %}moj-side-navigation__item--active{% endif %}">
 
-          <a href="washingbathing">Washing and bathing</a>
+      <a href="further-evidence-medicationList-v1-0">Medication list v1.0</a>
 
-      </li>
-
-      <li class="moj-side-navigation__item {% if activeUrl === 'toiletneeds' %}moj-side-navigation__item--active{% endif %}">
-
-          <a href="toiletneeds">Managing toilet needs</a>
-
-      </li>
-
-      <li class="moj-side-navigation__item {% if activeUrl === 'dressing' %}moj-side-navigation__item--active{% endif %}">
-
-          <a href="dressing">Dressing and undressing</a>
-          <li class="moj-side-navigation__item {% if activeUrl === 'communicatingverbally' %}moj-side-navigation__item--active{% endif %}">
-
-            <a href="communicatingverbally">Communication verbally</a>
-
-        </li>
-
-        <li class="moj-side-navigation__item {% if activeUrl === 'readingunderstanding' %}moj-side-navigation__item--active{% endif %}">
-
-            <a href="readingunderstanding">Reading and understanding signs, symbols and words</a>
-
-        </li>
-
-        <li class="moj-side-navigation__item {% if activeUrl === 'facetoface' %}moj-side-navigation__item--active{% endif %}">
-
-            <a href="facetoface">Engaging face to face</a>
-
-        </li>
-
-        <li class="moj-side-navigation__item {% if activeUrl === 'budgeting' %}moj-side-navigation__item--active{% endif %}">
-
-            <a href="budgeting">Budgeting</a>
-
-        </li>
-
-       
-      </ul>
-  
-      <h4 class="moj-side-navigation__title">Mobility</h4>
-      <ul class="moj-side-navigation__list">
-        <li class="moj-side-navigation__item {% if activeUrl === 'journeys' %}moj-side-navigation__item--active{% endif %}">
-
-          <a href="journeys">Planning and following journeys</a>
-
-      </li>
-
-      <li class="moj-side-navigation__item {% if activeUrl === 'movingaround' %}moj-side-navigation__item--active{% endif %}">
-
-          <a href="movingaround">Moving around</a>
-
-      </li>
-         
-         
-       
-       </ul>
-
-
-
-
-  
-      <h4 class="moj-side-navigation__title">Summary</h4>
-      <ul class="moj-side-navigation__list">
-        <li class="moj-side-navigation__item {% if activeUrl === 'dailyliving' %}moj-side-navigation__item--active{% endif %}">
-  
-          <a href="dailyliving">Daily living qualifying period and prospective test</a>
-    
-      </li>
-    
-        <li class="moj-side-navigation__item {% if activeUrl === 'mobility' %}moj-side-navigation__item--active{% endif %}">
-    
-          <a href="mobility">Mobility qualifying period and prospective test</a>
-    
-      </li>
-    
-      <li class="moj-side-navigation__item {% if activeUrl === 'recommend' %}moj-side-navigation__item--active{% endif %}">
-    
-          <a href="recommend">Reason for recommendation</a>
-    
-      </li>
-    
-      <li class="moj-side-navigation__item {% if activeUrl === 'review' %}moj-side-navigation__item--active{% endif %}">
-    
-          <a href="review">Review period for PIP</a>
-    
-      </li>
+  </li>
+   
          
          
        </ul>
 
-       <form action="check" method="post" novalidate>
-
-          <button class="govuk-button" data-module="govuk-button">
-            Check answers
-          </button>
-      
-      </form>
     </nav>
     </div>

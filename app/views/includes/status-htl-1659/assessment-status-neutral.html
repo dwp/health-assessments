@@ -1,0 +1,67 @@
+<section class="key-details-bar" role="contentinfo" aria-label="Key details">
+    <dl class="key-details-bar__key-details {{ containerClasses }}">
+      <div class="key-details-bar__top-block">
+        <dt class="govuk-visually-hidden">Name:</dt>
+        <dt class="key-details-bar__name">Miss Luisa Lockhart</dt>
+  
+        <dt class="govuk-visually-hidden">National Insurance number:</dt>
+        <dt class="key-details-bar__nino">RN 65 43 21 X</dt>
+      </div>
+  
+      <div class="key-details-bar__bottom-block">
+        <dt>Date of birth:</dt>
+        <dd>31 December 1980</dd>
+      </div>
+    </dl>
+  </section>
+
+  <div class="reco-nav-wrapper">
+    <div class="govuk-width-container {{ containerClasses }}">
+        <div class="govuk-grid-row">
+            <!-- one -->
+            <div class="govuk-grid-column-one-half">
+                <div class="moj-primary-navigation">
+                    <div class="moj-primary-navigation__container">
+                        <div class="moj-primary-navigation__nav">
+                            <nav class="moj-primary-navigation" aria-label="Primary navigation">
+                            <ul class="moj-primary-navigation__list">
+                                <li class="moj-primary-navigation__item">
+                                  
+                                  <a class="moj-primary-navigation__link split-screen-off" href="{{ data.recentPages.combined | default('evidence-used')}}">Assessment</a>
+                           
+                                </li>
+                              
+                                    <li class="moj-primary-navigation__item">
+                                      <a class="moj-primary-navigation__link popup split-screen-off"  href="claimant-documents-buttons">Claimant documents</a>
+                                      </li>
+                            </ul>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+          
+            <!-- three -->
+            <div class="govuk-grid-column-one-half">
+                <div class="moj-primary-navigation">
+                    <div class="moj-primary-navigation__container">
+                        <div class="moj-primary-navigation__nav">
+                            <nav class="moj-primary-navigation" aria-label="Primary navigation">
+                            <ul class="moj-primary-navigation__list">
+                                
+                                <!-- <li class="moj-primary-navigation__item">
+                                <a class="moj-primary-navigation__link reco-builder-page-link"  href="check">Preview report</a>
+                                </li> -->
+                                
+                            </ul>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <li class="moj-primary-navigation__item last-saved-time">
+              <p><span class=strong>Last saved:</span> {{ data.lastSaved | default('Not saved')}}</p>
+            </li>
+        </div>
+    </div>
+</div>

@@ -10,6 +10,14 @@ if(document.getElementById('recoBuilderFrame')) {
         element.addEventListener('click', togglePane);
     });
 
+    document.querySelectorAll('#splitScreenLink').forEach((element) => {
+        element.addEventListener('click', toggleSplitScreen);
+    });
+
+    document.querySelectorAll('.split-screen-off').forEach((element) => {
+        element.addEventListener('click', turnOffSplitScreen);
+    });
+
     function addDocumentEventListeners() {
         document.querySelectorAll('.reco-document').forEach((element) => {
             element.addEventListener('click', loadDocument);
@@ -64,7 +72,51 @@ if(document.getElementById('recoBuilderFrame')) {
     }
 
     // <input type="hidden" name="previousDocument" id="previousDocument" value="{{ data.openDocument }}">
+    function toggleSplitScreen(e) {
+        e.preventDefault();
+        document.getElementById('splitScreenLink').setAttribute("aria-current", "page");
+        document.getElementById('recoLeftPane').classList.remove('govuk-grid-column-two-thirds');
+        document.getElementById('recoLeftPane').classList.add('govuk-grid-column-two-fifths');
+        document.getElementById('recoRightPane').classList.remove('reco-hidden');
+        e.target.dataset.isToggledOn = 'true';
+        fetch('/autosave', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json'},
+          body: JSON.stringify({ field: 'splitScreen', value: e.target.dataset.isToggledOn }),
+        })
+          .catch((error) => console.error('Error:', error));
+    }
 
+    function turnOffSplitScreen(e) {
+        e.preventDefault();
+        document.getElementById('splitScreenLink').removeAttribute("aria-current");
+        document.getElementById('recoLeftPane').classList.remove('govuk-grid-column-two-fifths');
+        document.getElementById('recoLeftPane').classList.add('govuk-grid-column-two-thirds');
+        document.getElementById('recoRightPane').classList.add('reco-hidden');
+        document.getElementById('splitScreenLink').dataset.isToggledOn = 'false';
+        fetch('/autosave', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json'},
+          body: JSON.stringify({ field: 'splitScreen', value: 'false' }),
+        })
+          .catch((error) => console.error('Error:', error));
+          console.log(e.target);
+          location.href = e.target.href;
+    }
+
+    if(document.getElementById('splitScreenLink')) {
+        if(document.getElementById('splitScreenLink').dataset.isToggledOn === 'true' && document.getElementById('recoRightPane').classList.contains('reco-hidden')) {
+            document.getElementById('recoLeftPane').classList.remove('govuk-grid-column-two-thirds');
+            document.getElementById('recoLeftPane').classList.add('govuk-grid-column-two-fifths');
+            document.getElementById('recoRightPane').classList.remove('reco-hidden');
+            document.getElementById('splitScreenLink').setAttribute("aria-current", "page");
+        } else if(document.getElementById('splitScreenLink').dataset.isToggledOn === 'false' && !document.getElementById('recoRightPane').classList.contains('reco-hidden')) {
+            document.getElementById('recoLeftPane').classList.remove('govuk-grid-column-two-fifths');
+            document.getElementById('recoLeftPane').classList.add('govuk-grid-column-two-thirds');
+            document.getElementById('recoRightPane').classList.add('reco-hidden');
+            document.getElementById('splitScreenLink').removeAttribute("aria-current");
+        }
+    }
 
     function togglePane(e) {
         const isLeftArrow = e.target.id === 'recoLeftIcon';
@@ -100,10 +152,12 @@ if(document.getElementById('recoBuilderFrame')) {
     }
 
     function manaegSidePanel(e) {
-        if (document.body.clientWidth < 1000 && !document.getElementById('recoRightIcon').classList.contains('reco-hidden')) {
-            document.getElementById('recoRightIcon').click();
-        } else if (document.body.clientWidth >= 1000 && !document.getElementById('recoLeftIcon').classList.contains('reco-hidden')) {
-            document.getElementById('recoLeftIcon').click();
+        if(document.getElementById('recoRightIcon')) {
+            if (document.body.clientWidth < 1000 && !document.getElementById('recoRightIcon').classList.contains('reco-hidden')) {
+                document.getElementById('recoRightIcon').click();
+            } else if (document.body.clientWidth >= 1000 && !document.getElementById('recoLeftIcon').classList.contains('reco-hidden')) {
+                document.getElementById('recoLeftIcon').click();
+            }
         }
     }
 

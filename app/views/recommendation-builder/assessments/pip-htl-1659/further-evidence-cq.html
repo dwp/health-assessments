@@ -7,9 +7,9 @@ Claimant documents - GOV.UK
 
 {% block main %}
 
-{% include "includes/assessment-status-neutral.html" %}
+{% include "includes/status-htl-1659/pip-assessment-claimantDocs.html" %}
 
-
+<br>
 <div class="govuk-width-container">
 
   <!-- {{ govukBackLink({
@@ -17,36 +17,39 @@ Claimant documents - GOV.UK
     href: "dailyliving"
   }) }} -->
 
-  {{ govukBackLink({
-    text: "Back",
-    href: "javascript:history.back()"
-  }) }}
+
 
 <!-- <main class="govuk-main-wrapper {{ mainClasses }}" id="main-content" role="main"{% if mainLang %} lang="{{ mainLang }}"{% endif %}>
  -->
 
-  <div class="govuk-grid-row">
-    <div class="govuk-grid-column-full">
+ 
+    <div class="govuk-grid-column-three-quarters">
+      <!-- {{ govukBackLink({
+        text: "Back to claimant documents overview",
+        href: "claimant-documents-buttons"
+      }) }} -->
 
-      <h1 class="govuk-heading-l">Document review</h1>
-
-      <strong class="govuk-tag govuk-tag--yellow">
-        New document
-      </strong>
-      <span class="govuk-body-s">This is a new document and needs to be reviewed.</span>
-
-      <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
-
-    </div>
-  </div>
+      <h1 class="govuk-heading-l">Claimant questionaire</h1>
+      <dl class="govuk-summary-list govuk-summary-list--no-border">
+      
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Date of document
+          </dt>
+          <dd class="govuk-summary-list__value">
+            10 Sept 2022
+          </dd>
+        </div>
+      
+      </dl>
 
   <div class="govuk-grid-row govuk-!-margin-bottom-6">
-    <div class="govuk-grid-column-full">
+  
       <iframe class="document" src="/public/pdfs/Miss-Lockhart-CQ-v1.1.pdf" title="PIP2 document"></iframe>
     </div>
   </div>  
   
-
+<!-- 
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
@@ -523,7 +526,7 @@ Claimant documents - GOV.UK
           </ul>
 
         </nav>
-      </aside>
+      </aside> -->
 
     </div>
 

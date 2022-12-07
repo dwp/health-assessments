@@ -7,26 +7,11 @@ Claimant documents - GOV.UK
 
 {% block main %}
 
-{% include "includes/assessment-status-neutral.html" %}
+{% include "includes/status-htl-1659/pip-assessment-claimantDocs.html" %}
 
-
+<br>
 <div class="govuk-width-container">
 
-  <!-- {{ govukBackLink({
-    text: "Back",
-    href: "dailyliving"
-  }) }} -->
-
-  {{ govukBackLink({
-    text: "Back",
-    href: "javascript:history.back()"
-  }) }}
-
-<!-- <main class="govuk-main-wrapper {{ mainClasses }}" id="main-content" role="main"{% if mainLang %} lang="{{ mainLang }}"{% endif %}>
- -->
-
-  <div class="govuk-grid-row">
-    <div class="govuk-grid-column-full">
 
       <h1 class="govuk-heading-l">Document review</h1>
 
@@ -41,7 +26,7 @@ Claimant documents - GOV.UK
   </div>
 
   <div class="govuk-grid-row govuk-!-margin-bottom-6">
-    <div class="govuk-grid-column-full">
+   
       <iframe class="document" src="/public/pdfs/Miss-Lockhart-PA3-v1.5 (1).pdf" title="PIP2 document"></iframe>
     </div>
   </div>  
