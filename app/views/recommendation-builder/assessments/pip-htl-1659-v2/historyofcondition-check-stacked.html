@@ -1,0 +1,65 @@
+{% extends "layout.html" %}
+{% set bodyAttributes = { id: "assess" } %}
+
+{% block pageTitle %}
+  GOV.UK Prototype Kit
+{% endblock %}
+
+{% block main %}
+
+
+{% include "includes/status-htl-1659/split-screen-nav.html" %}
+
+<main class="govuk-main-wrapper {{ mainClasses }}" id="main-content" role="main"{% if mainLang %} lang="{{ mainLang }}"{% endif %}>
+  <div id="recoLeftPane" class="govuk-grid-column-two-fifths reco-scrollable-wrapper1">
+   <h1 class="govuk-heading-l">History of condition</h1>
+
+ 
+      
+
+
+            <form action="historyofcondition" method="get">
+
+              <h3 class="govuk-heading-s">Condition 1</h3>
+
+              <p class="govuk-body">Diabetes</p>
+
+              <p class="govuk-body">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+              <a href="#" class="govuk-link">Change</a> &nbsp&nbsp <a href="#" class="govuk-link">Remove</a>
+
+              <hr class="govuk-!-margin-top-6 govuk-!-margin-bottom-6">
+     
+
+
+
+
+              <h3 class="govuk-heading-s">Condition 2</h3>
+
+              <p class="govuk-body">Depression and anxiety</p>
+
+              <p class="govuk-body">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+              <a href="#" class="govuk-link">Change</a> &nbsp&nbsp <a href="#" class="govuk-link">Remove</a>
+             
+              <hr class="govuk-!-margin-top-6 govuk-!-margin-bottom-6">
+                      {{ govukButton({
+                        text: "Add another"
+                      }) }}
+
+            </form>
+
+
+
+          </div>
+
+          
+          <div id="recoRightPane" class="govuk-grid-column-two-fifths">
+            <div id="recoBuilderFrame" class="reco-builder-frame  reco-scrollable-wrapper1" data-url="claimant-documents-buttons">
+              &nbsp;
+            </div>
+           </div>
+    </div>
+  </main>
+  </div>
+{% endblock %}

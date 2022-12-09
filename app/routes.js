@@ -115,20 +115,67 @@ router.post("/wca-htl-1023/recommendation/decision-post", function(req, res, nex
         // });
 
 // console.log('**************',req.path)
+
+
+// router.post('/historyofcondition-check', (req, res, next) => {
+//     const { data } = req.session;
+//     const condition = data.condition;
+    
+//     if(condition.id) {
+//     amendCondition(data.conditionOrder, condition);
+//     } else {
+//     // give condition an id - to find in amend step
+//     condition.id = data.conditionOrder.length + 1;
+//     data.conditionOrder.push(condition);
+//     }
+    
+//     res.render('condition/check-order.njk', { condition: data.condition });
+//     })
+
+
+
+    router.post('/recommendation-builder/assessments/pip-htl-1659-v2/historyofcondition',(req, res, next)=>{
+        console.log(req.path)
+        next()
+    }, (req, res, next) => {
+        const { data } = req.session;
+        if(req.session.data.conditions){
+            req.session.data.conditions.push({
+                key:{text:req.body['condition-name']},
+                value:{text:req.body['condition-history']},
+                actions: {
+                    items: [
+                      {
+                        href: "#",
+                        text: "Change",
+                        visuallyHiddenText: "name"
+                      }
+                    ]
+                  }
+            })
+        } else {
+            req.session.data.conditions=[{
+                key:{text:req.body['condition-name']},
+                value:{text:req.body['condition-history']},
+                actions: {
+                    items: [
+                      {
+                        href: "#",
+                        text: "Change",
+                        visuallyHiddenText: "name"
+                      }
+                    ]
+                  }
+            }];
+        }
+        
+        // console.log('*****',req.session.data.conditions)
+        // console.log('*****',req.session)
+        res.redirect('historyofcondition-check.html');
+        })
+
+
+
 module.exports = router
 
 
-router.post('/historyofcondition-check', (req, res, next) => {
-    const { data } = req.session;
-    const condition = data.condition;
-    
-    if(condition.id) {
-    amendCondition(data.conditionOrder, condition);
-    } else {
-    // give condition an id - to find in amend step
-    condition.id = data.conditionOrder.length + 1;
-    data.conditionOrder.push(condition);
-    }
-    
-    res.render('condition/check-order.njk', { condition: data.condition });
-    })

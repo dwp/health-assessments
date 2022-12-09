@@ -228,22 +228,22 @@ hr { height:0px; border-top:1px solid #b1b4b6; border-bottom: 0;}
     max-width: 100%;
 }
 
-.reco-scrollable-wrapper {
-    // height: auto;
-    // max-height: 900px;
-    // overflow-y: scroll;
-}
-
 
 .reco-builder-frame {
     width: 100%;
     padding: 1rem;
 }
 
-.reco-scrollable-wrapper {
+.reco-scrollable-wrapper1 {
     height: auto;
     max-height: 900px;
     overflow-y: scroll;
+}
+
+.reco-scrollable-wrapper {
+    // height: auto;
+    // max-height: 900px;
+    // overflow-y: scroll;
 }
 
 .reco-nav-wrapper {
