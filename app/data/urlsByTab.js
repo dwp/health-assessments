@@ -20,5 +20,13 @@ module.exports = {
         'budgeting',
         'journeys',
         'movingaround'
+    ],
+    documents: [
+        'further-evidence-cq',
+        'further-evidence-support-worker',
+        'further-evidence-careplanv1-0',
+        'further-evidence-careplan-v1-2',
+        'further-evidence-medicationList',
+        'further-evidence-medicationList-v1-0'
     ]
 }

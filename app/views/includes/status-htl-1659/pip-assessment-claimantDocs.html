@@ -15,7 +15,7 @@
   </dl>
 </section>
 
-
+<div id="recoBuilderFrame"></div>
 
 
   
@@ -38,7 +38,7 @@
                                     <a class="moj-primary-navigation__link popup split-screen-off"  href="claimant-documents-buttons">Claimant documents</a>
                                     </li>
                                     <li class="moj-primary-navigation__item">
-                                      <a id="splitScreenLink" data-is-toggled-on="{{ data.splitScreen | default('true') }}" class="moj-primary-navigation__link" href="#">Use split screen</a>
+                                      <a id="splitScreenLink" data-is-toggled-on="{{ data.splitScreen | default('true') }}" class="moj-primary-navigation__link" href="{{ data.recentPages.combined | default('evidence-used')}}">Use split screen</a>
                                       </li>
                           </ul>
                           </nav>
@@ -108,38 +108,38 @@
       <h4 class="moj-side-navigation__title">Claimant documents</h4>
       <ul class="moj-side-navigation__list">
      
-        <li class="moj-side-navigation__item {% if activeUrl === 'evidence-used' %}moj-side-navigation__item--active{% endif %}">
+        <li class="moj-side-navigation__item {% if activeUrl === 'further-evidence-cq' %}moj-side-navigation__item--active{% endif %}">
   
           <a href="further-evidence-cq">Claimant questionaire</a>
   
       </li>
   
-      <li class="moj-side-navigation__item {% if activeUrl === 'historyofcondition' %}moj-side-navigation__item--active{% endif %}">
+      <li class="moj-side-navigation__item {% if activeUrl === 'further-evidence-support-worker' %}moj-side-navigation__item--active{% endif %}">
   
           <a href="further-evidence-support-worker" aria-current="location">Support work telephone call</a>
   
       </li>
        
         
-        <li class="moj-side-navigation__item {% if activeUrl === 'preparingfood' %}moj-side-navigation__item--active{% endif %}">
+        <li class="moj-side-navigation__item {% if activeUrl === 'further-evidence-careplanv1-0' %}moj-side-navigation__item--active{% endif %}">
 
           <a href="further-evidence-careplanv1-0">Care plan</a>
 
       </li>
 
-      <li class="moj-side-navigation__item {% if activeUrl === 'takingnutrition' %}moj-side-navigation__item--active{% endif %}">
+      <li class="moj-side-navigation__item {% if activeUrl === 'further-evidence-careplan-v1-2' %}moj-side-navigation__item--active{% endif %}">
 
           <a href="further-evidence-careplan-v1-2">Care plan v1.2</a>
 
       </li>
 
-      <li class="moj-side-navigation__item {% if activeUrl === 'takingnutrition' %}moj-side-navigation__item--active{% endif %}">
+      <li class="moj-side-navigation__item {% if activeUrl === 'further-evidence-medicationList' %}moj-side-navigation__item--active{% endif %}">
 
         <a href="further-evidence-medicationList">Medication list</a>
 
     </li>
 
-    <li class="moj-side-navigation__item {% if activeUrl === 'takingnutrition' %}moj-side-navigation__item--active{% endif %}">
+    <li class="moj-side-navigation__item {% if activeUrl === 'further-evidence-medicationList-v1-0' %}moj-side-navigation__item--active{% endif %}">
 
       <a href="further-evidence-medicationList-v1-0">Medication list v1.0</a>
 

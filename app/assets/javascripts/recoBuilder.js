@@ -74,37 +74,45 @@ if(document.getElementById('recoBuilderFrame')) {
     // <input type="hidden" name="previousDocument" id="previousDocument" value="{{ data.openDocument }}">
     function toggleSplitScreen(e) {
         e.preventDefault();
-        document.getElementById('splitScreenLink').setAttribute("aria-current", "page");
-        document.getElementById('recoLeftPane').classList.remove('govuk-grid-column-two-thirds');
-        document.getElementById('recoLeftPane').classList.add('govuk-grid-column-two-fifths');
-        document.getElementById('recoRightPane').classList.remove('reco-hidden');
+        console.log(e.target.href);
+        if(document.getElementById('recoRightPane')) {
+            document.getElementById('splitScreenLink').setAttribute("aria-current", "page");
+            document.getElementById('recoLeftPane').classList.remove('govuk-grid-column-two-thirds');
+            document.getElementById('recoLeftPane').classList.add('govuk-grid-column-two-fifths');
+            document.getElementById('recoRightPane').classList.remove('reco-hidden');
+        }
         e.target.dataset.isToggledOn = 'true';
         fetch('/autosave', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json'},
-          body: JSON.stringify({ field: 'splitScreen', value: e.target.dataset.isToggledOn }),
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json'},
+            body: JSON.stringify({ field: 'splitScreen', value: 'true' }),
         })
-          .catch((error) => console.error('Error:', error));
+            .catch((error) => console.error('Error:', error));
+            location.href = e.target.href;
+
     }
 
     function turnOffSplitScreen(e) {
         e.preventDefault();
-        document.getElementById('splitScreenLink').removeAttribute("aria-current");
-        document.getElementById('recoLeftPane').classList.remove('govuk-grid-column-two-fifths');
-        document.getElementById('recoLeftPane').classList.add('govuk-grid-column-two-thirds');
-        document.getElementById('recoRightPane').classList.add('reco-hidden');
+        if(document.getElementById('recoRightPane')) {
+            document.getElementById('splitScreenLink').removeAttribute("aria-current");
+            document.getElementById('recoLeftPane').classList.remove('govuk-grid-column-two-fifths');
+            document.getElementById('recoLeftPane').classList.add('govuk-grid-column-two-thirds');
+            document.getElementById('recoRightPane').classList.add('reco-hidden');
+            }
         document.getElementById('splitScreenLink').dataset.isToggledOn = 'false';
         fetch('/autosave', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json'},
-          body: JSON.stringify({ field: 'splitScreen', value: 'false' }),
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json'},
+            body: JSON.stringify({ field: 'splitScreen', value: 'false' }),
         })
-          .catch((error) => console.error('Error:', error));
-          console.log(e.target);
-          location.href = e.target.href;
+            .catch((error) => console.error('Error:', error));
+            console.log(e.target);
+            location.href = e.target.href;
+
     }
 
-    if(document.getElementById('splitScreenLink')) {
+    if(document.getElementById('splitScreenLink') && document.getElementById('recoRightPane')) {
         if(document.getElementById('splitScreenLink').dataset.isToggledOn === 'true' && document.getElementById('recoRightPane').classList.contains('reco-hidden')) {
             document.getElementById('recoLeftPane').classList.remove('govuk-grid-column-two-thirds');
             document.getElementById('recoLeftPane').classList.add('govuk-grid-column-two-fifths');

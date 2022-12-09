@@ -15,27 +15,29 @@
    <h1 class="govuk-heading-l">History of condition</h1>
 
  
-      
 
 
-            <form action="assessment-status" method="post">
 
-                    {{ govukTextarea({
-                        name: "historyofcondition",
-                        id: "historyofcondition",
-                        rows: "20",
-                        label: {
-                          text: "",
-                          classes: "govuk-label--l",
-                          isPageHeading: true
-                        },
-                        value: data['historyofcondition']
-                        
-                      }) }}
+           
+           
+   <form action="assessment-status" method="post">
+
+    {{ govukTextarea({
+        name: "historyofcondition",
+        id: "historyofcondition",
+        rows: "20",
+        label: {
+          text: "",
+          classes: "govuk-label--l",
+          isPageHeading: true
+        },
+        value: data['historyofcondition']
+        
+      }) }}
 <!-- 
-                      {{ govukButton({
-                        text: "Save and continue"
-                      }) }} -->
+      {{ govukButton({
+        text: "Save and continue"
+      }) }} -->
 
             </form>
 

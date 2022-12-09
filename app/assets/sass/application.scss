@@ -195,11 +195,18 @@ hr { height:0px; border-top:1px solid #b1b4b6; border-bottom: 0;}
 
 
 
-iframe.document {
+  iframe.document {
     width: 100%;
-    height: 500px;
+    height: 800px;
+    max-width: 70vw;
+    resize: both;
+    overflow: auto;
   }
 
+  .last-saved-time {
+      margin-left: 5rem;
+      font-weight: bold;
+  }
 
 
   .moj-primary-navigation__nav {
@@ -220,6 +227,13 @@ iframe.document {
 .key-details-bar__key-details.full-width-container {
     max-width: 100%;
 }
+
+.reco-scrollable-wrapper {
+    // height: auto;
+    // max-height: 900px;
+    // overflow-y: scroll;
+}
+
 
 .reco-builder-frame {
     width: 100%;

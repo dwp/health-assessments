@@ -1,0 +1,218 @@
+{% extends "layout.html" %}
+{% set bodyAttributes = { id: "assess" } %}
+
+{% block pageTitle %}
+  Claimant documents - GOV.UK
+{% endblock %}
+
+{% block main %}
+
+{% include "includes/status-htl-1659/pip-assessment-claimantDocs-landingPage.html" %}
+
+
+
+<!-- <a href="assessment-type" aria-current="location">< Back to Assessment type</a>
+     -->
+     <br>
+  <br>
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+
+      <h1 class="govuk-heading-l">Claimant documents</h2>
+
+      <!-- <p class="govuk-body-s" id="last-updated">Last updated from DRS at 02:08 on 16 Sep 2022</p> -->
+
+      <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+
+      <h2 class="govuk-heading-s govuk-!-margin-bottom-3">
+        Show only these documents
+      </h2>
+
+      <div class="govuk-button-group">
+
+        <form action="#" method="post" novalidate>
+        <button class="govuk-button govuk-button--secondary" data-module="govuk-button">
+          New documents
+        </button>
+        
+      
+        <button class="govuk-button govuk-button--secondary" data-module="govuk-button">
+          PIP claim 20 Sep 2022
+        </button>
+
+        <button class="govuk-button govuk-button--secondary" data-module="govuk-button">
+          UC claim 15 June 2022
+        </button>
+      </form>
+      </div>
+      
+      <table class="govuk-table" data-module="moj-sortable-table" aria-describedby="last-updated">
+
+        <thead class="govuk-table__head">
+          <tr class="govuk-table__row">
+      
+            <th scope="col" class="govuk-table__header column-width-20" aria-sort="none">Document type</th>
+
+            <th scope="col" class="govuk-table__header column-width-20" aria-sort="none">Document label</th>
+      
+            <th scope="col" class="govuk-table__header column-width-10" aria-sort="none">Benefit type</th>
+
+            <th scope="col" class="govuk-table__header column-width-15" aria-sort="none">Date of document</th>
+
+            <th scope="col" class="govuk-table__header column-width-15" aria-sort="descending">Date DWP received</th>            
+
+            <th scope="col" class="govuk-table__header column-width-20" aria-sort="none">Latest document activity</th>
+      
+          </tr>
+        </thead>
+      
+        <tbody class="govuk-table__body">
+      
+          <!-- <tr class="govuk-table__row">
+      
+            <td class="govuk-table__cell"><a href="further-evidence-one-button.html">PA3</a></td>
+
+            <td class="govuk-table__cell"></td>
+    
+            <td class="govuk-table__cell">PIP</td>
+  
+            <td class="govuk-table__cell" data-sort-value="12/05/21"></td>
+
+            <td class="govuk-table__cell" data-sort-value="12/05/21">10 Jan 2022</td>
+
+            <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--yellow">New document</strong></td>
+
+          </tr>
+
+
+          <tr class="govuk-table__row">
+      
+            <td class="govuk-table__cell"><a href="further-evidence-pa3-v1-5.html">PA3 v1.5</a></td>
+
+            <td class="govuk-table__cell"></td>
+ 
+            <td class="govuk-table__cell">PIP</td>
+     
+            <td class="govuk-table__cell" data-sort-value="21/04/21">6 Feb 2021</td>
+
+            <td class="govuk-table__cell" data-sort-value="12/05/21">22 Feb 2021</td>
+
+            <td class="govuk-table__cell">Added to <a href="referral-information-with-docs.html" class="govuk-link">UC claim 15 Jun 2021</a></td>
+
+          </tr> -->
+
+          <tr class="govuk-table__row">
+      
+            <td class="govuk-table__cell"><a class="reco-document" href="further-evidence-cq.html">Claimant questionaire</a></td>
+
+            <td class="govuk-table__cell">PIP2 questionnaire</td>
+    
+            <td class="govuk-table__cell">PIP</td>
+  
+            <td class="govuk-table__cell" data-sort-value="21/04/21">15 Aug 2022</td>
+
+            <td class="govuk-table__cell" data-sort-value="12/05/21">10 Sept 2022</td>
+
+            <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--yellow">New document</strong></td>
+
+          </tr>
+
+          <tr class="govuk-table__row">
+      
+            <td class="govuk-table__cell"><a class="reco-document" href="further-evidence-support-worker.html">Support work telephone call</a></td>
+
+            <td class="govuk-table__cell"></td>
+    
+            <td class="govuk-table__cell">PIP</td>
+  
+            <td class="govuk-table__cell" data-sort-value="21/04/21">15 Aug 2022</td>
+
+            <td class="govuk-table__cell" data-sort-value="12/05/21">10 Sept 2022</td>
+
+            <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--yellow">New document</strong></td>
+
+          </tr>
+
+    
+          <tr class="govuk-table__row">
+      
+            <td class="govuk-table__cell"><a class="reco-document" href="further-evidence-careplanv1-0">Care plan</a></td>
+
+            <td class="govuk-table__cell"></td>
+    
+            <td class="govuk-table__cell">PIP</td>
+  
+            <td class="govuk-table__cell" data-sort-value="21/04/21">4 Aug 2022</td>
+
+            <td class="govuk-table__cell" data-sort-value="12/05/21">10 Aug 2021</td>
+
+            <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--yellow">New document</strong></td>
+ 
+          </tr>
+
+          
+
+          <tr class="govuk-table__row">
+      
+            <td class="govuk-table__cell"><a class="reco-document" href="further-evidence-careplan-v1-2">Care plan v1.2</a></td>
+
+            <td class="govuk-table__cell"></td>
+    
+            <td class="govuk-table__cell">PIP</td>
+  
+            <td class="govuk-table__cell" data-sort-value="21/04/21">4 Aug 2022</td>
+
+            <td class="govuk-table__cell" data-sort-value="12/05/21">11 Aug 2022</td>
+
+            <td class="govuk-table__cell">Added to <a href="referral-information-with-docs.html" class="govuk-link">PIP claim 20 Sep 2022</a> and 1 other claim(s)</td>
+ 
+          </tr>
+
+
+          <tr class="govuk-table__row">
+      
+            <td class="govuk-table__cell"><a class="reco-document" href="further-evidence-medicationList.html">Medication list</a></td>
+
+            <td class="govuk-table__cell"></td>
+      
+            <td class="govuk-table__cell">PIP</td>
+
+            <td class="govuk-table__cell" data-sort-value="21/04/21">28 Aug 2022</td>
+
+            <td class="govuk-table__cell" data-sort-value="12/05/21">10 Sept 2022</td>
+
+            <td class="govuk-table__cell">Added to <a href="referral-information-with-docs.html" class="govuk-link">PIP claim 20 Sep 2022</a> and 1 other claim(s)</td>
+ 
+          </tr>
+
+
+          <tr class="govuk-table__row">
+      
+            <td class="govuk-table__cell"><a class="reco-document" href="further-evidence-medicationList-v1-0.html">Medication list v1.0</a></td>
+
+            <td class="govuk-table__cell"></td>
+      
+            <td class="govuk-table__cell">PIP</td>
+
+            <td class="govuk-table__cell" data-sort-value="21/04/21">28 Aug 2022</td>
+
+            <td class="govuk-table__cell" data-sort-value="12/05/21">10 Sept 2022</td>
+
+            <td class="govuk-table__cell">Added to <a href="referral-information-with-docs.html" class="govuk-link">PIP claim 20 Sep 2022</a> and 1 other claim(s)</td>
+ 
+          </tr>
+
+  
+
+      
+        </tbody>
+      </table>
+<br>
+    </div>
+  </div>  
+  </div>
+</div>
+
+
+
+{% endblock %}

@@ -9,7 +9,8 @@ router.all("*", (req, res, next) => {
         req.session.data.recentPages = {
             review: 'evidence-used',
             activities: 'preparingfood',
-            combined: 'evidence-used'
+             combined: 'evidence-used',
+            documents: 'claimant-documents-buttons'
         }
     }
     const urlEnd = req.originalUrl.split('/').pop();
@@ -17,7 +18,11 @@ router.all("*", (req, res, next) => {
         if(v.includes(urlEnd)) {
             req.session.data.currentTab = k;
             req.session.data.recentPages[k] = urlEnd; 
-            req.session.data.recentPages.combined = urlEnd;
+            if(k !== 'documents') {
+                req.session.data.recentPages.combined = urlEnd;
+            }
+
+
         }
     });
     res.locals.activeUrl = urlEnd;
@@ -113,5 +118,17 @@ router.post("/wca-htl-1023/recommendation/decision-post", function(req, res, nex
 module.exports = router
 
 
-
-
+router.post('/historyofcondition-check', (req, res, next) => {
+    const { data } = req.session;
+    const condition = data.condition;
+    
+    if(condition.id) {
+    amendCondition(data.conditionOrder, condition);
+    } else {
+    // give condition an id - to find in amend step
+    condition.id = data.conditionOrder.length + 1;
+    data.conditionOrder.push(condition);
+    }
+    
+    res.render('condition/check-order.njk', { condition: data.condition });
+    })
