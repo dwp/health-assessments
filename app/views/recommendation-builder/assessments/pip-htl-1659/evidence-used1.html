@@ -15,11 +15,259 @@
    <h1 class="govuk-heading-l">Evidence</h1>
 
  
-               
+   <div class="govuk-warning-text">
+    <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+    <strong class="govuk-warning-text__text">
+      <span class="govuk-warning-text__assistive">Warning </span>
+      Your work will be automatically saved <br><a href="evidence-used.html" class="govuk-link">Hide</a>
+    </strong>
+   
+   
+  </div>
+  
+  
+  
 
             <form action="assessment-status" method="post">             
 
-           
+              <!-- {% set PrescriptionHtml %}
+              {{ govukInput({
+                id: "Prescription-date",
+                name: "Prescription-date",
+                type: "Date",
+                autocomplete: "Date",
+                spellcheck: false,
+                classes: "govuk-!-width-one-third",
+                label: {
+                  text: "Date of prescription"
+                }
+              }) }}
+              {% endset -%} -->
+
+
+              {% set questionaireHtml %}
+              {{ govukInput({
+                id: "questionaire-date",
+                name: "questionaire-date",
+                autocomplete: "Date",
+                spellcheck: false,
+                classes: "govuk-!-width-one-third",
+                label: {
+                  text: "Date of claimant questionaire"
+                }
+              }) }}
+              {% endset -%}
+
+              {% set FitNoteHtml %}
+              {{ govukInput({
+                id: "fitnote-date",
+                name: "firnote-date",
+                autocomplete: "Date",
+                spellcheck: false,
+                classes: "govuk-!-width-one-third",
+                label: {
+                  text: "Date of fit note"
+                }
+              }) }}
+              {% endset -%}
+
+              {% set PrescriptionHtml %}
+              {{ govukInput({
+                id: "Prescription-date",
+                name: "Prescription-date",
+                autocomplete: "Date",
+                spellcheck: false,
+                classes: "govuk-!-width-one-third",
+                label: {
+                  text: "Date of prescription"
+                }
+              }) }}
+              {% endset -%}
+
+              {% set careplanHtml %}
+              {{ govukInput({
+                id: "careplan-date",
+                name: "careplan-date",
+                autocomplete: "Date",
+                spellcheck: false,
+                classes: "govuk-!-width-one-third",
+                label: {
+                  text: "Date of care plan"
+                }
+              }) }}
+              {% endset -%}
+
+              {% set gphealthrecordHtml %}
+              {{ govukInput({
+                id: "gphealthrecord-date",
+                name: "gphealthrecord-date",
+                autocomplete: "Date",
+                spellcheck: false,
+                classes: "govuk-!-width-one-third",
+                label: {
+                  text: "Date of GP health record"
+                }
+              }) }}
+              {% endset -%}
+
+              {% set gpletterHtml %}
+              {{ govukInput({
+                id: "gpletter-date",
+                name: "gpletter-date",
+                autocomplete: "Date",
+                spellcheck: false,
+                classes: "govuk-!-width-one-third",
+                label: {
+                  text: "Date of GP letter"
+                }
+              }) }}
+              {% endset -%}
+
+              {% set gpfactualreportHtml %}
+              {{ govukInput({
+                id: "gpfactualreport-date",
+                name: "gpfactualreport-date",
+                autocomplete: "Date",
+                spellcheck: false,
+                classes: "govuk-!-width-one-third",
+                label: {
+                  text: "Date of GP factual report"
+                }
+              }) }}
+              {% endset -%}
+
+              {% set gppatientformHtml %}
+              {{ govukInput({
+                id: "gppatientform-date",
+                name: "gppatientform-date",
+                autocomplete: "Date",
+                spellcheck: false,
+                classes: "govuk-!-width-one-third",
+                label: {
+                  text: "Date of GP factual report"
+                }
+              }) }}
+              {% endset -%}
+
+              {% set factualMedicalReportHtml %}
+              {{ govukInput({
+                id: "factualMedicalReport-date",
+                name: "factualMedicalReport-date",
+                autocomplete: "Date",
+                spellcheck: false,
+                classes: "govuk-!-width-one-third",
+                label: {
+                  text: "Date of factual medical report"
+                }
+              }) }}
+              {% endset -%}
+
+              {% set HPfactualreportHtml %}
+              {{ govukInput({
+                id: "HPfactualreport-date",
+                name: "HPfactualreport-date",
+                autocomplete: "Date",
+                spellcheck: false,
+                classes: "govuk-!-width-one-third",
+                label: {
+                  text: "Date of Healthcare professional factual report"
+                }
+              }) }}
+              {% endset -%}
+
+              {% set phoneCallHtml %}
+              {{ govukInput({
+                id: "phoneCall-date",
+                name: "phoneCall-date",
+                autocomplete: "Date",
+                spellcheck: false,
+                classes: "govuk-!-width-one-third",
+                label: {
+                  text: "Date of phone call"
+                }
+              }) }}
+              {% endset -%}
+
+              {% set hospitalLetterHtml %}
+              {{ govukInput({
+                id: "hospitalLetter-date",
+                name: "hospitalLetter-date",
+                autocomplete: "Date",
+                spellcheck: false,
+                classes: "govuk-!-width-one-third",
+                label: {
+                  text: "Date of letter"
+                }
+              }) }}
+              {% endset -%}
+
+              {% set consultantLetterHtml %}
+              {{ govukInput({
+                id: "consultantLetter-date",
+                name: "consultantLetter-date",
+                autocomplete: "Date",
+                spellcheck: false,
+                classes: "govuk-!-width-one-third",
+                label: {
+                  text: "Date of consultant letter or report"
+                }
+              }) }}
+              {% endset -%}
+
+              {% set FactualMedHtml %}
+              {{ govukInput({
+                id: "FactualMed-date",
+                name: "FactualMed-date",
+                autocomplete: "Date",
+                spellcheck: false,
+                classes: "govuk-!-width-one-third",
+                label: {
+                  text: "Date of factual medical report"
+                }
+              }) }}
+              {% endset -%}
+
+              {% set SpecialistLetterHtml %}
+              {{ govukInput({
+                id: "SpecialistLetter-date",
+                name: "SpecialistLetter-date",
+                autocomplete: "Date",
+                spellcheck: false,
+                classes: "govuk-!-width-one-third",
+                label: {
+                  text: "Date of specialist letter or report"
+                }
+              }) }}
+              {% endset -%}
+
+              {% set alliedHealthHtml %}
+              {{ govukInput({
+                id: "alliedHealth-date",
+                name: "alliedHealth-date",
+                autocomplete: "Date",
+                spellcheck: false,
+                classes: "govuk-!-width-one-third",
+                label: {
+                  text: "Date of allied health professional's letter or report"
+                }
+              }) }}
+              {% endset -%}
+
+              {% set RadiologyHtml %}
+              {{ govukInput({
+                id: "Radiology-date",
+                name: "Radiology-date",
+                autocomplete: "Date",
+                spellcheck: false,
+                classes: "govuk-!-width-one-third",
+                label: {
+                  text: "Date of radiology and investigative report"
+                }
+              }) }}
+              {% endset -%}
+
+
+            
 
               {{ govukCheckboxes({
                 name: "evidenceusedpip",
@@ -36,87 +284,138 @@
                   {
                     value: "Claimant questionnaire",
                     text: "Claimant questionnaire",
-                    checked: data.evidenceusedpip and 'Claimant questionnaire' in data.evidenceusedpip
+                    checked: data.evidenceusedpip and 'Claimant questionnaire' in data.evidenceusedpip,
+                    conditional: {
+                      html: questionaireHtml
+                    }
                   },
                   {
                     value: "Fit note",
                     text: "Fit note",
-                    checked: data.evidenceusedpip and 'Fit note' in data.evidenceusedpip
+                    checked: data.evidenceusedpip and 'Fit note' in data.evidenceusedpip,
+                    conditional: {
+                      html: FitNoteHtml
+                    }
                   },
                   {
                     value: "Prescription",
                     text: "Prescription",
-                    checked: data.evidenceusedpip and 'Prescription' in data.evidenceusedpip
+                    checked: data.evidenceusedpip and 'Prescription' in data.evidenceusedpip,
+                    conditional: {
+                      html: PrescriptionHtml
+                    }
                   },
                   {
                     value: "Care plan",
                     text: "Care plan",
-                    checked: data.evidenceusedpip and 'Care plan' in data.evidenceusedpip
+                    checked: data.evidenceusedpip and 'Care plan' in data.evidenceusedpip,
+                    conditional: {
+                      html: careplanHtml
+                    }
                   },
                   {
                     value: "GP health record",
                     text: "GP health record",
-                    checked: data.evidenceusedpip and 'GP health record' in data.evidenceusedpip
+                    checked: data.evidenceusedpip and 'GP health record' in data.evidenceusedpip,
+                    conditional: {
+                      html:  gphealthrecordHtml
+                    }
                   },
                   {
                     value: "GP letter",
                     text: "GP letter",
-                    checked: data.evidenceusedpip and 'GP letter' in data.evidenceusedpip
+                    checked: data.evidenceusedpip and 'GP letter' in data.evidenceusedpip,
+                    conditional: {
+                      html:  gpletterHtml
+                    }  
                   },
                   {
                     value: "GP factual report (GPFR)",
                     text: "GP factual report (GPFR)",
-                    checked: data.evidenceusedpip and 'GP factual report (GPFR)' in data.evidenceusedpip
+                    checked: data.evidenceusedpip and 'GP factual report (GPFR)' in data.evidenceusedpip,
+                    conditional: {
+                      html:  gpfactualreportHtml
+                    } 
                   },
                   {
                     value: "GP patient form (113)",
                     text: "GP patient form (113)",
-                    checked: data.evidenceusedpip and 'GP patient form (113)' in data.evidenceusedpip
+                    checked: data.evidenceusedpip and 'GP patient form (113)' in data.evidenceusedpip,
+                    conditional: {
+                      html:  gppatientformHtml
+                    } 
                   },
                   {
                     value: "Factual medical report (FRR2)",
                     text: "Factual medical report (FRR2)",
-                    checked: data.evidenceusedpip and 'Factual medical report (FRR2)' in data.evidenceusedpip
+                    checked: data.evidenceusedpip and 'Factual medical report (FRR2)' in data.evidenceusedpip,
+                    conditional: {
+                      html:  factualMedicalReportHtml
+                    } 
                   },
                   {
                     value: "Healthcare professional factual report (FRR3)",
                     text: "Healthcare professional factual report (FRR3)",
-                    checked: data.evidenceusedpip and 'Healthcare professional factual report (FRR3)' in data.evidenceusedpip
+                    checked: data.evidenceusedpip and 'Healthcare professional factual report (FRR3)' in data.evidenceusedpip,
+                    conditional: {
+                      html:  FactualMedHtml
+                    } 
                   },
                   {
                     value: "Phone call (FRR4)",
                     text: "Phone call (FRR4)",
-                    checked: data.evidenceusedpip and 'Phone call (FRR4)' in data.evidenceusedpip
+                    checked: data.evidenceusedpip and 'Phone call (FRR4)' in data.evidenceusedpip,
+                    conditional: {
+                      html:  phoneCallHtml
+                    } 
                   },
                   {
                     value: "Hospital letter, report or discharge summary",
                     text: "Hospital letter, report or discharge summary",
-                    checked: data.evidenceusedpip and 'Hospital letter, report or discharge summary' in data.evidenceusedpip
-                  },
+                    checked: data.evidenceusedpip and 'Hospital letter, report or discharge summary' in data.evidenceusedpip,
+                    conditional: {
+                    html:  hospitalLetterHtml
+                  } 
+                },
                   {
                     value: "Consultant letter or report",
                     text: "Consultant letter or report",
-                    checked: data.evidenceusedpip and 'Consultant letter or report' in data.evidenceusedpip
+                    checked: data.evidenceusedpip and 'Consultant letter or report' in data.evidenceusedpip,
+                    conditional: {
+                      html:  consultantLetterHtml
+                    } 
                   },
                   {
                     value: "Factual medical report (FRR2)",
                     text: "Factual medical report (FRR2)",
-                    checked: data.evidenceusedpip and 'Factual medical report (FRR2)' in data.evidenceusedpip
+                    checked: data.evidenceusedpip and 'Factual medical report (FRR2)' in data.evidenceusedpip,
+                    conditional: {
+                      html:  FactualMedHtml
+                    } 
                   },
                   {
                     value: "Specialist letter or report",
                     text: "Specialist letter or report",
-                    checked: data.evidenceusedpip and 'Specialist letter or report' in data.evidenceusedpip
+                    checked: data.evidenceusedpip and 'Specialist letter or report' in data.evidenceusedpip,
+                    conditional: {
+                      html:  SpecialistLetterHtml
+                    } 
                   },
                   {
                     value: "Allied heath professional's letter or report",
                     text: "Allied heath professional's letter or report",
-                    checked: data.evidenceusedpip and "Allied heath professional's letter or report" in data.evidenceusedpip
+                    checked: data.evidenceusedpip and "Allied heath professional's letter or report" in data.evidenceusedpip,
+                    conditional: {
+                      html:  alliedHealthHtml
+                    } 
                   },
                   {
                     value: "Radiology and investigative reports",
                     text: "Radiology and investigative reports",
-                    checked: data.evidenceusedpip and 'Radiology and investigative reports' in data.evidenceusedpip
+                    checked: data.evidenceusedpip and 'Radiology and investigative reports' in data.evidenceusedpip,
+                    conditional: {
+                      html:  RadiologyHtml
+                    } 
                   }
                 ]
               }) }}

@@ -11,11 +11,12 @@
 {% include "includes/status-htl-1659/split-screen-nav.html" %}
 
 <main class="govuk-main-wrapper {{ mainClasses }}" id="main-content" role="main"{% if mainLang %} lang="{{ mainLang }}"{% endif %}>
-  <div id="recoLeftPane" class="govuk-grid-column-two-fifths reco-scrollable-wrapper1">
+  <div id="recoLeftPane" class="govuk-grid-column-two-fifths reco-scrollable-wrapper">
    <h1 class="govuk-heading-l">Evidence</h1>
 
  
-               
+
+  
 
             <form action="assessment-status" method="post">             
 
@@ -42,7 +43,7 @@
                 spellcheck: false,
                 classes: "govuk-!-width-one-third",
                 label: {
-                  text: "Date of claimant quuestionaire"
+                  text: "Date of claimant questionaire"
                 }
               }) }}
               {% endset -%}
@@ -288,7 +289,7 @@
                   },
                   {
                     value: "Prescription",
-                    text: "Prescription list",
+                    text: "Prescription",
                     checked: data.evidenceusedpip and 'Prescription' in data.evidenceusedpip,
                     conditional: {
                       html: PrescriptionHtml
@@ -483,7 +484,7 @@
 
           
           <div id="recoRightPane" class="govuk-grid-column-two-fifths">
-            <div id="recoBuilderFrame" class="reco-builder-frame  reco-scrollable-wrapper1" data-url="claimant-documents-buttons">
+            <div id="recoBuilderFrame" class="reco-builder-frame  reco-scrollable-wrapper" data-url="claimant-documents-buttons">
               &nbsp;
             </div>
            </div>
