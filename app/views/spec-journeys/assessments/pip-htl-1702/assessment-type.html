@@ -82,27 +82,54 @@
           <div class="govuk-radios__item">
               <input class="govuk-radios__input" id="nolcwra" name="assessmenttype"  type="radio" value="Paper">
               <label class="govuk-label govuk-radios__label" for="how-contacted-conditional">
-               On paper
+               On paper with no examination
               </label>
             </div>
 
             <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="video-call" name="assessmenttype"   type="radio" value="Video call">
+              <input class="govuk-radios__input" id="nolcwra" name="assessmenttype"  type="radio" value="Paper">
+              <label class="govuk-label govuk-radios__label" for="how-contacted-conditional">
+               Special rules
+              </label>
+            </div>
+
+
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="contact-3" name="assessmenttype" type="radio" value="text" data-aria-controls="conditional-contact-3">
+              <label class="govuk-label govuk-radios__label" for="contact-3">
+                Video call
+              </label>
+            </div>
+            <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-contact-3">
+              <div class="govuk-warning-text">
+                <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+                <strong class="govuk-warning-text__text">
+                  <span class="govuk-warning-text__assistive">Warning</span>
+                  If you make changes to this page information could be lost. 
+                </strong>
+              </div>
+            </div>
+      
+            
+            <!-- <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="video-call" name="assessmenttype"   type="warning" value="Video call">
               <label class="govuk-label govuk-radios__label" for="video-call">
                 Video call
               </label>
             </div>
+            <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-data-3">
+              <div class="govuk-form-group">
+                <label class="govuk-label" for="data">
+                  Mobile phone number
+                </label>
+                <input class="govuk-input govuk-!-width-one-third" id="data" name="assessmenttype" type="warning" autocomplete="tel">
+              </div>
+            </div> -->
 
       </div>
     </fieldset>
     <br>
-    <div class="govuk-warning-text">
-      <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
-      <strong class="govuk-warning-text__text">
-        <span class="govuk-warning-text__assistive">Warning</span>
-        If you make changes to this page information could be lost. 
-      </strong>
-    </div>
+   
   </div>
 
 </div>

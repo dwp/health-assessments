@@ -16,8 +16,10 @@
   <div class="govuk-width-container {{ containerClasses }}">
     {{ govukBackLink({
       text: "Go back to Assessment type",
-      href: "assessment-type"
+      href: "javascript:history.back()"
     }) }}
+
+  
 
     <main class="govuk-main-wrapper {{ mainClasses }}" id="main-content" role="main"{% if mainLang %} lang="{{ mainLang }}"{% endif %}>
         <div class="govuk-grid-row">
