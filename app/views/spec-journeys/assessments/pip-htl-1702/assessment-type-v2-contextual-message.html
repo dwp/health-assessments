@@ -57,63 +57,65 @@
       ]
     }) }}  -->
 
-  <div class="govuk-form-group">
-    <fieldset class="govuk-fieldset" aria-describedby="sign-in-hint">
-      <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
-        <h1 class="govuk-fieldset__heading">
-            How are you conducting this assessment?</h1>
-      </legend>
-
-       <div class="govuk-radios govuk-radios--conditional" data-module="govuk-radios">
-         <div class="govuk-radios__item">
-           <input class="govuk-radios__input" id="telephone" name="assessmenttype" value="Telephone" checked="checked" type="radio" aria-describedby="sign-in-2-item-hint" >
-           <label class="govuk-label govuk-radios__label" for="telephone">
-             Telephone
-           </label>
-         </div>
-
-        <div class="govuk-radios__item">
-          <input class="govuk-radios__input" id="nolcwra" name="assessmenttype"   type="radio" value="Face to face">
-          <label class="govuk-label govuk-radios__label" for="how-contacted-conditional">
-           Face to face
-          </label>
-        </div>
-
-
-        <div class="govuk-radios__item">
-          <input class="govuk-radios__input" id="nolcwra" name="assessmenttype"  type="radio" value="Paper">
-          <label class="govuk-label govuk-radios__label" for="how-contacted-conditional">
-           On paper with no examination
-          </label>
-        </div>
-
-        <div class="govuk-radios__item">
-          <input class="govuk-radios__input" id="nolcwra" name="assessmenttype"  type="radio" value="Paper">
-          <label class="govuk-label govuk-radios__label" for="how-contacted-conditional">
-           Special rules
-          </label>
-        </div>
-
-            <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="video-call" name="assessmenttype"   type="radio" value="Video call">
-              <label class="govuk-label govuk-radios__label" for="video-call">
-                Video call
-              </label>
-            </div>
+    <div class="govuk-form-group">
+      <fieldset class="govuk-fieldset" aria-describedby="sign-in-hint">
+        <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+          <h1 class="govuk-fieldset__heading">
+            Type of assessment</h1>
+        </legend>
+  
+         <div class="govuk-radios govuk-radios--conditional" data-module="govuk-radios">
+           <div class="govuk-radios__item">
+             <input class="govuk-radios__input" id="telephone" name="assessmenttype" value="Telephone" checked="checked" type="radio" aria-describedby="sign-in-2-item-hint" >
+             <label class="govuk-label govuk-radios__label" for="telephone">
+               Telephone
+             </label>
+           </div>
+  
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="f2f" name="assessmenttype"   type="radio" value="Face to face">
+            <label class="govuk-label govuk-radios__label" for="how-contacted-conditional">
+             Face to face
+            </label>
+          </div>
+  
+  
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="paper" name="assessmenttype"  type="radio" value="Paper">
+            <label class="govuk-label govuk-radios__label" for="how-contacted-conditional">
+             On paper with no examination
+            </label>
+          </div>
+  
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="srel" name="assessmenttype"  type="radio" value="Paper">
+            <label class="govuk-label govuk-radios__label" for="how-contacted-conditional">
+             Special rules
+            </label>
+          </div>
+  
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="video-call" name="assessmenttype" type="radio" value="text" data-aria-controls="conditional-contact-3">
+            <label class="govuk-label govuk-radios__label" for="contact-3">
+              Video call
+            </label>
+          </div>
 
       </div>
     </fieldset>
     <br>
-    <div class="govuk-warning-text">
-      <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
-      <strong class="govuk-warning-text__text">
-        <span class="govuk-warning-text__assistive">Warning</span>
-        Changing 'Telephone' to 'On paper with no examination' will delete saved information.
-      </strong>
-    </div>
-  </div>
+    <br>
+      <div id="myIdName" class="my-magic-class">
+        <div class="govuk-warning-text">
+          <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+          <strong class="govuk-warning-text__text">
+            <span class="govuk-warning-text__assistive">Warning</span>
+            Changing 'Telephone' to 'On paper with no examination' will delete saved information.
+          </strong>
+        </div>
+      </div>
 
-</div>
+
 </div>
 
 <button class="govuk-button" data-module="govuk-button">
