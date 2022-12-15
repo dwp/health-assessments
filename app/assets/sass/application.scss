@@ -204,7 +204,7 @@ hr { height:0px; border-top:1px solid #b1b4b6; border-bottom: 0;}
   }
 
   .last-saved-time {
-      margin-left: 5rem;
+      margin-left: 4rem;
       font-weight: bold;
   }
 
@@ -405,4 +405,16 @@ hr { height:0px; border-top:1px solid #b1b4b6; border-bottom: 0;}
 .my-magic-class {
     display: none;
     visibility: hidden;
+  }
+  
+
+.moj-primary-navigation__container_no_margin {
+    margin: 0;
+}
+
+@media screen and(max-width: 725px) {
+    .last-saved-time {
+        margin-left: 1rem;
+        font-size: 1rem;
+    }
   }
