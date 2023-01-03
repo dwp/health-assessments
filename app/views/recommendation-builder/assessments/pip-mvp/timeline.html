@@ -1,0 +1,200 @@
+{% extends "layout.html" %}
+{% set bodyAttributes = { id: "assess" } %}
+
+{% block pageTitle %}
+  GOV.UK Prototype Kit
+{% endblock %}
+
+{% block main %}
+
+
+{% include "includes/status/pip-assessment-claimant.html" %}
+
+
+
+  <div class="govuk-width-container {{ containerClasses }}">
+
+
+<a href="https://rb-sms-text@has-claimant-contact.herokuapp.com/version-0-1/referral" class="govuk-back-link">Back</a> 
+
+<!--<a href="referral-page" class="govuk-back-link">Back</a>-->
+
+
+  <!--  <div class="navigation-header">
+      <ul class="govuk-list">
+        <li class="govuk-!-margin-bottom-2"><a href="#" class="govuk-link--no-visited-state govuk-link--no-underline">Referrals</a></li>
+        <li class="govuk-!-margin-bottom-2"><a href="#" class="govuk-link--no-visited-state govuk-link--no-underline">Claimant details</a></li>
+        <li class="govuk-!-margin-bottom-2"><a href="#" class="govuk-link--no-visited-state govuk-link--no-underline">Appointments</a></li>
+        <li class="govuk-!-margin-bottom-2"><a href="#" class="govuk-link--no-visited-state govuk-link--no-underline">Evidence</a></li>
+        <li class="govuk-!-margin-bottom-2 active">Claimant log</li>
+      </ul>
+    </div>--> 
+
+    <main class="govuk-main-wrapper {{ mainClasses }}" id="main-content" role="main"{% if mainLang %} lang="{{ mainLang }}"{% endif %}>
+
+      <div class="govuk-grid-row">
+
+          
+
+
+
+      <div class="govuk-grid-column-two-thirds">
+        <h1 class="govuk-heading-l">Timeline</h1>
+
+        <ol class="dwp-timeline">
+
+          {% if  data['log'] %}
+                  <li class="dwp-timeline__entry">
+           
+
+                    <h2 class="govuk-heading-s govuk-!-margin-bottom-1">ESA {{ data['action'] }}  {{ data['inc-action'] }} {{ data['action-details'] }} {{ data['inc-action-details'] }} </h2>
+               
+                     <p class="govuk-caption-m govuk-!-margin-bottom-1"> 
+
+
+                      {% if  data['additional-details'] %} {{ data['additional-details'] }}
+                      <br><br>   {% endif %}
+
+                      {% if  data['fme-box-details'] %} {{ data['fme-box-details'] }}
+                      <br><br>   {% endif %}
+
+                      {% if  data['review-box-details'] %} {{ data['review-box-details'] }}
+                      <br><br>   {% endif %}
+                    
+                      {% if  data['failed-box-details'] %} {{ data['failed-box-details'] }}
+                      <br><br>   {% endif %}
+
+                      {% if  data['booking-box-details'] %} {{ data['booking-box-details'] }}
+                      <br><br>   {% endif %}
+
+                      {% if  data['rebooking-box-details'] %} {{ data['rebooking-box-details'] }}
+                      <br><br>   {% endif %}
+
+                      {% if  data['pbr-booking-box-details'] %} {{ data['pbr-booking-box-details'] }}
+                      <br><br>   {% endif %}
+
+                      {% if  data['what'] === 'outgoing' %}
+                 {{ data['contact-method'] }} to
+                      {% else %} 
+                      
+                      {{ data['contact-method'] }} 
+                      {% endif %}
+                      {% if  data['who'] === 'the claimant' %} the claimant   {% else %}  {{ data['who-details'] }} {% endif %}  
+                      {% if  data['what'] === 'event' %} By <a href="mailto:phil@dwp.com?subject=Timeline entry">Phillip Smith</a>   {% endif %} 
+                      {% if  data['what'] === 'incoming' %} by <a href="mailto:phil@dwp.com?subject=Timeline entry"> Phillip Smith</a>  {% endif %}
+                      {% if  data['what'] === 'outgoing' %} by <a href="mailto:phil@dwp.com?subject=Timeline entry"> Phillip Smith</a>  
+                      
+                      {% if  data['phone-answer-details'] %}
+                      <p class="govuk-caption-m govuk-!-margin-bottom-1">  
+                     No answer: {{ data['phone-answer-details'] }} </p>
+                     {% endif %}
+                      
+                      {% endif %} </p>
+
+                 
+                      
+                     <p class="govuk-caption-m">
+
+                      {% if  data['year'] %} 
+                      {{ data['day']}}  {{ data['month'] | toMonth }}  {{ data['year']}} 
+                      {% else %} 
+                      25 October 2022
+                      {% endif %}
+                      at  {% if  data['time2'] %}
+                     {{ data['time2'] }} 
+                     {% else %} 
+                     3:15pm
+                     {% endif %}
+                    </p>
+                
+                  {% endif %} 
+     
+
+                 <!--  <li class="dwp-timeline__entry">
+                    <h2 class="govuk-heading-s govuk-!-margin-bottom-1">ESA Booked an assessment </h2>
+                    <p class="govuk-caption-m govuk-!-margin-bottom-1">Text message (SMS) and post to the claimant by Phillip Smith</p>
+                    <p class="govuk-caption-m">
+                        01 October 2022
+                    </p>
+        
+                   
+                </li>-->
+          
+
+
+        
+
+         <!--  <li class="dwp-timeline__entry">
+            <h2 class="govuk-heading-s govuk-!-margin-bottom-1">ESA Returned questionnaire</h2>
+            <p class="govuk-caption-m govuk-!-margin-bottom-1">Post from claimant</p>
+            <p class="govuk-caption-m">
+                23 September 2022
+            </p>
+
+           
+        </li> -->
+
+        <li class="dwp-timeline__entry">
+          <h2 class="govuk-heading-s govuk-!-margin-bottom-1">ESA Progress chasing</h2>
+          <p class="govuk-caption-m govuk-!-margin-bottom-1">Telephone call from the claimant by <a href="mailto:phil@dwp.com?subject=Timeline entry">Phil Smith</a></p>
+          <p class="govuk-caption-m">
+             17 Septmeber 2022 at 9am
+          </p>
+
+       
+      </li>
+
+          <li class="dwp-timeline__entry">
+              <h2 class="govuk-heading-s govuk-!-margin-bottom-1">ESA Reminded them to return questionnaire</h2>
+              <p class="govuk-caption-m govuk-!-margin-bottom-1">Telephone call to claimant by <a href="mailto:phil@dwp.com?subject=Timeline entry">Phil Smith</a></p>
+              <p class="govuk-caption-m">
+                10 September 2022 at 10am
+              </p>
+
+           
+          </li>
+
+          <li class="dwp-timeline__entry">
+              <h2 class="govuk-heading-s govuk-!-margin-bottom-1">ESA Sent questionnaire</h2>
+              <p class="govuk-caption-m govuk-!-margin-bottom-1">Posted to claimant by <a href="mailto:phil@dwp.com?subject=Timeline entry">Phil Smith</a></p>
+              <p class="govuk-caption-m">
+                  30 August 2022
+              </p>
+
+            
+          </li>
+
+      </ol>
+
+
+</div>
+
+             <div class="govuk-grid-column-one-third">
+              <div class="app-related-items">
+                  <h2 class="govuk-heading-m">What you can do next</h2>
+             <ul class="govuk-list">
+                  <!--clears previous entry and overwrites it, button styled as a link
+                  See server.js for code on this clearing 
+                <form action="/version-0-3-2/add-new-entry" method="post" class="form">
+                  <button class="button-link-hack" data-module="govuk-button">Add new entry</button>
+
+                  </form>
+
+                End of button hack -->
+
+             <li class="govuk-!-margin-bottom-2"><a href="referral">Add  ESA  entry to timeline</a></li> 
+                 
+                </ul>
+
+              <!-- hidden button   <a href="referral" class="govuk-button">Add a new entry </a>-->
+
+              
+              
+              
+            </div>
+            </div>
+        </div>
+
+    </main>
+  </div>
+{% endblock %}

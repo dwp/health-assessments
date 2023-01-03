@@ -1,0 +1,83 @@
+{% extends "layout.html" %}
+{% set bodyAttributes = { id: "assess" } %}
+
+{% block pageTitle %}
+  GOV.UK Prototype Kit
+{% endblock %}
+
+{% block main %}
+
+
+{% include "includes/status-htl-1659/split-screen-nav.html" %}
+
+<main class="govuk-main-wrapper {{ mainClasses }}" id="main-content" role="main"{% if mainLang %} lang="{{ mainLang }}"{% endif %}>
+  <div id="recoLeftPane" class="govuk-grid-column-two-fifths reco-scrollable-wrapper">
+   
+ 
+      
+
+
+            <form action="historyofcondition" method="post">
+
+              {{ govukTable({
+                caption: "History of condition",
+                captionClasses: "govuk-table__caption--l",
+                firstCellIsHeader: true,
+                head: [
+                  {
+                    text: "Condition name"
+                  },
+                  {
+                    text: "Condition history"
+                  },
+                  {
+                    text: "Action"
+                  }
+                ],
+                rows: [
+                  [
+                    {
+                      text: "Diabetes"
+                    },
+                    {
+                      text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+                    },
+                    {
+                      text: "Change Remove"
+                    }
+                  ],
+                  [
+                    {
+                      text: "Depression"
+                    },
+                    {
+                      text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+                    },
+                    {
+                      text: "Change Remove"
+                    }
+                  ]
+                  
+                ]
+              }) }}
+
+                      {{ govukButton({
+                        text: "Add another"
+                      }) }}
+
+            </form>
+
+
+
+          </div>
+
+          
+          <div id="recoRightPane" class="govuk-grid-column-two-fifths">
+            <div id="recoBuilderFrame" class="reco-builder-frame  reco-scrollable-wrapper" data-url="claimant-documents-buttons">
+              &nbsp;
+            </div>
+           </div>
+    </div>
+  </main>
+  </div>
+{% endblock %}

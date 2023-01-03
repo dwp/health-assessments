@@ -177,8 +177,11 @@
               <a href="budgeting">Budgeting</a>
   
           </li>
-          
-  
+          <li class="moj-side-navigation__item {% if activeUrl === 'dailyliving' %}moj-side-navigation__item--active{% endif %}">
+    
+            <a href="dailyliving">Daily living qualifying period and prospective test</a>
+      
+        </li>
          
         </ul>
     
@@ -195,6 +198,11 @@
             <a href="movingaround">Moving around</a>
   
         </li>
+        <li class="moj-side-navigation__item {% if activeUrl === 'mobility' %}moj-side-navigation__item--active{% endif %}">
+      
+          <a href="mobility">Mobility qualifying period and prospective test</a>
+    
+      </li>
            
            
          
@@ -206,17 +214,9 @@
     
         <h4 class="moj-side-navigation__title">Summary</h4>
         <ul class="moj-side-navigation__list">
-          <li class="moj-side-navigation__item {% if activeUrl === 'dailyliving' %}moj-side-navigation__item--active{% endif %}">
-    
-            <a href="dailyliving">Daily living qualifying period and prospective test</a>
+        
       
-        </li>
-      
-          <li class="moj-side-navigation__item {% if activeUrl === 'mobility' %}moj-side-navigation__item--active{% endif %}">
-      
-            <a href="mobility">Mobility qualifying period and prospective test</a>
-      
-        </li>
+        
       
         <li class="moj-side-navigation__item {% if activeUrl === 'recommend-daily-living' %}moj-side-navigation__item--active{% endif %}">
       

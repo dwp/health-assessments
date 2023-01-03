@@ -1,0 +1,65 @@
+{% extends "layout.html" %}
+{% set bodyAttributes = { id: "assess" } %}
+
+{% block pageTitle %}
+  GOV.UK Prototype Kit
+{% endblock %}
+
+{% block main %}
+
+
+{% include "includes/status-htl-1659/split-screen-nav.html" %}
+
+<main class="govuk-main-wrapper {{ mainClasses }}" id="main-content" role="main"{% if mainLang %} lang="{{ mainLang }}"{% endif %}>
+  <div id="recoLeftPane" class="govuk-grid-column-two-fifths reco-scrollable-wrapper">
+   <h1 class="govuk-heading-l">History of condition</h1>
+
+ 
+
+
+
+            <form action="historyofcondition-addanother" method="post">
+
+              {{ govukInput({
+                label: {
+                  text: "Condition name",
+                  classes: "govuk-label--s",
+                  isPageHeading: false
+                },
+                id: "event-name",
+                name: "event-name"
+              }) }}
+
+                    {{ govukTextarea({
+                        name: "historyofcondition",
+                        id: "historyofcondition",
+                        rows: "10",
+                        label: {
+                          text: "History of condition",
+                          classes: "govuk-label--s",
+                          isPageHeading: false
+                        },
+                        value: data['historyofcondition']
+                        
+                      }) }}
+
+                      {{ govukButton({
+                        text: "Add"
+                      }) }}
+
+            </form>
+
+
+
+          </div>
+
+          
+          <div id="recoRightPane" class="govuk-grid-column-two-fifths">
+            <div id="recoBuilderFrame" class="reco-builder-frame  reco-scrollable-wrapper" data-url="claimant-documents-buttons">
+              &nbsp;
+            </div>
+           </div>
+    </div>
+  </main>
+  </div>
+{% endblock %}

@@ -1,0 +1,48 @@
+{% extends "layout.html" %}
+{% set bodyAttributes = { id: "assess" } %}
+
+{% block pageTitle %}
+  GOV.UK Prototype Kit
+{% endblock %}
+
+{% block main %}
+
+{% include "includes/status-htl-1659/split-screen-nav.html" %}
+
+<main class="govuk-main-wrapper {{ mainClasses }}" id="main-content" role="main"{% if mainLang %} lang="{{ mainLang }}"{% endif %}>
+  <div id="recoLeftPane" class="govuk-grid-column-two-fifths reco-scrollable-wrapper">
+   <h1 class="govuk-heading-l">Daily living justification</h1>
+     
+              
+
+            <form action="assessment-status" method="post">
+
+                    {{ govukTextarea({
+                        name: "recommendation-daily-living",
+                        id: "recommendation-daily-living",
+                        rows: "30",
+                        label: {
+                          text: "",
+                          classes: "govuk-label--l",
+                          isPageHeading: true
+                        },
+                        value: data['recommendation-daily-living']
+                      }) }}
+
+                      <!-- {{ govukButton({
+                        text: "Save and continue"
+                      }) }} -->
+
+                    </form>
+
+
+                  </div>
+                  <div id="recoRightPane" class="govuk-grid-column-two-fifths">
+                    <div id="recoBuilderFrame" class="reco-builder-frame  reco-scrollable-wrapper" data-url="claimant-documents-buttons">
+                      &nbsp;
+                    </div>
+                   </div>
+            </div>
+          </main>
+          </div>
+{% endblock %}

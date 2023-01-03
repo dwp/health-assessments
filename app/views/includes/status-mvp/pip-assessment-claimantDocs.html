@@ -1,0 +1,155 @@
+<section class="key-details-bar" role="contentinfo" aria-label="Key details">
+  <dl class="key-details-bar__key-details {{ containerClasses }}">
+    <div class="key-details-bar__top-block">
+      <dt class="govuk-visually-hidden">Name:</dt>
+      <dt class="key-details-bar__name">Mr Keith Murphy</dt>
+
+      <dt class="govuk-visually-hidden">National Insurance number:</dt>
+      <dt class="key-details-bar__nino">RN 65 43 21 X</dt>
+    </div>
+
+    <div class="key-details-bar__bottom-block">
+      <dt>Date of birth:</dt>
+      <dd>01 September 1967</dd>
+    </div>
+  </dl>
+</section>
+
+<div id="recoBuilderFrame"></div>
+
+
+  
+<div class="reco-nav-wrapper">
+  <div class="govuk-width-container {{ containerClasses }}">
+      <div class="govuk-grid-row">
+          <!-- one -->
+          <div class="govuk-grid-column-full-2">
+              <div class="moj-primary-navigation">
+                <div class="moj-primary-navigation__container moj-primary-navigation__container_no_margin">
+                      <div class="moj-primary-navigation__nav">
+                          <nav class="moj-primary-navigation" aria-label="Primary navigation">
+                          <ul class="moj-primary-navigation__list">
+                              <li class="moj-primary-navigation__item">
+                                <a id="assessmentLink" class="moj-primary-navigation__link split-screen-off" href="{{ data.recentPages.combined | default('evidence-used')}}">Assessment</a>
+                           
+                              </li>
+                            
+                                  <li class="moj-primary-navigation__item">
+                                    <a id="documentsLink"  class="moj-primary-navigation__link popup split-screen-off"  href="claimant-documents-buttons">Claimant documents</a>
+                                    </li>
+                                    <li class="moj-primary-navigation__item">
+                                      <a id="splitScreenLink" data-is-toggled-on="{{ data.splitScreen | default('false') }}" class="moj-primary-navigation__link" aria-current="page" href="{{ data.recentPages.combined | default('evidence-used')}}">Use split screen</a>
+                                      </li>
+                          </ul>
+                          </nav>
+                      </div>
+                  </div>
+              </div>
+          </div>
+        
+          <!-- three -->
+          <div class="govuk-grid-column-one-half">
+              <div class="moj-primary-navigation">
+                  <div class="moj-primary-navigation__container">
+                      <div class="moj-primary-navigation__nav">
+                          <nav class="moj-primary-navigation" aria-label="Primary navigation">
+                          <ul class="moj-primary-navigation__list">
+                              
+                              <!-- <li class="moj-primary-navigation__item">
+                              <a class="moj-primary-navigation__link reco-builder-page-link"  href="check">Preview report</a>
+                              </li> -->
+                              
+                          </ul>
+                          </nav>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+
+
+
+
+
+   <div class="govuk-width-container {{ containerClasses }}">
+    <div class="govuk-grid-row">
+
+   <div class="govuk-grid-column-one-fifth">
+    <nav class="moj-side-navigation" aria-label="Side navigation">
+  
+      <input type="hidden" name="previousDocument" id="previousDocument" value="{{ data.openDocument }}">
+
+      <!-- <ul class="moj-side-navigation__list">
+    
+        <li class="moj-side-navigation__item">
+    
+            <a href="assessment-type" aria-current="location">< Back to Assessment type</a>
+    
+        </li>
+         
+        </ul> -->
+        <!-- {{ govukBackLink({
+          text: "",
+          href: ""
+        }) }} -->
+  
+        <ul class="moj-side-navigation__list">
+      
+          <li class="moj-side-navigation__item">
+      
+              <a href="claimant-documents-buttons" aria-current="location">< Back to claimant documents overview</a>
+      
+          </li>
+           
+          </ul>
+          <hr class="govuk-section-break govuk-section-break--s govuk-section-break--visible">
+
+
+      <h4 class="moj-side-navigation__title">Claimant documents</h4>
+      <ul class="moj-side-navigation__list">
+     
+        <li class="moj-side-navigation__item {% if activeUrl === 'further-evidence-cq' %}moj-side-navigation__item--active{% endif %}">
+  
+          <a href="further-evidence-cq">Claimant questionaire</a>
+  
+      </li>
+  
+      <!-- <li class="moj-side-navigation__item {% if activeUrl === 'further-evidence-pa3-v1-5' %}moj-side-navigation__item--active{% endif %}">
+  
+          <a href="further-evidence-pa3-v1-5" aria-current="location">PIPAT Review report form - PA3</a>
+  
+      </li> -->
+       
+        
+        <li class="moj-side-navigation__item {% if activeUrl === 'further-evidence-careplan' %}moj-side-navigation__item--active{% endif %}">
+
+          <a href="further-evidence-careplan">Care plan</a>
+
+      </li>
+
+      <li class="moj-side-navigation__item {% if activeUrl === 'further-evidence-hospital-letter1' %}moj-side-navigation__item--active{% endif %}">
+
+          <a href="further-evidence-hospital-letter1">Hospital letter 1</a>
+
+      </li>
+
+      <li class="moj-side-navigation__item {% if activeUrl === 'further-evidence-hospital-letter2' %}moj-side-navigation__item--active{% endif %}">
+
+        <a href="further-evidence-hospital-letter2">Hospital letter 2</a>
+
+    </li>
+
+    <li class="moj-side-navigation__item {% if activeUrl === 'further-evidence-medicationList' %}moj-side-navigation__item--active{% endif %}">
+
+      <a href="further-evidence-medicationList">Medication list</a>
+
+  </li>
+   
+         
+         
+       </ul>
+
+    </nav>
+    </div>
