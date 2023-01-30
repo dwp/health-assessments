@@ -21,7 +21,8 @@ $(document).ready(() => {
   const pathsWithAutoSave = [
     'assessments/pip-version-1-1/',
     'assessments/pip-htl-1606/',
-    'assessments/pip-htl-1659/'
+    'assessments/pip-htl-1659/',
+    'assessments/pip-mvp/'
   ]
   const isAutoSavePath = pathsWithAutoSave.some((el) => currentUrl.includes(el));
   console.log(`Current url is ${currentUrl}. Is Auto save path? ${isAutoSavePath}`);
